@@ -174,16 +174,15 @@
   </section>
 
   {# ═══════════════════════════════════════════════ #}
-  {# ASSESS: Barrier/support tagging                 #}
+  {# ASSESS: Per-pathway notes                       #}
   {# ═══════════════════════════════════════════════ #}
   <section class="screen-section" id="step2-assess">
     <div class="section-header">
       <span class="section-step">Step 2 — Assess</span>
-      <h2 class="section-title">Tag barriers and supports for each pathway</h2>
+      <h2 class="section-title">Assess each pathway through the Hickman Mills lens</h2>
       <p class="section-subtitle">
-        For each selected pathway, select the barriers that could get in the way
-        and the supports that would help most. Then note what still looks strong
-        and what concerns you.
+        For each selected pathway, note what still looks strong after seeing the
+        local context and what could get in the way for Hickman Mills students.
       </p>
     </div>
 
@@ -197,39 +196,6 @@
         {{ pathway.name }}
       </h3>
 
-      <div class="assess-columns">
-        {# Barriers #}
-        <div class="tag-section">
-          <h4 class="tag-heading">⚠️ What could get in the way?</h4>
-          <div class="tag-picker" data-type="barrier" data-pathway="{{ pathway.id }}">
-            {% for barrier in support_tags.barriers %}
-            {% set tag_key = 'barrier_' ~ pathway.id ~ '_' ~ barrier.id %}
-            <label class="tag-chip tag-barrier" title="{{ barrier.definition }}">
-              <input type="checkbox" name="{{ tag_key }}" value="1"
-                {% if saved.get(tag_key) == '1' %}checked{% endif %}>
-              <span class="tag-text">{{ barrier.name }}</span>
-            </label>
-            {% endfor %}
-          </div>
-        </div>
-
-        {# Supports #}
-        <div class="tag-section">
-          <h4 class="tag-heading">💡 What support would help?</h4>
-          <div class="tag-picker" data-type="support" data-pathway="{{ pathway.id }}">
-            {% for support in support_tags.supports %}
-            {% set tag_key = 'support_' ~ pathway.id ~ '_' ~ support.id %}
-            <label class="tag-chip tag-support" title="{{ support.definition }}">
-              <input type="checkbox" name="{{ tag_key }}" value="1"
-                {% if saved.get(tag_key) == '1' %}checked{% endif %}>
-              <span class="tag-text">{{ support.name }}</span>
-            </label>
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-
-      {# Text fields #}
       <div class="assess-text-fields">
         <div class="assess-field">
           <label for="still_strong_{{ pathway.id }}">What still looks strong?</label>
@@ -244,6 +210,57 @@
       </div>
     </div>
     {% endfor %}
+  </section>
+
+  {# ═══════════════════════════════════════════════ #}
+  {# GROUP-LEVEL: Barriers & Supports for HM         #}
+  {# ═══════════════════════════════════════════════ #}
+  <section class="screen-section" id="step2-barriers-supports">
+    <div class="section-header">
+      <span class="section-step">Step 3 — Bigger Picture</span>
+      <h2 class="section-title">Thinking across all your pathways</h2>
+      <p class="section-subtitle">
+        Now step back from individual pathways. Which barriers feel biggest for
+        Hickman Mills students overall? Which supports would make the most difference?
+        Pick the top 3 in each column.
+      </p>
+    </div>
+
+    <div class="group-barrier-support">
+      <div class="tag-section">
+        <h4 class="tag-heading">⚠️ Biggest barriers for Hickman Mills students</h4>
+        <p class="tag-hint">Select up to 3 that feel most real</p>
+        <div class="tag-picker" data-type="barrier">
+          {% for barrier in support_tags.barriers %}
+          <label class="tag-chip tag-barrier" title="{{ barrier.definition }}">
+            <input type="checkbox" name="group_barrier_{{ barrier.id }}" value="1"
+              {% if saved.get('group_barrier_' ~ barrier.id) == '1' %}checked{% endif %}>
+            <span class="tag-text">{{ barrier.name }}</span>
+          </label>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="tag-section">
+        <h4 class="tag-heading">💡 Supports that would make the biggest difference</h4>
+        <p class="tag-hint">Select up to 3 that matter most</p>
+        <div class="tag-picker" data-type="support">
+          {% for support in support_tags.supports %}
+          <label class="tag-chip tag-support" title="{{ support.definition }}">
+            <input type="checkbox" name="group_support_{{ support.id }}" value="1"
+              {% if saved.get('group_support_' ~ support.id) == '1' %}checked{% endif %}>
+            <span class="tag-text">{{ support.name }}</span>
+          </label>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="assess-field group-explain-field">
+        <label for="barrier_explain">Why do these barriers matter most from Hickman Mills?</label>
+        <textarea name="barrier_explain" id="barrier_explain" rows="2"
+          placeholder="Connect your choices to something specific you saw in the data or context cards">{{ saved.get('barrier_explain', '') }}</textarea>
+      </div>
+    </div>
   </section>
 
   {# ═══════════════════════════════════════════════ #}

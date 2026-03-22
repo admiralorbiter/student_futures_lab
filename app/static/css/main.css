@@ -1994,3 +1994,29 @@ details.chart-details[open] > .chart-toggle::before {
   width: 100% !important;
   height: 100% !important;
 }
+
+
+/* Group-level barrier/support section */
+.group-barrier-support {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+  margin-top: var(--space-3);
+}
+
+@media (max-width: 768px) {
+  .group-barrier-support {
+    grid-template-columns: 1fr;
+  }
+}
+
+.group-explain-field {
+  grid-column: 1 / -1;
+}
+
+.tag-hint {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+  font-style: italic;
+}

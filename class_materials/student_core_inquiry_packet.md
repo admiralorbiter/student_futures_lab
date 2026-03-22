@@ -91,11 +91,31 @@ Now apply a Hickman Mills lens: county role, transportation, internship access, 
 
 Only use the top 3 pathways from Step 2 in the table below.
 
-| Pathway | What still looks strong? | What could get in the way? | Bridge roles / first believable steps | What support would help? |
-|---------|------------------------|---------------------------|--------------------------------------|------------------------|
-| | | | | |
-| | | | | |
-| | | | | |
+| Pathway | What still looks strong? | What could get in the way? |
+|---------|------------------------|---------------------------|
+| | | |
+| | | |
+| | | |
+
+### Thinking across all your pathways
+
+Now step back from individual pathways. Which barriers feel biggest for Hickman Mills students overall? Which supports would make the most difference?
+
+**Top 3 barriers** (pick from: Transportation/Commute, Cost/Affordability, Schedule/Time, Information/Awareness, Confidence/Belonging, Prerequisites/Selectivity, Work-Based Learning Access):
+
+1. ___
+2. ___
+3. ___
+
+**Top 3 supports** (pick from: Advising/Navigation, Financial Aid/Scholarships, Transportation Help, Mentorship/Role Models, Bridge Programs/On-Ramps, Employer Partnerships, Flexible Scheduling):
+
+1. ___
+2. ___
+3. ___
+
+**Why these barriers matter most from Hickman Mills:**
+
+___
 
 **After this filter, our top 2 pathways for Hickman Mills students are …**
 

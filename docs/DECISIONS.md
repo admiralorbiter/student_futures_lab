@@ -135,6 +135,16 @@ A "Quick Stats" bar on each card surfaces aggregate database numbers (program co
 
 ---
 
+### D13. Group-Level Barrier/Support Tagging
+
+**Decision:** Move barrier/support tag chips from per-pathway (repeated 7×) to a single group-level section.
+
+**Rationale:** The 7 barriers and 7 supports (transportation, cost, schedule, etc.) describe Hickman Mills realities, not pathway-specific data. Students were clicking the same tags for every pathway. Consolidating into one "Biggest barriers for HM students" + "Supports that would help most" picker (pick top 3) creates a meaningful synthesis exercise instead of repetitive clicking.
+
+**Impact:** Per-pathway assessment now has only free-text fields ("What still looks strong?" / "What could get in the way?"). Student packet Step 3 updated to align.
+
+---
+
 ## Open
 
 *No open decisions remain at this time. New decisions should be added here as they arise during development.*
