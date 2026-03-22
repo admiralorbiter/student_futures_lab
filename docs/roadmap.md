@@ -36,9 +36,9 @@
 
 ### Epic B2 — Full data pipelines (post-v1)
 
-- Build repeatable ingest scripts if the tool will be refreshed annually.
-- Automate export-from-kc-industries as a build step.
-- Add source provenance tracking.
+- ~~Build repeatable ingest scripts if the tool will be refreshed annually.~~ `export_pathway_data.py` ships with v1.
+- Automate export as a CI/build step (if refreshed annually).
+- Add source provenance tracking (which kc-industries commit produced which export).
 
 ### Epic C — Screen 1: Pathway Explorer
 

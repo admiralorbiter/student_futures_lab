@@ -19,6 +19,9 @@ class Config:
     # Path to YAML mapping files
     MAPPINGS_DIR = os.path.join(DATA_DIR, "mappings")
 
+    # Read-only database with granular program, institution, and occupation data
+    PATHWAY_DATA_DB = os.path.join(DATA_DIR, "pathway_data.db")
+
     # Cookie settings for optional student code
     STUDENT_CODE_COOKIE = "student_code"
     STUDENT_CODE_MAX_AGE = 60 * 60 * 24 * 30  # 30 days

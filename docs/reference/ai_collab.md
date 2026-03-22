@@ -186,8 +186,10 @@ Always consider:
 
 ### Environment notes
 - **Run command:** `python app.py` from the repo root. Runs on port 5000 in debug mode.
+- **Re-export data:** `python scripts/export_pathway_data.py` regenerates `data/pathway_data.db` from kc-industries.
 - **PowerShell quoting:** avoid inline Python one-liners (quoting breaks). For anything beyond trivial, write a temp `.py` script, run it, then delete.
-- **SQLite for responses only:** the main pathway data lives in YAML, not the database. Don't query SQLite for pathway/institution data.
+- **Two databases:** `pathway_data.db` (read-only, granular data from kc-industries) and `student_responses.db` (read-write, student answers). Both are SQLite, both are `.gitignore`-d.
+- **YAML is editorial:** `data/mappings/*.yaml` contains PREP-KC-authored content (summaries, tags, notes). Database has the granular program/institution/occupation data.
 - **kc-industries is read-only** from this project's perspective. Export data from it; never write back to it.
 
 ---

@@ -88,6 +88,21 @@ Programs in CIP areas not mapped to the 7 pathway families (Psychology, Visual A
 
 ---
 
+### D9. Hybrid Data Architecture
+
+**Decision:** YAML for curated editorial content + read-only SQLite for granular drill-down data.
+
+The original D4 decision used YAML-only for all pathway data. With 889 programs, 634 occupations, and 5,610 employers now imported, the architecture was upgraded:
+- **YAML** (`data/mappings/`): Pathway summaries, support tags, county notes, glossary — content PREP-KC edits by hand.
+- **Read-only SQLite** (`data/pathway_data.db`): Granular program-level earnings, institution details, occupation wages/projections, employer headcounts — exported from kc-industries via `scripts/export_pathway_data.py`.
+- **Read-write SQLite** (`data/student_responses.db`): Student responses (unchanged from D4).
+
+`PathwayService` queries both: YAML indexes at startup, database on demand. Database connections use `mode=ro` for safety.
+
+**Rationale:** Students should be able to dig as deep as they want — from "Healthcare is strong" → specific programs → linked occupations → local employers. YAML doesn't scale for thousands of rows. The export script makes refresh repeatable.
+
+---
+
 ## Open
 
 *No open decisions remain at this time. New decisions should be added here as they arise during development.*

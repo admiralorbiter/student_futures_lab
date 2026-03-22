@@ -1,23 +1,30 @@
-"""Pathway service — loads YAML mapping files at app startup.
+"""Pathway service — loads YAML mapping files and provides
+read-only access to the pathway data database.
 
-All pathway data is read-only in v1. No runtime database queries needed
-for pathway, institution, or employer data.
+Two data sources:
+  1. YAML files in data/mappings/ — curated editorial content (editable by PREP-KC)
+  2. pathway_data.db — granular program, institution, occupation data (read-only)
+
+Student responses go to a separate read-write database (via SQLAlchemy).
 """
 
 import os
+import sqlite3
 
 import yaml
 from flask import current_app
 
 
 class PathwayService:
-    """Loads and provides access to all YAML mapping data."""
+    """Loads and provides access to pathway data."""
 
     def __init__(self):
         self._data = {}
+        self._db_path = None
 
     def init_app(self, app):
-        """Load all YAML files from the mappings directory."""
+        """Load YAML files and connect to the pathway data database."""
+        # --- YAML editorial data ---
         mappings_dir = app.config["MAPPINGS_DIR"]
         self._data = {}
 
@@ -42,42 +49,56 @@ class PathwayService:
                 self._data[name] = {}
                 app.logger.warning(f"Missing {name}.yaml — using empty data")
 
-        # Build lookup indexes
+        # --- Read-only database ---
+        self._db_path = app.config.get("PATHWAY_DATA_DB")
+        if self._db_path and os.path.exists(self._db_path):
+            app.logger.info(f"Pathway data DB: {self._db_path}")
+        else:
+            app.logger.warning("No pathway_data.db found — granular queries disabled")
+            self._db_path = None
+
+        # Build lookup indexes from YAML
         self._build_indexes()
 
+        # Build CIP-to-pathway lookup from families
+        self._cip_to_pathway = {}
+        for fam in self._data.get("pathway_families", {}).get("families", []):
+            for prefix in fam.get("cip_prefixes", []):
+                self._cip_to_pathway[prefix] = fam["id"]
+
+    def _get_db(self):
+        """Get a read-only database connection."""
+        if not self._db_path:
+            return None
+        conn = sqlite3.connect(f"file:{self._db_path}?mode=ro", uri=True)
+        conn.row_factory = sqlite3.Row
+        return conn
+
     def _build_indexes(self):
-        """Build fast-lookup dicts from the loaded data."""
-        # Pathway summaries by ID
+        """Build fast-lookup dicts from the loaded YAML data."""
         self._pathway_index = {}
-        summaries = self._data.get("pathway_summaries", {})
-        for p in summaries.get("pathways", []):
+        for p in self._data.get("pathway_summaries", {}).get("pathways", []):
             self._pathway_index[p["id"]] = p
 
-        # Pathway families by ID
         self._family_index = {}
-        families = self._data.get("pathway_families", {})
-        for f in families.get("families", []):
+        for f in self._data.get("pathway_families", {}).get("families", []):
             self._family_index[f["id"]] = f
 
-        # County notes by pathway ID
         self._county_index = {}
-        county = self._data.get("county_notes", {})
-        for c in county.get("pathways", []):
+        for c in self._data.get("county_notes", {}).get("pathways", []):
             self._county_index[c["id"]] = c
 
-        # Employer context by pathway ID
         self._employer_index = {}
-        employer = self._data.get("employer_context", {})
-        for e in employer.get("pathways", []):
+        for e in self._data.get("employer_context", {}).get("pathways", []):
             self._employer_index[e["id"]] = e
 
-        # Launch points by pathway ID
         self._launch_index = {}
-        launch = self._data.get("launch_points", {})
-        for lp in launch.get("pathways", []):
+        for lp in self._data.get("launch_points", {}).get("pathways", []):
             self._launch_index[lp["id"]] = lp
 
-    # --- Public API ---
+    # ──────────────────────────────────────────────
+    # YAML-backed methods (curated editorial content)
+    # ──────────────────────────────────────────────
 
     def get_families(self):
         """Return all pathway families in display order."""
@@ -87,7 +108,6 @@ class PathwayService:
     def get_pathway_summaries(self):
         """Return all pathway summaries in display order."""
         summaries = self._data.get("pathway_summaries", {}).get("pathways", [])
-        # Merge in family info
         for s in summaries:
             family = self._family_index.get(s["id"], {})
             s["display_order"] = family.get("display_order", 99)
@@ -102,12 +122,12 @@ class PathwayService:
         return self._county_index.get(pathway_id)
 
     def get_employers(self, pathway_id):
-        """Return employer context for a specific pathway."""
+        """Return curated top employers for a specific pathway (from YAML)."""
         entry = self._employer_index.get(pathway_id, {})
         return entry.get("employers", [])
 
     def get_launch_points(self, pathway_id):
-        """Return launch points for a specific pathway."""
+        """Return curated launch points for a specific pathway (from YAML)."""
         entry = self._launch_index.get(pathway_id, {})
         return entry.get("launch_points", [])
 
@@ -129,15 +149,117 @@ class PathwayService:
         return labels.get(field_name, field_name)
 
     def get_additional_fields(self, visible_only=True):
-        """Return additional (unmapped) fields of study.
-
-        These are CIP areas outside the 7 pathway families but still
-        shown to students so they can see the full landscape.
-        """
+        """Return additional (unmapped) fields of study."""
         fields = self._data.get("pathway_families", {}).get("additional_fields", [])
         if visible_only:
             fields = [f for f in fields if f.get("visible", True)]
         return fields
+
+    # ──────────────────────────────────────────────
+    # Database-backed methods (granular drill-down)
+    # ──────────────────────────────────────────────
+
+    def get_programs_by_pathway(self, pathway_id):
+        """Return all programs in a pathway, with earnings data."""
+        db = self._get_db()
+        if not db:
+            return []
+        family = self._family_index.get(pathway_id, {})
+        prefixes = family.get("cip_prefixes", [])
+        if not prefixes:
+            return []
+        placeholders = ",".join("?" for _ in prefixes)
+        rows = db.execute(
+            f"""
+            SELECT * FROM programs
+            WHERE substr(replace(cip_code, '.', ''), 1, 2) IN ({placeholders})
+            ORDER BY institution_name, program_name
+            """,
+            prefixes,
+        ).fetchall()
+        db.close()
+        return [dict(r) for r in rows]
+
+    def get_programs_by_institution(self, institution_id):
+        """Return all programs at an institution."""
+        db = self._get_db()
+        if not db:
+            return []
+        rows = db.execute(
+            "SELECT * FROM programs WHERE institution_id = ? ORDER BY program_name",
+            (institution_id,),
+        ).fetchall()
+        db.close()
+        return [dict(r) for r in rows]
+
+    def get_institution(self, institution_id):
+        """Return a single institution's details."""
+        db = self._get_db()
+        if not db:
+            return None
+        row = db.execute(
+            "SELECT * FROM institutions WHERE institution_id = ?",
+            (institution_id,),
+        ).fetchone()
+        db.close()
+        return dict(row) if row else None
+
+    def get_all_institutions(self):
+        """Return all institutions."""
+        db = self._get_db()
+        if not db:
+            return []
+        rows = db.execute(
+            "SELECT * FROM institutions ORDER BY name"
+        ).fetchall()
+        db.close()
+        return [dict(r) for r in rows]
+
+    def get_linked_occupations(self, program_id):
+        """Return occupations linked to a program via SOC code crosswalk."""
+        db = self._get_db()
+        if not db:
+            return []
+        rows = db.execute(
+            """
+            SELECT o.*, po.confidence
+            FROM program_occupations po
+            JOIN occupations o ON po.soc_code = o.soc_code
+            WHERE po.program_id = ?
+            ORDER BY po.confidence DESC
+            """,
+            (program_id,),
+        ).fetchall()
+        db.close()
+        return [dict(r) for r in rows]
+
+    def get_employers_by_naics(self, naics_code):
+        """Return employers in a specific NAICS sector."""
+        db = self._get_db()
+        if not db:
+            return []
+        rows = db.execute(
+            """
+            SELECT * FROM employers
+            WHERE naics_code = ?
+            ORDER BY estimated_headcount DESC
+            """,
+            (naics_code,),
+        ).fetchall()
+        db.close()
+        return [dict(r) for r in rows]
+
+    def get_data_stats(self):
+        """Return summary stats for the data layer (for debugging/display)."""
+        db = self._get_db()
+        if not db:
+            return {"db_available": False}
+        stats = {"db_available": True}
+        for table in ["programs", "institutions", "occupations",
+                       "program_occupations", "employers", "sector_profiles"]:
+            stats[table] = db.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0]
+        db.close()
+        return stats
 
 
 # Singleton instance — initialized in the app factory

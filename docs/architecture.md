@@ -12,12 +12,12 @@
 |-------|------|-----|
 | Backend | Flask | Fast to build, familiar Python ecosystem. |
 | Templating | Jinja2 | Server-rendered screens and print-friendly outputs. |
-| Database | SQLite | v1 stores student responses only. Simple local dev + exports. |
-| ORM | SQLAlchemy or Flask-SQLAlchemy | Schema evolution and local queries. |
-| Forms | WTForms or light custom validation | Structured input. |
+| Database (responses) | SQLite | Read-write. Student responses only. |
+| Database (pathway data) | SQLite | Read-only. Programs, institutions, occupations, employers. Exported from kc-industries. |
+| ORM | Flask-SQLAlchemy | Student response schema. |
+| Pathway data (editorial) | YAML | Pre-baked summaries, tags, glossary — hand-edited by PREP-KC. |
+| Pathway data (granular) | SQLite | 889 programs, 63 institutions, 634 occupations, 5,610 employers. |
 | Front end | HTML + CSS + small JS | Understandable, aligned with classroom flow. |
-| Enhancement | HTMX or Alpine-like patterns | Partial updates, save without reload. |
-| Pathway data | YAML/JSON files | Pre-baked from kc-industries, hand-edited with PREP-KC content. |
 
 ## 2. Repository structure
 
@@ -39,27 +39,26 @@ student_futures_lab/
 │   ├── student_presentation_planner.md
 │   ├── teacher_facilitation_guide.md
 │   └── teacher_insight_capture.md
+├── app.py                          # Entry point: python app.py
 ├── app/
-│   ├── __init__.py
+│   ├── __init__.py                 # App factory
 │   ├── config.py
+│   ├── extensions.py               # SQLAlchemy init
 │   ├── models/
-│   │   ├── __init__.py
-│   │   └── student.py           # students, responses
+│   │   └── student.py              # students, responses
 │   ├── services/
-│   │   ├── inquiry_service.py
-│   │   ├── pathway_service.py   # loads YAML pathway data
-│   │   └── response_service.py
+│   │   └── pathway_service.py      # Hybrid: YAML + read-only SQLite
 │   ├── blueprints/
-│   │   ├── main/
-│   │   └── api/
+│   │   └── main/                   # Screen routes
 │   ├── templates/
 │   │   ├── base.html
-│   │   └── screens/
+│   │   ├── landing.html
+│   │   └── screens/screen_1–5.html
 │   └── static/
-│       ├── css/
-│       └── js/
+│       ├── css/main.css
+│       └── favicon.ico
 ├── data/
-│   ├── mappings/
+│   ├── mappings/                   # YAML editorial content (PREP-KC edits)
 │   │   ├── pathway_families.yaml
 │   │   ├── pathway_summaries.yaml
 │   │   ├── support_tags.yaml
@@ -68,58 +67,72 @@ student_futures_lab/
 │   │   ├── employer_context.yaml
 │   │   ├── glossary.yaml
 │   │   └── plain_language_labels.yaml
-│   └── student_responses.db     # SQLite — created at runtime
+│   ├── pathway_data.db             # Read-only SQLite (exported from kc-industries)
+│   └── student_responses.db        # Read-write SQLite (created at runtime)
 ├── scripts/
-│   └── export_from_kc_industries.py
+│   ├── export_pathway_data.py      # Regenerate pathway_data.db from kc-industries
+│   └── analyze_pathways.py         # Data analysis utility
 └── tests/
 ```
 
 ## 3. Data architecture
 
-### Pathway data (read-only, YAML/JSON)
+Two-layer design (see Decision D9 in DECISIONS.md):
 
-Pre-baked from `kc-industries`, enriched with PREP-KC editorial content. No runtime dependency on the kc-industries repo.
+### Layer 1: YAML editorial content (PREP-KC editable)
 
 | File | Contains | Source |
 |------|----------|--------|
-| `pathway_families.yaml` | 7 pathway family definitions + CIP-to-pathway mapping | CIP families from kc-industries + PREP-KC grouping |
-| `pathway_summaries.yaml` | Plain-language summary, wage signal, demand signal, scale, county fit, caution note, example roles | Derived from BLS/OEWS/projections + authored content |
-| `support_tags.yaml` | Barrier and support tag definitions | PREP-KC authored |
-| `county_notes.yaml` | Hickman Mills access, transportation, local context | PREP-KC authored, informed by LEHD/commute data |
-| `launch_points.yaml` | Institution archetypes, launch-point reasons, bridge roles | Derived from IPEDS/Scorecard + authored content |
-| `employer_context.yaml` | Top employers per pathway near Hickman Mills | Extracted from kc-industries geocoded employers |
-| `glossary.yaml` | Student-facing term definitions and Socratic prompts | From Student Glossary |
-| `plain_language_labels.yaml` | Technical field → plain label mapping | From App Spec |
+| `pathway_families.yaml` | 7 pathway families + CIP mapping + 9 additional fields | CIP families + PREP-KC grouping |
+| `pathway_summaries.yaml` | Summaries, wage/demand/scale signals, caution notes | Data-derived + authored |
+| `support_tags.yaml` | 7 barrier + 7 support tag definitions | PREP-KC authored |
+| `county_notes.yaml` | Hickman Mills access context per pathway | Authored, informed by LEHD |
+| `launch_points.yaml` | Institution archetypes, bridge roles, watch-outs | IPEDS/Scorecard + authored |
+| `employer_context.yaml` | Top 5 employers per pathway | Curated from geocoded employers |
+| `glossary.yaml` | 12 terms with Socratic prompts | Student Glossary |
+| `plain_language_labels.yaml` | Technical field → plain label mapping | App Spec |
 
-### Student response data (SQLite)
+### Layer 2: Read-only SQLite (`pathway_data.db`)
 
-Only used when students enter an optional save code. Schema:
+Granular program, institution, and occupation data exported from kc-industries. Regenerated via `python scripts/export_pathway_data.py`.
+
+| Table | Rows | Contains |
+|-------|------|----------|
+| `programs` | 889 | Program name, CIP, credential, earnings at 1yr/2yr/4yr, completions |
+| `institutions` | 63 | Name, type, city, lat/lon, ownership, Scorecard link |
+| `occupations` | 634 | SOC title, median wage, employment, growth, education required |
+| `program_occupations` | 3,669 | Which programs link to which occupations |
+| `employers` | 5,610 | Name, NAICS, headcount, city, lat/lon, county FIPS |
+| `sector_profiles` | 20 | NAICS sector overview, risks, opportunities |
+| `institution_sectors` | 714 | Which sectors each institution serves |
+
+### Layer 3: Read-write SQLite (`student_responses.db`)
+
+Only used when students enter an optional save code.
 
 | Table | Purpose |
 |-------|---------|
 | `students` | Student code, cohort label, created timestamp |
 | `responses` | Screen-by-screen saved selections, note text, timestamps |
 
-No `pathways`, `institutions`, or `team_outputs` tables in v1 — pathway data comes from YAML.
-
 ### Relationship to kc-industries
 
 ```
-kc-industries (source repo)          student_futures_lab (this repo)
-┌─────────────────────────┐          ┌──────────────────────────┐
-│ kc_pathways.db          │          │ data/mappings/*.yaml     │
-│  • occupation           │  export  │  • pathway_families      │
-│  • scorecard_earning    │ ───────→ │  • pathway_summaries     │
-│  • scorecard_institution│  once    │  • launch_points         │
-│  • organization         │          │  • employer_context      │
-│  • program_occupation   │          │                          │
-│  • metric_value         │          │ data/student_responses.db│
-│  • provider_sector      │          │  • students              │
-│  • major_employers.json │          │  • responses             │
-└─────────────────────────┘          └──────────────────────────┘
+kc-industries (source repo)            student_futures_lab (this repo)
+┌──────────────────────────┐           ┌──────────────────────────────────┐
+│ instance/app.sqlite      │           │ data/mappings/*.yaml             │
+│  • program (889)         │  export   │  (editorial — PREP-KC edits)     │
+│  • provider (63)         │ ────────→ │                                  │
+│  • occupation (983)      │  script   │ data/pathway_data.db             │
+│  • scorecard_earning     │           │  (read-only — granular data)     │
+│  • scorecard_institution │           │                                  │
+│  • organization (780)    │           │ data/student_responses.db        │
+│  • program_occupation    │           │  (read-write — student answers)  │
+│  • provider_sector       │           │                                  │
+└──────────────────────────┘           └──────────────────────────────────┘
 ```
 
-A one-time `export_from_kc_industries.py` script queries the kc-industries database and generates the YAML seed files. PREP-KC content is then hand-edited on top.
+`scripts/export_pathway_data.py` queries the kc-industries database and builds `pathway_data.db`. YAML files were initially seeded from data analysis, then hand-edited by PREP-KC.
 
 ## 4. Route and screen map
 
