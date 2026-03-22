@@ -17,12 +17,13 @@
 
 | Priority | Type | Status | Task |
 |----------|------|--------|------|
-| Now | Build | Not started | Initialize Flask repo, config, templates, and static folders. |
-| Now | Build | Not started | Set up SQLite database and response model (students + responses tables). |
+| Now | Build | Done | Initialize Flask repo, config, templates, and static folders. |
+| Now | Build | Done | Set up SQLite database and response model (students + responses tables). |
 | Now | Data | Not started | Run `export_from_kc_industries.py` to seed initial YAML files. |
 | Now | Content | Not started | Author `pathway_families.yaml` — map CIP program areas to 7 pathway families. |
 | Now | Content | Not started | Translate student packet labels into UI copy. |
 | Now | Content | Not started | Author `pathway_summaries.yaml` with plain-language signals from data. |
+| Now | Build | Done | Create screen stub templates for all 5 screens with navigation. |
 | Now | QA | Not started | Create mock YAML data so screens can be built before full data curation. |
 
 ## 3. Screen-by-screen

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}Student Futures Lab — Pathway Inquiry{% endblock %}
+
+{% block content %}
+<section class="landing-hero">
+  <div class="landing-badge">🔬 Guided Inquiry</div>
+  <h1 class="landing-title">Student Futures Lab</h1>
+  <p class="landing-subtitle">
+    Compare career pathways, apply a Hickman Mills lens, find realistic launch points, and build a recommendation for PREP-KC.
+  </p>
+
+  <div class="landing-actions">
+    <a href="{{ url_for('main.screen', screen_num=1) }}" class="btn btn-primary btn-lg" id="start-exploring">
+      Start Exploring →
+    </a>
+
+    <span class="landing-or">or save your progress</span>
+
+    {% if student_code %}
+      <div style="display: flex; align-items: center; gap: var(--space-3);">
+        <span class="student-badge">
+          <span class="badge-dot"></span>
+          Saving as <strong>{{ student_code }}</strong>
+        </span>
+        <form method="POST" action="{{ url_for('main.clear_code') }}" style="display: inline;">
+          <button type="submit" class="btn btn-ghost btn-sm">Clear</button>
+        </form>
+      </div>
+    {% else %}
+      <form method="POST" action="{{ url_for('main.save_code') }}" class="code-form" id="code-form">
+        <input
+          type="text"
+          name="code"
+          placeholder="Enter a short code"
+          maxlength="20"
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="Student save code"
+          id="code-input"
+        >
+        <button type="submit" class="btn btn-primary">Save Code</button>
+      </form>
+    {% endif %}
+  </div>
+</section>
+
+<section class="overview-section">
+  <h2 class="overview-title">Your Inquiry Path</h2>
+  <div class="overview-grid">
+    <a href="{{ url_for('main.screen', screen_num=1) }}" class="overview-card" id="nav-screen-1">
+      <span class="card-number">1</span>
+      <span class="card-name">Pathway Explorer</span>
+      <span class="card-question">What looks strongest on paper?</span>
+    </a>
+    <a href="{{ url_for('main.screen', screen_num=2) }}" class="overview-card" id="nav-screen-2">
+      <span class="card-number">2</span>
+      <span class="card-name">Hickman Mills Lens</span>
+      <span class="card-question">Would this still look strong for Hickman Mills students?</span>
+    </a>
+    <a href="{{ url_for('main.screen', screen_num=3) }}" class="overview-card" id="nav-screen-3">
+      <span class="card-number">3</span>
+      <span class="card-name">Launch Points</span>
+      <span class="card-question">Where could someone realistically start?</span>
+    </a>
+    <a href="{{ url_for('main.screen', screen_num=4) }}" class="overview-card" id="nav-screen-4">
+      <span class="card-number">4</span>
+      <span class="card-name">My Pathway Reality Check</span>
+      <span class="card-question">What does this mean for me?</span>
+    </a>
+    <a href="{{ url_for('main.screen', screen_num=5) }}" class="overview-card" id="nav-screen-5">
+      <span class="card-number">5</span>
+      <span class="card-name">Recommendation Builder</span>
+      <span class="card-question">What should PREP-KC do?</span>
+    </a>
+  </div>
+</section>
+{% endblock %}

@@ -16,6 +16,15 @@ Students use this tool to compare career pathway families using labor-market evi
 | Pathway data | Pre-baked YAML/JSON (from [kc-industries](https://github.com/admiralorbiter/kc-industries)) |
 | Front end | HTML + CSS + light JS |
 
+## Getting Started
+
+```bash
+pip install -r requirements.txt
+python app.py
+```
+
+Open [http://127.0.0.1:5000](http://127.0.0.1:5000) in your browser.
+
 ## Data Sources
 
 Pathway and institution data is derived from the [kc-industries](https://github.com/admiralorbiter/kc-industries) repo, which integrates:

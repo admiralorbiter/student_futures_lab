@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}{{ screen.title }} — Student Futures Lab{% endblock %}
+
+{% block content %}
+<div class="screen-header">
+  <span class="screen-eyebrow">Screen {{ screen_num }} of 5</span>
+  <h1 class="screen-title">{{ screen.title }}</h1>
+  <p class="screen-question">{{ screen.question }}</p>
+</div>
+
+{% block screen_content %}
+<div class="placeholder-content">
+  <div class="placeholder-icon">🔧</div>
+  <h2 class="placeholder-title">Coming Soon</h2>
+  <p class="placeholder-text">
+    This screen will be built during Epic C. It will show the seven pathway families
+    with plain-language signals and let you capture your initial ranking.
+  </p>
+</div>
+{% endblock %}
+
+<nav class="screen-nav">
+  {% if prev_screen %}
+    <a href="{{ url_for('main.screen', screen_num=prev_screen) }}" class="btn btn-secondary">
+      <span class="arrow">←</span> Back
+    </a>
+  {% else %}
+    <a href="{{ url_for('main.landing') }}" class="btn btn-secondary">
+      <span class="arrow">←</span> Home
+    </a>
+  {% endif %}
+
+  {% if next_screen %}
+    <a href="{{ url_for('main.screen', screen_num=next_screen) }}" class="btn btn-primary">
+      Continue <span class="arrow">→</span>
+    </a>
+  {% else %}
+    <a href="{{ url_for('main.landing') }}" class="btn btn-primary">
+      Finish <span class="arrow">→</span>
+    </a>
+  {% endif %}
+</nav>
+{% endblock %}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guided pathway inquiry tool for the Hickman Mills Pathway Advisory Team.">
+  <title>{% block title %}Student Futures Lab{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="{{ url_for('main.landing') }}" class="site-logo">
+        <span class="logo-icon">SF</span>
+        <span>Student Futures Lab</span>
+      </a>
+      <div class="header-actions">
+        {% if student_code %}
+          <span class="student-badge">
+            <span class="badge-dot"></span>
+            {{ student_code }}
+          </span>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+
+  <!-- Progress bar (shown on screen pages) -->
+  {% if screen_num is defined %}
+  <nav class="progress-bar" aria-label="Inquiry progress">
+    <div class="container">
+      <ol class="progress-steps">
+        {% for num, info in screens.items() %}
+        <li class="progress-step {% if num == screen_num %}active{% elif num < screen_num %}completed{% endif %}">
+          <div class="step-indicator">
+            <a href="{{ url_for('main.screen', screen_num=num) }}" class="step-link" aria-label="Screen {{ num }}: {{ info.title }}">
+              <span class="step-dot">
+                {% if num < screen_num %}✓{% else %}{{ num }}{% endif %}
+              </span>
+              <span class="step-label">{{ info.title }}</span>
+            </a>
+            {% if not loop.last %}<span class="step-line"></span>{% endif %}
+          </div>
+        </li>
+        {% endfor %}
+      </ol>
+    </div>
+  </nav>
+  {% endif %}
+
+  <!-- Main content -->
+  <main class="page-content">
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>Student Futures Lab · PREP-KC</span>
+      <span>Hickman Mills Pathway Advisory Team</span>
+    </div>
+  </footer>
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -185,6 +185,7 @@ Always consider:
 - Before modifying YAML mapping files, confirm the change won't break downstream screens.
 
 ### Environment notes
+- **Run command:** `python app.py` from the repo root. Runs on port 5000 in debug mode.
 - **PowerShell quoting:** avoid inline Python one-liners (quoting breaks). For anything beyond trivial, write a temp `.py` script, run it, then delete.
 - **SQLite for responses only:** the main pathway data lives in YAML, not the database. Don't query SQLite for pathway/institution data.
 - **kc-industries is read-only** from this project's perspective. Export data from it; never write back to it.
