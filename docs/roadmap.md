@@ -11,7 +11,7 @@
 | Milestone | Target outcome |
 |-----------|---------------|
 | M0 — Foundations | Repo, app skeleton, YAML data files, styling foundation. |
-| M1 — Opportunity flow | Screen 1 working with pathway explorer and saved rankings. |
+| M1 — Opportunity flow | ~~Screen 1 working with pathway explorer and saved rankings.~~ **Done.** |
 | M2 — Hickman Mills feasibility | Screen 2 working with barrier/support tags and employer context. |
 | M3 — Launch points | Screen 3 working with pathway-filtered institution views. |
 | M4 — Reflection and synthesis | Screens 4 and 5 with final recommendation builder. |
@@ -40,11 +40,14 @@
 - Automate export as a CI/build step (if refreshed annually).
 - Add source provenance tracking (which kc-industries commit produced which export).
 
-### Epic C — Screen 1: Pathway Explorer
+### Epic C — Screen 1: Pathway Explorer ✅
 
-- Render seven pathways with plain-language signals and evidence notes.
-- Capture top criteria, pathway buckets, confidence, and initial top two.
-- Load pathway data from `pathway_summaries.yaml`.
+- ~~Render seven pathways with plain-language signals and evidence notes.~~
+- ~~Capture top criteria, pathway buckets, confidence, and initial top two.~~
+- ~~Load pathway data from `pathway_summaries.yaml`.~~
+- ~~Drag-and-drop criteria ranking (SortableJS).~~
+- ~~Explore → Assess two-phase layout (read-only cards, then assessment table).~~
+- ~~Quick stats bar from `pathway_data.db` (program count, institution count, occupation count, wage range, growth).~~
 
 ### Epic D — Screen 2: Hickman Mills Lens
 
@@ -94,7 +97,7 @@
 |------|------------|
 | A | ~~Local app boots, base layout works, and users can explore or enter a code.~~ **Done.** |
 | B1 | ~~YAML files exist, load without error, and pathway summaries are readable.~~ **Done.** |
-| C | Users can complete Screen 1 and data persists (for code-based users). |
+| C | ~~Users can complete Screen 1 and data persists (for code-based users).~~ **Done.** |
 | D | Users can re-rank pathways with barrier/support tagging and saved reasoning. |
 | E | Users can select launch points and bridge roles filtered by pathway. |
 | F | Users can complete and edit personal reflections. |

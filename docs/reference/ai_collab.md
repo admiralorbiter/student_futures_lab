@@ -31,14 +31,14 @@ A guided inquiry app for the Hickman Mills Pathway Advisory Team (PREP-KC). Stud
 ### Tech Stack
 - **Backend:** Flask (Python 3.9+), Jinja2 templates
 - **Database:** SQLite — student responses only (optional code-based saves)
-- **Pathway data:** Pre-baked YAML/JSON files in `data/mappings/` (exported once from `kc-industries` repo, enriched with PREP-KC editorial content)
-- **Frontend:** Server-rendered HTML + CSS + light JS (HTMX or Alpine for progressive enhancement)
+- **Pathway data:** YAML files in `data/mappings/` (editorial content) + read-only `pathway_data.db` (granular stats queried at runtime)
+- **Frontend:** Server-rendered HTML + CSS + light JS (SortableJS for drag-and-drop)
 - **Testing:** pytest
 
 ### Key Architecture
 - **5 screens** mapped to 5 class periods: Pathway Explorer → Hickman Mills Lens → Launch Points → My Pathway Reality Check → Recommendation Builder
 - **Identity:** Anonymous browsing + optional short code for save/resume. No login in v1.
-- **Data flow:** YAML files → loaded at app startup → rendered to templates. No runtime database queries for pathway data.
+- **Data flow:** YAML files loaded at startup + `pathway_data.db` queried at runtime for aggregate stats. Editorial content comes from YAML; granular numbers from SQLite.
 - **Student responses:** Saved to SQLite only for code-based users. No facilitator dashboard in v1.
 - **Sister repo:** [`kc-industries`](https://github.com/admiralorbiter/kc-industries) — contains all source data (BLS/OEWS, IPEDS, College Scorecard, Census/ACS, geocoded employers, SOC/NAICS crosswalks). Data is exported once and curated into YAML.
 

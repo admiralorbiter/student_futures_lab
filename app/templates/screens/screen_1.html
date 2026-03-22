@@ -2,6 +2,11 @@
 
 {% block title %}{{ screen.title }} — Student Futures Lab{% endblock %}
 
+{% block head_extra %}
+{# SortableJS for drag-and-drop criteria ranking #}
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>
+{% endblock %}
+
 {% block content %}
 <div class="screen-header">
   <span class="screen-eyebrow">Screen {{ screen_num }} of 5</span>
@@ -9,36 +14,360 @@
   <p class="screen-question">{{ screen.question }}</p>
 </div>
 
-{% block screen_content %}
-<div class="placeholder-content">
-  <div class="placeholder-icon">🔧</div>
-  <h2 class="placeholder-title">Coming Soon</h2>
-  <p class="placeholder-text">
-    This screen will be built during Epic C. It will show the seven pathway families
-    with plain-language signals and let you capture your initial ranking.
-  </p>
-</div>
-{% endblock %}
+<form method="POST" action="{{ url_for('main.screen_submit', screen_num=1) }}" id="screen1Form">
+
+  {# ═══════════════════════════════════════════════ #}
+  {# STEP 1: What matters to you? (drag to rank)    #}
+  {# ═══════════════════════════════════════════════ #}
+  <section class="screen-section" id="step1">
+    <div class="section-header">
+      <span class="section-step">Step 1</span>
+      <h2 class="section-title">What matters to you?</h2>
+      <p class="section-subtitle">
+        Drag to rank what matters most <em>before</em> you look at the data.
+        This helps you notice what the evidence later confirms, complicates, or changes.
+      </p>
+    </div>
+
+    <p class="drag-hint">☝️ Drag items up or down to rank them. #1 = most important to you.</p>
+
+    <ul class="criteria-sortable" id="criteriaSortable">
+      {% set criteria_items = [
+        ("good_pay", "Good pay", "Will this pathway lead to decent earnings?"),
+        ("job_security", "Job security", "How stable are jobs in this area?"),
+        ("interesting_work", "Interesting work", "Would the day-to-day feel engaging?"),
+        ("training_length", "Training length", "How long before I could start working?"),
+        ("location_commute", "Location / commute", "Can I get there from where I live?"),
+        ("move_up", "Chance to move up", "Is there room to grow over time?"),
+        ("fit_identity", "Fit with who I am", "Can I see myself in this field?")
+      ] %}
+
+      {# Reorder based on saved data if available #}
+      {% set saved_order = saved.get('criteria_order', '') %}
+      {% if saved_order %}
+        {% set order_list = saved_order.split(',') %}
+        {% set ordered_criteria = [] %}
+        {% for key in order_list %}
+          {% for item in criteria_items %}
+            {% if item[0] == key %}
+              {% if ordered_criteria.append(item) %}{% endif %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+        {# Add any items not in saved order #}
+        {% for item in criteria_items %}
+          {% if item[0] not in order_list %}
+            {% if ordered_criteria.append(item) %}{% endif %}
+          {% endif %}
+        {% endfor %}
+        {% set criteria_items = ordered_criteria %}
+      {% endif %}
+
+      {% for key, label, hint in criteria_items %}
+      <li class="criteria-drag-item" data-id="{{ key }}">
+        <span class="drag-handle" aria-label="Drag to reorder">⠿</span>
+        <span class="drag-rank">{{ loop.index }}</span>
+        <div class="drag-info">
+          <span class="drag-label">{{ label }}</span>
+          <span class="drag-hint-text">{{ hint }}</span>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {# Hidden input that stores the order as comma-separated IDs #}
+    <input type="hidden" name="criteria_order" id="criteriaOrder"
+      value="{{ saved.get('criteria_order', 'good_pay,job_security,interesting_work,training_length,location_commute,move_up,fit_identity') }}">
+
+    <div class="reflection-fields">
+      <div class="reflection-field">
+        <label for="criteria_top_note">My top criterion matters because …</label>
+        <textarea name="criteria_top_note" id="criteria_top_note" rows="2"
+          placeholder="Write a short reason">{{ saved.get('criteria_top_note', '') }}</textarea>
+      </div>
+      <div class="reflection-field">
+        <label for="criteria_initial_top2">Before we look at more evidence, my initial top 2 pathways are …</label>
+        <textarea name="criteria_initial_top2" id="criteria_initial_top2" rows="2"
+          placeholder="Name two pathways and a quick reason">{{ saved.get('criteria_initial_top2', '') }}</textarea>
+      </div>
+    </div>
+  </section>
+
+  {# ═══════════════════════════════════════════════ #}
+  {# STEP 2 — EXPLORE: Read-only pathway cards      #}
+  {# ═══════════════════════════════════════════════ #}
+  <section class="screen-section" id="step2-explore">
+    <div class="section-header">
+      <span class="section-step">Step 2 — Explore</span>
+      <h2 class="section-title">Explore the seven pathways</h2>
+      <p class="section-subtitle">
+        Read through each pathway's data. Pay attention to wages, demand, scale,
+        and county fit. Don't judge yet — just explore. You'll assess them below.
+      </p>
+    </div>
+
+    <div class="pathway-cards">
+      {% for pathway in pathways %}
+      {% set stats = pathway_stats.get(pathway.id, {}) %}
+      <div class="pathway-card" id="card-{{ pathway.id }}">
+        <div class="card-header">
+          <h3 class="card-title">{{ pathway.name }}</h3>
+          <span class="card-order">#{{ loop.index }}</span>
+        </div>
+
+        <p class="card-summary">{{ pathway.summary }}</p>
+
+        {# Quick stats bar from database #}
+        {% if stats.get('program_count', 0) > 0 %}
+        <div class="quick-stats">
+          <div class="stat-item" title="Training programs available">
+            <span class="stat-icon">📋</span>
+            <span class="stat-value">{{ stats.program_count }}</span>
+            <span class="stat-label">programs</span>
+          </div>
+          <div class="stat-item" title="Schools offering programs">
+            <span class="stat-icon">🏫</span>
+            <span class="stat-value">{{ stats.institution_count }}</span>
+            <span class="stat-label">schools</span>
+          </div>
+          <div class="stat-item" title="Number of linked occupations">
+            <span class="stat-icon">💼</span>
+            <span class="stat-value">{{ stats.occupation_count }}</span>
+            <span class="stat-label">occupations</span>
+          </div>
+          {% if stats.wage_min and stats.wage_max %}
+          <div class="stat-item" title="Wage range across linked occupations">
+            <span class="stat-icon">💰</span>
+            <span class="stat-value">${{ "{:,}".format(stats.wage_min // 1000) }}K–${{ "{:,}".format(stats.wage_max // 1000) }}K</span>
+            <span class="stat-label">wage range</span>
+          </div>
+          {% endif %}
+          {% if stats.avg_growth_pct %}
+          <div class="stat-item" title="Average projected job growth">
+            <span class="stat-icon">📈</span>
+            <span class="stat-value">{{ stats.avg_growth_pct }}%</span>
+            <span class="stat-label">avg growth</span>
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
+
+        <div class="signal-chips">
+          <div class="signal-chip signal-wage" title="Wage signal">
+            <span class="chip-icon">💰</span>
+            <span class="chip-text">{{ pathway.wage_signal }}</span>
+          </div>
+          <div class="signal-chip signal-demand" title="Projected demand">
+            <span class="chip-icon">📈</span>
+            <span class="chip-text">{{ pathway.demand_signal }}</span>
+          </div>
+          <div class="signal-chip signal-scale" title="Current scale">
+            <span class="chip-icon">📊</span>
+            <span class="chip-text">{{ pathway.current_scale }}</span>
+          </div>
+          <div class="signal-chip signal-county" title="County fit">
+            <span class="chip-icon">📍</span>
+            <span class="chip-text">{{ pathway.county_fit_summary }}</span>
+          </div>
+        </div>
+
+        <div class="example-roles">
+          <span class="roles-label">Example roles:</span>
+          {% for role in pathway.example_roles %}
+          <span class="role-tag">{{ role }}</span>
+          {% endfor %}
+        </div>
+
+        <details class="caution-details">
+          <summary class="caution-summary">⚠️ Something to consider</summary>
+          <p class="caution-text">{{ pathway.caution_note }}</p>
+        </details>
+      </div>
+      {% endfor %}
+    </div>
+
+    {# Additional Fields #}
+    {% if additional_fields %}
+    <details class="additional-fields-section" id="additionalFields">
+      <summary class="additional-fields-toggle">
+        <span class="toggle-icon">📚</span>
+        Other Fields of Study
+        <span class="field-count">({{ additional_fields|length }} areas)</span>
+      </summary>
+      <p class="additional-fields-intro">
+        These areas are also available in Kansas City but are outside the 7 focus pathways.
+        Browse them to see the full landscape.
+      </p>
+      <div class="additional-fields-grid">
+        {% for field in additional_fields %}
+        <div class="additional-field-card">
+          <h4 class="field-name">{{ field.name }}</h4>
+          <p class="field-description">{{ field.student_description }}</p>
+          <div class="field-meta">
+            <span class="field-programs">{{ field.program_count }} programs</span>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </details>
+    {% endif %}
+  </section>
+
+  {# ═══════════════════════════════════════════════ #}
+  {# STEP 2 — ASSESS: Bucket table                  #}
+  {# ═══════════════════════════════════════════════ #}
+  <section class="screen-section" id="step2-assess">
+    <div class="section-header">
+      <span class="section-step">Step 2 — Assess</span>
+      <h2 class="section-title">Now place each pathway in a bucket</h2>
+      <p class="section-subtitle">
+        Based on what you just read, place every pathway in one of three buckets:
+        <strong>Strongest on paper</strong>, <strong>Mixed / depends</strong>,
+        or <strong>Lower priority for now</strong>. Rate your confidence and note the evidence.
+      </p>
+    </div>
+
+    <div class="assess-table-wrap">
+      <table class="assess-table" id="assessTable">
+        <thead>
+          <tr>
+            <th class="col-pathway">Pathway</th>
+            <th class="col-bucket">Bucket</th>
+            <th class="col-confidence">Confidence</th>
+            <th class="col-evidence">Why does it land there?</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for pathway in pathways %}
+          {% set saved_bucket = saved.get('pathway_bucket_' ~ pathway.id, '') %}
+          <tr>
+            <td class="cell-pathway">
+              <a href="#card-{{ pathway.id }}" class="pathway-jumpback" title="Jump back to card">
+                {{ pathway.name }}
+                <span class="jumpback-icon">↑</span>
+              </a>
+            </td>
+            <td class="cell-bucket">
+              <div class="bucket-options-compact">
+                <label class="bucket-opt bucket-strongest-opt">
+                  <input type="radio" name="pathway_bucket_{{ pathway.id }}"
+                    value="strongest" {% if saved_bucket == 'strongest' %}checked{% endif %}>
+                  <span>Strongest</span>
+                </label>
+                <label class="bucket-opt bucket-mixed-opt">
+                  <input type="radio" name="pathway_bucket_{{ pathway.id }}"
+                    value="mixed" {% if saved_bucket == 'mixed' %}checked{% endif %}>
+                  <span>Mixed</span>
+                </label>
+                <label class="bucket-opt bucket-lower-opt">
+                  <input type="radio" name="pathway_bucket_{{ pathway.id }}"
+                    value="lower" {% if saved_bucket == 'lower' %}checked{% endif %}>
+                  <span>Lower</span>
+                </label>
+              </div>
+            </td>
+            <td class="cell-confidence">
+              <div class="confidence-compact">
+                {% set saved_conf = saved.get('pathway_confidence_' ~ pathway.id, '3') %}
+                {% for i in range(1, 6) %}
+                <label class="conf-dot" title="{{ i }} / 5">
+                  <input type="radio" name="pathway_confidence_{{ pathway.id }}"
+                    value="{{ i }}" {% if saved_conf == i|string %}checked{% endif %}>
+                  <span class="dot">{{ i }}</span>
+                </label>
+                {% endfor %}
+              </div>
+            </td>
+            <td class="cell-evidence">
+              <textarea name="pathway_evidence_{{ pathway.id }}" rows="2"
+                placeholder="What evidence supports your choice?">{{ saved.get('pathway_evidence_' ~ pathway.id, '') }}</textarea>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  {# ═══════════════════════════════════════════════ #}
+  {# REFLECTION                                     #}
+  {# ═══════════════════════════════════════════════ #}
+  <section class="screen-section" id="reflection">
+    <div class="section-header">
+      <h2 class="section-title">Reflection</h2>
+      <p class="section-subtitle">
+        Before you move on, capture your thinking.
+      </p>
+    </div>
+
+    <div class="reflection-fields">
+      <div class="reflection-field">
+        <label for="reflection_strongest">Which 2–3 pathways look strongest on paper?</label>
+        <textarea name="reflection_strongest" id="reflection_strongest" rows="2"
+          placeholder="Name them and say why">{{ saved.get('reflection_strongest', '') }}</textarea>
+      </div>
+      <div class="reflection-field">
+        <label for="reflection_hard_to_access">Which pathway looks strong but maybe not easiest to access?</label>
+        <textarea name="reflection_hard_to_access" id="reflection_hard_to_access" rows="2"
+          placeholder="Name it and explain">{{ saved.get('reflection_hard_to_access', '') }}</textarea>
+      </div>
+      <div class="reflection-field">
+        <label for="reflection_underrated">Which pathway seems underrated?</label>
+        <textarea name="reflection_underrated" id="reflection_underrated" rows="2"
+          placeholder="Name it and say what caught your attention">{{ saved.get('reflection_underrated', '') }}</textarea>
+      </div>
+      <div class="reflection-field">
+        <label for="reflection_wrong_to_ignore">Which pathway would PREP-KC be wrong to ignore?</label>
+        <textarea name="reflection_wrong_to_ignore" id="reflection_wrong_to_ignore" rows="2"
+          placeholder="Name it and explain why">{{ saved.get('reflection_wrong_to_ignore', '') }}</textarea>
+      </div>
+    </div>
+  </section>
+
+  {# ═══════════════════════════════════════════════ #}
+  {# SUBMIT                                          #}
+  {# ═══════════════════════════════════════════════ #}
+  <div class="screen-submit">
+    <button type="submit" class="btn btn-primary btn-lg" id="saveScreen1">
+      Save & Continue to Hickman Mills Lens →
+    </button>
+    {% if not student_code %}
+    <p class="save-hint">
+      💡 Your answers won't be saved permanently since you're exploring anonymously.
+      <a href="{{ url_for('main.landing') }}">Enter a code</a> to save your progress.
+    </p>
+    {% endif %}
+  </div>
+</form>
 
 <nav class="screen-nav">
-  {% if prev_screen %}
-    <a href="{{ url_for('main.screen', screen_num=prev_screen) }}" class="btn btn-secondary">
-      <span class="arrow">←</span> Back
-    </a>
-  {% else %}
-    <a href="{{ url_for('main.landing') }}" class="btn btn-secondary">
-      <span class="arrow">←</span> Home
-    </a>
-  {% endif %}
-
-  {% if next_screen %}
-    <a href="{{ url_for('main.screen', screen_num=next_screen) }}" class="btn btn-primary">
-      Continue <span class="arrow">→</span>
-    </a>
-  {% else %}
-    <a href="{{ url_for('main.landing') }}" class="btn btn-primary">
-      Finish <span class="arrow">→</span>
-    </a>
-  {% endif %}
+  <a href="{{ url_for('main.landing') }}" class="btn btn-secondary">
+    <span class="arrow">←</span> Home
+  </a>
 </nav>
+
+{# ═══════════════════════════════════════════════ #}
+{# SORTABLEJS INITIALIZATION                       #}
+{# ═══════════════════════════════════════════════ #}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var sortable = Sortable.create(document.getElementById('criteriaSortable'), {
+    handle: '.drag-handle',
+    animation: 200,
+    ghostClass: 'criteria-ghost',
+    chosenClass: 'criteria-chosen',
+    dragClass: 'criteria-dragging',
+    onSort: function() {
+      // Update rank numbers
+      var items = document.querySelectorAll('#criteriaSortable .criteria-drag-item');
+      var order = [];
+      items.forEach(function(item, index) {
+        item.querySelector('.drag-rank').textContent = index + 1;
+        order.push(item.dataset.id);
+      });
+      document.getElementById('criteriaOrder').value = order.join(',');
+    }
+  });
+});
+</script>
 {% endblock %}

@@ -159,6 +159,76 @@ class PathwayService:
     # Database-backed methods (granular drill-down)
     # ──────────────────────────────────────────────
 
+    def get_pathway_stats(self):
+        """Return aggregate stats per pathway from the database.
+
+        Returns dict keyed by pathway_id with:
+          program_count, institution_count, avg_earnings_1yr,
+          occupation_count, wage_min, wage_max, avg_growth_pct,
+          total_openings
+        """
+        db = self._get_db()
+        if not db:
+            return {}
+
+        stats = {}
+        for family in self._data.get("pathway_families", {}).get("families", []):
+            pid = family["id"]
+            prefixes = family.get("cip_prefixes", [])
+            if not prefixes:
+                stats[pid] = {"program_count": 0}
+                continue
+
+            ph = ",".join("?" for _ in prefixes)
+
+            # Program stats
+            row = db.execute(
+                f"""
+                SELECT
+                    COUNT(*) as program_count,
+                    COUNT(DISTINCT institution_id) as institution_count,
+                    ROUND(AVG(CASE WHEN median_earnings_1yr > 0 THEN median_earnings_1yr END)) as avg_earnings_1yr
+                FROM programs
+                WHERE substr(replace(cip_code, '.', ''), 1, 2) IN ({ph})
+                """,
+                prefixes,
+            ).fetchone()
+
+            # Occupation stats via CIP→program→SOC crosswalk
+            occ_row = db.execute(
+                f"""
+                SELECT
+                    COUNT(DISTINCT o.soc_code) as occupation_count,
+                    MIN(o.median_wage) as wage_min,
+                    MAX(o.median_wage) as wage_max,
+                    ROUND(AVG(o.projected_growth_pct), 1) as avg_growth_pct,
+                    SUM(o.projected_openings) as total_openings
+                FROM occupations o
+                WHERE o.soc_code IN (
+                    SELECT DISTINCT po.soc_code
+                    FROM program_occupations po
+                    JOIN programs p ON po.program_id = p.program_id
+                    WHERE substr(replace(p.cip_code, '.', ''), 1, 2) IN ({ph})
+                )
+                AND o.median_wage IS NOT NULL
+                """,
+                prefixes,
+            ).fetchone()
+
+            stats[pid] = {
+                "program_count": row["program_count"] or 0,
+                "institution_count": row["institution_count"] or 0,
+                "avg_earnings_1yr": int(row["avg_earnings_1yr"]) if row["avg_earnings_1yr"] else None,
+                "occupation_count": occ_row["occupation_count"] or 0,
+                "wage_min": int(occ_row["wage_min"]) if occ_row["wage_min"] else None,
+                "wage_max": int(occ_row["wage_max"]) if occ_row["wage_max"] else None,
+                "avg_growth_pct": occ_row["avg_growth_pct"] or 0,
+                "total_openings": occ_row["total_openings"] or 0,
+            }
+
+        db.close()
+        return stats
+
     def get_programs_by_pathway(self, pathway_id):
         """Return all programs in a pathway, with earnings data."""
         db = self._get_db()

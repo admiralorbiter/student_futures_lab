@@ -103,6 +103,29 @@ The original D4 decision used YAML-only for all pathway data. With 889 programs,
 
 ---
 
+### D10. Drag-and-Drop Criteria Ranking
+
+**Decision:** Use SortableJS drag-and-drop instead of dropdown selects for Step 1 criteria ranking.
+
+Students drag items up/down to rank 7 criteria by personal importance. Rank is determined by position — no duplicate or missing values possible. Order is stored as a comma-separated list of IDs in a hidden input.
+
+**Rationale:** Dropdowns allowed overlapping ranks (e.g., two items both ranked #1). Drag-and-drop is more intuitive for students and eliminates data validation issues. SortableJS is 3KB, zero-dependency, MIT licensed.
+
+---
+
+### D11. Explore → Assess Two-Phase Layout
+
+**Decision:** Split Step 2 into "Explore" (read-only pathway cards) then "Assess" (compact assessment table).
+
+The original design intermixed data exploration with student input on each card. The redesign separates them: students read through all 7 pathway data cards first, then place each pathway in a bucket using a single assessment table below the cards. The table includes jump-back links to reference data.
+
+A "Quick Stats" bar on each card surfaces aggregate database numbers (program count, institution count, occupation count, wage range, growth %) alongside the editorial YAML signals.
+
+**Rationale:** The student packet's intent is "look at all the evidence first, then compare." Mixing explore and judge per card encouraged premature judgment. The table layout matches the paper packet's assessment worksheet.
+
+---
+
 ## Open
 
 *No open decisions remain at this time. New decisions should be added here as they arise during development.*
+

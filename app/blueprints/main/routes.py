@@ -1,7 +1,10 @@
 """Routes for the guided inquiry flow."""
 
+from datetime import datetime, timezone
+
 from flask import (
     current_app,
+    flash,
     make_response,
     redirect,
     render_template,
@@ -10,7 +13,8 @@ from flask import (
 )
 
 from ...extensions import db
-from ...models.student import Student
+from ...models.student import Response, Student
+from ...services.pathway_service import pathway_service
 from . import bp
 
 # Screen metadata — drives the progress bar and navigation
@@ -36,6 +40,49 @@ def _get_or_create_student(code):
         db.session.add(student)
         db.session.commit()
     return student
+
+
+def _load_saved_responses(student_code, screen_num):
+    """Load saved responses for a student on a screen as a dict."""
+    if not student_code:
+        return {}
+    student = Student.query.filter_by(code=student_code).first()
+    if not student:
+        return {}
+    responses = Response.query.filter_by(
+        student_id=student.id, screen=screen_num
+    ).all()
+    return {r.response_key: r.value for r in responses}
+
+
+def _save_responses(student_code, screen_num, form_data):
+    """Save form data as response rows. Upserts by (student, screen, key)."""
+    if not student_code:
+        return
+    student = _get_or_create_student(student_code)
+
+    for key, value in form_data.items():
+        value = value.strip() if value else ""
+        if not value:
+            continue  # Don't save empty values
+
+        existing = Response.query.filter_by(
+            student_id=student.id, screen=screen_num, response_key=key
+        ).first()
+
+        if existing:
+            existing.value = value
+            existing.updated_at = datetime.now(timezone.utc)
+        else:
+            resp = Response(
+                student_id=student.id,
+                screen=screen_num,
+                response_key=key,
+                value=value,
+            )
+            db.session.add(resp)
+
+    db.session.commit()
 
 
 @bp.route("/")
@@ -83,6 +130,14 @@ def screen(screen_num):
 
     student_code = _get_student_code()
     screen_info = SCREENS[screen_num]
+    saved = _load_saved_responses(student_code, screen_num)
+
+    # Screen-specific data injection
+    extra = {}
+    if screen_num == 1:
+        extra["pathways"] = pathway_service.get_pathway_summaries()
+        extra["additional_fields"] = pathway_service.get_additional_fields()
+        extra["pathway_stats"] = pathway_service.get_pathway_stats()
 
     return render_template(
         f"screens/screen_{screen_num}.html",
@@ -90,6 +145,31 @@ def screen(screen_num):
         screen=screen_info,
         screens=SCREENS,
         student_code=student_code,
+        saved=saved,
         prev_screen=screen_num - 1 if screen_num > 1 else None,
         next_screen=screen_num + 1 if screen_num < 5 else None,
+        **extra,
     )
+
+
+@bp.route("/screen/<int:screen_num>/submit", methods=["POST"])
+def screen_submit(screen_num):
+    """Handle form submission for a screen."""
+    if screen_num not in SCREENS:
+        return redirect(url_for("main.landing"))
+
+    student_code = _get_student_code()
+
+    # Collect all form fields into a dict
+    form_data = {}
+    for key in request.form:
+        form_data[key] = request.form[key]
+
+    # Save if student has a code
+    _save_responses(student_code, screen_num, form_data)
+
+    # Redirect to next screen
+    next_num = screen_num + 1 if screen_num < 5 else None
+    if next_num:
+        return redirect(url_for("main.screen", screen_num=next_num))
+    return redirect(url_for("main.landing"))
