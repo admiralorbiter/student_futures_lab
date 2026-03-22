@@ -1,0 +1,133 @@
+# Top employers near Hickman Mills by pathway (Screen 2).
+#
+# Source: kc-industries major_employers_geocoded.json
+#         filtered by NAICS-to-pathway mapping + geographic proximity.
+#
+# This is a static list for v1. Interactive map layer is post-v1.
+
+pathways:
+  - id: healthcare
+    employers:
+      - name: Children's Mercy Hospital
+        location: Kansas City, MO
+        sector: Health services
+      - name: Saint Luke's Health System
+        location: Kansas City, MO
+        sector: Health services
+      - name: Truman Medical Center
+        location: Kansas City, MO
+        sector: Health services
+      - name: AdventHealth Mid-America
+        location: Overland Park, KS
+        sector: Health services
+      - name: Research Medical Center (HCA)
+        location: Kansas City, MO
+        sector: Health services
+
+  - id: business
+    employers:
+      - name: Cerner (Oracle Health)
+        location: Kansas City, MO
+        sector: Health IT / Business operations
+      - name: Sprint (T-Mobile)
+        location: Overland Park, KS
+        sector: Telecommunications
+      - name: H&R Block
+        location: Kansas City, MO
+        sector: Financial services
+      - name: Hallmark Cards
+        location: Kansas City, MO
+        sector: Consumer products
+      - name: Commerce Bank
+        location: Kansas City, MO
+        sector: Banking
+
+  - id: manufacturing
+    employers:
+      - name: General Motors Fairfax Assembly
+        location: Kansas City, KS
+        sector: Automotive manufacturing
+      - name: Ford Claycomo Assembly
+        location: Claycomo, MO
+        sector: Automotive manufacturing
+      - name: Honeywell Federal Manufacturing
+        location: Kansas City, MO
+        sector: Aerospace / defense
+      - name: Smith Electric Vehicles
+        location: Kansas City, MO
+        sector: Vehicle manufacturing
+      - name: Associated Wholesale Grocers
+        location: Kansas City, KS
+        sector: Food distribution / warehousing
+
+  - id: logistics
+    employers:
+      - name: BNSF Railway
+        location: Kansas City metro
+        sector: Rail freight
+      - name: UPS
+        location: Kansas City metro
+        sector: Package delivery / logistics
+      - name: FedEx Ground / Freight
+        location: Kansas City metro
+        sector: Package delivery / logistics
+      - name: Amazon Fulfillment
+        location: Kansas City, KS
+        sector: E-commerce / distribution
+      - name: YRC Worldwide
+        location: Overland Park, KS
+        sector: Trucking / freight
+
+  - id: tech
+    employers:
+      - name: Cerner (Oracle Health)
+        location: Kansas City, MO
+        sector: Health information technology
+      - name: Garmin
+        location: Olathe, KS
+        sector: Technology / navigation
+      - name: Burns & McDonnell
+        location: Kansas City, MO
+        sector: Engineering / technology
+      - name: Netsmart Technologies
+        location: Overland Park, KS
+        sector: Health IT
+      - name: VinSolutions (Cox Automotive)
+        location: Overland Park, KS
+        sector: Automotive technology
+
+  - id: education
+    employers:
+      - name: Hickman Mills C-1 School District
+        location: Kansas City, MO
+        sector: K-12 education
+      - name: Center School District
+        location: Kansas City, MO
+        sector: K-12 education
+      - name: Grandview C-4 School District
+        location: Grandview, MO
+        sector: K-12 education
+      - name: Kansas City Public Schools
+        location: Kansas City, MO
+        sector: K-12 education
+      - name: Raytown C-2 School District
+        location: Raytown, MO
+        sector: K-12 education
+
+  - id: law_public
+    employers:
+      - name: Kansas City Police Department
+        location: Kansas City, MO
+        sector: Law enforcement
+      - name: Jackson County Government
+        location: Kansas City, MO
+        sector: County government
+      - name: Kansas City Fire Department
+        location: Kansas City, MO
+        sector: Emergency services
+      - name: Missouri Department of Corrections
+        location: Kansas City metro
+        sector: Corrections
+      - name: Legal Aid of Western Missouri
+        location: Kansas City, MO
+        sector: Legal services / nonprofit

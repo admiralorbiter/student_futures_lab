@@ -1,0 +1,80 @@
+# Student-facing glossary terms and Socratic prompts.
+#
+# Source: Student Glossary and How to Read the Data document.
+# Used for contextual help and definition tooltips.
+
+terms:
+  - term: Opportunity
+    definition: >
+      A pathway looks promising because it has meaningful demand,
+      enough scale to matter, and wages or advancement that make
+      it worth considering.
+    question: Is this pathway strong enough to matter before I think about my personal preferences?
+
+  - term: Current scale
+    definition: >
+      How big the pathway already is in the region right now.
+    question: Is this a niche path or a pathway with enough real jobs to matter?
+
+  - term: Projected demand
+    definition: >
+      A sign that jobs in this pathway are likely to keep showing up
+      over time. Based on government projections about future job openings.
+    question: Does this pathway seem durable, or is it only big right now?
+
+  - term: Median wage
+    definition: >
+      A middle-point wage signal. Half of workers in this area earn more,
+      half earn less. It does not tell you everything, but it helps compare
+      earning potential.
+    question: Is the wage strong enough to make the pathway feel worth it?
+
+  - term: County fit
+    definition: >
+      Which counties seem strongest for this pathway and where the
+      opportunity is concentrated in the Kansas City area.
+    question: Would this answer change if I think about where students actually live and travel?
+
+  - term: Bridge role
+    definition: >
+      A believable first job or early step that helps someone move
+      toward a bigger goal. Not the final career — the first step.
+    question: Can I picture a realistic first role, not just the end career?
+
+  - term: Reachability
+    definition: >
+      Whether students can realistically get to this option from where
+      they are now — considering commute, time, cost, and access.
+    question: Does this path still feel real when I think about Hickman Mills?
+
+  - term: Launch point
+    definition: >
+      A realistic first place to start — a college, program, training
+      route, or apprenticeship entry point.
+    question: Where could someone really begin?
+
+  - term: Transfer anchor
+    definition: >
+      A place that helps students continue into the next step after
+      a first credential or early coursework.
+    question: Does this option help students keep moving, not just start?
+
+  - term: Pell share
+    definition: >
+      A clue about how many students at this institution receive
+      Pell Grants — federal financial aid for students with greater
+      financial need. Higher Pell share often means broader access.
+    question: Does this place seem reachable, or only impressive?
+
+  - term: Linked occupations
+    definition: >
+      How many different jobs or career types connect to a program
+      or pathway in the dataset.
+    question: Does this path connect to more than one possible job outcome?
+
+  - term: Supports
+    definition: >
+      What students would need in order to benefit from a pathway —
+      transportation, advising, paid work-based learning, confidence,
+      information, and more.
+    question: What would make this pathway actually usable, not just attractive on paper?

@@ -1,0 +1,149 @@
+# Pathway summaries with plain-language signals for Screen 1.
+#
+# Each pathway has data-derived signals (from kc_program_pathways.csv)
+# and PREP-KC authored editorial content.
+#
+# Source: BLS/OEWS wage data, state projections, kc-industries aggregates.
+# Audience: High school students. Use plain language.
+
+pathways:
+  - id: healthcare
+    name: Healthcare
+    summary: >
+      Healthcare is the largest pathway in the Kansas City area with strong demand,
+      above-average wages, and a wide range of entry points from certificates to
+      doctoral programs. Roles range from medical assistants and dental hygienists
+      to registered nurses and therapists.
+    current_scale: Large — one of the biggest employment sectors in the metro.
+    wage_signal: Strong — median wages around $84,000 for linked occupations.
+    demand_signal: Growing — projected growth above 12% with strong annual openings.
+    county_fit_summary: Present across all KC-area counties; some rural areas have fewer specialist openings.
+    caution_note: >
+      Many clinical roles require specific credentials or supervised clinical hours
+      that may be hard to access from all locations. Some entry-level roles
+      (like home health aides) pay significantly less than the pathway average.
+    example_roles:
+      - Registered Nurse
+      - Medical Assistant
+      - Dental Hygienist
+      - Physical Therapy Assistant
+
+  - id: business
+    name: Business / Finance / Operations
+    summary: >
+      Business and finance covers a broad set of roles from accounting and management
+      to marketing and human resources. The pathway is large and present in nearly
+      every industry, making it one of the more flexible options.
+    current_scale: Large — business occupations are embedded in virtually every sector.
+    wage_signal: Moderate to strong — median wages around $62,000 with wide variation by role.
+    demand_signal: Steady — moderate projected growth with consistent openings.
+    county_fit_summary: Concentrated in Johnson County (KS) and Jackson County (MO) office corridors.
+    caution_note: >
+      Many higher-paying business roles require a bachelor's degree or higher.
+      Entry-level admin and office roles may have lower wages and limited advancement
+      without additional education.
+    example_roles:
+      - Accountant
+      - Human Resources Specialist
+      - Marketing Coordinator
+      - Financial Analyst
+
+  - id: manufacturing
+    name: Manufacturing / Construction / Skilled Trades
+    summary: >
+      This pathway includes hands-on roles in production, construction, repair,
+      and engineering technology. Kansas City has a strong manufacturing base,
+      especially in automotive, aerospace, and food production.
+    current_scale: Moderate — significant but more concentrated geographically.
+    wage_signal: Strong — median wages around $60,000 with skilled trades often higher.
+    demand_signal: Stable to growing — especially for skilled trades and construction.
+    county_fit_summary: Strongest in Wyandotte County (KS) and eastern Jackson County (MO) industrial corridors.
+    caution_note: >
+      Some roles involve physical demands and non-standard hours.
+      Apprenticeship slots can be competitive. Not all programs are
+      available at every local institution.
+    example_roles:
+      - Electrician
+      - Industrial Mechanic
+      - Welder
+      - Civil Engineering Technician
+
+  - id: logistics
+    name: Logistics / Supply Chain
+    summary: >
+      Kansas City is a national logistics hub thanks to its central location,
+      rail network, and highway access. Roles include warehouse operations,
+      fleet management, and supply chain coordination.
+    current_scale: Moderate — but KC's geographic advantage makes this a distinctive local strength.
+    wage_signal: Moderate — median wages vary widely from warehouse roles to logistics management.
+    demand_signal: Steady — consistent demand driven by e-commerce and distribution growth.
+    county_fit_summary: Concentrated along I-35, I-70, and I-435 corridors; strong near KCI and Edwardsville/Turner area.
+    caution_note: >
+      Entry-level warehouse roles may not offer the wage or advancement
+      signals that match the pathway's management-level reputation.
+      The dataset has fewer programs mapped here than other pathways.
+    example_roles:
+      - Logistics Coordinator
+      - Supply Chain Analyst
+      - Warehouse Operations Manager
+      - CDL Driver / Fleet Manager
+
+  - id: tech
+    name: Tech / Data
+    summary: >
+      Technology roles include software development, cybersecurity, network
+      administration, and data analytics. The tech sector in KC is growing,
+      with major employers in fintech, healthcare IT, and federal contracting.
+    current_scale: Moderate — growing but still smaller than healthcare or business.
+    wage_signal: Strong — median wages above $75,000 for most linked occupations.
+    demand_signal: Strong growth — projected above 10%, driven by digital transformation across industries.
+    county_fit_summary: Concentrated in Johnson County (KS) and downtown KC/Crossroads area.
+    caution_note: >
+      Many tech roles can be learned through bootcamps or certifications, but
+      employers may still prefer candidates with bachelor's degrees for
+      some positions. Remote work options exist but can be competitive.
+    example_roles:
+      - Software Developer
+      - Cybersecurity Analyst
+      - Data Analyst
+      - Network Administrator
+
+  - id: education
+    name: Teaching / Education
+    summary: >
+      Education includes K-12 teaching, early childhood education, special education,
+      and instructional coordination. Teaching is a high-demand profession with
+      strong community impact, especially in underserved districts.
+    current_scale: Large — school districts are among the largest employers in every county.
+    wage_signal: Moderate — median wages around $52,000; varies by district and credential level.
+    demand_signal: High demand — teacher shortages are persistent, especially in STEM, special education, and bilingual education.
+    county_fit_summary: Present everywhere. Hickman Mills, Center, and Grandview districts are nearby employers.
+    caution_note: >
+      Teaching pay has not kept pace with other pathways requiring similar
+      education. Licensure requirements add time and cost. Teacher burnout
+      is a widely reported concern.
+    example_roles:
+      - Elementary Teacher
+      - Special Education Teacher
+      - Early Childhood Educator
+      - Instructional Coordinator
+
+  - id: law_public
+    name: Law / Public Service
+    summary: >
+      This pathway covers criminal justice, emergency services, public administration,
+      social work, and legal support. These roles serve communities directly and
+      are often government-funded or nonprofit-adjacent.
+    current_scale: Moderate — steady but not growing as fast as health or tech.
+    wage_signal: Moderate — median wages around $48,000 with wide range from corrections to attorneys.
+    demand_signal: Stable — consistent need but slower projected growth than healthcare or tech.
+    county_fit_summary: Government roles are distributed; specialized legal roles concentrate downtown.
+    caution_note: >
+      Some roles (law enforcement, fire) have physical and background requirements.
+      Legal careers generally require advanced degrees. Social work roles
+      may have lower wages despite high community impact.
+    example_roles:
+      - Police Officer
+      - Social Worker
+      - Paralegal
+      - Emergency Management Specialist

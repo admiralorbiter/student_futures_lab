@@ -1,0 +1,162 @@
+# Pathway family definitions and CIP-to-pathway mapping
+#
+# Each pathway family groups related CIP program areas into one of
+# the 7 families used in the guided inquiry.
+#
+# Source: CIP families from kc-industries/app/queries/cip_families.py
+#         grouped by PREP-KC pathway definitions.
+
+families:
+  - id: healthcare
+    name: Healthcare
+    display_order: 1
+    description: Health services, clinical care, medical technology, and public health.
+    cip_prefixes:
+      - "51"  # Health Professions
+      - "26"  # Biological Sciences (pre-health, biotech)
+
+  - id: business
+    name: Business / Finance / Operations
+    display_order: 2
+    description: Business management, finance, accounting, marketing, and organizational operations.
+    cip_prefixes:
+      - "52"  # Business & Management
+      - "27"  # Mathematics & Statistics (actuarial, quant finance)
+
+  - id: manufacturing
+    name: Manufacturing / Construction / Skilled Trades
+    display_order: 3
+    description: Skilled trades, production, construction, repair, and engineering technology.
+    cip_prefixes:
+      - "14"  # Engineering
+      - "15"  # Engineering Technology
+      - "46"  # Construction Trades
+      - "47"  # Mechanic & Repair Technologies
+      - "48"  # Precision Production
+
+  - id: logistics
+    name: Logistics / Supply Chain
+    display_order: 4
+    description: Transportation, warehousing, distribution, and supply chain management.
+    cip_prefixes:
+      - "49"  # Transportation & Materials Moving
+
+  - id: tech
+    name: Tech / Data
+    display_order: 5
+    description: Software, networking, cybersecurity, data analytics, and information systems.
+    cip_prefixes:
+      - "11"  # Computer & Information Sciences
+      - "10"  # Communications Technology
+
+  - id: education
+    name: Teaching / Education
+    display_order: 6
+    description: K-12 teaching, early childhood, special education, and educational leadership.
+    cip_prefixes:
+      - "13"  # Education
+
+  - id: law_public
+    name: Law / Public Service
+    display_order: 7
+    description: Criminal justice, legal studies, public administration, social work, and protective services.
+    cip_prefixes:
+      - "22"  # Legal Studies
+      - "43"  # Homeland Security & Protective Services
+      - "44"  # Public Administration & Social Services
+
+# Additional fields of study — not grouped into the 7 pathway families
+# but still shown to students so they can see the full landscape.
+#
+# These appear in a collapsible "Other Fields" section on Screen 1.
+# Set visible: false to hide a field from the student view.
+additional_fields:
+  - id: psychology
+    name: Psychology
+    cip_prefix: "42"
+    program_count: 18
+    visible: true
+    student_description: >
+      Study of human behavior and mental processes. Connects to
+      counseling, social work, human resources, and research roles.
+    related_pathways: [healthcare, law_public]
+
+  - id: visual_arts
+    name: Visual & Performing Arts
+    cip_prefix: "50"
+    program_count: 19
+    visible: true
+    student_description: >
+      Music, theater, visual arts, graphic design, and media production.
+      Creative fields with varied career paths.
+    related_pathways: []
+
+  - id: culinary
+    name: Culinary & Personal Services
+    cip_prefix: "12"
+    program_count: 13
+    visible: true
+    student_description: >
+      Cosmetology, culinary arts, and personal care services.
+      Hands-on fields where you can earn quickly with a certificate.
+    related_pathways: [business]
+
+  - id: communication
+    name: Communication & Journalism
+    cip_prefix: "09"
+    program_count: 12
+    visible: true
+    student_description: >
+      Media, public relations, journalism, and digital communication.
+      Cross-cuts business and tech roles.
+    related_pathways: [business, tech]
+
+  - id: liberal_arts
+    name: Liberal Arts & General Studies
+    cip_prefix: "24"
+    program_count: 12
+    visible: true
+    student_description: >
+      Broad-based transfer degrees designed to keep options open.
+      A flexible starting point if you haven't decided on a pathway yet.
+    related_pathways: []
+
+  - id: recreation
+    name: Parks, Recreation & Fitness
+    cip_prefix: "31"
+    program_count: 12
+    visible: true
+    student_description: >
+      Fitness training, recreation management, sports coaching,
+      and outdoor education. Connects to education and health roles.
+    related_pathways: [education, healthcare]
+
+  - id: social_sciences
+    name: Social Sciences
+    cip_prefix: "45"
+    program_count: 11
+    visible: true
+    student_description: >
+      Sociology, political science, economics, and geography.
+      Foundation for law, public policy, and advocacy careers.
+    related_pathways: [law_public, education]
+
+  - id: theology
+    name: Theology & Religious Vocations
+    cip_prefix: "39"
+    program_count: 8
+    visible: false
+    student_description: >
+      Ministry, religious education, and pastoral counseling.
+      Niche field with a small number of local programs.
+    related_pathways: []
+
+  - id: agriculture
+    name: Agriculture & Natural Resources
+    cip_prefix: "01"
+    program_count: 7
+    visible: true
+    student_description: >
+      Farming, agribusiness, animal science, and natural resource
+      management. Fewer local programs but connects to the regional economy.
+    related_pathways: [manufacturing]

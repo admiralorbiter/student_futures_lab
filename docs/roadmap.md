@@ -19,19 +19,20 @@
 
 ## 2. Epic list
 
-### Epic A — Product foundation and experience shell
+### Epic A — Product foundation and experience shell ✅
 
-- Create Flask app shell, base template, typography, navigation, and screen progression.
-- Set up SQLite schema for student responses (optional save-code model).
-- Implement anonymous browsing + optional code save.
+- ~~Create Flask app shell, base template, typography, navigation, and screen progression.~~
+- ~~Set up SQLite schema for student responses (optional save-code model).~~
+- ~~Implement anonymous browsing + optional code save.~~
 
-### Epic B1 — Data curation and seed files
+### Epic B1 — Data curation and seed files ✅
 
-- Run `export_from_kc_industries.py` to extract pathway and institution data.
-- Create the CIP → pathway family mapping (`pathway_families.yaml`).
-- Author PREP-KC editorial content: pathway summaries, caution notes, county notes, support tag definitions.
-- Create `employer_context.yaml` from geocoded employer data.
-- Create `glossary.yaml` from the Student Glossary document.
+- ~~Run `export_from_kc_industries.py` to extract pathway and institution data.~~
+- ~~Create the CIP → pathway family mapping (`pathway_families.yaml`).~~
+- ~~Author PREP-KC editorial content: pathway summaries, caution notes, county notes, support tag definitions.~~
+- ~~Create `employer_context.yaml` from geocoded employer data.~~
+- ~~Create `glossary.yaml` from the Student Glossary document.~~
+- ~~Added `additional_fields` (9 unmapped CIP areas) as browsable student data.~~
 
 ### Epic B2 — Full data pipelines (post-v1)
 
@@ -91,8 +92,8 @@
 
 | Epic | Done means… |
 |------|------------|
-| A | Local app boots, base layout works, and users can explore or enter a code. |
-| B1 | YAML files exist, load without error, and pathway summaries are readable. |
+| A | ~~Local app boots, base layout works, and users can explore or enter a code.~~ **Done.** |
+| B1 | ~~YAML files exist, load without error, and pathway summaries are readable.~~ **Done.** |
 | C | Users can complete Screen 1 and data persists (for code-based users). |
 | D | Users can re-rank pathways with barrier/support tagging and saved reasoning. |
 | E | Users can select launch points and bridge roles filtered by pathway. |

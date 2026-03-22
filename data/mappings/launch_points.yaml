@@ -1,0 +1,224 @@
+# Launch points — institutions and first-step options by pathway (Screen 3).
+#
+# Source: kc-industries IPEDS/Scorecard data + PREP-KC authored content.
+# Students see these after choosing top pathways on Screens 1 and 2.
+
+pathways:
+  - id: healthcare
+    launch_points:
+      - institution: Metropolitan Community College (MCC)
+        archetype: Open-access community college
+        level: 2-year
+        pell_note: High Pell share — strong financial access.
+        strongest_programs:
+          - Nursing (RN)
+          - Health Information Technology
+          - Respiratory Therapy
+        launch_reason: >
+          Open admission, affordable, and close to Hickman Mills.
+          Nursing program has direct transfer pathways to UMKC and Research College.
+        first_step_type: Certificate or Associate degree
+        bridge_role: Certified Nursing Assistant (CNA) — can work while completing RN
+        watch_out: Nursing program is competitive; waitlists are common.
+
+      - institution: Johnson County Community College (JCCC)
+        archetype: Open-access community college
+        level: 2-year
+        pell_note: Moderate Pell share — accessible but slightly less than MCC.
+        strongest_programs:
+          - Nursing (RN)
+          - Emergency Medical Services
+          - Dental Hygiene
+        launch_reason: >
+          Strong health programs with modern labs. Good transfer agreements
+          with KU Medical Center.
+        first_step_type: Associate degree
+        bridge_role: EMT — can certify quickly and work while studying
+        watch_out: Located in Overland Park; commute from Hickman Mills is 30+ minutes.
+
+      - institution: Research College of Nursing
+        archetype: Niche health provider
+        level: 4-year
+        pell_note: Moderate Pell share.
+        strongest_programs:
+          - Bachelor of Science in Nursing (BSN)
+        launch_reason: >
+          Clinicals at Research Medical Center (on campus). Small cohort
+          model with high NCLEX pass rates.
+        first_step_type: Bachelor's degree
+        bridge_role: Patient Care Technician — entry role while completing BSN
+        watch_out: Higher tuition than public options; limited to nursing only.
+
+  - id: business
+    launch_points:
+      - institution: Metropolitan Community College (MCC)
+        archetype: Open-access community college
+        level: 2-year
+        pell_note: High Pell share.
+        strongest_programs:
+          - Business Administration
+          - Accounting
+          - Office Administration
+        launch_reason: >
+          Affordable entry point with transfer pathways to UMKC and
+          other 4-year business schools.
+        first_step_type: Associate degree
+        bridge_role: Administrative Assistant or Bookkeeping — can work while completing degree
+        watch_out: Business transfer pathways require careful course selection.
+
+      - institution: University of Missouri-Kansas City (UMKC)
+        archetype: Urban research university
+        level: 4-year
+        pell_note: Moderate Pell share.
+        strongest_programs:
+          - Finance
+          - Accounting
+          - Marketing
+          - Entrepreneurship
+        launch_reason: >
+          AACSB-accredited business school in Kansas City proper.
+          Strong employer connections for internships.
+        first_step_type: Bachelor's degree
+        bridge_role: Bank teller or retail management trainee
+        watch_out: Selective admission for some business programs; higher cost than community college.
+
+  - id: manufacturing
+    launch_points:
+      - institution: Metropolitan Community College (MCC)
+        archetype: Open-access community college
+        level: 2-year
+        pell_note: High Pell share.
+        strongest_programs:
+          - Welding Technology
+          - Industrial Maintenance
+          - HVAC Technology
+        launch_reason: >
+          Hands-on programs with industry certifications. Short completion
+          times for many certificate programs.
+        first_step_type: Certificate (often under 1 year)
+        bridge_role: Welder helper or maintenance trainee — can enter quickly
+        watch_out: Some programs have limited seats; equipment access is first-come.
+
+      - institution: Herndon Career Center
+        archetype: Area career/technical center
+        level: Certificate
+        pell_note: Low cost — district-supported.
+        strongest_programs:
+          - Construction Technology
+          - Auto Technology
+          - Precision Machining
+        launch_reason: >
+          Located near Hickman Mills. Direct to employment in skilled
+          trades without needing to transfer.
+        first_step_type: Industry certification
+        bridge_role: Apprentice or shop helper
+        watch_out: Limited to high school students or recent graduates in some programs.
+
+  - id: logistics
+    launch_points:
+      - institution: Metropolitan Community College (MCC)
+        archetype: Open-access community college
+        level: 2-year
+        pell_note: High Pell share.
+        strongest_programs:
+          - Supply Chain Management
+          - CDL Training (commercial driving)
+        launch_reason: >
+          One of the few formal logistics programs in the metro.
+          CDL training can lead to immediate employment.
+        first_step_type: Certificate or CDL
+        bridge_role: Warehouse associate or delivery driver
+        watch_out: CDL requires age 21 for interstate; warehouse entry roles have lower wages.
+
+  - id: tech
+    launch_points:
+      - institution: Johnson County Community College (JCCC)
+        archetype: Open-access community college
+        level: 2-year
+        pell_note: Moderate Pell share.
+        strongest_programs:
+          - Cybersecurity
+          - Web Development
+          - Networking & Systems Administration
+        launch_reason: >
+          Strong IT certifications (CompTIA, Cisco) available alongside
+          degree programs. Good industry connections.
+        first_step_type: Associate degree or certificate
+        bridge_role: Help desk technician — entry IT role while building skills
+        watch_out: Olathe/Overland Park location; commute from Hickman Mills.
+
+      - institution: University of Missouri-Kansas City (UMKC)
+        archetype: Urban research university
+        level: 4-year
+        pell_note: Moderate Pell share.
+        strongest_programs:
+          - Computer Science
+          - Information Technology
+        launch_reason: >
+          Bachelor's degree carries weight with KC tech employers.
+          Located in Kansas City — accessible.
+        first_step_type: Bachelor's degree
+        bridge_role: Intern or student worker in campus IT
+        watch_out: CS program can be competitive; math prerequisites are a common barrier.
+
+  - id: education
+    launch_points:
+      - institution: University of Missouri-Kansas City (UMKC)
+        archetype: Urban research university
+        level: 4-year
+        pell_note: Moderate Pell share.
+        strongest_programs:
+          - Elementary Education
+          - Secondary Education
+          - Special Education
+        launch_reason: >
+          Strong teacher prep with student teaching placements in
+          KC metro districts including Hickman Mills.
+        first_step_type: Bachelor's degree
+        bridge_role: Paraprofessional or substitute teacher — can work in schools while studying
+        watch_out: Licensure exams (MoGEA, Praxis) add cost and time.
+
+      - institution: University of Central Missouri (UCM-Lee's Summit)
+        archetype: Regional state university (satellite campus)
+        level: 4-year
+        pell_note: Moderate to high Pell share.
+        strongest_programs:
+          - Elementary Education
+          - Career and Technical Education
+        launch_reason: >
+          Lee's Summit campus is close to Hickman Mills.
+          Strong education program with good pass rates.
+        first_step_type: Bachelor's degree
+        bridge_role: After-school program aide or tutor
+        watch_out: Satellite campus has limited course selection; some classes may be online.
+
+  - id: law_public
+    launch_points:
+      - institution: Metropolitan Community College (MCC)
+        archetype: Open-access community college
+        level: 2-year
+        pell_note: High Pell share.
+        strongest_programs:
+          - Criminal Justice
+          - Social Work (pre-transfer)
+          - Paralegal Studies
+        launch_reason: >
+          Affordable entry into public service fields.
+          Transfer pathways to UMKC for bachelor's completion.
+        first_step_type: Associate degree
+        bridge_role: Security officer or community outreach worker
+        watch_out: Law enforcement and fire require separate academy training after degree.
+
+      - institution: Park University
+        archetype: Private nonprofit (military-connected)
+        level: 4-year
+        pell_note: High Pell share — strong access focus.
+        strongest_programs:
+          - Criminal Justice Administration
+          - Public Administration
+        launch_reason: >
+          Flexible scheduling (evening, online, accelerated).
+          Strong presence with military and working adult students.
+        first_step_type: Bachelor's degree
+        bridge_role: Corrections officer or municipal clerk
+        watch_out: Private tuition is higher; confirm financial aid package carefully.

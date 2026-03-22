@@ -1,0 +1,32 @@
+# Plain-language label mapping for technical fields.
+#
+# When the app displays data from the dataset, use these labels
+# instead of the raw column names.
+#
+# Source: Application Build and Data Capture Specification.
+
+labels:
+  linked_occupation_count: How many kinds of jobs connect to this pathway
+  linked_local_median_wage: Typical wage signal
+  linked_local_employment: How many people work in this area
+  linked_local_lq: How concentrated this pathway is locally
+  linked_projected_growth_pct: How fast demand is expected to grow
+  linked_projected_openings_k: How many job openings are expected each year
+  earnings_wage_ratio: How program earnings compare to local wages
+  opportunity_category: Overall opportunity level
+  median_earnings_1yr: What graduates earn one year after finishing
+  median_earnings_4yr: What graduates earn four years after finishing
+  completions: How many students finished this program recently
+  cohort_count: How many students started this program recently
+  institution: School or training provider name
+  program_name: What the program is called
+  program_area: Which subject area the program belongs to
+  award_level: Type of credential (certificate, associate, bachelor's, etc.)
+  cip_code: Program classification code
+  sector: What type of institution this is
+  city: Where this institution is located
+  current_scale: How big this pathway already is in the region
+  wage_signal: Whether wages look strong, moderate, or lower
+  demand_signal: Whether future demand looks strong, moderate, or lower
+  county_fit_summary: How well this pathway fits the local area
+  caution_note: Something to think carefully about before choosing this pathway

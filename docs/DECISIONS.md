@@ -78,6 +78,16 @@ The app is already reusable by design since anyone can explore anonymously. For 
 
 ---
 
+### D8. Unmapped CIP Program Visibility
+
+**Decision:** Show unmapped CIP areas as browsable "Additional Fields of Study."
+
+Programs in CIP areas not mapped to the 7 pathway families (Psychology, Visual Arts, Culinary, Communication, Liberal Arts, Recreation, Social Sciences, Theology, Agriculture — ~112 programs total) are surfaced to students as an "Additional Fields" section. Each field has a student-facing description, program count, and `related_pathways` links back to the 7 families. A `visible` flag lets PREP-KC hide individual fields (e.g., Theology is hidden by default).
+
+**Rationale:** Students should see the full landscape of what's available, not just the 7 focus pathways. Hiding 112 programs (25% of the dataset) would give an incomplete picture. The `related_pathways` links help students understand how these areas connect back to the main pathways.
+
+---
+
 ## Open
 
 *No open decisions remain at this time. New decisions should be added here as they arise during development.*

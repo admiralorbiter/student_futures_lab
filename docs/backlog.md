@@ -19,41 +19,27 @@
 |----------|------|--------|------|
 | Now | Build | Done | Initialize Flask repo, config, templates, and static folders. |
 | Now | Build | Done | Set up SQLite database and response model (students + responses tables). |
-| Now | Data | Not started | Run `export_from_kc_industries.py` to seed initial YAML files. |
-| Now | Content | Not started | Author `pathway_families.yaml` — map CIP program areas to 7 pathway families. |
-| Now | Content | Not started | Translate student packet labels into UI copy. |
-| Now | Content | Not started | Author `pathway_summaries.yaml` with plain-language signals from data. |
 | Now | Build | Done | Create screen stub templates for all 5 screens with navigation. |
-| Now | QA | Not started | Create mock YAML data so screens can be built before full data curation. |
+| Now | Data | Done | Author `pathway_families.yaml` — map CIP program areas to 7 pathway families + additional fields. |
+| Now | Content | Done | Translate student packet labels into UI copy (`plain_language_labels.yaml`). |
+| Now | Content | Done | Author `pathway_summaries.yaml` with plain-language signals from data. |
+| Now | Content | Done | Author `support_tags.yaml`, `county_notes.yaml`, `employer_context.yaml`, `launch_points.yaml`, `glossary.yaml`. |
+| Now | QA | Done | All YAML files load and are accessible via `PathwayService`. |
 
 ## 3. Screen-by-screen
 
 | Priority | Type | Status | Task |
 |----------|------|--------|------|
-| Now | Build | Not started | Create Screen 1 layout and cards for seven pathways (loads from YAML). |
+| Now | Build | Not started | Create Screen 1 layout and cards for seven pathways + additional fields (loads from YAML). |
 | Now | Build | Not started | Add form handling for criteria ranking, pathway buckets, and confidence. |
 | Now | QA | Not started | Verify Screen 1 labels match classroom packet language. |
 | Soon | Build | Not started | Create Screen 2 comparison layout for top pathways only. |
-| Soon | Content | Not started | Finalize barrier and support tag definitions in `support_tags.yaml`. |
-| Soon | Content | Not started | Author `county_notes.yaml` for Hickman Mills access context. |
-| Soon | Content | Not started | Create `employer_context.yaml` from kc-industries geocoded employers. |
 | Soon | Build | Not started | Persist revised ranking and what-changed notes (for code-based users). |
 | Soon | Build | Not started | Create Screen 3 institution filter by pathway. |
-| Soon | Data | Not started | Author `launch_points.yaml` — pathway-to-institution mapping with reasons. |
 | Soon | Build | Not started | Create Screen 4 reflection form with save and edit. |
 | Soon | Build | Not started | Create Screen 5 recommendation builder with prefilled evidence. |
 
-## 4. Data curation
-
-| Priority | Type | Status | Task |
-|----------|------|--------|------|
-| Now | Data | Not started | Write `export_from_kc_industries.py` to query kc-industries DB and produce seed YAML. |
-| Now | Content | Not started | Author pathway summaries, caution notes, and county notes in YAML. |
-| Now | Content | Not started | Extract glossary terms from Student Glossary doc into `glossary.yaml`. |
-| Soon | Content | Not started | Author launch-point reasons and bridge role descriptions. |
-| Soon | Data | Not started | Extract plain-language label mapping from App Spec into `plain_language_labels.yaml`. |
-
-## 5. Polish and QA
+## 4. Polish and QA
 
 | Priority | Type | Status | Task |
 |----------|------|--------|------|
@@ -62,7 +48,7 @@
 | Later | QA | Not started | Run full classroom rehearsal with mock data. |
 | Later | QA | Not started | Test print/PDF layout from real entries. |
 
-## 6. Post-v1
+## 5. Post-v1
 
 | Priority | Type | Status | Task |
 |----------|------|--------|------|
@@ -72,7 +58,7 @@
 | Later | Build | Not started | Add interactive employer/location map layer. |
 | Later | Build | Not started | Add JSON export for downstream analysis. |
 
-## 7. Suggested work rhythm
+## 6. Suggested work rhythm
 
 1. Build the smallest slice that can be clicked through.
 2. Seed it with mock YAML data if the real curation is not ready.

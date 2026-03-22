@@ -19,6 +19,16 @@ def create_app(config_class=Config):
     # Initialize extensions
     db.init_app(app)
 
+    # Initialize pathway data service
+    from .services.pathway_service import pathway_service
+
+    pathway_service.init_app(app)
+
+    # Make pathway_service available in all templates
+    @app.context_processor
+    def inject_pathway_service():
+        return dict(pathway_service=pathway_service)
+
     # Register blueprints
     from .blueprints.main import bp as main_bp
 

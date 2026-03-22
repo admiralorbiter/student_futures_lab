@@ -1,0 +1,99 @@
+# Barrier and support tag definitions for Screen 2.
+#
+# Students select tags that describe what could help or hinder
+# access to a pathway from Hickman Mills.
+#
+# Source: PREP-KC authored content, informed by App Spec.
+
+barriers:
+  - id: transportation
+    name: Transportation / Commute
+    definition: >
+      Getting to the pathway, training site, or workplace is the main challenge.
+      Long commutes, limited public transit, or no reliable car access.
+
+  - id: cost
+    name: Cost / Affordability
+    definition: >
+      The pathway or start point may be too expensive without financial support.
+      Tuition, tools, certifications, or unpaid training hours add up.
+
+  - id: schedule
+    name: Schedule / Time
+    definition: >
+      A student would struggle to fit the pathway around school, work,
+      or family responsibilities. Night classes, long clinicals, or
+      rigid schedules make it harder.
+
+  - id: information
+    name: Information / Awareness
+    definition: >
+      Students may not know the pathway exists or may not understand
+      how to enter it. Lack of role models, unclear steps, or
+      missing information about the field.
+
+  - id: confidence
+    name: Confidence / Belonging
+    definition: >
+      The pathway may feel hard to picture or socially distant from
+      who the student sees themselves as. Representation, culture,
+      or stereotype concerns.
+
+  - id: prerequisites
+    name: Prerequisites / Selectivity
+    definition: >
+      Grades, tests, prerequisites, or competitive entry rules make
+      the path harder to access. GPA thresholds, entrance exams,
+      or limited program capacity.
+
+  - id: wbl_access
+    name: Work-Based Learning Access
+    definition: >
+      Internships, clinical placements, apprenticeships, or employer openings
+      may be limited near Hickman Mills. Competitive slots or
+      geographic barriers to work-based learning.
+
+supports:
+  - id: advising
+    name: Advising / Navigation
+    definition: >
+      Students need someone to help them map steps, applications,
+      and transitions. A counselor, mentor, or navigator who knows
+      the pathway and the local landscape.
+
+  - id: financial_aid
+    name: Financial Aid / Scholarships
+    definition: >
+      Pell Grants, scholarships, employer tuition programs, or
+      other funding that makes the pathway affordable.
+
+  - id: transportation_support
+    name: Transportation Help
+    definition: >
+      Bus passes, ride-share programs, car access support, or
+      choosing programs with remote/hybrid options.
+
+  - id: mentorship
+    name: Mentorship / Role Models
+    definition: >
+      Connecting with someone who has been through the pathway
+      and can share realistic advice and encouragement.
+
+  - id: bridge_programs
+    name: Bridge Programs / On-Ramps
+    definition: >
+      Pre-apprenticeships, dual enrollment, summer bridge courses,
+      or certificate-to-degree ladders that help students get started
+      without going "all in" immediately.
+
+  - id: employer_partnerships
+    name: Employer Partnerships
+    definition: >
+      Employers who actively recruit from the area, offer paid
+      internships, or have earn-and-learn programs.
+
+  - id: flexible_scheduling
+    name: Flexible Scheduling
+    definition: >
+      Evening classes, weekend programs, online options, or
+      self-paced formats that work around students' lives.

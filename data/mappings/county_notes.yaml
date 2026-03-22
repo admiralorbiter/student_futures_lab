@@ -1,0 +1,111 @@
+# County and access notes for the Hickman Mills lens (Screen 2).
+#
+# These notes add local context for each pathway — what changes
+# when you think about access from the Hickman Mills area specifically.
+#
+# Source: PREP-KC authored, informed by LEHD commute data and local knowledge.
+
+pathways:
+  - id: healthcare
+    transport_note: >
+      Major health systems (Children's Mercy, Truman Medical Center, Saint Luke's)
+      are accessible by bus from Hickman Mills, but clinical rotations may require
+      travel to suburban hospitals with limited transit.
+    local_access_note: >
+      Several nursing and health programs are nearby at MCC-Penn Valley and
+      JCCC, both reachable within 30 minutes. Specialty programs (radiology,
+      respiratory therapy) may have fewer local options.
+    internship_flag: true
+    hickman_mills_note: >
+      Healthcare is one of the most accessible pathways from Hickman Mills.
+      Local hospitals actively recruit, and entry-level clinical roles exist
+      across the metro. Clinical hour requirements can still be a barrier.
+
+  - id: business
+    transport_note: >
+      Most business-sector employers are in Johnson County or downtown Kansas City.
+      Commute from Hickman Mills to southern Johnson County can take 40+ minutes
+      by car, with limited direct bus service.
+    local_access_note: >
+      Business programs are available at most 2-year and 4-year institutions
+      in the area. MCC and JCCC have strong transfer pathways.
+    internship_flag: false
+    hickman_mills_note: >
+      Business roles are spread across the metro, but many corporate offices
+      are in the suburbs. Entry-level admin roles are more locally available
+      than management-track positions.
+
+  - id: manufacturing
+    transport_note: >
+      Manufacturing and construction sites are often in industrial corridors
+      along I-35 and I-70, which may require a car. Some sites near
+      Grandview and Belton are closer to Hickman Mills.
+    local_access_note: >
+      Apprenticeship programs and trade schools (Herndon Career Center,
+      area vo-tech centers) serve the Hickman Mills area. Some union
+      apprenticeships have centralized training locations.
+    internship_flag: true
+    hickman_mills_note: >
+      The Hickman Mills area is closer to industrial employers than many
+      other Kansas City neighborhoods. Skilled trades can be entered with
+      shorter training timelines than many other pathways.
+
+  - id: logistics
+    transport_note: >
+      Major distribution centers are along I-435, I-35, and near KCI
+      airport — distances vary. Some warehousing is near Grandview
+      and south Kansas City, relatively close to Hickman Mills.
+    local_access_note: >
+      CDL programs and logistics certificates are available at several
+      community colleges. Fewer formal degree programs exist compared
+      to healthcare or business.
+    internship_flag: false
+    hickman_mills_note: >
+      KC's logistics infrastructure is a genuine regional strength.
+      Entry-level warehouse roles are accessible, but career ladders
+      into management may require additional education.
+
+  - id: tech
+    transport_note: >
+      Tech employers cluster in Johnson County (Overland Park, Lenexa)
+      and the Crossroads/downtown area. Public transit options from
+      Hickman Mills are limited for the Johnson County locations.
+    local_access_note: >
+      Strong computer science and IT programs exist at UMKC, JCCC, and
+      MCC. Coding bootcamps are also available in the metro but may
+      have higher upfront cost.
+    internship_flag: false
+    hickman_mills_note: >
+      Tech roles offer strong wages but are geographically concentrated
+      in areas that may require a car from Hickman Mills. Remote work
+      options are growing but not guaranteed for entry-level roles.
+
+  - id: education
+    transport_note: >
+      School districts are everywhere — including Hickman Mills, Center,
+      Grandview, and Raytown, all within the immediate area.
+      Teacher prep programs at UMKC and UCM are accessible.
+    local_access_note: >
+      Multiple pathways exist: traditional 4-year education degrees,
+      alternative certification programs, and para-to-teacher pipelines.
+    internship_flag: true
+    hickman_mills_note: >
+      Education is the most locally accessible pathway. Hickman Mills
+      and neighboring districts face persistent teacher shortages and
+      actively recruit. Student teaching can often happen close to home.
+
+  - id: law_public
+    transport_note: >
+      Government and public safety jobs are distributed across jurisdictions.
+      Kansas City PD, Jackson County, and nearby municipal agencies
+      are accessible from Hickman Mills.
+    local_access_note: >
+      Criminal justice and social work programs are available at MCC,
+      UMKC, and Park University. Police and fire academies have their
+      own training pipelines.
+    internship_flag: false
+    hickman_mills_note: >
+      Public service roles are available locally, but some (legal, federal)
+      require advanced degrees or extensive background checks.
+      Community-oriented roles (social work, emergency services)
+      are the most accessible entry points.
