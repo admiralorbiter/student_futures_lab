@@ -55,6 +55,52 @@ def _load_saved_responses(student_code, screen_num):
     return {r.response_key: r.value for r in responses}
 
 
+def _load_cross_screen_responses(student_code, screen_num, key_prefix=None):
+    """Load saved responses from a *different* screen.
+
+    Optionally filter by key prefix (e.g. 'pathway_bucket_').
+    Returns dict of {response_key: value}.
+    """
+    if not student_code:
+        return {}
+    student = Student.query.filter_by(code=student_code).first()
+    if not student:
+        return {}
+    query = Response.query.filter_by(student_id=student.id, screen=screen_num)
+    if key_prefix:
+        query = query.filter(Response.response_key.startswith(key_prefix))
+    return {r.response_key: r.value for r in query.all()}
+
+
+def _get_screen1_top_pathways(student_code):
+    """Return list of pathway IDs the student marked 'strongest' on Screen 1.
+
+    Falls back to all 7 pathway IDs if no saved data exists.
+    Students can override this on Screen 2.
+    """
+    all_ids = ["healthcare", "business", "manufacturing", "logistics",
+               "tech", "education", "law_public"]
+    buckets = _load_cross_screen_responses(student_code, 1, "pathway_bucket_")
+    if not buckets:
+        return all_ids  # No saved data — show all
+
+    strongest = [
+        key.replace("pathway_bucket_", "")
+        for key, val in buckets.items()
+        if val == "strongest"
+    ]
+    # If fewer than 3 strongest, also include "mixed" pathways
+    if len(strongest) < 3:
+        mixed = [
+            key.replace("pathway_bucket_", "")
+            for key, val in buckets.items()
+            if val == "mixed"
+        ]
+        strongest.extend(mixed)
+
+    return strongest[:5] if strongest else all_ids  # Cap at 5, fallback to all
+
+
 def _save_responses(student_code, screen_num, form_data):
     """Save form data as response rows. Upserts by (student, screen, key)."""
     if not student_code:

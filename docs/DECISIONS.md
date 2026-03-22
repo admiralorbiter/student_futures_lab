@@ -125,7 +125,18 @@ A "Quick Stats" bar on each card surfaces aggregate database numbers (program co
 
 ---
 
+### D12. Screen 2 Auto-Select with Override
+
+**Decision:** Screen 2 auto-selects the pathways the student marked "Strongest" on Screen 1, but students can swap pathways in or out.
+
+`_get_screen1_top_pathways()` reads Screen 1 bucket responses and returns the "strongest" IDs. If fewer than 3, it fills in from "mixed." Students see their auto-selection pre-loaded but can change it via toggle controls.
+
+**Rationale:** The student packet says "Only use the top 3 pathways from Step 2." Auto-selecting respects that flow while allowing students who changed their minds to override without going back to Screen 1.
+
+---
+
 ## Open
 
 *No open decisions remain at this time. New decisions should be added here as they arise during development.*
+
 
