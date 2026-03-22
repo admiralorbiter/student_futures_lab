@@ -1517,3 +1517,480 @@ body {
 }
 
 
+
+/* ============================================================
+   Screen 2: Hickman Mills Lens
+   ============================================================ */
+
+/* --- Pathway Selector --- */
+.pathway-selector {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.selector-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.selector-item:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.selector-item.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.selector-checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+  accent-color: var(--color-primary);
+}
+
+.selector-name {
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  flex: 1;
+}
+
+.selector-bucket {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-full);
+  text-transform: capitalize;
+}
+
+.bucket-label-strongest {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.bucket-label-mixed {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.bucket-label-lower {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.selector-hint {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+}
+
+
+/* --- Context Cards --- */
+.context-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.context-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+}
+
+.context-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.context-card-hidden {
+  display: none;
+}
+
+.context-card .card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.context-card .card-title {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.internship-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  background: #dcfce7;
+  color: #166534;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+}
+
+.quick-stats-compact {
+  margin-bottom: var(--space-4);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+}
+
+
+/* --- Context Fields --- */
+.context-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.context-field {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--color-primary);
+}
+
+.context-icon {
+  font-size: var(--text-xl);
+  flex-shrink: 0;
+  line-height: 1.4;
+}
+
+.context-body {
+  flex: 1;
+}
+
+.context-label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-1);
+}
+
+.context-text {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+}
+
+
+/* --- Employer Section --- */
+.employer-section {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.employer-heading {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+
+.employer-list {
+  display: grid;
+  gap: var(--space-2);
+}
+
+@media (min-width: 640px) {
+  .employer-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.employer-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+}
+
+.employer-name {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+
+.employer-meta {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+
+/* --- Assessment Pathway Blocks --- */
+.assess-pathway {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  margin-bottom: var(--space-5);
+  box-shadow: var(--shadow-sm);
+}
+
+.assess-pathway-hidden {
+  display: none;
+}
+
+.assess-pathway-title {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.assess-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+@media (max-width: 639px) {
+  .assess-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* --- Tag Picker --- */
+.tag-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.tag-heading {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+
+.tag-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.tag-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.tag-chip input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.tag-chip:hover {
+  border-color: var(--color-text-muted);
+}
+
+.tag-barrier:has(input:checked) {
+  background: #fef2f2;
+  border-color: #ef4444;
+  color: #991b1b;
+}
+
+.tag-support:has(input:checked) {
+  background: #f0fdf4;
+  border-color: #22c55e;
+  color: #166534;
+}
+
+.tag-text {
+  font-weight: var(--weight-medium);
+}
+
+
+/* --- Assessment Text Fields --- */
+.assess-text-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+@media (max-width: 639px) {
+  .assess-text-fields {
+    grid-template-columns: 1fr;
+  }
+}
+
+.assess-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.assess-field label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+
+.assess-field textarea {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  resize: vertical;
+  min-height: 3.5rem;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.assess-field textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+  background: var(--color-surface);
+}
+
+
+/* ============================================================
+   Responsive — Screen 2
+   ============================================================ */
+@media (max-width: 639px) {
+  .context-card {
+    padding: var(--space-4);
+  }
+
+  .context-field {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .employer-list {
+    grid-template-columns: 1fr;
+  }
+
+  .assess-pathway {
+    padding: var(--space-4);
+  }
+
+  .selector-item {
+    padding: var(--space-2) var(--space-3);
+  }
+}
+
+
+/* ============================================================
+   Chart Components (shared Screens 1 & 2)
+   ============================================================ */
+.chart-details {
+  margin-top: var(--space-4);
+  border-top: 1px solid var(--color-border-light);
+  padding-top: var(--space-3);
+}
+
+.chart-toggle {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-primary);
+  cursor: pointer;
+  padding: var(--space-2) 0;
+  user-select: none;
+  list-style: none;
+}
+
+.chart-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.chart-toggle::before {
+  content: '▶ ';
+  font-size: var(--text-xs);
+  transition: transform var(--transition-fast);
+  display: inline-block;
+}
+
+details.chart-details[open] > .chart-toggle::before {
+  content: '▼ ';
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+}
+
+@media (max-width: 768px) {
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chart-container {
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  min-height: 240px;
+}
+
+.chart-label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+  text-align: center;
+}
+
+
+/* Chart wrapper — explicit height for Chart.js inside <details> */
+.chart-wrapper {
+  position: relative;
+  height: 280px;
+  width: 100%;
+}
+
+.chart-wrapper-donut {
+  height: 260px;
+}
+
+.chart-wrapper canvas {
+  width: 100% !important;
+  height: 100% !important;
+}

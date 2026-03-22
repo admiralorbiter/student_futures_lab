@@ -5,6 +5,8 @@
 {% block head_extra %}
 {# SortableJS for drag-and-drop criteria ranking #}
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>
+{# Chart.js for data visualizations #}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -182,6 +184,26 @@
           <summary class="caution-summary">⚠️ Something to consider</summary>
           <p class="caution-text">{{ pathway.caution_note }}</p>
         </details>
+
+        {# Data Exploration Charts #}
+        {% set pcd = chart_data.get(pathway.id, {}) %}
+        {% if pcd.get('top_occupations') %}
+        <details class="chart-details">
+          <summary class="chart-toggle">📊 Explore the data</summary>
+          <div class="chart-grid">
+            <div class="chart-container">
+              <h4 class="chart-label">💰 Top Occupation Wages</h4>
+              <div class="chart-wrapper"><canvas id="wageChart-{{ pathway.id }}"></canvas></div>
+            </div>
+            {% if pcd.get('credential_breakdown') %}
+            <div class="chart-container">
+              <h4 class="chart-label">🎓 Training Pathways</h4>
+              <div class="chart-wrapper chart-wrapper-donut"><canvas id="credChart-{{ pathway.id }}"></canvas></div>
+            </div>
+            {% endif %}
+          </div>
+        </details>
+        {% endif %}
       </div>
       {% endfor %}
     </div>
@@ -351,6 +373,7 @@
 {# ═══════════════════════════════════════════════ #}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // --- SortableJS for criteria ranking ---
   var sortable = Sortable.create(document.getElementById('criteriaSortable'), {
     handle: '.drag-handle',
     animation: 200,
@@ -358,7 +381,6 @@ document.addEventListener('DOMContentLoaded', function() {
     chosenClass: 'criteria-chosen',
     dragClass: 'criteria-dragging',
     onSort: function() {
-      // Update rank numbers
       var items = document.querySelectorAll('#criteriaSortable .criteria-drag-item');
       var order = [];
       items.forEach(function(item, index) {
@@ -367,6 +389,104 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       document.getElementById('criteriaOrder').value = order.join(',');
     }
+  });
+
+  // --- Chart.js data visualizations (deferred until <details> opens) ---
+  var chartData = {{ chart_data | tojson }};
+  var wageColors = ['#6366f1','#8b5cf6','#a78bfa','#c4b5fd','#7c3aed','#4f46e5','#818cf8','#a5b4fc'];
+  var credColors = {'certificate':'#f59e0b','associate':'#10b981','bachelor':'#6366f1','certification':'#ec4899'};
+  var chartsCreated = {};
+
+  function createChartsForPathway(pid) {
+    if (chartsCreated[pid]) return;
+    chartsCreated[pid] = true;
+    var d = chartData[pid];
+    if (!d) return;
+
+    // Wage bar chart
+    var wageCanvas = document.getElementById('wageChart-' + pid);
+    if (wageCanvas && d.top_occupations && d.top_occupations.length > 0) {
+      var occ = d.top_occupations.slice().reverse();
+      new Chart(wageCanvas, {
+        type: 'bar',
+        data: {
+          labels: occ.map(function(o) { return o.title; }),
+          datasets: [{
+            label: 'Median Wage',
+            data: occ.map(function(o) { return o.wage; }),
+            backgroundColor: wageColors.slice(0, occ.length).reverse(),
+            borderRadius: 4,
+            barThickness: 18
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: function(ctx) { return '$' + ctx.parsed.x.toLocaleString(); }
+              }
+            }
+          },
+          scales: {
+            x: {
+              ticks: { callback: function(v) { return '$' + (v/1000) + 'K'; }, font: { size: 11 } },
+              grid: { display: false }
+            },
+            y: { ticks: { font: { size: 11 } }, grid: { display: false } }
+          }
+        }
+      });
+    }
+
+    // Credential donut chart
+    var credCanvas = document.getElementById('credChart-' + pid);
+    if (credCanvas && d.credential_breakdown) {
+      var labels = Object.keys(d.credential_breakdown);
+      var values = Object.values(d.credential_breakdown);
+      var colors = labels.map(function(l) { return credColors[l] || '#9ca3af'; });
+      new Chart(credCanvas, {
+        type: 'doughnut',
+        data: {
+          labels: labels.map(function(l) { return l.charAt(0).toUpperCase() + l.slice(1); }),
+          datasets: [{ data: values, backgroundColor: colors, borderWidth: 2, borderColor: '#fff' }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom', labels: { font: { size: 12 }, padding: 12 } },
+            tooltip: {
+              callbacks: {
+                label: function(ctx) {
+                  var total = ctx.dataset.data.reduce(function(a,b) { return a+b; }, 0);
+                  var pct = Math.round(ctx.parsed / total * 100);
+                  return ctx.label + ': ' + ctx.parsed + ' (' + pct + '%)';
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+  }
+
+  // Attach toggle listeners to chart details elements
+  document.querySelectorAll('.chart-details').forEach(function(det) {
+    det.addEventListener('toggle', function() {
+      if (det.open) {
+        requestAnimationFrame(function() {
+          var canvas = det.querySelector('canvas');
+          if (canvas) {
+            var pid = canvas.id.split('-').slice(1).join('-');
+            createChartsForPathway(pid);
+          }
+        });
+      }
+    });
   });
 });
 </script>

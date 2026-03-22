@@ -229,6 +229,87 @@ class PathwayService:
         db.close()
         return stats
 
+    def get_pathway_chart_data(self):
+        """Return chart-ready data per pathway for Chart.js visualizations.
+
+        Returns dict keyed by pathway_id with:
+          - top_occupations: top 8 occupations by wage
+          - credential_breakdown: certificate/associate/bachelor counts
+          - growth_leaders: top 8 occupations by projected openings
+          - education_breakdown: education level distribution
+        """
+        db = self._get_db()
+        if not db:
+            return {}
+
+        chart_data = {}
+        for family in self._data.get("pathway_families", {}).get("families", []):
+            pid = family["id"]
+            prefixes = family.get("cip_prefixes", [])
+            if not prefixes:
+                chart_data[pid] = {}
+                continue
+
+            ph = ",".join("?" for _ in prefixes)
+            occ_filter = f"""
+                o.soc_code IN (
+                    SELECT DISTINCT po.soc_code
+                    FROM program_occupations po
+                    JOIN programs p ON po.program_id = p.program_id
+                    WHERE substr(replace(p.cip_code, '.', ''), 1, 2) IN ({ph})
+                )
+            """
+
+            top_occ = db.execute(
+                f"SELECT o.title, o.median_wage, o.projected_growth_pct, o.projected_openings "
+                f"FROM occupations o WHERE {occ_filter} AND o.median_wage IS NOT NULL "
+                f"ORDER BY o.median_wage DESC LIMIT 8",
+                prefixes,
+            ).fetchall()
+
+            cred_rows = db.execute(
+                f"SELECT credential_type, COUNT(*) as cnt FROM programs "
+                f"WHERE substr(replace(cip_code, '.', ''), 1, 2) IN ({ph}) "
+                f"AND credential_type IS NOT NULL GROUP BY credential_type ORDER BY cnt DESC",
+                prefixes,
+            ).fetchall()
+
+            growth_rows = db.execute(
+                f"SELECT o.title, o.projected_growth_pct, o.projected_openings, o.median_wage "
+                f"FROM occupations o WHERE {occ_filter} "
+                f"AND o.projected_openings IS NOT NULL AND o.projected_openings > 0 "
+                f"ORDER BY o.projected_openings DESC LIMIT 8",
+                prefixes,
+            ).fetchall()
+
+            edu_rows = db.execute(
+                f"SELECT COALESCE(o.education_required, 'Not specified') as edu_level, "
+                f"COUNT(*) as cnt FROM occupations o WHERE {occ_filter} "
+                f"GROUP BY edu_level ORDER BY cnt DESC",
+                prefixes,
+            ).fetchall()
+
+            chart_data[pid] = {
+                "top_occupations": [
+                    {"title": r["title"][:40], "wage": int(r["median_wage"]) if r["median_wage"] else 0,
+                     "growth_pct": round(r["projected_growth_pct"], 1) if r["projected_growth_pct"] else 0,
+                     "openings": int(r["projected_openings"]) if r["projected_openings"] else 0}
+                    for r in top_occ
+                ],
+                "credential_breakdown": {r["credential_type"]: r["cnt"] for r in cred_rows},
+                "growth_leaders": [
+                    {"title": r["title"][:40],
+                     "growth_pct": round(r["projected_growth_pct"], 1) if r["projected_growth_pct"] else 0,
+                     "openings": int(r["projected_openings"]) if r["projected_openings"] else 0,
+                     "wage": int(r["median_wage"]) if r["median_wage"] else 0}
+                    for r in growth_rows
+                ],
+                "education_breakdown": {r["edu_level"]: r["cnt"] for r in edu_rows},
+            }
+
+        db.close()
+        return chart_data
+
     def get_programs_by_pathway(self, pathway_id):
         """Return all programs in a pathway, with earnings data."""
         db = self._get_db()

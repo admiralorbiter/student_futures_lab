@@ -184,6 +184,29 @@ def screen(screen_num):
         extra["pathways"] = pathway_service.get_pathway_summaries()
         extra["additional_fields"] = pathway_service.get_additional_fields()
         extra["pathway_stats"] = pathway_service.get_pathway_stats()
+        extra["chart_data"] = pathway_service.get_pathway_chart_data()
+
+    elif screen_num == 2:
+        all_pathways = pathway_service.get_pathway_summaries()
+        top_ids = _get_screen1_top_pathways(student_code)
+        # Build per-pathway context dicts
+        county_notes = {}
+        employers = {}
+        for p in all_pathways:
+            county_notes[p["id"]] = pathway_service.get_county_notes(p["id"]) or {}
+            employers[p["id"]] = pathway_service.get_employers(p["id"])
+
+        extra["pathways"] = all_pathways
+        extra["top_pathway_ids"] = top_ids
+        extra["county_notes"] = county_notes
+        extra["employers"] = employers
+        extra["support_tags"] = pathway_service.get_support_tags()
+        extra["pathway_stats"] = pathway_service.get_pathway_stats()
+        extra["chart_data"] = pathway_service.get_pathway_chart_data()
+        # Pass Screen 1 buckets so template can show "(Strongest)", "(Mixed)", etc.
+        extra["screen1_buckets"] = _load_cross_screen_responses(
+            student_code, 1, "pathway_bucket_"
+        )
 
     return render_template(
         f"screens/screen_{screen_num}.html",

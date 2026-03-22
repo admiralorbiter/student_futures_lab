@@ -1,12 +1,450 @@
-{% extends "screens/screen_1.html" %}
+{% extends "base.html" %}
 
-{% block screen_content %}
-<div class="placeholder-content">
-  <div class="placeholder-icon">🔍</div>
-  <h2 class="placeholder-title">Coming Soon</h2>
-  <p class="placeholder-text">
-    This screen will help you apply a Hickman Mills lens — revealing transportation, 
-    access, local employers, and support context for your top pathways.
-  </p>
+{% block title %}{{ screen.title }} — Student Futures Lab{% endblock %}
+{% block head_extra %}
+{# Chart.js for data visualizations #}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="screen-header">
+  <span class="screen-eyebrow">Screen {{ screen_num }} of 5</span>
+  <h1 class="screen-title">{{ screen.title }}</h1>
+  <p class="screen-question">{{ screen.question }}</p>
 </div>
+
+<form method="POST" action="{{ url_for('main.screen_submit', screen_num=2) }}" id="screen2Form">
+
+  {# ═══════════════════════════════════════════════ #}
+  {# PATHWAY SELECTION — auto-selected from Screen 1 #}
+  {# ═══════════════════════════════════════════════ #}
+  <section class="screen-section" id="pathway-selection">
+    <div class="section-header">
+      <span class="section-step">Step 1</span>
+      <h2 class="section-title">Which pathways are you examining?</h2>
+      <p class="section-subtitle">
+        Based on your Screen 1 ratings, we've pre-selected your strongest pathways.
+        You can toggle any pathway on or off — the context cards below will update.
+      </p>
+    </div>
+
+    <div class="pathway-selector" id="pathwaySelector">
+      {% for pathway in pathways %}
+      {% set bucket = screen1_buckets.get('pathway_bucket_' ~ pathway.id, '') %}
+      {% set is_selected = saved.get('selected_' ~ pathway.id, '') %}
+      {% set pre_selected = pathway.id in top_pathway_ids %}
+      {% set checked = is_selected == '1' if is_selected else pre_selected %}
+      <label class="selector-item {% if checked %}selected{% endif %}" data-pathway="{{ pathway.id }}">
+        <input type="checkbox" name="selected_{{ pathway.id }}" value="1"
+          {% if checked %}checked{% endif %}
+          class="selector-checkbox">
+        <span class="selector-name">{{ pathway.name }}</span>
+        {% if bucket %}
+        <span class="selector-bucket bucket-label-{{ bucket }}">{{ bucket|capitalize }}</span>
+        {% endif %}
+      </label>
+      {% endfor %}
+    </div>
+    <p class="selector-hint">💡 Select 3–5 pathways to examine under the Hickman Mills lens.</p>
+  </section>
+
+  {# ═══════════════════════════════════════════════ #}
+  {# EXPLORE: Hickman Mills context cards             #}
+  {# ═══════════════════════════════════════════════ #}
+  <section class="screen-section" id="step2-explore">
+    <div class="section-header">
+      <span class="section-step">Step 2 — Explore</span>
+      <h2 class="section-title">What changes for Hickman Mills?</h2>
+      <p class="section-subtitle">
+        A pathway can look strong in Kansas City overall and still be harder to reach
+        from where students live. Read through the local context for each pathway.
+      </p>
+    </div>
+
+    <div class="context-cards" id="contextCards">
+      {% for pathway in pathways %}
+      {% set cn = county_notes.get(pathway.id, {}) %}
+      {% set emps = employers.get(pathway.id, []) %}
+      {% set stats = pathway_stats.get(pathway.id, {}) %}
+      {% set bucket = screen1_buckets.get('pathway_bucket_' ~ pathway.id, '') %}
+      {% set pre_selected = pathway.id in top_pathway_ids %}
+      {% set is_selected = saved.get('selected_' ~ pathway.id, '') %}
+      {% set checked = is_selected == '1' if is_selected else pre_selected %}
+      <div class="context-card {% if not checked %}context-card-hidden{% endif %}" id="context-{{ pathway.id }}" data-pathway="{{ pathway.id }}">
+        <div class="card-header">
+          <h3 class="card-title">{{ pathway.name }}</h3>
+          {% if cn.get('internship_flag') %}
+          <span class="internship-badge" title="Internship or work-based learning available nearby">🎓 WBL Available</span>
+          {% endif %}
+        </div>
+
+        {# Quick stats reminder #}
+        {% if stats.get('program_count', 0) > 0 %}
+        <div class="quick-stats quick-stats-compact">
+          <div class="stat-item">
+            <span class="stat-icon">📋</span>
+            <span class="stat-value">{{ stats.program_count }}</span>
+            <span class="stat-label">programs</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-icon">🏫</span>
+            <span class="stat-value">{{ stats.institution_count }}</span>
+            <span class="stat-label">schools</span>
+          </div>
+          {% if stats.wage_min and stats.wage_max %}
+          <div class="stat-item">
+            <span class="stat-icon">💰</span>
+            <span class="stat-value">${{ "{:,}".format(stats.wage_min // 1000) }}K–${{ "{:,}".format(stats.wage_max // 1000) }}K</span>
+            <span class="stat-label">wage range</span>
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
+
+        {# Context fields #}
+        <div class="context-fields">
+          {% if cn.get('transport_note') %}
+          <div class="context-field">
+            <span class="context-icon">🚌</span>
+            <div class="context-body">
+              <span class="context-label">Transportation</span>
+              <p class="context-text">{{ cn.transport_note }}</p>
+            </div>
+          </div>
+          {% endif %}
+
+          {% if cn.get('local_access_note') %}
+          <div class="context-field">
+            <span class="context-icon">🏫</span>
+            <div class="context-body">
+              <span class="context-label">Local Access</span>
+              <p class="context-text">{{ cn.local_access_note }}</p>
+            </div>
+          </div>
+          {% endif %}
+
+          {% if cn.get('hickman_mills_note') %}
+          <div class="context-field">
+            <span class="context-icon">🏠</span>
+            <div class="context-body">
+              <span class="context-label">Hickman Mills Fit</span>
+              <p class="context-text">{{ cn.hickman_mills_note }}</p>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+
+        {# Employers #}
+        {% if emps %}
+        <div class="employer-section">
+          <h4 class="employer-heading">🏢 Major Employers Nearby</h4>
+          <div class="employer-list">
+            {% for emp in emps %}
+            <div class="employer-item">
+              <span class="employer-name">{{ emp.name }}</span>
+              <span class="employer-meta">{{ emp.location }} · {{ emp.sector }}</span>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+        {# Data Exploration Charts #}
+        {% set pcd = chart_data.get(pathway.id, {}) %}
+        {% if pcd.get('growth_leaders') %}
+        <details class="chart-details">
+          <summary class="chart-toggle">📊 Dig into the data</summary>
+          <div class="chart-grid">
+            <div class="chart-container">
+              <h4 class="chart-label">📈 Where the Jobs Are (Projected Openings)</h4>
+              <div class="chart-wrapper"><canvas id="growthChart-{{ pathway.id }}"></canvas></div>
+            </div>
+            {% if pcd.get('education_breakdown') %}
+            <div class="chart-container">
+              <h4 class="chart-label">🎓 Education Required</h4>
+              <div class="chart-wrapper chart-wrapper-donut"><canvas id="eduChart-{{ pathway.id }}"></canvas></div>
+            </div>
+            {% endif %}
+          </div>
+        </details>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  {# ═══════════════════════════════════════════════ #}
+  {# ASSESS: Barrier/support tagging                 #}
+  {# ═══════════════════════════════════════════════ #}
+  <section class="screen-section" id="step2-assess">
+    <div class="section-header">
+      <span class="section-step">Step 2 — Assess</span>
+      <h2 class="section-title">Tag barriers and supports for each pathway</h2>
+      <p class="section-subtitle">
+        For each selected pathway, select the barriers that could get in the way
+        and the supports that would help most. Then note what still looks strong
+        and what concerns you.
+      </p>
+    </div>
+
+    {% for pathway in pathways %}
+    {% set pre_selected = pathway.id in top_pathway_ids %}
+    {% set is_selected = saved.get('selected_' ~ pathway.id, '') %}
+    {% set checked = is_selected == '1' if is_selected else pre_selected %}
+    <div class="assess-pathway {% if not checked %}assess-pathway-hidden{% endif %}" id="assess-{{ pathway.id }}" data-pathway="{{ pathway.id }}">
+      <h3 class="assess-pathway-title">
+        <a href="#context-{{ pathway.id }}" class="pathway-jumpback" title="Jump to context card">↑</a>
+        {{ pathway.name }}
+      </h3>
+
+      <div class="assess-columns">
+        {# Barriers #}
+        <div class="tag-section">
+          <h4 class="tag-heading">⚠️ What could get in the way?</h4>
+          <div class="tag-picker" data-type="barrier" data-pathway="{{ pathway.id }}">
+            {% for barrier in support_tags.barriers %}
+            {% set tag_key = 'barrier_' ~ pathway.id ~ '_' ~ barrier.id %}
+            <label class="tag-chip tag-barrier" title="{{ barrier.definition }}">
+              <input type="checkbox" name="{{ tag_key }}" value="1"
+                {% if saved.get(tag_key) == '1' %}checked{% endif %}>
+              <span class="tag-text">{{ barrier.name }}</span>
+            </label>
+            {% endfor %}
+          </div>
+        </div>
+
+        {# Supports #}
+        <div class="tag-section">
+          <h4 class="tag-heading">💡 What support would help?</h4>
+          <div class="tag-picker" data-type="support" data-pathway="{{ pathway.id }}">
+            {% for support in support_tags.supports %}
+            {% set tag_key = 'support_' ~ pathway.id ~ '_' ~ support.id %}
+            <label class="tag-chip tag-support" title="{{ support.definition }}">
+              <input type="checkbox" name="{{ tag_key }}" value="1"
+                {% if saved.get(tag_key) == '1' %}checked{% endif %}>
+              <span class="tag-text">{{ support.name }}</span>
+            </label>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      {# Text fields #}
+      <div class="assess-text-fields">
+        <div class="assess-field">
+          <label for="still_strong_{{ pathway.id }}">What still looks strong?</label>
+          <textarea name="still_strong_{{ pathway.id }}" id="still_strong_{{ pathway.id }}" rows="2"
+            placeholder="After the Hickman Mills lens, what holds up?">{{ saved.get('still_strong_' ~ pathway.id, '') }}</textarea>
+        </div>
+        <div class="assess-field">
+          <label for="concerns_{{ pathway.id }}">What could get in the way?</label>
+          <textarea name="concerns_{{ pathway.id }}" id="concerns_{{ pathway.id }}" rows="2"
+            placeholder="What's harder to access from Hickman Mills?">{{ saved.get('concerns_' ~ pathway.id, '') }}</textarea>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+
+  {# ═══════════════════════════════════════════════ #}
+  {# REFLECTION                                      #}
+  {# ═══════════════════════════════════════════════ #}
+  <section class="screen-section" id="reflection">
+    <div class="section-header">
+      <h2 class="section-title">Reflection</h2>
+      <p class="section-subtitle">
+        After applying the Hickman Mills lens, capture your revised thinking.
+      </p>
+    </div>
+
+    <div class="reflection-fields">
+      <div class="reflection-field">
+        <label for="top_2_hm">After this filter, our top 2 pathways for Hickman Mills students are …</label>
+        <textarea name="top_2_hm" id="top_2_hm" rows="2"
+          placeholder="Name two pathways and explain why they hold up">{{ saved.get('top_2_hm', '') }}</textarea>
+      </div>
+      <div class="reflection-field">
+        <label for="cautious_pathway">The pathway we would now treat more cautiously is … because …</label>
+        <textarea name="cautious_pathway" id="cautious_pathway" rows="2"
+          placeholder="Name the pathway and what changed your thinking">{{ saved.get('cautious_pathway', '') }}</textarea>
+      </div>
+    </div>
+  </section>
+
+  {# ═══════════════════════════════════════════════ #}
+  {# SUBMIT                                          #}
+  {# ═══════════════════════════════════════════════ #}
+  <div class="screen-submit">
+    <button type="submit" class="btn btn-primary btn-lg" id="saveScreen2">
+      Save & Continue to Launch Points →
+    </button>
+    {% if not student_code %}
+    <p class="save-hint">
+      💡 Your answers won't be saved permanently since you're exploring anonymously.
+      <a href="{{ url_for('main.landing') }}">Enter a code</a> to save your progress.
+    </p>
+    {% endif %}
+  </div>
+</form>
+
+<nav class="screen-nav">
+  <a href="{{ url_for('main.screen', screen_num=1) }}" class="btn btn-secondary">
+    <span class="arrow">←</span> Back to Pathway Explorer
+  </a>
+</nav>
+
+{# ═══════════════════════════════════════════════ #}
+{# DYNAMIC SHOW/HIDE FOR PATHWAY SELECTION          #}
+{# ═══════════════════════════════════════════════ #}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // --- Pathway selector show/hide ---
+  var checkboxes = document.querySelectorAll('.selector-checkbox');
+
+  function updateVisibility() {
+    checkboxes.forEach(function(cb) {
+      var pid = cb.name.replace('selected_', '');
+      var contextCard = document.getElementById('context-' + pid);
+      var assessBlock = document.getElementById('assess-' + pid);
+      var label = cb.closest('.selector-item');
+
+      if (cb.checked) {
+        if (contextCard) contextCard.classList.remove('context-card-hidden');
+        if (assessBlock) assessBlock.classList.remove('assess-pathway-hidden');
+        label.classList.add('selected');
+      } else {
+        if (contextCard) contextCard.classList.add('context-card-hidden');
+        if (assessBlock) assessBlock.classList.add('assess-pathway-hidden');
+        label.classList.remove('selected');
+      }
+    });
+  }
+
+  checkboxes.forEach(function(cb) {
+    cb.addEventListener('change', updateVisibility);
+  });
+
+  // --- Chart.js data visualizations (deferred until <details> opens) ---
+  var chartData = {{ chart_data | tojson }};
+  var eduColors = {
+    "No formal educational credential": '#10b981',
+    "High school diploma or equivalent": '#34d399',
+    "Some college, no degree": '#6ee7b7',
+    "Postsecondary nondegree award": '#f59e0b',
+    "Associate's degree": '#8b5cf6',
+    "Bachelor's degree": '#6366f1',
+    "Master's degree": '#4f46e5',
+    "Doctoral or professional degree": '#7c3aed'
+  };
+  var chartsCreated = {};
+
+  function createChartsForPathway(pid) {
+    if (chartsCreated[pid]) return;
+    chartsCreated[pid] = true;
+    var d = chartData[pid];
+    if (!d) return;
+
+    // Growth/Openings bar chart
+    var growthCanvas = document.getElementById('growthChart-' + pid);
+    if (growthCanvas && d.growth_leaders && d.growth_leaders.length > 0) {
+      var gl = d.growth_leaders.slice().reverse();
+      new Chart(growthCanvas, {
+        type: 'bar',
+        data: {
+          labels: gl.map(function(o) { return o.title; }),
+          datasets: [{
+            label: 'Projected Openings',
+            data: gl.map(function(o) { return o.openings; }),
+            backgroundColor: gl.map(function(o) {
+              return o.growth_pct > 5 ? '#10b981' : o.growth_pct > 0 ? '#f59e0b' : '#ef4444';
+            }),
+            borderRadius: 4,
+            barThickness: 18
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: function(ctx) {
+                  var item = gl[ctx.dataIndex];
+                  return ctx.parsed.x.toLocaleString() + ' openings (' + item.growth_pct + '% growth, $' + (item.wage/1000).toFixed(0) + 'K wage)';
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              ticks: { callback: function(v) { return v.toLocaleString(); }, font: { size: 11 } },
+              grid: { display: false },
+              title: { display: true, text: 'Projected Annual Openings', font: { size: 11 } }
+            },
+            y: { ticks: { font: { size: 11 } }, grid: { display: false } }
+          }
+        }
+      });
+    }
+
+    // Education breakdown donut
+    var eduCanvas = document.getElementById('eduChart-' + pid);
+    if (eduCanvas && d.education_breakdown) {
+      var labels = Object.keys(d.education_breakdown);
+      var values = Object.values(d.education_breakdown);
+      var colors = labels.map(function(l) { return eduColors[l] || '#9ca3af'; });
+      var shortLabels = labels.map(function(l) {
+        return l.replace("Doctoral or professional degree", "Doctoral/Prof")
+                .replace("No formal educational credential", "No formal ed")
+                .replace("High school diploma or equivalent", "High school")
+                .replace("Postsecondary nondegree award", "Certificate")
+                .replace("Some college, no degree", "Some college")
+                .replace("Associate's degree", "Associate's")
+                .replace("Bachelor's degree", "Bachelor's")
+                .replace("Master's degree", "Master's");
+      });
+      new Chart(eduCanvas, {
+        type: 'doughnut',
+        data: {
+          labels: shortLabels,
+          datasets: [{ data: values, backgroundColor: colors, borderWidth: 2, borderColor: '#fff' }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 10 } },
+            tooltip: {
+              callbacks: {
+                label: function(ctx) {
+                  var total = ctx.dataset.data.reduce(function(a, b) { return a + b; }, 0);
+                  var pct = Math.round(ctx.parsed / total * 100);
+                  return ctx.label + ': ' + ctx.parsed + ' roles (' + pct + '%)';
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+  }
+
+  // Attach toggle listeners to chart details elements
+  document.querySelectorAll('.chart-details').forEach(function(det) {
+    det.addEventListener('toggle', function() {
+      if (det.open) {
+        requestAnimationFrame(function() {
+          var canvas = det.querySelector('canvas');
+          if (canvas) {
+            var pid = canvas.id.split('-').slice(1).join('-');
+            createChartsForPathway(pid);
+          }
+        });
+      }
+    });
+  });
+});
+</script>
 {% endblock %}
