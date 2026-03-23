@@ -365,6 +365,107 @@ class PathwayService:
             db.close()
             return {}
 
+    def get_bls_county_breakdown(self):
+        """Return employment by county per pathway family.
+
+        Returns dict keyed by county_name, each containing dict of
+        pathway_family -> employment.
+        """
+        db = self._get_db()
+        if not db:
+            return {}
+
+        try:
+            tables = [r[0] for r in db.execute(
+                "SELECT name FROM sqlite_master WHERE type='table'"
+            ).fetchall()]
+            if "bls_employment" not in tables:
+                db.close()
+                return {}
+
+            latest_qtr = db.execute(
+                "SELECT MAX(quarter) FROM bls_employment WHERE quarter > 0"
+            ).fetchone()[0]
+            if not latest_qtr:
+                db.close()
+                return {}
+
+            rows = db.execute("""
+                SELECT county_name, pathway_family,
+                       SUM(employment) as employment,
+                       SUM(establishments) as employers
+                FROM bls_employment
+                WHERE quarter = ?
+                GROUP BY county_name, pathway_family
+            """, (latest_qtr,)).fetchall()
+
+            result = {}
+            for row in rows:
+                county = row["county_name"]
+                if county not in result:
+                    result[county] = {}
+                result[county][row["pathway_family"]] = {
+                    "employment": int(row["employment"]) if row["employment"] else 0,
+                    "employers": int(row["employers"]) if row["employers"] else 0,
+                }
+            db.close()
+            return result
+        except Exception:
+            db.close()
+            return {}
+
+    def get_bls_county_breakdown_for_pathway(self, pathway_id):
+        """Return county-level employment for a single pathway.
+
+        Returns list of dicts: county_name, employment, employers, avg_weekly_wage.
+        """
+        db = self._get_db()
+        if not db:
+            return []
+
+        try:
+            tables = [r[0] for r in db.execute(
+                "SELECT name FROM sqlite_master WHERE type='table'"
+            ).fetchall()]
+            if "bls_employment" not in tables:
+                db.close()
+                return []
+
+            latest_qtr = db.execute(
+                "SELECT MAX(quarter) FROM bls_employment WHERE quarter > 0"
+            ).fetchone()[0]
+            if not latest_qtr:
+                db.close()
+                return []
+
+            rows = db.execute("""
+                SELECT county_name,
+                       SUM(employment) as employment,
+                       SUM(establishments) as employers,
+                       CASE WHEN SUM(employment) > 0
+                           THEN CAST(SUM(employment * avg_weekly_wage) AS REAL) / SUM(employment)
+                           ELSE 0 END as avg_weekly_wage
+                FROM bls_employment
+                WHERE quarter = ? AND pathway_family = ?
+                GROUP BY county_name
+                ORDER BY employment DESC
+            """, (latest_qtr, pathway_id)).fetchall()
+
+            result = [
+                {
+                    "county": r["county_name"],
+                    "employment": int(r["employment"]) if r["employment"] else 0,
+                    "employers": int(r["employers"]) if r["employers"] else 0,
+                    "avg_weekly_wage": int(r["avg_weekly_wage"]) if r["avg_weekly_wage"] else 0,
+                }
+                for r in rows
+            ]
+            db.close()
+            return result
+        except Exception:
+            db.close()
+            return []
+
     def get_pathway_chart_data(self):
         """Return chart-ready data per pathway for Chart.js visualizations.
 

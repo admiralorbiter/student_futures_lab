@@ -1,0 +1,338 @@
+{% extends "base.html" %}
+{% block title %}{{ family.name }} — Data Explorer{% endblock %}
+
+{% block head_extra %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="explore-page">
+  <nav class="explore-breadcrumb">
+    <a href="{{ url_for('explore.hub') }}">📊 Data Explorer</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="{{ url_for('explore.labor_market') }}">KC Labor Market</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>{{ family.name }}</span>
+  </nav>
+
+  {# Pathway tab selector #}
+  <div class="pathway-tabs">
+    {% for f in families %}
+    <a href="{{ url_for('explore.pathway_detail', pathway_id=f.id) }}"
+       class="pathway-tab {% if f.id == family.id %}active{% endif %}">
+      {{ f.name }}
+    </a>
+    {% endfor %}
+  </div>
+
+  <div class="explore-header">
+    <h1 class="explore-title">🔍 {{ family.name }}</h1>
+    {% if pathway %}
+    <p class="explore-subtitle">{{ pathway.description }}</p>
+    {% endif %}
+  </div>
+
+  {# Labor Market Summary #}
+  <div class="overview-stat-cards">
+    {% if bls.get('employers', 0) > 0 %}
+    <div class="overview-stat-card">
+      <div class="overview-stat-value">{{ "{:,}".format(bls.employers) }}</div>
+      <div class="overview-stat-label">Employers</div>
+    </div>
+    {% endif %}
+    {% if bls.get('employment', 0) > 0 %}
+    <div class="overview-stat-card">
+      <div class="overview-stat-value">{{ "{:,}".format(bls.employment) }}</div>
+      <div class="overview-stat-label">Workers</div>
+    </div>
+    {% endif %}
+    {% if bls.get('annual_wage', 0) > 0 %}
+    <div class="overview-stat-card">
+      <div class="overview-stat-value">${{ "{:,}".format(bls.annual_wage) }}</div>
+      <div class="overview-stat-label">Avg Annual Wage</div>
+    </div>
+    {% endif %}
+    {% if proj.get('total_openings', 0) > 0 %}
+    <div class="overview-stat-card">
+      <div class="overview-stat-value">{{ "{:,}".format(proj.total_openings) }}</div>
+      <div class="overview-stat-label">Projected Openings/Yr</div>
+    </div>
+    {% endif %}
+    {% if bls.get('oty_employment_pct_chg', 0) != 0 %}
+    <div class="overview-stat-card">
+      <div class="overview-stat-value {{ 'positive' if bls.oty_employment_pct_chg > 0 else 'negative' }}">
+        {{ "+" if bls.oty_employment_pct_chg > 0 }}{{ bls.oty_employment_pct_chg }}%
+      </div>
+      <div class="overview-stat-label">Hiring Trend (YoY)</div>
+    </div>
+    {% endif %}
+  </div>
+
+  {# Charts #}
+  <div class="chart-grid">
+    {% if chart_data.get('top_occupations') %}
+    <div class="chart-panel chart-panel-wide">
+      <h3 class="chart-title">Top Occupations by Wage</h3>
+      <canvas id="chartTopOcc"></canvas>
+    </div>
+    {% endif %}
+
+    {% if chart_data.get('credential_breakdown') %}
+    <div class="chart-panel">
+      <h3 class="chart-title">Programs by Credential Level</h3>
+      <canvas id="chartCredential"></canvas>
+    </div>
+    {% endif %}
+
+    {% if chart_data.get('growth_leaders') %}
+    <div class="chart-panel">
+      <h3 class="chart-title">Top Occupations by Projected Openings</h3>
+      <canvas id="chartGrowth"></canvas>
+    </div>
+    {% endif %}
+
+    {% if county_data %}
+    <div class="chart-panel">
+      <h3 class="chart-title">Employment by County</h3>
+      <canvas id="chartCounty"></canvas>
+    </div>
+    {% endif %}
+
+    {% if chart_data.get('education_breakdown') %}
+    <div class="chart-panel">
+      <h3 class="chart-title">Education Level Distribution</h3>
+      <canvas id="chartEducation"></canvas>
+    </div>
+    {% endif %}
+  </div>
+
+  {# Projected occupations table #}
+  {% if proj.get('occupations') %}
+  <h2 class="explore-section-title">Projected Occupations (2022–2032)</h2>
+  <div class="explore-table-wrap">
+    <table class="explore-table" id="occTable">
+      <thead>
+        <tr>
+          <th>Occupation</th>
+          <th>Annual Openings</th>
+          <th>Median Wage</th>
+          <th>Growth %</th>
+          <th>Grade</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for occ in proj.occupations %}
+        <tr>
+          <td>{{ occ.title }}</td>
+          <td>{{ "{:,}".format(occ.annual_openings) if occ.annual_openings else '—' }}</td>
+          <td>{{ "$" ~ "{:,}".format(occ.median_wage) if occ.median_wage else '—' }}</td>
+          <td class="{{ 'positive' if occ.get('growth_pct', 0) > 0 else '' }}">
+            {{ occ.growth_pct ~ '%' if occ.growth_pct else '—' }}
+          </td>
+          <td>{{ occ.grade or '—' }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endif %}
+
+  {# County breakdown table #}
+  {% if county_data %}
+  <h2 class="explore-section-title">Employment by County</h2>
+  <div class="explore-table-wrap">
+    <table class="explore-table">
+      <thead>
+        <tr>
+          <th>County</th>
+          <th>Workers</th>
+          <th>Employers</th>
+          <th>Avg Weekly Wage</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for c in county_data %}
+        <tr>
+          <td>{{ c.county }}</td>
+          <td>{{ "{:,}".format(c.employment) }}</td>
+          <td>{{ "{:,}".format(c.employers) }}</td>
+          <td>${{ "{:,}".format(c.avg_weekly_wage) }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endif %}
+
+  <p class="explore-source">
+    Source: BLS QCEW 2025 Q3 + Kansas/Missouri 2022–2032 occupational projections
+  </p>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function() {
+  const COLORS = [
+    '#3b82f6', '#10b981', '#f59e0b', '#8b5cf6',
+    '#ef4444', '#06b6d4', '#ec4899', '#f97316',
+  ];
+  const DONUT_COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#8b5cf6', '#ef4444', '#06b6d4'];
+
+  Chart.defaults.font.family = 'Inter, sans-serif';
+  Chart.defaults.font.size = 12;
+  Chart.defaults.plugins.legend.display = false;
+
+  {% if chart_data.get('top_occupations') %}
+  // Top occupations by wage
+  (function() {
+    const occs = {{ chart_data.top_occupations | tojson }};
+    new Chart(document.getElementById('chartTopOcc'), {
+      type: 'bar',
+      data: {
+        labels: occs.map(o => o.title.length > 30 ? o.title.substring(0, 28) + '…' : o.title),
+        datasets: [{
+          data: occs.map(o => o.wage),
+          backgroundColor: COLORS.slice(0, occs.length),
+          borderRadius: 6,
+          borderSkipped: false,
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          tooltip: { callbacks: { label: ctx => '$' + ctx.raw.toLocaleString() } }
+        },
+        scales: {
+          x: {
+            beginAtZero: true,
+            ticks: { callback: v => '$' + (v >= 1000 ? (v/1000).toFixed(0) + 'K' : v) },
+            grid: { display: false }
+          },
+          y: { ticks: { font: { size: 11 } }, grid: { display: false } }
+        }
+      }
+    });
+  })();
+  {% endif %}
+
+  {% if chart_data.get('credential_breakdown') %}
+  // Credential breakdown (donut)
+  (function() {
+    const cred = {{ chart_data.credential_breakdown | tojson }};
+    const labels = Object.keys(cred);
+    const values = Object.values(cred);
+    new Chart(document.getElementById('chartCredential'), {
+      type: 'doughnut',
+      data: {
+        labels: labels,
+        datasets: [{
+          data: values,
+          backgroundColor: DONUT_COLORS.slice(0, labels.length),
+          borderWidth: 2,
+          borderColor: '#fff',
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: true, position: 'bottom', labels: { boxWidth: 12, padding: 8 } }
+        }
+      }
+    });
+  })();
+  {% endif %}
+
+  {% if chart_data.get('growth_leaders') %}
+  // Growth leaders by openings
+  (function() {
+    const leaders = {{ chart_data.growth_leaders | tojson }};
+    new Chart(document.getElementById('chartGrowth'), {
+      type: 'bar',
+      data: {
+        labels: leaders.map(o => o.title.length > 30 ? o.title.substring(0, 28) + '…' : o.title),
+        datasets: [{
+          data: leaders.map(o => o.openings),
+          backgroundColor: '#10b981',
+          borderRadius: 6,
+          borderSkipped: false,
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: { beginAtZero: true, grid: { display: false } },
+          y: { ticks: { font: { size: 11 } }, grid: { display: false } }
+        }
+      }
+    });
+  })();
+  {% endif %}
+
+  {% if county_data %}
+  // County employment (horizontal bar)
+  (function() {
+    const counties = {{ county_data | tojson }};
+    new Chart(document.getElementById('chartCounty'), {
+      type: 'bar',
+      data: {
+        labels: counties.map(c => c.county),
+        datasets: [{
+          data: counties.map(c => c.employment),
+          backgroundColor: COLORS.slice(0, counties.length),
+          borderRadius: 6,
+          borderSkipped: false,
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: {
+            beginAtZero: true,
+            ticks: { callback: v => v >= 1000 ? (v/1000).toFixed(0) + 'K' : v },
+            grid: { display: false }
+          },
+          y: { grid: { display: false } }
+        }
+      }
+    });
+  })();
+  {% endif %}
+
+  {% if chart_data.get('education_breakdown') %}
+  // Education level (donut)
+  (function() {
+    const edu = {{ chart_data.education_breakdown | tojson }};
+    const labels = Object.keys(edu);
+    const values = Object.values(edu);
+    new Chart(document.getElementById('chartEducation'), {
+      type: 'doughnut',
+      data: {
+        labels: labels,
+        datasets: [{
+          data: values,
+          backgroundColor: DONUT_COLORS.slice(0, labels.length),
+          borderWidth: 2,
+          borderColor: '#fff',
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: true, position: 'bottom', labels: { boxWidth: 12, padding: 8 } }
+        }
+      }
+    });
+  })();
+  {% endif %}
+})();
+</script>
+{% endblock %}

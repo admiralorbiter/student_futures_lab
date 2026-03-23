@@ -34,6 +34,10 @@ def create_app(config_class=Config):
 
     app.register_blueprint(main_bp)
 
+    from .blueprints.explore import bp as explore_bp
+
+    app.register_blueprint(explore_bp)
+
     # Create tables
     with app.app_context():
         db.create_all()

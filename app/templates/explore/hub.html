@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}Data Explorer — Student Futures Lab{% endblock %}
+
+{% block content %}
+<div class="explore-hub">
+  <div class="explore-header">
+    <h1 class="explore-title">📊 Data Explorer</h1>
+    <p class="explore-subtitle">
+      Dive into the data behind KC's career pathways. Explore wages, employment,
+      growth projections, institutions, and occupations across the metro area.
+    </p>
+  </div>
+
+  <div class="explore-cards">
+    <a href="{{ url_for('explore.labor_market') }}" class="explore-card explore-card-labor">
+      <div class="explore-card-icon">📈</div>
+      <h2 class="explore-card-title">KC Labor Market</h2>
+      <p class="explore-card-desc">Employment, wages, and growth across all 7 pathway families</p>
+      <div class="explore-card-stats">
+        <span class="explore-stat">
+          <strong>{{ "{:,}".format(total_workers) }}</strong> workers
+        </span>
+        <span class="explore-stat">
+          <strong>{{ "{:,}".format(total_employers) }}</strong> employers
+        </span>
+      </div>
+    </a>
+
+    <a href="{{ url_for('explore.pathway_detail', pathway_id='healthcare') }}" class="explore-card explore-card-pathway">
+      <div class="explore-card-icon">🔍</div>
+      <h2 class="explore-card-title">Pathway Deep Dive</h2>
+      <p class="explore-card-desc">Drill into a single pathway's occupations, wages, and institutions</p>
+      <div class="explore-card-stats">
+        <span class="explore-stat">
+          <strong>7</strong> pathway families
+        </span>
+        <span class="explore-stat">
+          <strong>{{ "{:,}".format(total_openings) }}</strong> openings/yr
+        </span>
+      </div>
+    </a>
+
+    <div class="explore-card explore-card-inst explore-card-coming">
+      <div class="explore-card-icon">🏫</div>
+      <h2 class="explore-card-title">Institution Explorer</h2>
+      <p class="explore-card-desc">Compare 217 colleges and training programs with IPEDS data</p>
+      <div class="explore-card-stats">
+        <span class="explore-stat">
+          <strong>{{ "{:,}".format(total_programs) }}</strong> programs
+        </span>
+      </div>
+      <span class="coming-soon-badge">Coming Soon</span>
+    </div>
+
+    <div class="explore-card explore-card-occ explore-card-coming">
+      <div class="explore-card-icon">💼</div>
+      <h2 class="explore-card-title">Occupation Outlook</h2>
+      <p class="explore-card-desc">Browse projected growth, wages, and education requirements</p>
+      <div class="explore-card-stats">
+        <span class="explore-stat">
+          <strong>{{ total_occupations }}</strong> occupations tracked
+        </span>
+      </div>
+      <span class="coming-soon-badge">Coming Soon</span>
+    </div>
+  </div>
+
+  <p class="explore-source">
+    Data sources: BLS Quarterly Census of Employment and Wages (QCEW) 2025 Q3,
+    Kansas/Missouri 2022–2032 occupational projections, IPEDS 2022–23.
+  </p>
+</div>
+{% endblock %}
