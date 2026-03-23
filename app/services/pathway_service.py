@@ -314,8 +314,9 @@ class PathwayService:
         """Return chart-ready institution data per pathway for Screen 3.
 
         Returns dict keyed by pathway_id with:
-          - program_by_credential: {institution_name: {credential_type: count}}
+          - credential_breakdown: {credential_type: count}
           - programs_by_institution: [{name, count}]
+          - completions_by_institution: [{name, completions}]  (from IPEDS)
         """
         db = self._get_db()
         if not db:
@@ -354,6 +355,20 @@ class PathwayService:
                 prefixes,
             ).fetchall()
 
+            # Real IPEDS completions per institution (when available)
+            comp_rows = db.execute(
+                f"""SELECT p.institution_name, ip.total_completions
+                    FROM programs p
+                    JOIN institutions i ON p.institution_name = i.name
+                    JOIN ipeds_profiles ip ON i.scorecard_unitid = ip.unitid
+                    WHERE substr(replace(p.cip_code, '.', ''), 1, 2) IN ({ph})
+                    AND ip.total_completions IS NOT NULL
+                    GROUP BY p.institution_name
+                    ORDER BY ip.total_completions DESC
+                    LIMIT 8""",
+                prefixes,
+            ).fetchall()
+
             chart_data[pid] = {
                 "credential_breakdown": {
                     r["credential_type"]: r["cnt"] for r in cred_rows
@@ -361,6 +376,10 @@ class PathwayService:
                 "programs_by_institution": [
                     {"name": r["institution_name"][:35], "count": r["cnt"]}
                     for r in inst_rows
+                ],
+                "completions_by_institution": [
+                    {"name": r["institution_name"][:35], "completions": r["total_completions"]}
+                    for r in comp_rows
                 ],
             }
 

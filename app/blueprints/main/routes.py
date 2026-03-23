@@ -246,12 +246,59 @@ def screen(screen_num):
         extra["screen1_buckets"] = _load_cross_screen_responses(
             student_code, 1, "pathway_bucket_"
         )
-        # Build institution name→ID lookup for detail links
+        # Build institution name→ID and IPEDS lookups
+        # YAML names may include abbreviations: "Metropolitan Community College (MCC)"
+        # DB names may differ: "Metropolitan Community College-Kansas City"
+        # Build lookups by DB name AND by stripping parens for fuzzy matching
+        import re
         all_institutions = pathway_service.get_all_institutions()
         inst_lookup = {}
+        ipeds_lookup = {}
+        # First pass: build DB-name-keyed lookups
+        ipeds_by_db_name = {}
         for inst in all_institutions:
-            inst_lookup[inst["name"].lower()] = inst["institution_id"]
+            name_lower = inst["name"].lower()
+            inst_lookup[name_lower] = inst["institution_id"]
+            unitid = inst.get("scorecard_unitid")
+            if unitid:
+                ipeds = pathway_service.get_ipeds_profile(unitid)
+                if ipeds:
+                    stats = {
+                        "enrollment": ipeds.get("total_enrollment"),
+                        "grad_rate": ipeds.get("graduation_rate"),
+                        "award_rate_6yr": ipeds.get("award_rate_6yr"),
+                        "pell_pct": ipeds.get("pell_grant_pct"),
+                        "completions": ipeds.get("total_completions"),
+                        "size": ipeds.get("institution_size"),
+                        "any_aid_pct": ipeds.get("any_aid_pct"),
+                    }
+                    ipeds_lookup[name_lower] = stats
+                    ipeds_by_db_name[name_lower] = stats
+
+        # Second pass: match YAML launch point names to DB names
+        # Collect all YAML institution names from launch_points
+        for p in pathway_service.get_pathway_summaries():
+            for lp in pathway_service.get_launch_points(p["id"]):
+                yaml_name = lp.get("institution", "").lower()
+                if yaml_name and yaml_name not in inst_lookup:
+                    # Strip parenthetical abbreviation: "... (MCC)" -> "..."
+                    base = re.sub(r'\s*\([^)]+\)\s*$', '', yaml_name).strip()
+                    # Find ALL matching DB names, prefer ones with IPEDS data
+                    best_db_name = None
+                    for db_name in inst_lookup:
+                        if db_name.startswith(base) or base.startswith(db_name):
+                            if db_name in ipeds_by_db_name:
+                                best_db_name = db_name
+                                break  # IPEDS match is best
+                            elif not best_db_name:
+                                best_db_name = db_name
+                    if best_db_name:
+                        inst_lookup[yaml_name] = inst_lookup[best_db_name]
+                        if best_db_name in ipeds_by_db_name:
+                            ipeds_lookup[yaml_name] = ipeds_by_db_name[best_db_name]
+
         extra["inst_lookup"] = inst_lookup
+        extra["ipeds_lookup"] = ipeds_lookup
 
     return render_template(
         f"screens/screen_{screen_num}.html",

@@ -16,10 +16,10 @@
 | Database (pathway data) | SQLite | Read-only. Programs, institutions, occupations, employers. Exported from kc-industries. |
 | ORM | Flask-SQLAlchemy | Student response schema. |
 | Pathway data (editorial) | YAML | Pre-baked summaries, tags, glossary — hand-edited by PREP-KC. |
-| Pathway data (granular) | SQLite | 889 programs, 63 institutions, 634 occupations, 5,610 employers. |
+| Pathway data (granular) | SQLite | 889 programs, 63 institutions, 634 occupations, 5,610 employers, 217 IPEDS profiles. |
 | Front end | HTML + CSS + small JS | Understandable, aligned with classroom flow. |
 | Drag-and-drop | SortableJS (CDN) | Criteria ranking on Screen 1. Zero-dependency, 3KB. |
-| Data visualization | Chart.js (CDN) | Interactive charts on Screens 1 and 2. Deferred rendering for collapsed sections. |
+| Data visualization | Chart.js (CDN) | Interactive charts on Screens 1–3 and institution detail. Deferred rendering for collapsed sections. |
 
 ## 2. Repository structure
 
@@ -107,6 +107,7 @@ Granular program, institution, and occupation data exported from kc-industries. 
 | `employers` | 5,610 | Name, NAICS, headcount, city, lat/lon, county FIPS |
 | `sector_profiles` | 20 | NAICS sector overview, risks, opportunities |
 | `institution_sectors` | 714 | Which sectors each institution serves |
+| `ipeds_profiles` | 217 | IPEDS institutional data: enrollment, demographics, grad rates, financial aid, completions. Matched via `scorecard_unitid`. |
 
 ### Layer 3: Read-write SQLite (`student_responses.db`)
 

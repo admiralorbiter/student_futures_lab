@@ -103,7 +103,7 @@
 | B1 | ~~YAML files exist, load without error, and pathway summaries are readable.~~ **Done.** |
 | C | ~~Users can complete Screen 1 and data persists (for code-based users).~~ **Done.** |
 | D | ~~Users can re-rank pathways with barrier/support tagging and saved reasoning.~~ **Done.** |
-| E | ~~Users can select launch points and bridge roles filtered by pathway.~~ **Done.** |
+| E | ~~Users can select launch points and bridge roles filtered by pathway.~~ **Done.** Institution detail page + IPEDS data integration also shipped (217 institutions × 79 columns). |
 | F | Users can complete and edit personal reflections. |
 | G | The recommendation builder produces a clean print view. |
 | H | (Post-v1) Facilitator can review progress and export. |

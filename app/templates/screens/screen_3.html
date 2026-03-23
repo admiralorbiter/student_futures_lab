@@ -83,6 +83,42 @@
             </div>
           </div>
 
+          {# IPEDS quick stats #}
+          {% set istats = ipeds_lookup.get(lp.institution|lower, {}) %}
+          {% if istats %}
+          <div class="launch-ipeds-row">
+            {% if istats.enrollment %}
+            <div class="ipeds-chip">
+              <span class="ipeds-chip-label">Enrollment</span>
+              <span class="ipeds-chip-value">{{ '{:,.0f}'.format(istats.enrollment) }}</span>
+            </div>
+            {% endif %}
+            {% if istats.grad_rate %}
+            <div class="ipeds-chip">
+              <span class="ipeds-chip-label">Grad rate</span>
+              <span class="ipeds-chip-value">{{ istats.grad_rate }}%</span>
+            </div>
+            {% elif istats.award_rate_6yr %}
+            <div class="ipeds-chip">
+              <span class="ipeds-chip-label">Award rate (6yr)</span>
+              <span class="ipeds-chip-value">{{ istats.award_rate_6yr }}%</span>
+            </div>
+            {% endif %}
+            {% if istats.pell_pct %}
+            <div class="ipeds-chip">
+              <span class="ipeds-chip-label">Pell Grant</span>
+              <span class="ipeds-chip-value">{{ istats.pell_pct }}%</span>
+            </div>
+            {% endif %}
+            {% if istats.completions %}
+            <div class="ipeds-chip">
+              <span class="ipeds-chip-label">Completions</span>
+              <span class="ipeds-chip-value">{{ '{:,.0f}'.format(istats.completions) }}</span>
+            </div>
+            {% endif %}
+          </div>
+          {% endif %}
+
           {% if lp.pell_note %}
           <div class="launch-pell">
             <span class="pell-icon">💰</span>
@@ -342,30 +378,36 @@ document.addEventListener('DOMContentLoaded', function() {
           });
         }
 
-        // Institution donut chart
+        // Institution donut chart — prefer IPEDS completions over program count
         var instCanvas = document.getElementById('chart-inst-' + pid);
-        if (instCanvas && data.programs_by_institution) {
-          var instLabels = data.programs_by_institution.map(function(d) { return d.name; });
-          var instValues = data.programs_by_institution.map(function(d) { return d.count; });
-          new Chart(instCanvas, {
-            type: 'doughnut',
-            data: {
-              labels: instLabels,
-              datasets: [{
-                data: instValues,
-                backgroundColor: instColors.slice(0, instLabels.length),
-                borderWidth: 2,
-                borderColor: '#ffffff'
-              }]
-            },
-            options: {
-              responsive: true,
-              maintainAspectRatio: false,
-              plugins: {
-                legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } }
+        if (instCanvas) {
+          var useCompletions = data.completions_by_institution && data.completions_by_institution.length > 0;
+          var instSource = useCompletions ? data.completions_by_institution : data.programs_by_institution;
+          if (instSource && instSource.length > 0) {
+            var instLabels = instSource.map(function(d) { return d.name; });
+            var instValues = instSource.map(function(d) { return useCompletions ? d.completions : d.count; });
+            var chartTitle = useCompletions ? 'Completions by institution (IPEDS)' : 'Programs by institution';
+            new Chart(instCanvas, {
+              type: 'doughnut',
+              data: {
+                labels: instLabels,
+                datasets: [{
+                  data: instValues,
+                  backgroundColor: instColors.slice(0, instLabels.length),
+                  borderWidth: 2,
+                  borderColor: '#ffffff'
+                }]
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } },
+                  title: { display: false }
+                }
               }
-            }
-          });
+            });
+          }
         }
       });
     });

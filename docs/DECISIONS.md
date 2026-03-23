@@ -155,8 +155,20 @@ A "Quick Stats" bar on each card surfaces aggregate database numbers (program co
 
 ---
 
+### D15. Institution Detail Page — IPEDS as Primary Data Source
+
+**Decision:** Build a dedicated institution detail page (`/institution/<id>`) accessible from Screen 3 launch point cards, using IPEDS `institution_profiles.csv` (217 institutions × 79 columns) as the primary data source. Generic KC-area sector profiles and nearby employers are excluded.
+
+**Rationale:** Three iterations were needed to find the right approach:
+1. **v1 (occupation crosswalk only)** — Programs + linked occupations via SOC codes. Rich career data but only 3 programs for JCCC — felt thin.
+2. **v2 (sector cards + employers)** — Added 19 NAICS sector profiles and nearby employers. But these are KC-wide data, not institution-specific. User correctly flagged: "industry cards aren't unique to the institution."
+3. **v3 (IPEDS data)** — Imported curated IPEDS profiles. Enrollment, demographics, graduation rates, financial aid, completions — all institution-specific. Exactly what was wanted.
+
+**Impact:** New `ipeds_profiles` table in `pathway_data.db`, matched via `institutions.scorecard_unitid`. Template shows: scorecard banner, demographics donut, completions bar, financial aid bar, enrollment/outcomes stat cards, plus existing career outcomes + program cards.
+
+---
+
 ## Open
 
 *No open decisions remain at this time. New decisions should be added here as they arise during development.*
-
 
