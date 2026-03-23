@@ -36,10 +36,12 @@ A guided inquiry app for the Hickman Mills Pathway Advisory Team (PREP-KC). Stud
 - **Testing:** pytest
 
 ### Key Architecture
-- **5 screens** mapped to 5 class periods: Pathway Explorer → Hickman Mills Lens → Launch Points → My Pathway Reality Check → Recommendation Builder
+- **5 screens** mapped to 5 class periods: Pathway Explorer → Hickman Mills Lens → Launch Points → My Pathway Reality Check → Recommendation Builder. **All 5 screens are operational.**
 - **Identity:** Anonymous browsing + optional short code for save/resume. No login in v1.
-- **Data flow:** YAML files loaded at startup + `pathway_data.db` queried at runtime for aggregate stats. Editorial content comes from YAML; granular numbers from SQLite.
+- **Data flow:** YAML files loaded at startup + `pathway_data.db` queried at runtime for aggregate stats. Editorial content comes from YAML; granular numbers from SQLite. IPEDS institutional profiles (217 institutions × 79 columns) enriched into Screen 3 cards and institution detail pages.
+- **Cross-screen evidence:** Screens 4–5 use a sticky sidebar showing collapsible summaries of what the student saved on prior screens (criteria, pathway rankings, barrier/support tags, launch points, personal reflection). Uses `_load_cross_screen_responses()` helper.
 - **Student responses:** Saved to SQLite only for code-based users. No facilitator dashboard in v1.
+- **Print:** Screen 5 has a `🖨️ Print Recommendation` button; `@media print` CSS hides nav/sidebar/buttons for clean one-page output.
 - **Sister repo:** [`kc-industries`](https://github.com/admiralorbiter/kc-industries) — contains all source data (BLS/OEWS, IPEDS, College Scorecard, Census/ACS, geocoded employers, SOC/NAICS crosswalks). Data is exported once and curated into YAML.
 
 ### Key Docs to Reference

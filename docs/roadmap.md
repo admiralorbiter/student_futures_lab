@@ -65,15 +65,15 @@
 - ~~Chart.js enrichment: programs by credential type + by institution.~~
 - ~~Cross-screen auto-narrowing from Screen 2.~~
 
-### Epic F — Screen 4: My Pathway Reality Check
+### Epic F — Screen 4: My Pathway Reality Check ✅
 
-- Create personal reflection flow with save and edit.
-- Connect reflection prompts back to pathway and launch-point choices.
+- ~~Create personal reflection flow with save and edit.~~
+- ~~Connect reflection prompts back to pathway and launch-point choices.~~
 
-### Epic G — Screen 5: Recommendation Builder
+### Epic G — Screen 5: Recommendation Builder ✅
 
-- Assemble saved evidence into a final recommendation flow.
-- Support clean print view for the final presentation planner.
+- ~~Assemble saved evidence into a final recommendation flow.~~
+- ~~Support clean print view for the final presentation planner.~~
 
 ### Epic H — Facilitator tools and analytics (post-v1)
 
@@ -104,8 +104,8 @@
 | C | ~~Users can complete Screen 1 and data persists (for code-based users).~~ **Done.** |
 | D | ~~Users can re-rank pathways with barrier/support tagging and saved reasoning.~~ **Done.** |
 | E | ~~Users can select launch points and bridge roles filtered by pathway.~~ **Done.** Institution detail page + IPEDS data integration also shipped (217 institutions × 79 columns). |
-| F | Users can complete and edit personal reflections. |
-| G | The recommendation builder produces a clean print view. |
+| F | ~~Users can complete and edit personal reflections.~~ **Done.** 7 reflection prompts with cross-screen evidence sidebar. |
+| G | ~~The recommendation builder produces a clean print view.~~ **Done.** 6 recommendation cards with evidence fields + print button. |
 | H | (Post-v1) Facilitator can review progress and export. |
 | I | At least one rehearsal run finds no blocking usability or data issues. |
 

@@ -300,6 +300,106 @@ def screen(screen_num):
         extra["inst_lookup"] = inst_lookup
         extra["ipeds_lookup"] = ipeds_lookup
 
+    elif screen_num == 4:
+        # Screen 4: My Pathway Reality Check — individual reflection
+        # Pull cross-screen evidence so students can reference what they chose
+        all_pathways = pathway_service.get_pathway_summaries()
+
+        # Screen 1: criteria rankings and pathway buckets
+        s1_responses = _load_cross_screen_responses(student_code, 1, "")
+        criteria_rank = {}
+        pathway_buckets = {}
+        for key, val in s1_responses.items():
+            if key.startswith("criteria_"):
+                criteria_rank[key.replace("criteria_", "")] = val
+            elif key.startswith("pathway_bucket_"):
+                pathway_buckets[key.replace("pathway_bucket_", "")] = val
+
+        # Screen 2: selected pathways, barrier/support tags, what changed
+        s2_responses = _load_cross_screen_responses(student_code, 2, "")
+        selected_pathways = []
+        barriers = []
+        supports = []
+        what_changed = s2_responses.get("what_changed", "")
+        for key, val in s2_responses.items():
+            if key.startswith("selected_") and val == "1":
+                selected_pathways.append(key.replace("selected_", ""))
+            elif key.startswith("barrier_") and val == "1":
+                barriers.append(key.replace("barrier_", ""))
+            elif key.startswith("support_") and val == "1":
+                supports.append(key.replace("support_", ""))
+
+        # Screen 3: launch point notes and assessments
+        s3_responses = _load_cross_screen_responses(student_code, 3, "")
+        launch_notes = {}
+        for key, val in s3_responses.items():
+            if val and val.strip():
+                launch_notes[key] = val
+
+        # Build pathway name lookup
+        pathway_names = {p["id"]: p["name"] for p in all_pathways}
+
+        extra["pathways"] = all_pathways
+        extra["pathway_names"] = pathway_names
+        extra["criteria_rank"] = criteria_rank
+        extra["pathway_buckets"] = pathway_buckets
+        extra["selected_pathways"] = selected_pathways
+        extra["barriers"] = barriers
+        extra["supports"] = supports
+        extra["what_changed"] = what_changed
+        extra["launch_notes"] = launch_notes
+        extra["support_tags"] = pathway_service.get_support_tags()
+
+    elif screen_num == 5:
+        # Screen 5: Recommendation Builder — group synthesis
+        all_pathways = pathway_service.get_pathway_summaries()
+        pathway_names = {p["id"]: p["name"] for p in all_pathways}
+
+        # Screen 1: criteria + pathway buckets
+        s1_responses = _load_cross_screen_responses(student_code, 1, "")
+        criteria_rank = {}
+        pathway_buckets = {}
+        for key, val in s1_responses.items():
+            if key.startswith("criteria_"):
+                criteria_rank[key.replace("criteria_", "")] = val
+            elif key.startswith("pathway_bucket_"):
+                pathway_buckets[key.replace("pathway_bucket_", "")] = val
+
+        # Screen 2: selections, barriers, supports
+        s2_responses = _load_cross_screen_responses(student_code, 2, "")
+        selected_pathways = []
+        barriers = []
+        supports = []
+        what_changed = s2_responses.get("what_changed", "")
+        for key, val in s2_responses.items():
+            if key.startswith("selected_") and val == "1":
+                selected_pathways.append(key.replace("selected_", ""))
+            elif key.startswith("barrier_") and val == "1":
+                barriers.append(key.replace("barrier_", ""))
+            elif key.startswith("support_") and val == "1":
+                supports.append(key.replace("support_", ""))
+
+        # Screen 3: launch notes
+        s3_responses = _load_cross_screen_responses(student_code, 3, "")
+        launch_notes = {}
+        for key, val in s3_responses.items():
+            if val and val.strip():
+                launch_notes[key] = val
+
+        # Screen 4: personal reflection
+        s4_responses = _load_cross_screen_responses(student_code, 4, "")
+
+        extra["pathways"] = all_pathways
+        extra["pathway_names"] = pathway_names
+        extra["criteria_rank"] = criteria_rank
+        extra["pathway_buckets"] = pathway_buckets
+        extra["selected_pathways"] = selected_pathways
+        extra["barriers"] = barriers
+        extra["supports"] = supports
+        extra["what_changed"] = what_changed
+        extra["launch_notes"] = launch_notes
+        extra["s4_responses"] = s4_responses
+
     return render_template(
         f"screens/screen_{screen_num}.html",
         screen_num=screen_num,

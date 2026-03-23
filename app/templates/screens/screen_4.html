@@ -1,12 +1,236 @@
-{% extends "screens/screen_1.html" %}
+{% extends "base.html" %}
 
-{% block screen_content %}
-<div class="placeholder-content">
-  <div class="placeholder-icon">💭</div>
-  <h2 class="placeholder-title">Coming Soon</h2>
-  <p class="placeholder-text">
-    This screen will guide your personal reflection — connecting the evidence 
-    back to your own plan and what it means for you.
+{% block title %}{{ screen.title }} — Student Futures Lab{% endblock %}
+
+{% block content %}
+<div class="screen-header">
+  <span class="screen-eyebrow">Screen {{ screen_num }} of 5</span>
+  <h1 class="screen-title">{{ screen.title }}</h1>
+  <p class="screen-question">{{ screen.question }}</p>
+  <p class="screen-subtitle">
+    This section is individual. The goal is not to force your plan to match the group
+    recommendation — it's to stress-test your plan using the evidence.
   </p>
 </div>
+
+<form method="POST" action="{{ url_for('main.screen_submit', screen_num=4) }}" id="screen4Form">
+
+<div class="reflection-layout">
+
+  {# ═══════════════════════════════════════════════ #}
+  {# LEFT COLUMN — Reflection prompts               #}
+  {# ═══════════════════════════════════════════════ #}
+  <div class="reflection-main">
+
+    {# --- Section 1: Your Starting Point --- #}
+    <section class="reflection-section">
+      <div class="section-header">
+        <span class="section-step">Part 1</span>
+        <h2 class="section-title">Your starting point</h2>
+      </div>
+
+      <div class="reflection-prompt">
+        <label for="original_plan" class="prompt-label">My original plan after high school is…</label>
+        <p class="prompt-hint">What were you thinking before this project? Work, college, military, gap year — whatever your plan was.</p>
+        <textarea id="original_plan" name="original_plan" rows="4"
+          placeholder="Before this project, I was planning to…">{{ saved.get('original_plan', '') }}</textarea>
+      </div>
+
+      <div class="reflection-prompt">
+        <label for="closest_pathway" class="prompt-label">The pathway this connects to most closely is…</label>
+        <p class="prompt-hint">Which of the 7 pathways best matches your plan? If it doesn't fit perfectly, pick the closest and explain below.</p>
+        <select id="closest_pathway" name="closest_pathway" class="pathway-select">
+          <option value="">— Select a pathway —</option>
+          {% for p in pathways %}
+          <option value="{{ p.id }}" {% if saved.get('closest_pathway') == p.id %}selected{% endif %}>
+            {{ p.name }}
+          </option>
+          {% endfor %}
+        </select>
+        <textarea id="pathway_fit_note" name="pathway_fit_note" rows="2"
+          placeholder="If it doesn't fit perfectly, explain the closest match…">{{ saved.get('pathway_fit_note', '') }}</textarea>
+      </div>
+    </section>
+
+    {# --- Section 2: What the Evidence Showed --- #}
+    <section class="reflection-section">
+      <div class="section-header">
+        <span class="section-step">Part 2</span>
+        <h2 class="section-title">What the evidence showed</h2>
+      </div>
+
+      <div class="reflection-prompt">
+        <label for="data_confirmed" class="prompt-label">What the data confirmed for me…</label>
+        <p class="prompt-hint">What did you learn that strengthened your plan or made it feel more real?</p>
+        <textarea id="data_confirmed" name="data_confirmed" rows="4"
+          placeholder="The data confirmed that…">{{ saved.get('data_confirmed', '') }}</textarea>
+      </div>
+
+      <div class="reflection-prompt">
+        <label for="data_complicated" class="prompt-label">What the data complicated or changed…</label>
+        <p class="prompt-hint">What surprised you, concerned you, or made you reconsider?</p>
+        <textarea id="data_complicated" name="data_complicated" rows="4"
+          placeholder="What complicated things for me was…">{{ saved.get('data_complicated', '') }}</textarea>
+      </div>
+    </section>
+
+    {# --- Section 3: Your Realistic Next Step --- #}
+    <section class="reflection-section">
+      <div class="section-header">
+        <span class="section-step">Part 3</span>
+        <h2 class="section-title">Your realistic next step</h2>
+      </div>
+
+      <div class="reflection-prompt">
+        <label for="first_step" class="prompt-label">The most realistic first step for me now looks like…</label>
+        <p class="prompt-hint">Think about the launch points from Screen 3. What specific school, program, or action feels like the right first move?</p>
+        <textarea id="first_step" name="first_step" rows="4"
+          placeholder="My most realistic first step is…">{{ saved.get('first_step', '') }}</textarea>
+      </div>
+    </section>
+
+    {# --- Section 4: What You Need --- #}
+    <section class="reflection-section">
+      <div class="section-header">
+        <span class="section-step">Part 4</span>
+        <h2 class="section-title">What you need</h2>
+      </div>
+
+      <div class="reflection-prompt">
+        <label for="support_needed" class="prompt-label">The one support I would need most is…</label>
+        <p class="prompt-hint">Financial aid? Transportation? A mentor? Be specific about what would make the biggest difference.</p>
+        <textarea id="support_needed" name="support_needed" rows="3"
+          placeholder="The support I'd need most is…">{{ saved.get('support_needed', '') }}</textarea>
+      </div>
+
+      <div class="reflection-prompt">
+        <label for="open_question" class="prompt-label">One question I still have about my own path is…</label>
+        <p class="prompt-hint">What's still unclear? What would you need to research or ask about before committing?</p>
+        <textarea id="open_question" name="open_question" rows="3"
+          placeholder="I still wonder about…">{{ saved.get('open_question', '') }}</textarea>
+      </div>
+    </section>
+
+  </div>
+
+  {# ═══════════════════════════════════════════════ #}
+  {# RIGHT COLUMN — Evidence sidebar                #}
+  {# ═══════════════════════════════════════════════ #}
+  <aside class="evidence-sidebar">
+    <h3 class="sidebar-title">📋 Your Evidence So Far</h3>
+    <p class="sidebar-subtitle">Reference your past work while reflecting.</p>
+
+    {# Screen 1: Criteria #}
+    <details class="sidebar-section" open>
+      <summary class="sidebar-section-title">Screen 1 — Your Criteria</summary>
+      <div class="sidebar-section-body">
+        {% if criteria_rank %}
+        <ul class="sidebar-list">
+          {% for crit, rank in criteria_rank|dictsort(by='value') %}
+          <li><span class="sidebar-rank">#{{ rank }}</span> {{ crit|replace('_', ' ')|title }}</li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p class="sidebar-empty">No criteria saved yet.</p>
+        {% endif %}
+      </div>
+    </details>
+
+    {# Screen 2: Top pathways + tags #}
+    <details class="sidebar-section" open>
+      <summary class="sidebar-section-title">Screen 2 — Your Top Pathways</summary>
+      <div class="sidebar-section-body">
+        {% if selected_pathways %}
+        <ul class="sidebar-list">
+          {% for pid in selected_pathways %}
+          <li>
+            <strong>{{ pathway_names.get(pid, pid) }}</strong>
+            {% if pathway_buckets.get(pid) %}
+            <span class="bucket-label-{{ pathway_buckets[pid] }}">{{ pathway_buckets[pid]|capitalize }}</span>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p class="sidebar-empty">No pathways selected yet.</p>
+        {% endif %}
+
+        {% if barriers %}
+        <div class="sidebar-tags">
+          <strong>Barriers:</strong>
+          {% for b in barriers %}
+          <span class="tag tag-barrier">{{ b|replace('_', ' ')|title }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if supports %}
+        <div class="sidebar-tags">
+          <strong>Supports:</strong>
+          {% for s in supports %}
+          <span class="tag tag-support">{{ s|replace('_', ' ')|title }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if what_changed %}
+        <div class="sidebar-note">
+          <strong>What changed:</strong>
+          <p>{{ what_changed }}</p>
+        </div>
+        {% endif %}
+      </div>
+    </details>
+
+    {# Screen 3: Launch point notes #}
+    <details class="sidebar-section" open>
+      <summary class="sidebar-section-title">Screen 3 — Your Launch Points</summary>
+      <div class="sidebar-section-body">
+        {% set has_s3 = launch_notes|length > 0 %}
+        {% if has_s3 %}
+        <ul class="sidebar-list">
+          {% for key, val in launch_notes.items() %}
+          {% if key.startswith('strong_') or key.startswith('concern_') or key.startswith('question_') %}
+          <li>
+            <span class="sidebar-note-label">
+              {% if key.startswith('strong_') %}✅ Strong
+              {% elif key.startswith('concern_') %}⚠️ Concern
+              {% else %}❓ Question
+              {% endif %}
+              ({{ pathway_names.get(key.split('_', 1)[1], key.split('_', 1)[1]) }})
+            </span>
+            <p>{{ val }}</p>
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p class="sidebar-empty">No launch point notes saved yet.</p>
+        {% endif %}
+      </div>
+    </details>
+  </aside>
+
+</div>
+
+{# ═══════════════════════════════════════════════ #}
+{# SUBMIT                                          #}
+{# ═══════════════════════════════════════════════ #}
+  <div class="screen-submit">
+    <button type="submit" class="btn btn-primary">
+      Save &amp; Continue to Recommendation Builder →
+    </button>
+    <p class="save-hint">
+      💡 Your answers won't be saved permanently since you're exploring anonymously.
+      <a href="{{ url_for('main.landing') }}">Enter a code</a> to save your progress.
+    </p>
+  </div>
+
+</form>
+
+<nav class="screen-nav">
+  <a href="{{ url_for('main.screen', screen_num=3) }}" class="btn btn-secondary">
+    <span class="arrow">←</span> Back to Launch Points
+  </a>
+</nav>
 {% endblock %}

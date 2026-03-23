@@ -1,12 +1,336 @@
-{% extends "screens/screen_1.html" %}
+{% extends "base.html" %}
 
-{% block screen_content %}
-<div class="placeholder-content">
-  <div class="placeholder-icon">📋</div>
-  <h2 class="placeholder-title">Coming Soon</h2>
-  <p class="placeholder-text">
-    This screen will assemble your saved evidence into a final recommendation 
-    for PREP-KC with a clean print view.
+{% block title %}{{ screen.title }} — Student Futures Lab{% endblock %}
+
+{% block content %}
+<div class="screen-header">
+  <span class="screen-eyebrow">Screen {{ screen_num }} of 5</span>
+  <h1 class="screen-title">{{ screen.title }}</h1>
+  <p class="screen-question">{{ screen.question }}</p>
+  <p class="screen-subtitle">
+    Use your evidence to build one clear recommendation. Each answer should include
+    both a claim and the evidence that led you there.
   </p>
 </div>
+
+<form method="POST" action="{{ url_for('main.screen_submit', screen_num=5) }}" id="screen5Form">
+
+<div class="reflection-layout">
+
+  {# ═══════════════════════════════════════════════ #}
+  {# LEFT COLUMN — Recommendation form               #}
+  {# ═══════════════════════════════════════════════ #}
+  <div class="reflection-main">
+
+    {# --- 1. Top 2 Pathways --- #}
+    <section class="recommendation-card">
+      <div class="rec-card-header">
+        <span class="rec-number">1</span>
+        <h2 class="rec-card-title">Top 2 pathways to prioritize</h2>
+      </div>
+      <p class="rec-card-hint">Which pathways look strongest for Hickman Mills students?</p>
+
+      <div class="rec-field-group">
+        <label class="rec-label">First pathway</label>
+        <select name="top_pathway_1" class="pathway-select">
+          <option value="">— Select —</option>
+          {% for p in pathways %}
+          <option value="{{ p.id }}" {% if saved.get('top_pathway_1') == p.id %}selected{% endif %}>
+            {{ p.name }}
+          </option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="rec-field-group">
+        <label class="rec-label">Second pathway</label>
+        <select name="top_pathway_2" class="pathway-select">
+          <option value="">— Select —</option>
+          {% for p in pathways %}
+          <option value="{{ p.id }}" {% if saved.get('top_pathway_2') == p.id %}selected{% endif %}>
+            {{ p.name }}
+          </option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="rec-field-group">
+        <label class="rec-label">What evidence led us here?</label>
+        <textarea name="top_pathways_evidence" rows="3"
+          placeholder="We chose these because…">{{ saved.get('top_pathways_evidence', '') }}</textarea>
+      </div>
+    </section>
+
+    {# --- 2. Caution Pathway --- #}
+    <section class="recommendation-card">
+      <div class="rec-card-header">
+        <span class="rec-number">2</span>
+        <h2 class="rec-card-title">1 pathway to treat more cautiously</h2>
+      </div>
+      <p class="rec-card-hint">Which pathway looks strong in some ways but harder to reach?</p>
+
+      <div class="rec-field-group">
+        <select name="caution_pathway" class="pathway-select">
+          <option value="">— Select —</option>
+          {% for p in pathways %}
+          <option value="{{ p.id }}" {% if saved.get('caution_pathway') == p.id %}selected{% endif %}>
+            {{ p.name }}
+          </option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="rec-field-group">
+        <label class="rec-label">What evidence led us here?</label>
+        <textarea name="caution_evidence" rows="3"
+          placeholder="We're more cautious about this because…">{{ saved.get('caution_evidence', '') }}</textarea>
+      </div>
+    </section>
+
+    {# --- 3. Key Supports --- #}
+    <section class="recommendation-card">
+      <div class="rec-card-header">
+        <span class="rec-number">3</span>
+        <h2 class="rec-card-title">3 supports that matter most</h2>
+      </div>
+      <p class="rec-card-hint">What would make these pathways more reachable for Hickman Mills students?</p>
+
+      <div class="rec-field-group">
+        <label class="rec-label">Support #1</label>
+        <input type="text" name="support_1" value="{{ saved.get('support_1', '') }}"
+          placeholder="e.g., Transportation assistance" class="rec-input">
+      </div>
+      <div class="rec-field-group">
+        <label class="rec-label">Support #2</label>
+        <input type="text" name="support_2" value="{{ saved.get('support_2', '') }}"
+          placeholder="e.g., Financial aid navigation" class="rec-input">
+      </div>
+      <div class="rec-field-group">
+        <label class="rec-label">Support #3</label>
+        <input type="text" name="support_3" value="{{ saved.get('support_3', '') }}"
+          placeholder="e.g., Mentorship programs" class="rec-input">
+      </div>
+
+      <div class="rec-field-group">
+        <label class="rec-label">What evidence led us here?</label>
+        <textarea name="supports_evidence" rows="3"
+          placeholder="These supports matter because…">{{ saved.get('supports_evidence', '') }}</textarea>
+      </div>
+    </section>
+
+    {# --- 4. Launch Points --- #}
+    <section class="recommendation-card">
+      <div class="rec-card-header">
+        <span class="rec-number">4</span>
+        <h2 class="rec-card-title">2–3 postsecondary launch points that feel realistic</h2>
+      </div>
+      <p class="rec-card-hint">Where could students realistically start? Think institutions and programs, not just names.</p>
+
+      <div class="rec-field-group">
+        <label class="rec-label">Launch point #1</label>
+        <input type="text" name="launch_point_1" value="{{ saved.get('launch_point_1', '') }}"
+          placeholder="e.g., MCC — Nursing (RN) program" class="rec-input">
+      </div>
+      <div class="rec-field-group">
+        <label class="rec-label">Launch point #2</label>
+        <input type="text" name="launch_point_2" value="{{ saved.get('launch_point_2', '') }}"
+          placeholder="e.g., JCCC — Health Information Technology" class="rec-input">
+      </div>
+      <div class="rec-field-group">
+        <label class="rec-label">Launch point #3 (optional)</label>
+        <input type="text" name="launch_point_3" value="{{ saved.get('launch_point_3', '') }}"
+          placeholder="e.g., UMKC — Business Administration" class="rec-input">
+      </div>
+
+      <div class="rec-field-group">
+        <label class="rec-label">What evidence led us here?</label>
+        <textarea name="launch_points_evidence" rows="3"
+          placeholder="We chose these launch points because…">{{ saved.get('launch_points_evidence', '') }}</textarea>
+      </div>
+    </section>
+
+    {# --- 5. Message to PREP-KC --- #}
+    <section class="recommendation-card">
+      <div class="rec-card-header">
+        <span class="rec-number">5</span>
+        <h2 class="rec-card-title">A message PREP-KC should use when talking with students</h2>
+      </div>
+      <p class="rec-card-hint">If PREP-KC could say one thing to students about pathways, what should it be? Use your own language.</p>
+
+      <div class="rec-field-group">
+        <textarea name="prepkc_message" rows="4"
+          placeholder="We think PREP-KC should tell students…">{{ saved.get('prepkc_message', '') }}</textarea>
+      </div>
+    </section>
+
+    {# --- 6. Open Question --- #}
+    <section class="recommendation-card">
+      <div class="rec-card-header">
+        <span class="rec-number">6</span>
+        <h2 class="rec-card-title">One question PREP-KC should research next</h2>
+      </div>
+      <p class="rec-card-hint">What's still unclear that PREP-KC needs to find out?</p>
+
+      <div class="rec-field-group">
+        <textarea name="research_question" rows="3"
+          placeholder="PREP-KC should look into…">{{ saved.get('research_question', '') }}</textarea>
+      </div>
+    </section>
+
+    {# --- Agreement / Disagreement --- #}
+    <section class="recommendation-card rec-card-final">
+      <div class="rec-card-header">
+        <span class="rec-number">✦</span>
+        <h2 class="rec-card-title">Where we agreed & where we debated</h2>
+      </div>
+      <p class="rec-card-hint">Name what the team agreed on quickly and where there was honest disagreement or uncertainty.</p>
+
+      <div class="rec-field-group">
+        <textarea name="agreement_notes" rows="4"
+          placeholder="We agreed quickly on… / We still had some disagreement or uncertainty about…">{{ saved.get('agreement_notes', '') }}</textarea>
+      </div>
+    </section>
+
+  </div>
+
+  {# ═══════════════════════════════════════════════ #}
+  {# RIGHT COLUMN — Evidence sidebar                #}
+  {# ═══════════════════════════════════════════════ #}
+  <aside class="evidence-sidebar">
+    <h3 class="sidebar-title">📋 Your Evidence So Far</h3>
+    <p class="sidebar-subtitle">Reference your past work while building the recommendation.</p>
+
+    {# Screen 1: Criteria #}
+    <details class="sidebar-section">
+      <summary class="sidebar-section-title">Screen 1 — Your Criteria</summary>
+      <div class="sidebar-section-body">
+        {% if criteria_rank %}
+        <ul class="sidebar-list">
+          {% for crit, rank in criteria_rank|dictsort(by='value') %}
+          <li><span class="sidebar-rank">#{{ rank }}</span> {{ crit|replace('_', ' ')|title }}</li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p class="sidebar-empty">No criteria saved yet.</p>
+        {% endif %}
+      </div>
+    </details>
+
+    {# Screen 2: Top pathways + tags #}
+    <details class="sidebar-section" open>
+      <summary class="sidebar-section-title">Screen 2 — Top Pathways & Tags</summary>
+      <div class="sidebar-section-body">
+        {% if selected_pathways %}
+        <ul class="sidebar-list">
+          {% for pid in selected_pathways %}
+          <li>
+            <strong>{{ pathway_names.get(pid, pid) }}</strong>
+            {% if pathway_buckets.get(pid) %}
+            <span class="bucket-label-{{ pathway_buckets[pid] }}">{{ pathway_buckets[pid]|capitalize }}</span>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p class="sidebar-empty">No pathways selected yet.</p>
+        {% endif %}
+
+        {% if barriers %}
+        <div class="sidebar-tags">
+          <strong>Barriers:</strong>
+          {% for b in barriers %}
+          <span class="tag tag-barrier">{{ b|replace('_', ' ')|title }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if supports %}
+        <div class="sidebar-tags">
+          <strong>Supports:</strong>
+          {% for s in supports %}
+          <span class="tag tag-support">{{ s|replace('_', ' ')|title }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </details>
+
+    {# Screen 3: Launch notes #}
+    <details class="sidebar-section">
+      <summary class="sidebar-section-title">Screen 3 — Launch Points</summary>
+      <div class="sidebar-section-body">
+        {% if launch_notes %}
+        <ul class="sidebar-list">
+          {% for key, val in launch_notes.items() %}
+          {% if key.startswith('strong_') or key.startswith('concern_') or key.startswith('question_') %}
+          <li>
+            <span class="sidebar-note-label">
+              {% if key.startswith('strong_') %}✅{% elif key.startswith('concern_') %}⚠️{% else %}❓{% endif %}
+            </span>
+            {{ val|truncate(80) }}
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p class="sidebar-empty">No launch point notes saved yet.</p>
+        {% endif %}
+      </div>
+    </details>
+
+    {# Screen 4: Personal reflection #}
+    <details class="sidebar-section">
+      <summary class="sidebar-section-title">Screen 4 — My Reality Check</summary>
+      <div class="sidebar-section-body">
+        {% if s4_responses %}
+        {% if s4_responses.get('data_confirmed') %}
+        <div class="sidebar-note">
+          <strong>Confirmed:</strong>
+          <p>{{ s4_responses.data_confirmed|truncate(100) }}</p>
+        </div>
+        {% endif %}
+        {% if s4_responses.get('data_complicated') %}
+        <div class="sidebar-note">
+          <strong>Complicated:</strong>
+          <p>{{ s4_responses.data_complicated|truncate(100) }}</p>
+        </div>
+        {% endif %}
+        {% if s4_responses.get('first_step') %}
+        <div class="sidebar-note">
+          <strong>First step:</strong>
+          <p>{{ s4_responses.first_step|truncate(100) }}</p>
+        </div>
+        {% endif %}
+        {% else %}
+        <p class="sidebar-empty">No reflection saved yet.</p>
+        {% endif %}
+      </div>
+    </details>
+  </aside>
+
+</div>
+
+{# ═══════════════════════════════════════════════ #}
+{# SUBMIT + PRINT                                  #}
+{# ═══════════════════════════════════════════════ #}
+<div class="screen-submit rec-submit-group">
+  <button type="submit" class="btn btn-primary">
+    💾 Save Recommendation
+  </button>
+  <button type="button" class="btn btn-accent" onclick="window.print()">
+    🖨️ Print Recommendation
+  </button>
+  <p class="save-hint">
+    💡 Your answers won't be saved permanently since you're exploring anonymously.
+    <a href="{{ url_for('main.landing') }}">Enter a code</a> to save your progress.
+  </p>
+</div>
+
+</form>
+
+<nav class="screen-nav">
+  <a href="{{ url_for('main.screen', screen_num=4) }}" class="btn btn-secondary">
+    <span class="arrow">←</span> Back to Reality Check
+  </a>
+</nav>
 {% endblock %}

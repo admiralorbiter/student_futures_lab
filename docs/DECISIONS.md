@@ -168,6 +168,26 @@ A "Quick Stats" bar on each card surfaces aggregate database numbers (program co
 
 ---
 
+### D16. Cross-Screen Evidence Sidebar
+
+**Decision:** Screens 4 and 5 show a sticky sidebar with collapsible `<details>` sections summarizing what the student saved on prior screens (criteria, pathway rankings, barrier/support tags, launch point notes, personal reflection). The sidebar is read-only — students reference it while writing but don't re-enter data.
+
+**Rationale:** Students forget what they chose two screens ago. Surfacing past work as context (not re-input) reduces cognitive load and helps them cite specific evidence in their reflection and recommendation. Collapsible sections keep it compact.
+
+**Impact:** Route handler gathers cross-screen data via `_load_cross_screen_responses()` for each prior screen. Same sidebar template is copy-pasted between Screens 4 and 5. Could be extracted to a partial later.
+
+---
+
+### D17. Individual vs. Group Screens
+
+**Decision:** Screen 4 (My Pathway Reality Check) is explicitly individual; Screen 5 (Recommendation Builder) is explicitly group. Both accept the same save mechanism (form POST → `responses` table), but the framing and prompts differ.
+
+**Rationale:** The Student Core Inquiry Packet defines Step 5 as individual and Step 6 as group. The app matches this distinction in header text ("This section is individual" vs. "Use your evidence to build one clear recommendation"), but doesn't enforce group composition. In v1, any user can fill either screen — facilitators manage the group dynamic in the classroom.
+
+**Impact:** No code difference between individual and group screens. The distinction lives in the template language only.
+
+---
+
 ## Open
 
 *No open decisions remain at this time. New decisions should be added here as they arise during development.*
