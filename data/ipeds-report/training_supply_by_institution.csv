@@ -1,0 +1,849 @@
+Year,UNITID,Institution Name,City,State,County,Tier,Tier Label,Control,Level,Total Completions,Male,Female,Unique Programs (CIP),Top CIP Family,Top CIP Family Completions,Certificate (< 2 yr) Completions,Associate's Completions,Certificate (2-4 yr) Completions,Bachelor's Completions,Post-baccalaureate Certificate Completions,Master's Completions,Post-master's Certificate Completions,Doctoral Completions,Other Completions
+2021,154642,Allen County Community College,Iola,KS,Allen County,3,Regional (60-100 mi),Public,Two-year,381,115,266,18,Liberal Arts & General Studies,251,22,280,0,0,79,0,0,0,0
+2021,154688,Baker University,Baldwin City,KS,Douglas County,2,KC Fringe (30-60 mi),Private not-for-profit,Four-year or above,678,241,437,50,"Business, Management & Marketing",269,0,9,0,342,1,300,0,26,0
+2021,154697,Barton County Community College,Great Bend,KS,Barton County,5,Outer MO+KS (150+ mi),Public,Two-year,989,434,555,92,Liberal Arts & General Studies,382,233,593,0,0,163,0,0,0,0
+2021,154712,Benedictine College,Atchison,KS,Atchison County,2,KC Fringe (30-60 mi),Private not-for-profit,Four-year or above,425,187,238,56,"Business, Management & Marketing",117,0,0,0,390,0,35,0,0,0
+2021,154721,Bethany College,Lindsborg,KS,McPherson County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,134,54,80,41,"Parks, Recreation & Fitness",28,0,0,0,134,0,0,0,0,0
+2021,154749,Bethel College-North Newton,North Newton,KS,Harvey County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,75,25,50,24,Health Professions,16,2,0,0,73,0,0,0,0,0
+2021,154800,Butler Community College,El Dorado,KS,Butler County,5,Outer MO+KS (150+ mi),Public,Two-year,1416,479,937,93,Liberal Arts & General Studies,492,163,1088,0,0,165,0,0,0,0
+2021,154855,Central Christian College of Kansas,McPherson,KS,McPherson County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,171,88,83,40,Homeland Security & Protective Services,41,0,34,0,137,0,0,0,0,0
+2021,154907,Cloud County Community College,Concordia,KS,Cloud County,5,Outer MO+KS (150+ mi),Public,Two-year,448,191,257,16,Liberal Arts & General Studies,205,89,268,0,0,91,0,0,0,0
+2021,154925,Coffeyville Community College,Coffeyville,KS,Montgomery County,5,Outer MO+KS (150+ mi),Public,Two-year,374,175,199,19,Liberal Arts & General Studies,178,92,223,0,0,59,0,0,0,0
+2021,154934,Colby Community College,Colby,KS,Thomas County,5,Outer MO+KS (150+ mi),Public,Two-year,398,100,298,23,Liberal Arts & General Studies,162,143,231,0,0,24,0,0,0,0
+2021,154952,Cowley County Community College,Arkansas City,KS,Cowley County,5,Outer MO+KS (150+ mi),Public,Two-year,848,355,493,28,Liberal Arts & General Studies,391,204,486,0,0,158,0,0,0,0
+2021,154998,Dodge City Community College,Dodge City,KS,Ford County,5,Outer MO+KS (150+ mi),Public,Two-year,316,90,226,69,Health Professions,205,18,118,0,0,180,0,0,0,0
+2021,155007,Donnelly College,Kansas City,KS,Wyandotte County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,88,19,69,7,Liberal Arts & General Studies,43,33,43,0,12,0,0,0,0,0
+2021,155025,Emporia State University,Emporia,KS,Lyon County,3,Regional (60-100 mi),Public,Four-year or above,1838,556,1282,76,Education,745,0,0,0,713,27,1074,21,3,0
+2021,155052,Flint Hills Technical College,Emporia,KS,Lyon County,4,Statewide Reach (100-150 mi),Public,Two-year,333,166,167,21,Health Professions,146,150,105,0,0,78,0,0,0,0
+2021,155061,Fort Hays State University,Hays,KS,Ellis County,5,Outer MO+KS (150+ mi),Public,Four-year or above,4291,1586,2705,64,"Business, Management & Marketing",1391,0,96,0,3217,0,924,37,17,0
+2021,155070,Barclay College,Haviland,KS,Kiowa County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,38,18,20,11,Theology & Religious Vocations,22,0,5,0,17,0,16,0,0,0
+2021,155089,Friends University,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,508,190,318,56,"Business, Management & Marketing",167,1,0,0,282,0,225,0,0,0
+2021,155098,Fort Scott Community College,Fort Scott,KS,Bourbon County,3,Regional (60-100 mi),Public,Two-year,452,160,292,25,Health Professions,197,97,199,0,0,156,0,0,0,0
+2021,155104,Garden City Community College,Garden City,KS,Finney County,5,Outer MO+KS (150+ mi),Public,Two-year,594,233,361,20,Liberal Arts & General Studies,227,191,267,0,0,136,0,0,0,0
+2021,155140,Haskell Indian Nations University,Lawrence,KS,Douglas County,2,KC Fringe (30-60 mi),Public,Four-year or above,160,53,107,14,"Business, Management & Marketing",51,0,66,0,94,0,0,0,0,0
+2021,155159,Hays Academy of Hair Design,Hays,KS,Ellis County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,46,0,46,2,Personal & Culinary Services,46,46,0,0,0,0,0,0,0,0
+2021,155177,Hesston College,Hesston,KS,Harvey County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,128,43,85,6,Liberal Arts & General Studies,71,0,75,0,53,0,0,0,0,0
+2021,155186,Highland Community College,Highland,KS,Doniphan County,3,Regional (60-100 mi),Public,Two-year,617,177,440,43,Health Professions,344,99,229,0,0,289,0,0,0,0
+2021,155195,Hutchinson Community College,Hutchinson,KS,Reno County,5,Outer MO+KS (150+ mi),Public,Two-year,1537,612,925,58,Health Professions,752,442,784,0,0,311,0,0,0,0
+2021,155201,Independence Community College,Independence,KS,Montgomery County,4,Statewide Reach (100-150 mi),Public,Two-year,205,74,131,32,Liberal Arts & General Studies,83,15,115,0,0,75,0,0,0,0
+2021,155210,Johnson County Community College,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Public,Two-year,2654,1060,1594,57,Liberal Arts & General Studies,1257,626,1705,0,0,323,0,0,0,0
+2021,155283,Concorde Career College-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Four-year or above,306,22,284,15,Health Professions,306,216,64,0,26,0,0,0,0,0
+2021,155292,Kansas City Kansas Community College,Kansas City,KS,Wyandotte County,1,Core KC Metro (0-30 mi),Public,Two-year,1128,454,674,45,Health Professions,416,457,474,0,0,197,0,0,0,0
+2021,155308,Kansas Christian College,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,27,13,14,11,"Business, Management & Marketing",18,0,14,0,13,0,0,0,0,0
+2021,155317,University of Kansas,Lawrence,KS,Douglas County,2,KC Fringe (30-60 mi),Public,Four-year or above,7070,3168,3902,199,"Business, Management & Marketing",1242,9,0,0,4312,267,1560,6,916,0
+2021,155335,Newman University,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,480,164,316,48,Health Professions,114,0,37,0,293,0,150,0,0,0
+2021,155353,Old Town Barber College,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,49,42,7,1,Personal & Culinary Services,49,49,0,0,0,0,0,0,0,0
+2021,155399,Kansas State University,Manhattan,KS,Riley County,4,Statewide Reach (100-150 mi),Public,Four-year or above,5778,2691,3087,179,"Business, Management & Marketing",1230,356,21,0,3715,201,1146,0,339,0
+2021,155414,Kansas Wesleyan University,Salina,KS,Saline County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,173,93,80,45,"Business, Management & Marketing",68,0,0,0,144,0,29,0,0,0
+2021,155423,Washburn Institute of Technology,Topeka,KS,Shawnee County,3,Regional (60-100 mi),Public,Less-than-two-year,901,388,513,30,Health Professions,472,550,0,0,0,351,0,0,0,0
+2021,155450,Labette Community College,Parsons,KS,Labette County,4,Statewide Reach (100-150 mi),Public,Two-year,202,82,120,15,Liberal Arts & General Studies,84,61,141,0,0,0,0,0,0,0
+2021,155487,Manhattan Area Technical College,Manhattan,KS,Riley County,4,Statewide Reach (100-150 mi),Public,Two-year,400,199,201,19,Health Professions,217,184,107,0,0,109,0,0,0,0
+2021,155496,Manhattan Christian College,Manhattan,KS,Riley County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,33,16,17,5,Theology & Religious Vocations,26,0,5,0,28,0,0,0,0,0
+2021,155511,McPherson College,McPherson,KS,McPherson County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,163,101,62,50,"Business, Management & Marketing",41,0,0,0,159,0,4,0,0,0
+2021,155520,MidAmerica Nazarene University,Olathe,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,583,162,421,72,Health Professions,238,2,17,0,413,5,127,19,0,0
+2021,155566,Neosho County Community College,Chanute,KS,Neosho County,4,Statewide Reach (100-150 mi),Public,Two-year,820,289,531,28,Health Professions,399,268,340,0,0,212,0,0,0,0
+2021,155593,Fort Hays Tech North Central,Beloit,KS,Mitchell County,5,Outer MO+KS (150+ mi),Public,Two-year,435,196,239,24,Health Professions,251,149,116,0,0,170,0,0,0,0
+2021,155618,Fort Hays State University-Northwest Kansas Technical College,Goodland,KS,Sherman County,5,Outer MO+KS (150+ mi),Public,Two-year,393,278,115,20,Health Professions,74,204,133,0,0,56,0,0,0,0
+2021,155627,Ottawa University-Ottawa,Ottawa,KS,Franklin County,2,KC Fringe (30-60 mi),Private not-for-profit,Four-year or above,110,58,52,43,"Business, Management & Marketing",37,0,0,0,92,0,18,0,0,0
+2021,155636,Ottawa University-Kansas City,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,158,58,100,36,"Business, Management & Marketing",55,0,0,0,90,0,68,0,0,0
+2021,155681,Pittsburg State University,Pittsburg,KS,Crawford County,4,Statewide Reach (100-150 mi),Public,Four-year or above,1790,822,968,76,Education,431,36,18,0,1079,13,580,46,18,0
+2021,155715,Pratt Community College,Pratt,KS,Pratt County,5,Outer MO+KS (150+ mi),Public,Two-year,352,144,208,14,Health Professions,177,52,158,0,0,142,0,0,0,0
+2021,155812,University of Saint Mary,Leavenworth,KS,Leavenworth County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,380,153,227,38,Health Professions,147,0,0,0,207,0,132,0,41,0
+2021,155830,Salina Area Technical College,Salina,KS,Saline County,5,Outer MO+KS (150+ mi),Public,Two-year,409,139,270,23,Health Professions,288,138,58,0,0,213,0,0,0,0
+2021,155858,Seward County Community College,Liberal,KS,Seward County,5,Outer MO+KS (150+ mi),Public,Two-year,409,160,249,32,Health Professions,148,136,196,0,0,77,0,0,0,0
+2021,155900,Southwestern College,Winfield,KS,Cowley County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,532,365,167,70,"Business, Management & Marketing",191,54,0,0,409,13,49,0,7,0
+2021,155937,Sterling College,Sterling,KS,Rice County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,125,71,54,35,"Business, Management & Marketing",30,0,0,0,121,0,4,0,0,0
+2021,155973,Tabor College,Hillsboro,KS,Marion County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,120,58,62,57,"Business, Management & Marketing",33,0,0,0,95,0,25,0,0,0
+2021,156082,Washburn University,Topeka,KS,Shawnee County,3,Regional (60-100 mi),Public,Four-year or above,1475,508,967,96,Health Professions,510,79,241,0,836,23,139,37,120,0
+2021,156107,Wichita State University-Campus of Applied Sciences and Technology,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Public,Two-year,1485,618,867,39,Health Professions,797,642,236,0,0,607,0,0,0,0
+2021,156125,Wichita State University,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Public,Four-year or above,3690,1532,2158,139,"Business, Management & Marketing",640,0,96,0,2479,144,767,110,94,0
+2021,156134,Wichita Technical Institute,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,627,323,304,7,Health Professions,284,603,24,0,0,0,0,0,0,0
+2021,176600,Aquinas Institute of Theology,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,43,20,23,4,Theology & Religious Vocations,43,0,0,0,0,12,27,0,4,0
+2021,176628,Avila University,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,412,141,271,48,Psychology,85,0,0,0,253,34,125,0,0,0
+2021,176664,Mission University,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,58,36,22,14,Theology & Religious Vocations,41,0,4,0,42,0,12,0,0,0
+2021,176716,House of Heavilin Beauty College-Blue Springs,Blue Springs,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,106,0,106,4,Personal & Culinary Services,106,106,0,0,0,0,0,0,0,0
+2021,176770,Cox College,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,354,42,312,9,Health Professions,354,0,101,0,170,1,82,0,0,0
+2021,176789,Calvary University,Kansas City,MO,Cass County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,59,28,31,20,Theology & Religious Vocations,30,2,5,0,37,0,15,0,0,0
+2021,176798,Cape Girardeau Career and Technology Center,Cape Girardeau,MO,Cape Girardeau County,5,Outer MO+KS (150+ mi),Public,Two-year,125,44,81,21,Health Professions,95,117,0,8,0,0,0,0,0,0
+2021,176910,Central Christian College of the Bible,Moberly,MO,Randolph County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,36,19,17,14,Theology & Religious Vocations,34,3,4,0,28,0,1,0,0,0
+2021,176947,Central Methodist University-College of Liberal Arts and Sciences,Fayette,MO,Howard County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,211,91,120,43,Education,34,0,27,0,184,0,0,0,0,0
+2021,176965,University of Central Missouri,Warrensburg,MO,Johnson County,2,KC Fringe (30-60 mi),Public,Four-year or above,3071,1283,1788,104,Education,591,249,0,0,1693,38,1027,64,0,0
+2021,176983,Grand River Technical School,Chillicothe,MO,Livingston County,3,Regional (60-100 mi),Public,Less-than-two-year,55,41,14,8,Mechanic & Repair Technologies,26,44,0,0,0,11,0,0,0,0
+2021,177038,Cleveland University-Kansas City,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,160,70,90,8,Health Professions,146,0,25,0,14,0,0,0,121,0
+2021,177065,Columbia College,Columbia,MO,Boone County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,2749,1175,1574,54,"Business, Management & Marketing",956,22,839,0,1677,0,211,0,0,0
+2021,177083,Conception Seminary College,Conception,MO,Nodaway County,3,Regional (60-100 mi),Private not-for-profit,Four-year or above,17,17,0,3,Philosophy & Religious Studies,17,0,0,0,17,0,0,0,0,0
+2021,177092,Concordia Seminary,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,125,117,8,2,Theology & Religious Vocations,125,0,0,0,0,41,73,0,11,0
+2021,177117,Cottey College,Nevada,MO,Vernon County,3,Regional (60-100 mi),Private not-for-profit,Four-year or above,73,0,73,19,Liberal Arts & General Studies,33,0,37,0,36,0,0,0,0,0
+2021,177126,Covenant Theological Seminary,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,117,74,43,8,Theology & Religious Vocations,78,0,0,0,0,5,106,0,6,0
+2021,177135,Crowder College,Neosho,MO,Newton County,5,Outer MO+KS (150+ mi),Public,Two-year,1095,598,497,47,Liberal Arts & General Studies,283,442,653,0,0,0,0,0,0,0
+2021,177144,Culver-Stockton College,Canton,MO,Lewis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,242,111,131,45,"Business, Management & Marketing",53,0,0,0,219,0,23,0,0,0
+2021,177214,Drury University,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,433,163,270,72,"Business, Management & Marketing",99,0,0,0,318,28,87,0,0,0
+2021,177250,East Central College,Union,MO,Franklin County,5,Outer MO+KS (150+ mi),Public,Two-year,579,248,331,26,Liberal Arts & General Studies,254,147,432,0,0,0,0,0,0,0
+2021,177278,Eden Theological Seminary,Webster Groves,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,33,15,18,3,Theology & Religious Vocations,33,0,0,0,0,0,30,0,3,0
+2021,177302,Pinnacle Career Institute,Kansas City,MO,Platte County,1,Core KC Metro (0-30 mi),Private for-profit,Two-year,302,182,120,6,Engineering Technologies,183,287,15,0,0,0,0,0,0,0
+2021,177339,Evangel University,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,565,244,321,74,Education,143,0,37,0,362,0,133,0,33,0
+2021,177418,Fontbonne University,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,311,115,196,59,"Business, Management & Marketing",76,1,0,0,168,1,140,0,1,0
+2021,177436,Four Rivers Career Center,Washington,MO,Franklin County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,26,0,26,1,Health Professions,26,26,0,0,0,0,0,0,0,0
+2021,177472,Ozarks Technical Community College,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Public,Four-year or above,2336,914,1422,52,Health Professions,696,729,1607,0,0,0,0,0,0,0
+2021,177542,Hannibal-LaGrange University,Hannibal,MO,Marion County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,198,50,148,31,Education,58,17,22,0,128,0,31,0,0,0
+2021,177551,Harris-Stowe State University,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Public,Four-year or above,201,59,142,22,"Business, Management & Marketing",46,0,0,0,201,0,0,0,0,0
+2021,177588,House of Heavilin Beauty College-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,10,0,10,3,Personal & Culinary Services,10,9,0,0,0,1,0,0,0,0
+2021,177603,Summit Salon Academy Kansas City,Independence,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,64,1,63,3,Personal & Culinary Services,64,64,0,0,0,0,0,0,0,0
+2021,177676,Jefferson College,Hillsboro,MO,Jefferson County,5,Outer MO+KS (150+ mi),Public,Two-year,749,286,463,25,Liberal Arts & General Studies,309,142,606,1,0,0,0,0,0,0
+2021,177685,Paul Mitchell the School-Missouri Columbia,Columbia,MO,Boone County,4,Statewide Reach (100-150 mi),Private for-profit,Less-than-two-year,58,2,56,4,Personal & Culinary Services,58,58,0,0,0,0,0,0,0,0
+2021,177719,Barnes-Jewish College Goldfarb School of Nursing,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,405,55,350,2,Health Professions,405,0,0,0,365,0,33,2,5,0
+2021,177746,Kansas City Art Institute,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,160,46,114,14,Visual & Performing Arts,119,0,0,0,160,0,0,0,0,0
+2021,177816,Kenrick Glennon Seminary,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,18,18,0,1,Theology & Religious Vocations,18,0,0,0,0,0,18,0,0,0
+2021,177834,A T Still University of Health Sciences,Kirksville,MO,Adair County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,1362,527,835,13,Health Professions,1304,0,0,0,0,220,355,0,787,0
+2021,177931,Lex La-Ray Technical Center,Lexington,MO,Lafayette County,2,KC Fringe (30-60 mi),Public,Less-than-two-year,23,2,21,11,Health Professions,22,23,0,0,0,0,0,0,0,0
+2021,177940,Lincoln University,Jefferson City,MO,Cole County,4,Statewide Reach (100-150 mi),Public,Four-year or above,312,100,212,51,Education,48,0,20,0,241,0,47,4,0,0
+2021,177968,Lindenwood University,Saint Charles,MO,St. Charles County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,2068,770,1298,99,"Business, Management & Marketing",573,0,0,0,1105,12,816,82,53,0
+2021,177977,State Technical College of Missouri,Linn,MO,Osage County,5,Outer MO+KS (150+ mi),Public,Two-year,736,601,135,32,Mechanic & Repair Technologies,171,115,601,20,0,0,0,0,0,0
+2021,177986,Logan University,Chesterfield,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,508,229,279,8,Health Professions,358,0,0,0,55,0,231,0,222,0
+2021,177995,Metropolitan Community College-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Public,Two-year,3519,1445,2074,40,Liberal Arts & General Studies,2357,1651,1868,0,0,0,0,0,0,0
+2021,178059,Maryville University of Saint Louis,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,2974,808,2166,90,Health Professions,1694,0,0,0,868,0,1553,352,201,0
+2021,178077,Missouri College of Cosmetology and Esthetics,Jefferson City,MO,Cole County,4,Statewide Reach (100-150 mi),Private for-profit,Less-than-two-year,37,1,36,5,Personal & Culinary Services,37,30,0,0,0,7,0,0,0,0
+2021,178183,Midwest Institute,Earth City,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Two-year,106,5,101,5,Health Professions,83,66,40,0,0,0,0,0,0,0
+2021,178208,Midwestern Baptist Theological Seminary,Kansas City,MO,Clay County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,653,529,124,14,Theology & Religious Vocations,590,87,9,0,70,1,324,8,154,0
+2021,178217,Mineral Area College,Park Hills,MO,St. Francois County,5,Outer MO+KS (150+ mi),Public,Two-year,576,189,387,33,Liberal Arts & General Studies,284,89,487,0,0,0,0,0,0,0
+2021,178244,Missouri Baptist University,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,730,247,483,72,Education,243,3,18,0,439,2,243,6,19,0
+2021,178341,Missouri Southern State University,Joplin,MO,Jasper County,4,Statewide Reach (100-150 mi),Public,Four-year or above,1412,574,838,81,Homeland Security & Protective Services,270,289,141,17,924,0,41,0,0,0
+2021,178369,Missouri Valley College,Marshall,MO,Saline County,3,Regional (60-100 mi),Private not-for-profit,Four-year or above,238,114,124,44,"Business, Management & Marketing",59,0,5,0,217,0,16,0,0,0
+2021,178387,Missouri Western State University,Saint Joseph,MO,Buchanan County,2,KC Fringe (30-60 mi),Public,Four-year or above,843,319,524,71,"Business, Management & Marketing",157,7,24,0,716,5,91,0,0,0
+2021,178396,University of Missouri-Columbia,Columbia,MO,Boone County,4,Statewide Reach (100-150 mi),Public,Four-year or above,9036,3804,5232,161,"Business, Management & Marketing",1549,1235,0,0,5114,381,1423,91,792,0
+2021,178402,University of Missouri-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Public,Four-year or above,3637,1540,2097,121,Health Professions,855,24,0,0,1808,14,1102,74,615,0
+2021,178411,Missouri University of Science and Technology,Rolla,MO,Phelps County,5,Outer MO+KS (150+ mi),Public,Four-year or above,2405,1833,572,75,Engineering,1478,18,0,0,1427,429,413,0,118,0
+2021,178420,University of Missouri-St Louis,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Public,Four-year or above,3031,1126,1905,110,"Business, Management & Marketing",683,93,0,0,1889,130,719,28,172,0
+2021,178448,Moberly Area Community College,Moberly,MO,Randolph County,4,Statewide Reach (100-150 mi),Public,Two-year,880,294,586,17,Liberal Arts & General Studies,652,73,807,0,0,0,0,0,0,0
+2021,178518,Nazarene Theological Seminary,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,84,60,24,10,Theology & Religious Vocations,84,0,0,0,0,16,52,0,16,0
+2021,178527,Neosho Beauty College,Neosho,MO,Newton County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,23,2,21,4,Personal & Culinary Services,23,23,0,0,0,0,0,0,0,0
+2021,178615,Truman State University,Kirksville,MO,Adair County,4,Statewide Reach (100-150 mi),Public,Four-year or above,1271,504,767,54,"Business, Management & Marketing",204,0,0,0,1098,3,170,0,0,0
+2021,178624,Northwest Missouri State University,Maryville,MO,Nodaway County,3,Regional (60-100 mi),Public,Four-year or above,2013,740,1273,109,Education,817,8,0,2,1099,8,845,51,0,0
+2021,178679,Ozark Christian College,Joplin,MO,Jasper County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,141,63,78,9,Theology & Religious Vocations,141,0,24,0,117,0,0,0,0,0
+2021,178697,College of the Ozarks,Point Lookout,MO,Taney County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,309,146,163,65,"Business, Management & Marketing",54,0,0,0,309,0,0,0,0,0
+2021,178721,Park University,Parkville,MO,Platte County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,2677,1302,1375,75,"Business, Management & Marketing",1248,99,207,0,1693,83,595,0,0,0
+2021,178767,Stevens-The Institute of Business & Arts,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private for-profit,Four-year or above,32,4,28,5,"Business, Management & Marketing",18,0,12,0,20,0,0,0,0,0
+2021,178828,Poplar Bluff Technical Career Center,Poplar Bluff,MO,Butler County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,21,6,15,10,Personal & Culinary Services,13,21,0,0,0,0,0,0,0,0
+2021,178891,Ranken Technical College,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,701,657,44,24,Mechanic & Repair Technologies,275,304,372,5,20,0,0,0,0,0
+2021,178989,Research College of Nursing,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Four-year or above,203,24,179,1,Health Professions,203,0,0,0,166,0,34,3,0,0
+2021,179043,Rockhurst University,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,1103,348,755,50,Health Professions,567,8,52,0,594,32,370,0,47,0
+2021,179159,Saint Louis University,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,3239,1223,2016,157,Health Professions,1167,49,20,0,1650,46,868,35,571,0
+2021,179195,Salem College of Hairstyling,Rolla,MO,Phelps County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,14,1,13,2,Personal & Culinary Services,14,14,0,0,0,0,0,0,0,0
+2021,179265,University of Health Sciences and Pharmacy in St. Louis,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,341,134,207,9,Health Professions,339,0,0,0,103,0,0,0,238,0
+2021,179308,Saint Louis Community College,Bridgeton,MO,St. Louis County,5,Outer MO+KS (150+ mi),Public,Four-year or above,2496,854,1642,55,Liberal Arts & General Studies,1372,394,2102,0,0,0,0,0,0,0
+2021,179317,Saint Paul School of Theology,Leawood,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,18,6,12,2,Theology & Religious Vocations,18,0,0,0,0,0,17,0,1,0
+2021,179326,Southwest Baptist University,Bolivar,MO,Polk County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,745,214,531,64,Health Professions,339,0,166,0,355,0,137,1,86,0
+2021,179344,Missouri State University-West Plains,West Plains,MO,Howell County,5,Outer MO+KS (150+ mi),Public,Two-year,274,75,199,28,Liberal Arts & General Studies,104,26,248,0,0,0,0,0,0,0
+2021,179511,St Louis College of Health Careers-St Louis,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,108,6,102,6,Health Professions,108,103,5,0,0,0,0,0,0,0
+2021,179539,State Fair Community College,Sedalia,MO,Pettis County,3,Regional (60-100 mi),Public,Two-year,844,251,593,35,Liberal Arts & General Studies,429,165,679,0,0,0,0,0,0,0
+2021,179548,Stephens College,Columbia,MO,Boone County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,182,15,167,34,Health Professions,61,0,1,0,113,2,66,0,0,0
+2021,179557,Southeast Missouri State University,Cape Girardeau,MO,Cape Girardeau County,5,Outer MO+KS (150+ mi),Public,Four-year or above,2313,850,1463,91,Education,490,5,15,0,1781,21,444,47,0,0
+2021,179566,Missouri State University-Springfield,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Public,Four-year or above,5710,2172,3538,166,"Business, Management & Marketing",1376,278,0,0,3493,490,1279,21,149,0
+2021,179645,Three Rivers College,Poplar Bluff,MO,Butler County,5,Outer MO+KS (150+ mi),Public,Two-year,897,276,621,41,Liberal Arts & General Studies,394,420,477,0,0,0,0,0,0,0
+2021,179715,North Central Missouri College,Trenton,MO,Grundy County,3,Regional (60-100 mi),Public,Two-year,459,116,343,26,Health Professions,195,140,319,0,0,0,0,0,0,0
+2021,179812,Kansas City University,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,348,191,157,4,Health Professions,258,0,0,0,0,0,113,0,235,0
+2021,179867,Washington University in St Louis,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,5090,2354,2736,194,"Business, Management & Marketing",881,43,14,0,1891,91,2220,89,742,0
+2021,179894,Webster University,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,3604,1556,2048,149,"Business, Management & Marketing",1986,48,0,0,722,263,2518,8,45,0
+2021,179946,Westminster College,Fulton,MO,Callaway County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,139,74,65,64,"Business, Management & Marketing",39,0,0,0,139,0,0,0,0,0
+2021,179955,William Jewell College,Liberty,MO,Clay County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,195,79,116,45,Health Professions,70,0,0,0,191,0,4,0,0,0
+2021,179964,William Woods University,Fulton,MO,Callaway County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,670,203,467,51,Education,387,0,5,0,207,0,390,0,68,0
+2021,260336,Clinton Technical School,Clinton,MO,Henry County,3,Regional (60-100 mi),Public,Less-than-two-year,15,1,14,1,Health Professions,15,15,0,0,0,0,0,0,0,0
+2021,261773,Pike-Lincoln Technical Center,Eolia,MO,Pike County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,25,8,17,8,Health Professions,21,25,0,0,0,0,0,0,0,0
+2021,262031,St Charles Community College,Cottleville,MO,St. Charles County,5,Outer MO+KS (150+ mi),Public,Two-year,954,352,602,35,Liberal Arts & General Studies,531,107,847,0,0,0,0,0,0,0
+2021,363679,Grabber School of Hair Design,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,192,5,187,3,Personal & Culinary Services,192,192,0,0,0,0,0,0,0,0
+2021,365505,Waynesville Career Center,Waynesville,MO,Pulaski County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,19,1,18,18,Health Professions,14,18,0,0,0,1,0,0,0,0
+2021,369516,Bryan University,Springfield,MO,Greene County,5,Outer MO+KS (150+ mi),Private for-profit,Four-year or above,115,24,91,10,Health Professions,79,26,56,0,26,0,7,0,0,0
+2021,408066,Paul Mitchell the School-Wichita,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,87,26,61,2,Personal & Culinary Services,87,87,0,0,0,0,0,0,0,0
+2021,409120,Franklin Technology Center Adult Education,Joplin,MO,Jasper County,4,Statewide Reach (100-150 mi),Public,Less-than-two-year,63,24,39,8,Health Professions,39,63,0,0,0,0,0,0,0,0
+2021,417503,Crave Beauty Academy,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,183,2,181,4,Personal & Culinary Services,183,183,0,0,0,0,0,0,0,0
+2021,417628,Kirksville Area Technical Center,Kirksville,MO,Adair County,4,Statewide Reach (100-150 mi),Public,Less-than-two-year,33,10,23,6,Health Professions,22,33,0,0,0,0,0,0,0,0
+2021,417637,Southern Missouri Technical Institute,West Plains,MO,Howell County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,63,26,37,7,Health Professions,39,63,0,0,0,0,0,0,0,0
+2021,417646,Saline County Career Center,Marshall,MO,Saline County,3,Regional (60-100 mi),Public,Less-than-two-year,18,0,18,1,Health Professions,18,18,0,0,0,0,0,0,0,0
+2021,417655,Warrensburg Area Career Center,Warrensburg,MO,Johnson County,2,KC Fringe (30-60 mi),Public,Less-than-two-year,19,0,19,2,Health Professions,10,19,0,0,0,0,0,0,0,0
+2021,417682,Cass Career Center,Harrisonville,MO,Cass County,2,KC Fringe (30-60 mi),Public,Less-than-two-year,25,0,25,1,Health Professions,25,25,0,0,0,0,0,0,0,0
+2021,417716,Applied Tech,Sunset Hills,MO,St. Louis County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,42,1,41,1,Health Professions,42,42,0,0,0,0,0,0,0,0
+2021,417725,Central College of Cosmetology,Saint Robert,MO,Pulaski County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,21,0,21,3,Personal & Culinary Services,21,21,0,0,0,0,0,0,0,0
+2021,417734,Southeast Missouri Hospital College of Nursing and Health Sciences,Cape Girardeau,MO,Cape Girardeau County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,85,14,71,6,Health Professions,85,28,53,0,4,0,0,0,0,0
+2021,419280,New Dimensions School of Hair Design,Joplin,MO,Jasper County,4,Statewide Reach (100-150 mi),Private for-profit,Less-than-two-year,20,0,20,3,Personal & Culinary Services,20,20,0,0,0,0,0,0,0,0
+2021,421771,Academy of Beauty Professionals,Raymore,MO,Cass County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,13,0,13,3,Personal & Culinary Services,13,13,0,0,0,0,0,0,0,0
+2021,441487,Texas County Technical College,Houston,MO,Texas County,5,Outer MO+KS (150+ mi),Private for-profit,Two-year,38,2,36,2,Health Professions,38,18,20,0,0,0,0,0,0,0
+2021,441496,Aviation Institute of Maintenance-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Two-year,69,63,6,2,Mechanic & Repair Technologies,69,7,0,62,0,0,0,0,0,0
+2021,442426,St Louis College of Health Careers-Fenton,Fenton,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Four-year or above,217,19,198,6,Health Professions,217,95,78,0,42,0,2,0,0,0
+2021,445267,Central Methodist University-College of Graduate and Extended Studies,Fayette,MO,Howard County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,765,170,595,33,Health Professions,285,0,7,0,661,0,97,0,0,0
+2021,447999,WellSpring School of Allied Health-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Two-year,136,26,110,5,Health Professions,134,113,23,0,0,0,0,0,0,0
+2021,451237,Z Hair Academy,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,96,4,92,1,Personal & Culinary Services,96,96,0,0,0,0,0,0,0,0
+2021,451316,Trend Setters School,Cape Girardeau,MO,Cape Girardeau County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,57,15,42,3,Personal & Culinary Services,57,45,0,0,0,12,0,0,0,0
+2021,451334,Academy of Hair Design-Springfield,Springfield,MO,Greene County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,194,69,125,4,Personal & Culinary Services,194,194,0,0,0,0,0,0,0,0
+2021,454582,Ottawa University-Online,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,81,28,53,29,"Business, Management & Marketing",35,0,0,0,56,0,25,0,0,0
+2021,455071,Healing Arts Center,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,87,18,69,1,Health Professions,87,87,0,0,0,0,0,0,0,0
+2021,455080,Paul Mitchell the School-Springfield,Springfield,MO,Greene County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,163,23,140,4,Personal & Culinary Services,163,163,0,0,0,0,0,0,0,0
+2021,455099,Urshan Graduate School of Theology,Wentzville,MO,St. Charles County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,25,14,11,3,Theology & Religious Vocations,25,0,0,0,0,0,25,0,0,0
+2021,457581,Eric Fisher Academy,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,141,5,136,3,Personal & Culinary Services,141,141,0,0,0,0,0,0,0,0
+2021,457697,City Vision University,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,41,16,25,5,"Business, Management & Marketing",15,0,5,0,26,5,5,0,0,0
+2021,460932,Skin Institute,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,49,1,48,1,Personal & Culinary Services,49,49,0,0,0,0,0,0,0,0
+2021,460996,The Salon Professional Academy-St Charles,St. Charles,MO,St. Charles County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,96,1,95,2,Personal & Culinary Services,96,96,0,0,0,0,0,0,0,0
+2021,461421,Paul Mitchell the School-St Louis,St. Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,62,2,60,2,Personal & Culinary Services,62,62,0,0,0,0,0,0,0,0
+2021,461537,Evolve Beauty Academy,Washing,MO,Franklin County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,10,0,10,1,Personal & Culinary Services,10,10,0,0,0,0,0,0,0,0
+2021,461573,American Trade School,Saint Ann,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Two-year,52,51,1,2,Mechanic & Repair Technologies,52,52,0,0,0,0,0,0,0,0
+2021,466921,Chamberlain University-Missouri,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Four-year or above,133,10,123,1,Health Professions,133,0,0,0,133,0,0,0,0,0
+2021,470047,WellSpring School of Allied Health-Lawrence,Lawrence,KS,Douglas County,2,KC Fringe (30-60 mi),Private for-profit,Two-year,26,2,24,1,Health Professions,26,16,10,0,0,0,0,0,0,0
+2021,476902,Mitsu Sato Hair Academy,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,52,0,52,4,Personal & Culinary Services,52,52,0,0,0,0,0,0,0,0
+2021,476984,Paul Mitchell the School-Overland Park,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,78,3,75,1,Personal & Culinary Services,78,78,0,0,0,0,0,0,0,0
+2021,478917,Hays Academy of Hair Design,Salina,KS,Saline County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,29,0,29,2,Personal & Culinary Services,29,29,0,0,0,0,0,0,0,0
+2021,478953,Bellus Academy,Manhattan,KS,Riley County,4,Statewide Reach (100-150 mi),Private for-profit,Less-than-two-year,116,4,112,6,Personal & Culinary Services,110,116,0,0,0,0,0,0,0,0
+2021,480657,Rasmussen University-Kansas,Topeka,KS,Shawnee County,3,Regional (60-100 mi),Private for-profit,Four-year or above,317,25,292,39,Health Professions,250,68,214,0,33,0,2,0,0,0
+2021,480879,Academy of Salon Professionals,Sedalia,MO,Pettis County,3,Regional (60-100 mi),Private for-profit,Less-than-two-year,32,3,29,4,Personal & Culinary Services,32,32,0,0,0,0,0,0,0,0
+2021,481049,Carthage R9 School District-Carthage Technical Center,Carthage,MO,Jasper County,4,Statewide Reach (100-150 mi),Public,Less-than-two-year,25,3,22,1,Health Professions,25,25,0,0,0,0,0,0,0,0
+2021,481517,SPBK Enterprises Inc,Webb City,MO,Jasper County,4,Statewide Reach (100-150 mi),Private for-profit,Less-than-two-year,62,2,60,5,Personal & Culinary Services,45,62,0,0,0,0,0,0,0,0
+2021,482097,Midwest Technical Institute-Missouri,Springfield,MO,Greene County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,441,262,179,8,Health Professions,146,340,0,0,0,101,0,0,0,0
+2021,488174,Ea La Mar's Cosmetology & Barber College,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,12,7,5,4,Personal & Culinary Services,12,12,0,0,0,0,0,0,0,0
+2021,490203,Bolivar Technical College,Bolivar,MO,Polk County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,64,3,61,4,Health Professions,64,27,36,0,0,1,0,0,0,0
+2021,492801,Drury University-College of Continuing Professional Studies,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,401,166,235,35,Homeland Security & Protective Services,130,93,92,0,216,0,0,0,0,0
+2021,493451,WellSpring School of Allied Health-Springfield,Springfield,MO,Greene County,5,Outer MO+KS (150+ mi),Private for-profit,Two-year,75,7,68,2,Health Professions,75,65,10,0,0,0,0,0,0,0
+2021,493831,Midwest Barber College,Topeka,KS,Shawnee County,2,KC Fringe (30-60 mi),Private for-profit,Less-than-two-year,10,6,4,2,Personal & Culinary Services,10,10,0,0,0,0,0,0,0,0
+2021,494010,Ponce Health Sciences University-St Louis,St. Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private for-profit,Four-year or above,38,13,25,2,Biological Sciences,38,0,0,0,0,0,38,0,0,0
+2021,494685,Urshan University,Wentzville,MO,St. Charles County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,49,21,28,8,"Business, Management & Marketing",19,1,6,0,42,0,0,0,0,0
+2021,494898,WellSpring School of Allied Health-Wichita,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Two-year,39,2,37,2,Health Professions,39,23,16,0,0,0,0,0,0,0
+2021,495226,St. Louis Med Tech,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Less-than-two-year,4,0,4,1,Health Professions,4,4,0,0,0,0,0,0,0,0
+2021,496724,Aesthetics Institute,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,28,0,28,1,Personal & Culinary Services,28,28,0,0,0,0,0,0,0,0
+2022,154642,Allen County Community College,Iola,KS,Allen County,3,Regional (60-100 mi),Public,Two-year,349,99,250,18,Liberal Arts & General Studies,222,25,257,0,0,67,0,0,0,0
+2022,154688,Baker University,Baldwin City,KS,Douglas County,2,KC Fringe (30-60 mi),Private not-for-profit,Four-year or above,710,262,448,50,"Business, Management & Marketing",302,0,7,0,337,1,340,0,25,0
+2022,154697,Barton County Community College,Great Bend,KS,Barton County,5,Outer MO+KS (150+ mi),Public,Two-year,955,380,575,92,Health Professions,328,186,584,0,0,185,0,0,0,0
+2022,154712,Benedictine College,Atchison,KS,Atchison County,2,KC Fringe (30-60 mi),Private not-for-profit,Four-year or above,439,198,241,56,"Business, Management & Marketing",108,0,0,0,395,0,44,0,0,0
+2022,154721,Bethany College,Lindsborg,KS,McPherson County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,122,61,61,41,"Business, Management & Marketing",31,0,0,0,122,0,0,0,0,0
+2022,154749,Bethel College-North Newton,North Newton,KS,Harvey County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,66,33,33,25,"Business, Management & Marketing",13,0,0,0,66,0,0,0,0,0
+2022,154800,Butler Community College,El Dorado,KS,Butler County,5,Outer MO+KS (150+ mi),Public,Two-year,1371,455,916,97,Health Professions,477,174,1047,0,0,150,0,0,0,0
+2022,154855,Central Christian College of Kansas,McPherson,KS,McPherson County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,119,54,65,41,Homeland Security & Protective Services,30,0,30,0,89,0,0,0,0,0
+2022,154907,Cloud County Community College,Concordia,KS,Cloud County,5,Outer MO+KS (150+ mi),Public,Two-year,471,179,292,16,Liberal Arts & General Studies,206,94,256,0,0,121,0,0,0,0
+2022,154925,Coffeyville Community College,Coffeyville,KS,Montgomery County,5,Outer MO+KS (150+ mi),Public,Two-year,342,165,177,19,Liberal Arts & General Studies,193,69,219,0,0,54,0,0,0,0
+2022,154934,Colby Community College,Colby,KS,Thomas County,5,Outer MO+KS (150+ mi),Public,Two-year,495,182,313,26,Liberal Arts & General Studies,215,182,284,0,0,29,0,0,0,0
+2022,154952,Cowley County Community College,Arkansas City,KS,Cowley County,5,Outer MO+KS (150+ mi),Public,Two-year,784,359,425,28,Liberal Arts & General Studies,337,266,412,0,0,106,0,0,0,0
+2022,154998,Dodge City Community College,Dodge City,KS,Ford County,5,Outer MO+KS (150+ mi),Public,Two-year,363,151,212,71,Health Professions,141,38,204,0,0,121,0,0,0,0
+2022,155007,Donnelly College,Kansas City,KS,Wyandotte County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,91,23,68,7,Liberal Arts & General Studies,41,29,52,0,10,0,0,0,0,0
+2022,155025,Emporia State University,Emporia,KS,Lyon County,3,Regional (60-100 mi),Public,Four-year or above,2005,581,1424,75,Education,913,0,0,0,715,42,1206,38,4,0
+2022,155052,Flint Hills Technical College,Emporia,KS,Lyon County,4,Statewide Reach (100-150 mi),Public,Two-year,377,164,213,21,Health Professions,174,188,85,0,0,104,0,0,0,0
+2022,155061,Fort Hays State University,Hays,KS,Ellis County,5,Outer MO+KS (150+ mi),Public,Four-year or above,3925,1364,2561,65,"Business, Management & Marketing",1302,0,50,0,3001,0,811,29,34,0
+2022,155070,Barclay College,Haviland,KS,Kiowa County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,67,40,27,10,Theology & Religious Vocations,44,0,7,0,26,0,22,12,0,0
+2022,155089,Friends University,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,466,173,293,53,"Business, Management & Marketing",155,0,0,0,235,0,231,0,0,0
+2022,155098,Fort Scott Community College,Fort Scott,KS,Bourbon County,3,Regional (60-100 mi),Public,Two-year,441,181,260,20,Health Professions,168,122,196,0,0,123,0,0,0,0
+2022,155104,Garden City Community College,Garden City,KS,Finney County,5,Outer MO+KS (150+ mi),Public,Two-year,656,288,368,21,Liberal Arts & General Studies,239,234,289,0,0,133,0,0,0,0
+2022,155140,Haskell Indian Nations University,Lawrence,KS,Douglas County,2,KC Fringe (30-60 mi),Public,Four-year or above,134,46,88,14,Liberal Arts & General Studies,40,0,78,0,56,0,0,0,0,0
+2022,155159,Hays Academy of Hair Design,Hays,KS,Ellis County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,58,0,58,2,Personal & Culinary Services,58,58,0,0,0,0,0,0,0,0
+2022,155177,Hesston College,Hesston,KS,Harvey County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,107,38,69,7,Liberal Arts & General Studies,71,0,74,0,33,0,0,0,0,0
+2022,155186,Highland Community College,Highland,KS,Doniphan County,3,Regional (60-100 mi),Public,Two-year,601,178,423,44,Health Professions,311,73,272,0,0,256,0,0,0,0
+2022,155195,Hutchinson Community College,Hutchinson,KS,Reno County,5,Outer MO+KS (150+ mi),Public,Two-year,1608,671,937,57,Health Professions,764,470,814,0,0,324,0,0,0,0
+2022,155201,Independence Community College,Independence,KS,Montgomery County,4,Statewide Reach (100-150 mi),Public,Two-year,196,75,121,29,Liberal Arts & General Studies,82,18,118,0,0,60,0,0,0,0
+2022,155210,Johnson County Community College,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Public,Two-year,2809,1163,1646,57,Liberal Arts & General Studies,1165,724,1631,0,0,454,0,0,0,0
+2022,155283,Concorde Career College-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Four-year or above,287,26,261,15,Health Professions,287,141,106,0,40,0,0,0,0,0
+2022,155292,Kansas City Kansas Community College,Kansas City,KS,Wyandotte County,1,Core KC Metro (0-30 mi),Public,Two-year,1167,503,664,45,Health Professions,427,486,495,0,0,186,0,0,0,0
+2022,155308,Kansas Christian College,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,25,14,11,11,"Business, Management & Marketing",18,0,10,0,15,0,0,0,0,0
+2022,155317,University of Kansas,Lawrence,KS,Douglas County,2,KC Fringe (30-60 mi),Public,Four-year or above,7441,3190,4251,208,"Business, Management & Marketing",1334,456,0,0,4201,355,1452,11,966,0
+2022,155335,Newman University,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,392,114,278,49,Health Professions,102,0,31,0,248,0,113,0,0,0
+2022,155353,Old Town Barber College,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,49,41,8,1,Personal & Culinary Services,49,49,0,0,0,0,0,0,0,0
+2022,155399,Kansas State University,Manhattan,KS,Riley County,4,Statewide Reach (100-150 mi),Public,Four-year or above,5760,2629,3131,193,"Business, Management & Marketing",1206,370,20,0,3671,254,1119,0,326,0
+2022,155414,Kansas Wesleyan University,Salina,KS,Saline County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,198,113,85,44,"Business, Management & Marketing",59,0,0,0,169,0,29,0,0,0
+2022,155423,Washburn Institute of Technology,Topeka,KS,Shawnee County,3,Regional (60-100 mi),Public,Less-than-two-year,891,468,423,30,Health Professions,394,673,0,0,0,218,0,0,0,0
+2022,155450,Labette Community College,Parsons,KS,Labette County,4,Statewide Reach (100-150 mi),Public,Two-year,279,82,197,15,Liberal Arts & General Studies,151,75,204,0,0,0,0,0,0,0
+2022,155487,Manhattan Area Technical College,Manhattan,KS,Riley County,4,Statewide Reach (100-150 mi),Public,Two-year,382,196,186,19,Health Professions,190,199,83,0,0,100,0,0,0,0
+2022,155496,Manhattan Christian College,Manhattan,KS,Riley County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,40,20,20,5,Theology & Religious Vocations,32,0,8,0,32,0,0,0,0,0
+2022,155511,McPherson College,McPherson,KS,McPherson County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,153,92,61,50,"Business, Management & Marketing",36,0,0,0,146,0,7,0,0,0
+2022,155520,MidAmerica Nazarene University,Olathe,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,554,160,394,59,Health Professions,198,1,12,0,356,5,151,29,0,0
+2022,155566,Neosho County Community College,Chanute,KS,Neosho County,4,Statewide Reach (100-150 mi),Public,Two-year,791,314,477,29,Health Professions,364,289,289,0,0,213,0,0,0,0
+2022,155593,Fort Hays Tech North Central,Beloit,KS,Mitchell County,5,Outer MO+KS (150+ mi),Public,Two-year,389,190,199,22,Health Professions,203,170,92,0,0,127,0,0,0,0
+2022,155618,Fort Hays State University-Northwest Kansas Technical College,Goodland,KS,Sherman County,5,Outer MO+KS (150+ mi),Public,Two-year,384,292,92,21,Precision Production,78,225,122,0,0,37,0,0,0,0
+2022,155627,Ottawa University-Ottawa,Ottawa,KS,Franklin County,2,KC Fringe (30-60 mi),Private not-for-profit,Four-year or above,156,89,67,43,"Business, Management & Marketing",78,0,0,0,103,0,53,0,0,0
+2022,155636,Ottawa University-Kansas City,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,177,67,110,37,Computer & Information Sciences,75,0,0,0,79,0,98,0,0,0
+2022,155681,Pittsburg State University,Pittsburg,KS,Crawford County,4,Statewide Reach (100-150 mi),Public,Four-year or above,1801,805,996,76,Education,473,28,25,0,1024,20,652,31,21,0
+2022,155715,Pratt Community College,Pratt,KS,Pratt County,5,Outer MO+KS (150+ mi),Public,Two-year,297,150,147,13,Liberal Arts & General Studies,102,72,136,0,0,89,0,0,0,0
+2022,155812,University of Saint Mary,Leavenworth,KS,Leavenworth County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,350,140,210,38,Health Professions,122,0,0,0,197,0,113,0,40,0
+2022,155830,Salina Area Technical College,Salina,KS,Saline County,5,Outer MO+KS (150+ mi),Public,Two-year,432,169,263,24,Health Professions,281,150,54,0,0,228,0,0,0,0
+2022,155858,Seward County Community College,Liberal,KS,Seward County,5,Outer MO+KS (150+ mi),Public,Two-year,410,137,273,32,Health Professions,168,135,175,0,0,100,0,0,0,0
+2022,155900,Southwestern College,Winfield,KS,Cowley County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,421,275,146,68,"Business, Management & Marketing",153,40,0,0,320,7,46,0,8,0
+2022,155937,Sterling College,Sterling,KS,Rice County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,132,70,62,36,"Business, Management & Marketing",32,0,0,0,125,0,7,0,0,0
+2022,155973,Tabor College,Hillsboro,KS,Marion County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,134,69,65,49,"Business, Management & Marketing",42,0,4,0,109,0,21,0,0,0
+2022,156082,Washburn University,Topeka,KS,Shawnee County,3,Regional (60-100 mi),Public,Four-year or above,1421,495,926,99,Health Professions,529,79,227,0,775,35,124,44,137,0
+2022,156107,Wichita State University-Campus of Applied Sciences and Technology,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Public,Two-year,1819,975,844,38,Health Professions,704,969,315,0,0,535,0,0,0,0
+2022,156125,Wichita State University,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Public,Four-year or above,3647,1509,2138,155,"Business, Management & Marketing",583,0,73,0,2356,220,801,109,88,0
+2022,156134,Wichita Technical Institute,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,560,338,222,7,Engineering Technologies,259,540,20,0,0,0,0,0,0,0
+2022,176600,Aquinas Institute of Theology,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,33,16,17,4,Theology & Religious Vocations,33,0,0,0,0,8,15,0,10,0
+2022,176628,Avila University,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,382,120,262,52,Health Professions,78,0,0,0,268,23,91,0,0,0
+2022,176664,Mission University,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,56,29,27,12,Theology & Religious Vocations,34,0,3,0,35,0,18,0,0,0
+2022,176716,House of Heavilin Beauty College-Blue Springs,Blue Springs,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,121,0,121,4,Personal & Culinary Services,121,121,0,0,0,0,0,0,0,0
+2022,176770,Cox College,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,350,62,288,9,Health Professions,350,0,120,0,144,0,83,3,0,0
+2022,176789,Calvary University,Kansas City,MO,Cass County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,89,47,42,20,Theology & Religious Vocations,45,0,10,0,57,0,22,0,0,0
+2022,176798,Cape Girardeau Career and Technology Center,Cape Girardeau,MO,Cape Girardeau County,5,Outer MO+KS (150+ mi),Public,Two-year,111,43,68,21,Health Professions,88,110,0,1,0,0,0,0,0,0
+2022,176910,Central Christian College of the Bible,Moberly,MO,Randolph County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,43,24,19,14,Theology & Religious Vocations,43,1,4,0,25,0,13,0,0,0
+2022,176947,Central Methodist University-College of Liberal Arts and Sciences,Fayette,MO,Howard County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,266,112,154,45,Health Professions,50,0,10,0,256,0,0,0,0,0
+2022,176965,University of Central Missouri,Warrensburg,MO,Johnson County,2,KC Fringe (30-60 mi),Public,Four-year or above,2830,1150,1680,107,Education,649,317,0,0,1567,24,828,94,0,0
+2022,176983,Grand River Technical School,Chillicothe,MO,Livingston County,3,Regional (60-100 mi),Public,Less-than-two-year,55,46,9,8,Mechanic & Repair Technologies,20,46,0,0,0,9,0,0,0,0
+2022,177038,Cleveland University-Kansas City,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,164,88,76,8,Health Professions,149,0,20,0,15,0,0,0,129,0
+2022,177065,Columbia College,Columbia,MO,Boone County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,2189,915,1274,55,"Business, Management & Marketing",738,33,600,0,1372,0,184,0,0,0
+2022,177083,Conception Seminary College,Conception,MO,Nodaway County,3,Regional (60-100 mi),Private not-for-profit,Four-year or above,9,9,0,3,Philosophy & Religious Studies,9,0,0,0,9,0,0,0,0,0
+2022,177092,Concordia Seminary,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,119,113,6,2,Theology & Religious Vocations,119,0,0,0,0,41,63,0,15,0
+2022,177117,Cottey College,Nevada,MO,Vernon County,3,Regional (60-100 mi),Private not-for-profit,Four-year or above,59,0,59,19,Liberal Arts & General Studies,17,0,21,0,38,0,0,0,0,0
+2022,177126,Covenant Theological Seminary,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,125,76,49,8,Theology & Religious Vocations,93,0,0,0,0,4,107,0,14,0
+2022,177135,Crowder College,Neosho,MO,Newton County,5,Outer MO+KS (150+ mi),Public,Two-year,1214,644,570,47,Liberal Arts & General Studies,361,471,743,0,0,0,0,0,0,0
+2022,177144,Culver-Stockton College,Canton,MO,Lewis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,207,99,108,47,"Business, Management & Marketing",52,0,0,0,175,0,32,0,0,0
+2022,177214,Drury University,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,438,170,268,68,"Business, Management & Marketing",86,0,0,0,326,18,94,0,0,0
+2022,177250,East Central College,Union,MO,Franklin County,5,Outer MO+KS (150+ mi),Public,Two-year,571,252,319,26,Liberal Arts & General Studies,249,144,427,0,0,0,0,0,0,0
+2022,177278,Eden Theological Seminary,Webster Groves,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,31,15,16,4,Theology & Religious Vocations,31,0,0,0,0,0,23,0,8,0
+2022,177302,Pinnacle Career Institute,Kansas City,MO,Platte County,1,Core KC Metro (0-30 mi),Private for-profit,Two-year,316,254,62,5,Engineering Technologies,253,296,20,0,0,0,0,0,0,0
+2022,177339,Evangel University,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,428,162,266,75,Education,119,0,6,0,277,0,117,0,28,0
+2022,177418,Fontbonne University,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,262,64,198,54,Health Professions,72,1,0,0,143,1,111,0,6,0
+2022,177436,Four Rivers Career Center,Washington,MO,Franklin County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,17,0,17,1,Health Professions,17,17,0,0,0,0,0,0,0,0
+2022,177472,Ozarks Technical Community College,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Public,Four-year or above,2249,920,1329,56,Health Professions,637,759,1490,0,0,0,0,0,0,0
+2022,177542,Hannibal-LaGrange University,Hannibal,MO,Marion County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,171,54,117,31,Education,55,17,17,0,101,0,36,0,0,0
+2022,177551,Harris-Stowe State University,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Public,Four-year or above,237,79,158,22,"Business, Management & Marketing",42,0,0,0,237,0,0,0,0,0
+2022,177588,House of Heavilin Beauty College-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,24,3,21,3,Personal & Culinary Services,24,20,0,0,0,4,0,0,0,0
+2022,177603,Summit Salon Academy Kansas City,Independence,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,62,0,62,3,Personal & Culinary Services,62,62,0,0,0,0,0,0,0,0
+2022,177676,Jefferson College,Hillsboro,MO,Jefferson County,5,Outer MO+KS (150+ mi),Public,Two-year,688,265,423,25,Liberal Arts & General Studies,308,125,563,0,0,0,0,0,0,0
+2022,177685,Paul Mitchell the School-Missouri Columbia,Columbia,MO,Boone County,4,Statewide Reach (100-150 mi),Private for-profit,Less-than-two-year,99,6,93,4,Personal & Culinary Services,99,99,0,0,0,0,0,0,0,0
+2022,177719,Barnes-Jewish College Goldfarb School of Nursing,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,402,43,359,2,Health Professions,402,0,0,0,352,0,39,9,2,0
+2022,177746,Kansas City Art Institute,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,131,45,86,13,Visual & Performing Arts,113,0,0,0,131,0,0,0,0,0
+2022,177816,Kenrick Glennon Seminary,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,11,11,0,1,Theology & Religious Vocations,11,0,0,0,0,0,11,0,0,0
+2022,177834,A T Still University of Health Sciences,Kirksville,MO,Adair County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,1234,481,753,14,Health Professions,1175,0,0,0,0,173,264,0,797,0
+2022,177931,Lex La-Ray Technical Center,Lexington,MO,Lafayette County,2,KC Fringe (30-60 mi),Public,Less-than-two-year,25,1,24,4,Health Professions,25,25,0,0,0,0,0,0,0,0
+2022,177940,Lincoln University,Jefferson City,MO,Cole County,4,Statewide Reach (100-150 mi),Public,Four-year or above,308,122,186,51,"Business, Management & Marketing",60,0,30,0,241,0,37,0,0,0
+2022,177968,Lindenwood University,Saint Charles,MO,St. Charles County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,1989,753,1236,104,"Business, Management & Marketing",549,0,0,0,1104,11,762,59,53,0
+2022,177977,State Technical College of Missouri,Linn,MO,Osage County,5,Outer MO+KS (150+ mi),Public,Two-year,880,725,155,31,Mechanic & Repair Technologies,173,265,615,0,0,0,0,0,0,0
+2022,177986,Logan University,Chesterfield,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,571,248,323,8,Health Professions,398,0,0,0,62,0,253,0,256,0
+2022,177995,Metropolitan Community College-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Public,Two-year,3677,1421,2256,39,Liberal Arts & General Studies,2499,1778,1899,0,0,0,0,0,0,0
+2022,178059,Maryville University of Saint Louis,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,3135,866,2269,89,Health Professions,1653,9,0,0,886,93,1572,336,239,0
+2022,178077,Missouri College of Cosmetology and Esthetics,Jefferson City,MO,Cole County,4,Statewide Reach (100-150 mi),Private for-profit,Less-than-two-year,46,0,46,5,Personal & Culinary Services,46,40,0,0,0,6,0,0,0,0
+2022,178183,Midwest Institute,Earth City,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Two-year,134,9,125,5,Health Professions,85,67,67,0,0,0,0,0,0,0
+2022,178208,Midwestern Baptist Theological Seminary,Kansas City,MO,Clay County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,607,497,110,14,Theology & Religious Vocations,567,58,8,0,85,2,257,11,186,0
+2022,178217,Mineral Area College,Park Hills,MO,St. Francois County,5,Outer MO+KS (150+ mi),Public,Two-year,554,192,362,33,Liberal Arts & General Studies,306,83,471,0,0,0,0,0,0,0
+2022,178244,Missouri Baptist University,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,670,224,446,77,Education,249,2,18,0,383,10,215,24,18,0
+2022,178341,Missouri Southern State University,Joplin,MO,Jasper County,4,Statewide Reach (100-150 mi),Public,Four-year or above,1301,524,777,89,Homeland Security & Protective Services,273,307,133,2,800,3,56,0,0,0
+2022,178369,Missouri Valley College,Marshall,MO,Saline County,3,Regional (60-100 mi),Private not-for-profit,Four-year or above,247,115,132,40,"Business, Management & Marketing",60,0,9,0,222,0,16,0,0,0
+2022,178387,Missouri Western State University,Saint Joseph,MO,Buchanan County,2,KC Fringe (30-60 mi),Public,Four-year or above,797,287,510,72,Health Professions,159,9,17,0,672,8,91,0,0,0
+2022,178396,University of Missouri-Columbia,Columbia,MO,Boone County,4,Statewide Reach (100-150 mi),Public,Four-year or above,9503,3769,5734,167,"Business, Management & Marketing",1552,1526,0,0,5092,450,1568,76,791,0
+2022,178402,University of Missouri-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Public,Four-year or above,3410,1455,1955,116,Health Professions,792,14,0,0,1623,30,1042,84,617,0
+2022,178411,Missouri University of Science and Technology,Rolla,MO,Phelps County,5,Outer MO+KS (150+ mi),Public,Four-year or above,2209,1687,522,77,Engineering,1352,24,0,0,1325,347,400,0,113,0
+2022,178420,University of Missouri-St Louis,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Public,Four-year or above,2872,1092,1780,114,"Business, Management & Marketing",640,98,0,0,1786,133,635,47,173,0
+2022,178448,Moberly Area Community College,Moberly,MO,Randolph County,4,Statewide Reach (100-150 mi),Public,Two-year,862,275,587,18,Liberal Arts & General Studies,586,74,788,0,0,0,0,0,0,0
+2022,178518,Nazarene Theological Seminary,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,76,41,35,10,Theology & Religious Vocations,76,0,0,0,0,10,42,0,24,0
+2022,178527,Neosho Beauty College,Neosho,MO,Newton County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,27,1,26,4,Personal & Culinary Services,27,27,0,0,0,0,0,0,0,0
+2022,178615,Truman State University,Kirksville,MO,Adair County,4,Statewide Reach (100-150 mi),Public,Four-year or above,1086,392,694,55,"Business, Management & Marketing",177,0,0,0,913,3,170,0,0,0
+2022,178624,Northwest Missouri State University,Maryville,MO,Nodaway County,3,Regional (60-100 mi),Public,Four-year or above,2330,887,1443,111,Education,1060,6,0,2,1118,31,929,244,0,0
+2022,178679,Ozark Christian College,Joplin,MO,Jasper County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,138,74,64,9,Theology & Religious Vocations,138,0,23,0,115,0,0,0,0,0
+2022,178697,College of the Ozarks,Point Lookout,MO,Taney County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,351,162,189,69,"Business, Management & Marketing",56,0,0,0,351,0,0,0,0,0
+2022,178721,Park University,Parkville,MO,Platte County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,2442,1162,1280,79,"Business, Management & Marketing",1107,90,156,0,1567,84,545,0,0,0
+2022,178767,Stevens-The Institute of Business & Arts,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private for-profit,Four-year or above,27,2,25,4,Visual & Performing Arts,15,0,14,0,13,0,0,0,0,0
+2022,178828,Poplar Bluff Technical Career Center,Poplar Bluff,MO,Butler County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,18,8,10,10,Personal & Culinary Services,11,18,0,0,0,0,0,0,0,0
+2022,178891,Ranken Technical College,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,754,702,52,24,Mechanic & Repair Technologies,298,314,403,8,29,0,0,0,0,0
+2022,178989,Research College of Nursing,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Four-year or above,213,31,182,1,Health Professions,213,0,0,0,169,0,42,2,0,0
+2022,179043,Rockhurst University,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,1023,312,711,52,Health Professions,553,6,29,0,563,13,363,0,49,0
+2022,179159,Saint Louis University,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,3241,1240,2001,149,Health Professions,1154,190,2,0,1514,55,889,36,555,0
+2022,179195,Salem College of Hairstyling,Rolla,MO,Phelps County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,11,0,11,2,Personal & Culinary Services,11,11,0,0,0,0,0,0,0,0
+2022,179265,University of Health Sciences and Pharmacy in St. Louis,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,248,90,158,17,Health Professions,241,0,0,0,81,0,0,0,167,0
+2022,179308,Saint Louis Community College,Bridgeton,MO,St. Louis County,5,Outer MO+KS (150+ mi),Public,Four-year or above,2381,803,1578,51,Liberal Arts & General Studies,1327,387,1981,0,0,13,0,0,0,0
+2022,179317,Saint Paul School of Theology,Leawood,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,28,11,17,2,Theology & Religious Vocations,28,0,0,0,0,0,27,0,1,0
+2022,179326,Southwest Baptist University,Bolivar,MO,Polk County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,771,257,514,67,Health Professions,294,0,156,0,329,0,163,32,91,0
+2022,179344,Missouri State University-West Plains,West Plains,MO,Howell County,5,Outer MO+KS (150+ mi),Public,Two-year,300,70,230,28,Liberal Arts & General Studies,102,42,258,0,0,0,0,0,0,0
+2022,179511,St Louis College of Health Careers-St Louis,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,108,1,107,3,Health Professions,108,108,0,0,0,0,0,0,0,0
+2022,179539,State Fair Community College,Sedalia,MO,Pettis County,3,Regional (60-100 mi),Public,Two-year,750,239,511,37,Liberal Arts & General Studies,385,142,608,0,0,0,0,0,0,0
+2022,179548,Stephens College,Columbia,MO,Boone County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,152,9,143,32,Health Professions,50,0,1,0,92,3,56,0,0,0
+2022,179557,Southeast Missouri State University,Cape Girardeau,MO,Cape Girardeau County,5,Outer MO+KS (150+ mi),Public,Four-year or above,2074,722,1352,93,Education,451,4,11,0,1586,21,400,52,0,0
+2022,179566,Missouri State University-Springfield,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Public,Four-year or above,5562,2041,3521,171,"Business, Management & Marketing",1207,410,0,0,3304,483,1198,31,136,0
+2022,179645,Three Rivers College,Poplar Bluff,MO,Butler County,5,Outer MO+KS (150+ mi),Public,Two-year,774,210,564,41,Liberal Arts & General Studies,361,350,424,0,0,0,0,0,0,0
+2022,179715,North Central Missouri College,Trenton,MO,Grundy County,3,Regional (60-100 mi),Public,Two-year,444,100,344,27,Health Professions,186,132,312,0,0,0,0,0,0,0
+2022,179812,Kansas City University,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,399,219,180,4,Health Professions,301,0,0,0,0,0,121,0,278,0
+2022,179867,Washington University in St Louis,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,5573,2700,2873,195,"Business, Management & Marketing",1114,37,20,0,1848,91,2719,71,787,0
+2022,179894,Webster University,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,3037,1361,1676,157,"Business, Management & Marketing",1508,36,0,0,669,184,2124,4,20,0
+2022,179946,Westminster College,Fulton,MO,Callaway County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,131,69,62,62,"Business, Management & Marketing",36,0,0,0,131,0,0,0,0,0
+2022,179955,William Jewell College,Liberty,MO,Clay County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,207,92,115,47,Health Professions,69,0,0,0,194,5,8,0,0,0
+2022,179964,William Woods University,Fulton,MO,Callaway County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,699,238,461,48,Education,388,0,3,0,225,0,410,0,61,0
+2022,260336,Clinton Technical School,Clinton,MO,Henry County,3,Regional (60-100 mi),Public,Less-than-two-year,13,0,13,1,Health Professions,13,13,0,0,0,0,0,0,0,0
+2022,261773,Pike-Lincoln Technical Center,Eolia,MO,Pike County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,30,6,24,8,Health Professions,27,30,0,0,0,0,0,0,0,0
+2022,262031,St Charles Community College,Cottleville,MO,St. Charles County,5,Outer MO+KS (150+ mi),Public,Two-year,965,353,612,37,Liberal Arts & General Studies,530,114,851,0,0,0,0,0,0,0
+2022,363679,Grabber School of Hair Design,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,188,3,185,4,Personal & Culinary Services,188,188,0,0,0,0,0,0,0,0
+2022,365505,Waynesville Career Center,Waynesville,MO,Pulaski County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,26,0,26,18,Personal & Culinary Services,13,26,0,0,0,0,0,0,0,0
+2022,369516,Bryan University,Springfield,MO,Greene County,5,Outer MO+KS (150+ mi),Private for-profit,Four-year or above,83,19,64,8,Health Professions,57,15,40,0,22,0,6,0,0,0
+2022,408066,Paul Mitchell the School-Wichita,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,92,38,54,2,Personal & Culinary Services,92,92,0,0,0,0,0,0,0,0
+2022,409120,Franklin Technology Center Adult Education,Joplin,MO,Jasper County,4,Statewide Reach (100-150 mi),Public,Less-than-two-year,60,21,39,7,Health Professions,45,60,0,0,0,0,0,0,0,0
+2022,417503,Crave Beauty Academy,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,180,4,176,4,Personal & Culinary Services,180,180,0,0,0,0,0,0,0,0
+2022,417628,Kirksville Area Technical Center,Kirksville,MO,Adair County,4,Statewide Reach (100-150 mi),Public,Less-than-two-year,21,1,20,6,Health Professions,20,21,0,0,0,0,0,0,0,0
+2022,417637,Southern Missouri Technical Institute,West Plains,MO,Howell County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,49,14,35,7,Health Professions,37,49,0,0,0,0,0,0,0,0
+2022,417646,Saline County Career Center,Marshall,MO,Saline County,3,Regional (60-100 mi),Public,Less-than-two-year,21,1,20,1,Health Professions,21,21,0,0,0,0,0,0,0,0
+2022,417655,Warrensburg Area Career Center,Warrensburg,MO,Johnson County,2,KC Fringe (30-60 mi),Public,Less-than-two-year,25,0,25,2,Health Professions,15,25,0,0,0,0,0,0,0,0
+2022,417682,Cass Career Center,Harrisonville,MO,Cass County,2,KC Fringe (30-60 mi),Public,Less-than-two-year,21,2,19,1,Health Professions,21,21,0,0,0,0,0,0,0,0
+2022,417716,Applied Tech,Sunset Hills,MO,St. Louis County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,71,2,69,1,Health Professions,71,71,0,0,0,0,0,0,0,0
+2022,417725,Central College of Cosmetology,Saint Robert,MO,Pulaski County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,38,0,38,3,Personal & Culinary Services,38,38,0,0,0,0,0,0,0,0
+2022,417734,Southeast Missouri Hospital College of Nursing and Health Sciences,Cape Girardeau,MO,Cape Girardeau County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,64,7,57,6,Health Professions,64,13,47,0,4,0,0,0,0,0
+2022,419280,New Dimensions School of Hair Design,Joplin,MO,Jasper County,4,Statewide Reach (100-150 mi),Private for-profit,Less-than-two-year,19,1,18,3,Personal & Culinary Services,19,19,0,0,0,0,0,0,0,0
+2022,421771,Academy of Beauty Professionals,Raymore,MO,Cass County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,29,1,28,2,Personal & Culinary Services,29,29,0,0,0,0,0,0,0,0
+2022,441487,Texas County Technical College,Houston,MO,Texas County,5,Outer MO+KS (150+ mi),Private for-profit,Two-year,46,2,44,2,Health Professions,46,20,26,0,0,0,0,0,0,0
+2022,441496,Aviation Institute of Maintenance-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Two-year,78,72,6,2,Mechanic & Repair Technologies,78,5,0,73,0,0,0,0,0,0
+2022,442426,St Louis College of Health Careers-Fenton,Fenton,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Four-year or above,203,19,184,7,Health Professions,203,61,77,0,47,0,18,0,0,0
+2022,445267,Central Methodist University-College of Graduate and Extended Studies,Fayette,MO,Howard County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,664,126,538,36,Health Professions,223,0,4,0,576,0,84,0,0,0
+2022,447999,WellSpring School of Allied Health-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Two-year,117,29,88,3,Health Professions,117,94,23,0,0,0,0,0,0,0
+2022,451237,Z Hair Academy,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,95,3,92,1,Personal & Culinary Services,95,95,0,0,0,0,0,0,0,0
+2022,451316,Trend Setters School,Cape Girardeau,MO,Cape Girardeau County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,50,11,39,3,Personal & Culinary Services,50,39,0,0,0,11,0,0,0,0
+2022,451334,Academy of Hair Design-Springfield,Springfield,MO,Greene County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,182,74,108,4,Personal & Culinary Services,182,182,0,0,0,0,0,0,0,0
+2022,454582,Ottawa University-Online,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,91,30,61,27,Health Professions,39,0,0,0,70,0,21,0,0,0
+2022,455071,Healing Arts Center,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,69,12,57,1,Health Professions,69,69,0,0,0,0,0,0,0,0
+2022,455080,Paul Mitchell the School-Springfield,Springfield,MO,Greene County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,216,24,192,5,Personal & Culinary Services,216,216,0,0,0,0,0,0,0,0
+2022,455099,Urshan Graduate School of Theology,Wentzville,MO,St. Charles County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,21,13,8,7,Theology & Religious Vocations,20,0,0,0,0,3,18,0,0,0
+2022,457581,Eric Fisher Academy,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,170,2,168,3,Personal & Culinary Services,170,170,0,0,0,0,0,0,0,0
+2022,457697,City Vision University,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,34,16,18,4,"Business, Management & Marketing",16,0,5,0,18,5,6,0,0,0
+2022,460932,Skin Institute,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,38,1,37,1,Personal & Culinary Services,38,38,0,0,0,0,0,0,0,0
+2022,460996,The Salon Professional Academy-St Charles,St. Charles,MO,St. Charles County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,127,1,126,2,Personal & Culinary Services,127,127,0,0,0,0,0,0,0,0
+2022,461421,Paul Mitchell the School-St Louis,St. Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,107,7,100,2,Personal & Culinary Services,107,107,0,0,0,0,0,0,0,0
+2022,461537,Evolve Beauty Academy,Washing,MO,Franklin County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,22,0,22,1,Personal & Culinary Services,22,22,0,0,0,0,0,0,0,0
+2022,461573,American Trade School,Saint Ann,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Two-year,93,91,2,2,Mechanic & Repair Technologies,93,93,0,0,0,0,0,0,0,0
+2022,466921,Chamberlain University-Missouri,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Four-year or above,93,8,85,1,Health Professions,93,0,0,0,93,0,0,0,0,0
+2022,470047,WellSpring School of Allied Health-Lawrence,Lawrence,KS,Douglas County,2,KC Fringe (30-60 mi),Private for-profit,Two-year,21,3,18,1,Health Professions,21,13,8,0,0,0,0,0,0,0
+2022,476902,Mitsu Sato Hair Academy,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,77,0,77,4,Personal & Culinary Services,77,77,0,0,0,0,0,0,0,0
+2022,476984,Paul Mitchell the School-Overland Park,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,104,4,100,2,Personal & Culinary Services,104,104,0,0,0,0,0,0,0,0
+2022,477233,Evangel University-James River Assembly of God Church,Ozark,MO,Christian County,5,Outer MO+KS (150+ mi),Private not-for-profit,Two-year,30,14,16,1,"Business, Management & Marketing",30,0,30,0,0,0,0,0,0,0
+2022,478917,Hays Academy of Hair Design,Salina,KS,Saline County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,37,2,35,2,Personal & Culinary Services,37,37,0,0,0,0,0,0,0,0
+2022,478953,Bellus Academy,Manhattan,KS,Riley County,4,Statewide Reach (100-150 mi),Private for-profit,Less-than-two-year,151,5,146,6,Personal & Culinary Services,138,125,0,26,0,0,0,0,0,0
+2022,480657,Rasmussen University-Kansas,Topeka,KS,Shawnee County,3,Regional (60-100 mi),Private for-profit,Four-year or above,336,32,304,39,Health Professions,267,66,233,0,35,0,2,0,0,0
+2022,480879,Academy of Salon Professionals,Sedalia,MO,Pettis County,3,Regional (60-100 mi),Private for-profit,Less-than-two-year,34,0,34,4,Personal & Culinary Services,34,34,0,0,0,0,0,0,0,0
+2022,481049,Carthage R9 School District-Carthage Technical Center,Carthage,MO,Jasper County,4,Statewide Reach (100-150 mi),Public,Less-than-two-year,20,2,18,1,Health Professions,20,20,0,0,0,0,0,0,0,0
+2022,481517,SPBK Enterprises Inc,Webb City,MO,Jasper County,4,Statewide Reach (100-150 mi),Private for-profit,Less-than-two-year,65,3,62,5,Personal & Culinary Services,50,65,0,0,0,0,0,0,0,0
+2022,482097,Midwest Technical Institute-Missouri,Springfield,MO,Greene County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,401,245,156,8,Transportation & Materials Moving,123,280,0,0,0,121,0,0,0,0
+2022,488174,Ea La Mar's Cosmetology & Barber College,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,9,3,6,4,Personal & Culinary Services,9,9,0,0,0,0,0,0,0,0
+2022,490203,Bolivar Technical College,Bolivar,MO,Polk County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,52,1,51,4,Health Professions,52,20,32,0,0,0,0,0,0,0
+2022,492801,Drury University-College of Continuing Professional Studies,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,308,125,183,36,Homeland Security & Protective Services,86,69,69,0,170,0,0,0,0,0
+2022,493451,WellSpring School of Allied Health-Springfield,Springfield,MO,Greene County,5,Outer MO+KS (150+ mi),Private for-profit,Two-year,68,14,54,2,Health Professions,68,63,5,0,0,0,0,0,0,0
+2022,493831,Midwest Barber College,Topeka,KS,Shawnee County,2,KC Fringe (30-60 mi),Private for-profit,Less-than-two-year,22,16,6,2,Personal & Culinary Services,22,22,0,0,0,0,0,0,0,0
+2022,494010,Ponce Health Sciences University-St Louis,St. Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private for-profit,Four-year or above,33,9,24,2,Biological Sciences,33,0,0,0,0,0,33,0,0,0
+2022,494685,Urshan University,Wentzville,MO,St. Charles County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,62,26,36,8,Theology & Religious Vocations,25,2,7,0,53,0,0,0,0,0
+2022,494898,WellSpring School of Allied Health-Wichita,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Two-year,46,9,37,2,Health Professions,46,22,24,0,0,0,0,0,0,0
+2022,495226,St. Louis Med Tech,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Less-than-two-year,4,0,4,1,Health Professions,4,4,0,0,0,0,0,0,0,0
+2022,496724,Aesthetics Institute,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,27,0,27,1,Personal & Culinary Services,27,27,0,0,0,0,0,0,0,0
+2022,497693,Kansas Health Science University,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,0,0,0,1,Health Professions,0,0,0,0,0,0,0,0,0,0
+2022,497824,Evangel University-College of Online Learning,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,61,30,31,6,"Business, Management & Marketing",27,0,4,0,57,0,0,0,0,0
+2022,497912,Concorde Career College-Broadway,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,113,4,109,2,Health Professions,113,113,0,0,0,0,0,0,0,0
+2023,154642,Allen County Community College,Iola,KS,Allen County,3,Regional (60-100 mi),Public,Two-year,341,115,226,18,Liberal Arts & General Studies,208,29,257,0,0,55,0,0,0,0
+2023,154688,Baker University,Baldwin City,KS,Douglas County,2,KC Fringe (30-60 mi),Private not-for-profit,Four-year or above,556,209,347,50,"Business, Management & Marketing",197,0,3,0,288,0,231,0,34,0
+2023,154697,Barton County Community College,Great Bend,KS,Barton County,5,Outer MO+KS (150+ mi),Public,Two-year,913,324,589,93,Liberal Arts & General Studies,369,133,585,0,0,195,0,0,0,0
+2023,154712,Benedictine College,Atchison,KS,Atchison County,2,KC Fringe (30-60 mi),Private not-for-profit,Four-year or above,477,216,261,57,"Business, Management & Marketing",117,0,0,0,422,0,55,0,0,0
+2023,154721,Bethany College,Lindsborg,KS,McPherson County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,130,54,76,45,"Business, Management & Marketing",31,0,0,0,130,0,0,0,0,0
+2023,154749,Bethel College-North Newton,North Newton,KS,Harvey County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,83,34,49,26,"Business, Management & Marketing",19,0,0,0,83,0,0,0,0,0
+2023,154800,Butler Community College,El Dorado,KS,Butler County,5,Outer MO+KS (150+ mi),Public,Two-year,1327,447,880,101,Health Professions,466,183,1030,0,0,114,0,0,0,0
+2023,154855,Central Christian College of Kansas,McPherson,KS,McPherson County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,143,70,73,41,"Business, Management & Marketing",51,0,21,0,100,0,22,0,0,0
+2023,154907,Cloud County Community College,Concordia,KS,Cloud County,5,Outer MO+KS (150+ mi),Public,Two-year,565,210,355,17,Health Professions,224,119,266,0,0,180,0,0,0,0
+2023,154925,Coffeyville Community College,Coffeyville,KS,Montgomery County,5,Outer MO+KS (150+ mi),Public,Two-year,375,182,193,19,Liberal Arts & General Studies,185,70,220,0,0,85,0,0,0,0
+2023,154934,Colby Community College,Colby,KS,Thomas County,5,Outer MO+KS (150+ mi),Public,Two-year,569,209,360,28,Liberal Arts & General Studies,171,228,276,0,0,65,0,0,0,0
+2023,154952,Cowley County Community College,Arkansas City,KS,Cowley County,5,Outer MO+KS (150+ mi),Public,Two-year,916,386,530,27,Liberal Arts & General Studies,350,321,446,0,0,149,0,0,0,0
+2023,154998,Dodge City Community College,Dodge City,KS,Ford County,5,Outer MO+KS (150+ mi),Public,Two-year,382,156,226,72,Liberal Arts & General Studies,136,74,197,0,0,111,0,0,0,0
+2023,155007,Donnelly College,Kansas City,KS,Wyandotte County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,119,27,92,8,Health Professions,60,46,65,0,8,0,0,0,0,0
+2023,155025,Emporia State University,Emporia,KS,Lyon County,3,Regional (60-100 mi),Public,Four-year or above,1984,628,1356,81,Education,783,0,0,0,710,46,1207,18,3,0
+2023,155052,Flint Hills Technical College,Emporia,KS,Lyon County,4,Statewide Reach (100-150 mi),Public,Two-year,379,176,203,21,Health Professions,174,192,98,0,0,89,0,0,0,0
+2023,155061,Fort Hays State University,Hays,KS,Ellis County,5,Outer MO+KS (150+ mi),Public,Four-year or above,3350,1174,2176,65,"Business, Management & Marketing",1008,0,40,0,2477,0,794,29,10,0
+2023,155070,Barclay College,Haviland,KS,Kiowa County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,37,15,22,13,Theology & Religious Vocations,18,0,3,0,30,0,4,0,0,0
+2023,155089,Friends University,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,432,156,276,57,"Business, Management & Marketing",138,0,0,0,219,0,213,0,0,0
+2023,155098,Fort Scott Community College,Fort Scott,KS,Bourbon County,3,Regional (60-100 mi),Public,Two-year,498,198,300,20,Health Professions,187,123,214,0,0,161,0,0,0,0
+2023,155104,Garden City Community College,Garden City,KS,Finney County,5,Outer MO+KS (150+ mi),Public,Two-year,716,283,433,22,Liberal Arts & General Studies,285,192,351,0,0,173,0,0,0,0
+2023,155140,Haskell Indian Nations University,Lawrence,KS,Douglas County,2,KC Fringe (30-60 mi),Public,Four-year or above,115,42,73,14,Liberal Arts & General Studies,32,0,65,0,50,0,0,0,0,0
+2023,155159,Hays Academy of Hair Design,Hays,KS,Ellis County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,51,0,51,2,Personal & Culinary Services,51,51,0,0,0,0,0,0,0,0
+2023,155177,Hesston College,Hesston,KS,Harvey County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,98,36,62,7,Liberal Arts & General Studies,54,0,55,0,43,0,0,0,0,0
+2023,155186,Highland Community College,Highland,KS,Doniphan County,3,Regional (60-100 mi),Public,Two-year,612,206,406,44,Health Professions,326,138,209,0,0,265,0,0,0,0
+2023,155195,Hutchinson Community College,Hutchinson,KS,Reno County,5,Outer MO+KS (150+ mi),Public,Two-year,1655,701,954,59,Health Professions,746,454,835,0,0,366,0,0,0,0
+2023,155201,Independence Community College,Independence,KS,Montgomery County,4,Statewide Reach (100-150 mi),Public,Two-year,186,72,114,29,Health Professions,82,27,95,0,0,64,0,0,0,0
+2023,155210,Johnson County Community College,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Public,Two-year,2939,1187,1752,59,Liberal Arts & General Studies,1187,771,1707,0,0,461,0,0,0,0
+2023,155283,Concorde Career College-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Four-year or above,347,32,315,15,Health Professions,347,134,127,44,37,5,0,0,0,0
+2023,155292,Kansas City Kansas Community College,Kansas City,KS,Wyandotte County,1,Core KC Metro (0-30 mi),Public,Two-year,1318,556,762,45,Health Professions,470,567,543,0,0,208,0,0,0,0
+2023,155308,Kansas Christian College,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,16,8,8,13,"Business, Management & Marketing",12,0,3,0,13,0,0,0,0,0
+2023,155317,University of Kansas,Lawrence,KS,Douglas County,2,KC Fringe (30-60 mi),Public,Four-year or above,7512,3281,4231,211,"Business, Management & Marketing",1363,531,0,0,4131,343,1513,2,992,0
+2023,155335,Newman University,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,348,121,227,49,Health Professions,86,0,25,0,200,0,123,0,0,0
+2023,155353,Old Town Barber College,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,36,31,5,1,Personal & Culinary Services,36,36,0,0,0,0,0,0,0,0
+2023,155399,Kansas State University,Manhattan,KS,Riley County,4,Statewide Reach (100-150 mi),Public,Four-year or above,5552,2535,3017,189,"Business, Management & Marketing",1217,401,42,0,3398,265,1106,0,340,0
+2023,155414,Kansas Wesleyan University,Salina,KS,Saline County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,163,105,58,44,"Business, Management & Marketing",71,0,0,0,125,0,38,0,0,0
+2023,155423,Washburn Institute of Technology,Topeka,KS,Shawnee County,3,Regional (60-100 mi),Public,Less-than-two-year,805,466,339,33,Health Professions,292,664,0,0,0,141,0,0,0,0
+2023,155450,Labette Community College,Parsons,KS,Labette County,4,Statewide Reach (100-150 mi),Public,Two-year,282,105,177,14,Liberal Arts & General Studies,162,62,220,0,0,0,0,0,0,0
+2023,155487,Manhattan Area Technical College,Manhattan,KS,Riley County,4,Statewide Reach (100-150 mi),Public,Two-year,335,166,169,19,Health Professions,163,165,81,0,0,89,0,0,0,0
+2023,155496,Manhattan Christian College,Manhattan,KS,Riley County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,45,24,21,5,Theology & Religious Vocations,40,0,5,0,40,0,0,0,0,0
+2023,155511,McPherson College,McPherson,KS,McPherson County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,173,113,60,42,"Business, Management & Marketing",38,0,0,0,167,0,6,0,0,0
+2023,155520,MidAmerica Nazarene University,Olathe,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,464,122,342,61,Health Professions,188,0,4,0,276,30,125,29,0,0
+2023,155566,Neosho County Community College,Chanute,KS,Neosho County,4,Statewide Reach (100-150 mi),Public,Two-year,787,300,487,30,Health Professions,384,254,278,0,0,255,0,0,0,0
+2023,155593,Fort Hays Tech North Central,Beloit,KS,Mitchell County,5,Outer MO+KS (150+ mi),Public,Two-year,428,214,214,22,Health Professions,227,162,122,0,0,144,0,0,0,0
+2023,155618,Fort Hays State University-Northwest Kansas Technical College,Goodland,KS,Sherman County,5,Outer MO+KS (150+ mi),Public,Two-year,358,294,64,23,Construction Trades,82,230,128,0,0,0,0,0,0,0
+2023,155627,Ottawa University-Ottawa,Ottawa,KS,Franklin County,2,KC Fringe (30-60 mi),Private not-for-profit,Four-year or above,169,93,76,46,"Business, Management & Marketing",53,0,0,0,133,0,36,0,0,0
+2023,155636,Ottawa University-Kansas City,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,192,62,130,37,Computer & Information Sciences,49,0,0,0,108,0,84,0,0,0
+2023,155681,Pittsburg State University,Pittsburg,KS,Crawford County,4,Statewide Reach (100-150 mi),Public,Four-year or above,1806,883,923,81,"Business, Management & Marketing",495,56,34,0,1039,8,614,40,15,0
+2023,155715,Pratt Community College,Pratt,KS,Pratt County,5,Outer MO+KS (150+ mi),Public,Two-year,313,171,142,11,Liberal Arts & General Studies,110,70,151,0,0,92,0,0,0,0
+2023,155812,University of Saint Mary,Leavenworth,KS,Leavenworth County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,293,111,182,36,Health Professions,125,0,1,0,158,0,93,0,41,0
+2023,155830,Salina Area Technical College,Salina,KS,Saline County,5,Outer MO+KS (150+ mi),Public,Two-year,458,197,261,24,Health Professions,258,196,70,0,0,192,0,0,0,0
+2023,155858,Seward County Community College,Liberal,KS,Seward County,5,Outer MO+KS (150+ mi),Public,Two-year,439,170,269,32,Health Professions,152,159,201,0,0,79,0,0,0,0
+2023,155900,Southwestern College,Winfield,KS,Cowley County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,407,270,137,64,"Business, Management & Marketing",170,35,0,0,320,6,37,0,9,0
+2023,155937,Sterling College,Sterling,KS,Rice County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,100,55,45,46,"Business, Management & Marketing",28,0,0,0,93,0,7,0,0,0
+2023,155973,Tabor College,Hillsboro,KS,Marion County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,135,63,72,46,Education,40,0,0,0,89,0,46,0,0,0
+2023,156082,Washburn University,Topeka,KS,Shawnee County,3,Regional (60-100 mi),Public,Four-year or above,1337,425,912,99,Health Professions,487,88,234,0,701,36,143,27,108,0
+2023,156107,Wichita State University-Campus of Applied Sciences and Technology,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Public,Two-year,1929,1100,829,42,Health Professions,689,1136,331,0,0,462,0,0,0,0
+2023,156125,Wichita State University,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Public,Four-year or above,3921,1724,2197,160,"Business, Management & Marketing",598,0,55,0,2172,243,1199,139,113,0
+2023,156134,Wichita Technical Institute,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,496,311,185,6,Engineering Technologies,221,496,0,0,0,0,0,0,0,0
+2023,176600,Aquinas Institute of Theology,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,25,17,8,4,Theology & Religious Vocations,25,0,0,0,0,8,14,0,3,0
+2023,176628,Avila University,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,348,101,247,46,Psychology,77,0,0,0,216,27,105,0,0,0
+2023,176664,Mission University,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,76,48,28,12,Theology & Religious Vocations,51,0,11,0,44,0,21,0,0,0
+2023,176716,House of Heavilin Beauty College-Blue Springs,Blue Springs,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,118,2,116,4,Personal & Culinary Services,118,118,0,0,0,0,0,0,0,0
+2023,176770,Cox College,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,317,43,274,9,Health Professions,317,0,113,0,142,0,60,2,0,0
+2023,176789,Calvary University,Kansas City,MO,Cass County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,71,40,31,20,Theology & Religious Vocations,50,0,6,0,43,0,22,0,0,0
+2023,176798,Cape Girardeau Career and Technology Center,Cape Girardeau,MO,Cape Girardeau County,5,Outer MO+KS (150+ mi),Public,Two-year,159,46,113,21,Health Professions,125,150,0,9,0,0,0,0,0,0
+2023,176910,Central Christian College of the Bible,Moberly,MO,Randolph County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,53,30,23,14,Theology & Religious Vocations,53,2,3,0,33,0,15,0,0,0
+2023,176947,Central Methodist University-College of Liberal Arts and Sciences,Fayette,MO,Howard County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,250,113,137,46,Education,45,0,12,0,238,0,0,0,0,0
+2023,176965,University of Central Missouri,Warrensburg,MO,Johnson County,2,KC Fringe (30-60 mi),Public,Four-year or above,3939,1938,2001,111,Computer & Information Sciences,1670,237,0,0,1493,35,2110,64,0,0
+2023,176983,Grand River Technical School,Chillicothe,MO,Livingston County,3,Regional (60-100 mi),Public,Less-than-two-year,58,48,10,8,Mechanic & Repair Technologies,22,49,0,0,0,9,0,0,0,0
+2023,177038,Cleveland University-Kansas City,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,178,93,85,8,Health Professions,135,0,25,0,43,0,0,0,110,0
+2023,177065,Columbia College,Columbia,MO,Boone County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,1858,796,1062,54,"Business, Management & Marketing",590,35,546,0,1095,0,182,0,0,0
+2023,177083,Conception Seminary College,Conception,MO,Nodaway County,3,Regional (60-100 mi),Private not-for-profit,Four-year or above,5,5,0,3,Philosophy & Religious Studies,5,0,0,0,5,0,0,0,0,0
+2023,177092,Concordia Seminary,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,100,92,8,2,Theology & Religious Vocations,100,0,0,0,0,38,50,0,12,0
+2023,177117,Cottey College,Nevada,MO,Vernon County,3,Regional (60-100 mi),Private not-for-profit,Four-year or above,65,0,65,21,Liberal Arts & General Studies,14,0,15,0,50,0,0,0,0,0
+2023,177126,Covenant Theological Seminary,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,105,63,42,8,Theology & Religious Vocations,79,0,0,0,0,14,88,0,3,0
+2023,177135,Crowder College,Neosho,MO,Newton County,5,Outer MO+KS (150+ mi),Public,Two-year,1250,677,573,44,Liberal Arts & General Studies,301,561,689,0,0,0,0,0,0,0
+2023,177144,Culver-Stockton College,Canton,MO,Lewis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,198,98,100,61,"Business, Management & Marketing",56,0,0,0,165,0,33,0,0,0
+2023,177214,Drury University,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,390,144,246,68,"Business, Management & Marketing",62,0,0,0,265,32,93,0,0,0
+2023,177250,East Central College,Union,MO,Franklin County,5,Outer MO+KS (150+ mi),Public,Two-year,627,263,364,26,Liberal Arts & General Studies,285,139,488,0,0,0,0,0,0,0
+2023,177278,Eden Theological Seminary,Webster Groves,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,27,8,19,4,Theology & Religious Vocations,27,0,0,0,0,0,20,0,7,0
+2023,177302,Pinnacle Career Institute,Kansas City,MO,Platte County,1,Core KC Metro (0-30 mi),Private for-profit,Two-year,261,238,23,3,Engineering Technologies,214,246,15,0,0,0,0,0,0,0
+2023,177339,Evangel University,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,485,196,289,73,Education,140,0,4,0,313,0,144,0,24,0
+2023,177418,Fontbonne University,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,294,96,198,55,Health Professions,85,0,0,0,137,3,149,0,5,0
+2023,177436,Four Rivers Career Center,Washington,MO,Franklin County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,27,4,23,1,Health Professions,27,27,0,0,0,0,0,0,0,0
+2023,177472,Ozarks Technical Community College,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Public,Four-year or above,2239,946,1293,57,Health Professions,560,764,1475,0,0,0,0,0,0,0
+2023,177542,Hannibal-LaGrange University,Hannibal,MO,Marion County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,159,47,112,32,Education,42,24,15,0,98,0,22,0,0,0
+2023,177551,Harris-Stowe State University,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Public,Four-year or above,252,73,179,23,Biological Sciences,59,8,0,0,244,0,0,0,0,0
+2023,177588,House of Heavilin Beauty College-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,29,3,26,3,Personal & Culinary Services,29,26,0,0,0,3,0,0,0,0
+2023,177603,Summit Salon Academy Kansas City,Independence,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,84,2,82,3,Personal & Culinary Services,84,84,0,0,0,0,0,0,0,0
+2023,177676,Jefferson College,Hillsboro,MO,Jefferson County,5,Outer MO+KS (150+ mi),Public,Two-year,737,292,445,25,Liberal Arts & General Studies,356,147,587,3,0,0,0,0,0,0
+2023,177685,Paul Mitchell the School-Missouri Columbia,Columbia,MO,Boone County,4,Statewide Reach (100-150 mi),Private for-profit,Less-than-two-year,123,9,114,4,Personal & Culinary Services,123,123,0,0,0,0,0,0,0,0
+2023,177719,Barnes-Jewish College Goldfarb School of Nursing,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,390,63,327,2,Health Professions,390,0,0,0,342,0,30,7,11,0
+2023,177746,Kansas City Art Institute,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,132,32,100,13,Visual & Performing Arts,106,0,0,0,132,0,0,0,0,0
+2023,177816,Kenrick Glennon Seminary,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,11,11,0,1,Theology & Religious Vocations,11,0,0,0,0,0,11,0,0,0
+2023,177834,A T Still University of Health Sciences,Kirksville,MO,Adair County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,1307,483,824,14,Health Professions,1256,0,0,0,0,230,243,0,834,0
+2023,177931,Lex La-Ray Technical Center,Lexington,MO,Lafayette County,2,KC Fringe (30-60 mi),Public,Less-than-two-year,21,3,18,3,Health Professions,20,21,0,0,0,0,0,0,0,0
+2023,177940,Lincoln University,Jefferson City,MO,Cole County,4,Statewide Reach (100-150 mi),Public,Four-year or above,258,101,157,52,"Business, Management & Marketing",48,0,12,0,202,0,44,0,0,0
+2023,177968,Lindenwood University,Saint Charles,MO,St. Charles County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,1790,707,1083,112,"Business, Management & Marketing",519,0,0,0,1001,20,696,38,35,0
+2023,177977,State Technical College of Missouri,Linn,MO,Osage County,5,Outer MO+KS (150+ mi),Public,Two-year,907,737,170,31,Mechanic & Repair Technologies,195,205,702,0,0,0,0,0,0,0
+2023,177986,Logan University,Chesterfield,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,568,260,308,8,Health Professions,379,0,0,0,82,0,244,0,242,0
+2023,177995,Metropolitan Community College-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Public,Two-year,3422,1391,2031,41,Liberal Arts & General Studies,2403,1631,1791,0,0,0,0,0,0,0
+2023,178059,Maryville University of Saint Louis,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,2744,784,1960,90,Health Professions,1363,20,0,0,964,36,1234,243,247,0
+2023,178077,Missouri College of Cosmetology and Esthetics,Jefferson City,MO,Cole County,4,Statewide Reach (100-150 mi),Private for-profit,Less-than-two-year,61,3,58,5,Personal & Culinary Services,61,59,0,0,0,2,0,0,0,0
+2023,178183,Midwest Institute,Earth City,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Two-year,106,7,99,5,Health Professions,66,57,49,0,0,0,0,0,0,0
+2023,178208,Midwestern Baptist Theological Seminary,Kansas City,MO,Clay County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,692,572,120,17,Theology & Religious Vocations,659,15,4,0,97,3,384,1,188,0
+2023,178217,Mineral Area College,Park Hills,MO,St. Francois County,5,Outer MO+KS (150+ mi),Public,Two-year,591,194,397,33,Liberal Arts & General Studies,319,106,485,0,0,0,0,0,0,0
+2023,178244,Missouri Baptist University,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,657,221,436,73,Education,185,4,22,0,382,8,203,18,20,0
+2023,178341,Missouri Southern State University,Joplin,MO,Jasper County,4,Statewide Reach (100-150 mi),Public,Four-year or above,1137,410,727,90,Health Professions,224,289,97,1,715,0,35,0,0,0
+2023,178369,Missouri Valley College,Marshall,MO,Saline County,3,Regional (60-100 mi),Private not-for-profit,Four-year or above,213,101,112,40,"Business, Management & Marketing",51,0,6,0,190,0,17,0,0,0
+2023,178387,Missouri Western State University,Saint Joseph,MO,Buchanan County,2,KC Fringe (30-60 mi),Public,Four-year or above,756,265,491,74,Health Professions,139,11,21,0,643,2,79,0,0,0
+2023,178396,University of Missouri-Columbia,Columbia,MO,Boone County,4,Statewide Reach (100-150 mi),Public,Four-year or above,10926,4490,6436,174,"Business, Management & Marketing",1910,2099,0,0,5944,464,1598,63,758,0
+2023,178402,University of Missouri-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Public,Four-year or above,3862,1785,2077,113,Health Professions,751,15,0,0,1634,23,1498,76,616,0
+2023,178411,Missouri University of Science and Technology,Rolla,MO,Phelps County,5,Outer MO+KS (150+ mi),Public,Four-year or above,2174,1644,530,82,Engineering,1294,45,0,0,1205,360,475,0,89,0
+2023,178420,University of Missouri-St Louis,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Public,Four-year or above,2659,1049,1610,111,"Business, Management & Marketing",582,73,0,0,1493,178,678,27,210,0
+2023,178448,Moberly Area Community College,Moberly,MO,Randolph County,4,Statewide Reach (100-150 mi),Public,Two-year,844,262,582,21,Liberal Arts & General Studies,547,65,779,0,0,0,0,0,0,0
+2023,178518,Nazarene Theological Seminary,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,60,40,20,10,Theology & Religious Vocations,60,0,0,0,0,9,26,0,25,0
+2023,178527,Neosho Beauty College,Neosho,MO,Newton County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,32,2,30,4,Personal & Culinary Services,32,32,0,0,0,0,0,0,0,0
+2023,178615,Truman State University,Kirksville,MO,Adair County,4,Statewide Reach (100-150 mi),Public,Four-year or above,977,366,611,54,"Business, Management & Marketing",182,2,0,0,800,0,175,0,0,0
+2023,178624,Northwest Missouri State University,Maryville,MO,Nodaway County,3,Regional (60-100 mi),Public,Four-year or above,2747,1134,1613,114,Education,1074,5,0,1,1074,37,1363,267,0,0
+2023,178679,Ozark Christian College,Joplin,MO,Jasper County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,136,76,60,9,Theology & Religious Vocations,136,0,22,0,114,0,0,0,0,0
+2023,178697,College of the Ozarks,Point Lookout,MO,Taney County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,304,120,184,64,"Business, Management & Marketing",46,0,0,0,304,0,0,0,0,0
+2023,178721,Park University,Parkville,MO,Platte County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,2116,1056,1060,77,"Business, Management & Marketing",912,84,124,0,1403,63,442,0,0,0
+2023,178767,Stevens-The Institute of Business & Arts,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private for-profit,Four-year or above,37,7,30,4,"Business, Management & Marketing",21,0,21,0,16,0,0,0,0,0
+2023,178828,Poplar Bluff Technical Career Center,Poplar Bluff,MO,Butler County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,31,6,25,10,Personal & Culinary Services,24,31,0,0,0,0,0,0,0,0
+2023,178891,Ranken Technical College,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,759,705,54,24,Mechanic & Repair Technologies,313,298,439,8,14,0,0,0,0,0
+2023,178989,Research College of Nursing,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Four-year or above,178,24,154,1,Health Professions,178,0,0,0,145,0,32,1,0,0
+2023,179043,Rockhurst University,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,826,284,542,71,Health Professions,358,9,22,0,453,40,238,0,64,0
+2023,179159,Saint Louis University,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,3621,1345,2276,157,Health Professions,1259,117,0,0,1765,57,1011,37,634,0
+2023,179195,Salem College of Hairstyling,Rolla,MO,Phelps County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,17,0,17,2,Personal & Culinary Services,17,17,0,0,0,0,0,0,0,0
+2023,179265,University of Health Sciences and Pharmacy in St. Louis,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,208,76,132,17,Health Professions,186,0,0,0,70,1,0,0,137,0
+2023,179308,Saint Louis Community College,Bridgeton,MO,St. Louis County,5,Outer MO+KS (150+ mi),Public,Four-year or above,2179,757,1422,50,Liberal Arts & General Studies,1210,271,1899,0,0,9,0,0,0,0
+2023,179317,Saint Paul School of Theology,Leawood,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,22,8,14,2,Theology & Religious Vocations,22,0,0,0,0,0,20,0,2,0
+2023,179326,Southwest Baptist University,Bolivar,MO,Polk County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,632,208,424,67,Health Professions,255,0,136,0,293,0,96,23,84,0
+2023,179344,Missouri State University-West Plains,West Plains,MO,Howell County,5,Outer MO+KS (150+ mi),Public,Two-year,285,63,222,28,Liberal Arts & General Studies,102,25,260,0,0,0,0,0,0,0
+2023,179511,St Louis College of Health Careers-St Louis,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,70,1,69,3,Health Professions,70,70,0,0,0,0,0,0,0,0
+2023,179539,State Fair Community College,Sedalia,MO,Pettis County,3,Regional (60-100 mi),Public,Two-year,727,200,527,38,Liberal Arts & General Studies,381,128,599,0,0,0,0,0,0,0
+2023,179548,Stephens College,Columbia,MO,Boone County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,153,10,143,31,Health Professions,53,0,0,0,95,1,57,0,0,0
+2023,179557,Southeast Missouri State University,Cape Girardeau,MO,Cape Girardeau County,5,Outer MO+KS (150+ mi),Public,Four-year or above,2368,987,1381,91,Education,390,40,13,0,1586,33,659,37,0,0
+2023,179566,Missouri State University-Springfield,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Public,Four-year or above,5950,2209,3741,193,"Business, Management & Marketing",1090,615,0,0,3093,623,1443,34,142,0
+2023,179645,Three Rivers College,Poplar Bluff,MO,Butler County,5,Outer MO+KS (150+ mi),Public,Two-year,804,212,592,41,Liberal Arts & General Studies,369,363,441,0,0,0,0,0,0,0
+2023,179715,North Central Missouri College,Trenton,MO,Grundy County,3,Regional (60-100 mi),Public,Two-year,469,115,354,28,Health Professions,208,149,320,0,0,0,0,0,0,0
+2023,179812,Kansas City University,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,504,246,258,5,Health Professions,409,0,0,0,0,0,103,0,401,0
+2023,179867,Washington University in St Louis,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,5910,2905,3005,199,"Business, Management & Marketing",1139,29,13,0,1868,208,2861,123,808,0
+2023,179894,Webster University,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,2540,1151,1389,146,"Business, Management & Marketing",1183,38,0,0,554,167,1752,2,27,0
+2023,179946,Westminster College,Fulton,MO,Callaway County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,114,60,54,52,"Business, Management & Marketing",32,0,0,0,114,0,0,0,0,0
+2023,179955,William Jewell College,Liberty,MO,Clay County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,198,86,112,47,Health Professions,56,0,0,0,181,6,11,0,0,0
+2023,179964,William Woods University,Fulton,MO,Callaway County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,456,157,299,48,Education,228,0,3,0,162,0,232,0,59,0
+2023,260336,Clinton Technical School,Clinton,MO,Henry County,3,Regional (60-100 mi),Public,Less-than-two-year,17,4,13,1,Health Professions,17,17,0,0,0,0,0,0,0,0
+2023,261773,Pike-Lincoln Technical Center,Eolia,MO,Pike County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,30,8,22,8,Health Professions,28,30,0,0,0,0,0,0,0,0
+2023,262031,St Charles Community College,Cottleville,MO,St. Charles County,5,Outer MO+KS (150+ mi),Public,Two-year,1024,379,645,46,Liberal Arts & General Studies,534,123,901,0,0,0,0,0,0,0
+2023,363679,Grabber School of Hair Design,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,185,2,183,4,Personal & Culinary Services,185,185,0,0,0,0,0,0,0,0
+2023,365505,Waynesville Career Center,Waynesville,MO,Pulaski County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,18,3,15,18,Health Professions,12,18,0,0,0,0,0,0,0,0
+2023,369516,Bryan University,Springfield,MO,Greene County,5,Outer MO+KS (150+ mi),Private for-profit,Four-year or above,51,12,39,8,Health Professions,34,11,22,0,14,0,4,0,0,0
+2023,408066,Paul Mitchell the School-Wichita,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,118,38,80,2,Personal & Culinary Services,118,118,0,0,0,0,0,0,0,0
+2023,409120,Franklin Technology Center Adult Education,Joplin,MO,Jasper County,4,Statewide Reach (100-150 mi),Public,Less-than-two-year,45,18,27,5,Health Professions,32,45,0,0,0,0,0,0,0,0
+2023,417503,Crave Beauty Academy,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,168,1,167,4,Personal & Culinary Services,168,168,0,0,0,0,0,0,0,0
+2023,417628,Kirksville Area Technical Center,Kirksville,MO,Adair County,4,Statewide Reach (100-150 mi),Public,Less-than-two-year,18,2,16,6,Health Professions,16,18,0,0,0,0,0,0,0,0
+2023,417637,Southern Missouri Technical Institute,West Plains,MO,Howell County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,46,17,29,7,Health Professions,37,46,0,0,0,0,0,0,0,0
+2023,417646,Saline County Career Center,Marshall,MO,Saline County,3,Regional (60-100 mi),Public,Less-than-two-year,16,0,16,1,Health Professions,16,16,0,0,0,0,0,0,0,0
+2023,417655,Warrensburg Area Career Center,Warrensburg,MO,Johnson County,2,KC Fringe (30-60 mi),Public,Less-than-two-year,13,0,13,2,Health Professions,7,13,0,0,0,0,0,0,0,0
+2023,417682,Cass Career Center,Harrisonville,MO,Cass County,2,KC Fringe (30-60 mi),Public,Less-than-two-year,15,1,14,1,Health Professions,15,15,0,0,0,0,0,0,0,0
+2023,417716,Applied Tech,Sunset Hills,MO,St. Louis County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,71,1,70,1,Health Professions,71,71,0,0,0,0,0,0,0,0
+2023,417725,Central College of Cosmetology,Saint Robert,MO,Pulaski County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,29,1,28,3,Personal & Culinary Services,29,29,0,0,0,0,0,0,0,0
+2023,417734,Southeast Missouri Hospital College of Nursing and Health Sciences,Cape Girardeau,MO,Cape Girardeau County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,52,12,40,8,Health Professions,52,9,42,0,1,0,0,0,0,0
+2023,419280,New Dimensions School of Hair Design,Joplin,MO,Jasper County,4,Statewide Reach (100-150 mi),Private for-profit,Less-than-two-year,19,0,19,3,Personal & Culinary Services,19,19,0,0,0,0,0,0,0,0
+2023,421771,Academy of Beauty Professionals,Raymore,MO,Cass County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,30,0,30,2,Personal & Culinary Services,30,30,0,0,0,0,0,0,0,0
+2023,441487,Texas County Technical College,Houston,MO,Texas County,5,Outer MO+KS (150+ mi),Private for-profit,Two-year,33,1,32,2,Health Professions,33,14,19,0,0,0,0,0,0,0
+2023,441496,Aviation Institute of Maintenance-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Two-year,65,55,10,2,Mechanic & Repair Technologies,65,1,0,64,0,0,0,0,0,0
+2023,442426,St Louis College of Health Careers-Fenton,Fenton,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Four-year or above,245,22,223,7,Health Professions,245,53,148,0,38,0,6,0,0,0
+2023,445267,Central Methodist University-College of Graduate and Extended Studies,Fayette,MO,Howard County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,589,118,471,37,Education,210,0,7,0,481,0,101,0,0,0
+2023,447999,WellSpring School of Allied Health-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Two-year,122,26,96,3,Health Professions,122,109,13,0,0,0,0,0,0,0
+2023,451237,Z Hair Academy,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,130,2,128,1,Personal & Culinary Services,130,130,0,0,0,0,0,0,0,0
+2023,451316,Trend Setters School,Cape Girardeau,MO,Cape Girardeau County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,41,6,35,3,Personal & Culinary Services,41,34,0,0,0,7,0,0,0,0
+2023,451334,Academy of Hair Design-Springfield,Springfield,MO,Greene County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,187,81,106,4,Personal & Culinary Services,187,187,0,0,0,0,0,0,0,0
+2023,454582,Ottawa University-Online,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,403,162,241,39,"Business, Management & Marketing",114,0,0,0,172,0,215,16,0,0
+2023,455071,Healing Arts Center,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,64,20,44,1,Health Professions,64,64,0,0,0,0,0,0,0,0
+2023,455080,Paul Mitchell the School-Springfield,Springfield,MO,Greene County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,306,39,267,5,Personal & Culinary Services,306,306,0,0,0,0,0,0,0,0
+2023,455099,Urshan Graduate School of Theology,Wentzville,MO,St. Charles County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,8,3,5,7,Theology & Religious Vocations,8,0,0,0,0,0,8,0,0,0
+2023,457581,Eric Fisher Academy,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,157,2,155,3,Personal & Culinary Services,157,157,0,0,0,0,0,0,0,0
+2023,457697,City Vision University,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,70,42,28,4,"Business, Management & Marketing",31,13,9,0,20,13,15,0,0,0
+2023,460932,Skin Institute,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,77,0,77,1,Personal & Culinary Services,77,77,0,0,0,0,0,0,0,0
+2023,460996,The Salon Professional Academy-St Charles,St. Charles,MO,St. Charles County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,180,3,177,2,Personal & Culinary Services,180,180,0,0,0,0,0,0,0,0
+2023,461421,Paul Mitchell the School-St Louis,St. Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,95,2,93,2,Personal & Culinary Services,95,95,0,0,0,0,0,0,0,0
+2023,461537,Evolve Beauty Academy,Washing,MO,Franklin County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,10,1,9,1,Personal & Culinary Services,10,10,0,0,0,0,0,0,0,0
+2023,461573,American Trade School,Saint Ann,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Two-year,74,73,1,2,Mechanic & Repair Technologies,74,74,0,0,0,0,0,0,0,0
+2023,466921,Chamberlain University-Missouri,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Four-year or above,94,3,91,1,Health Professions,94,0,0,0,94,0,0,0,0,0
+2023,470047,WellSpring School of Allied Health-Lawrence,Lawrence,KS,Douglas County,2,KC Fringe (30-60 mi),Private for-profit,Two-year,29,10,19,1,Health Professions,29,20,9,0,0,0,0,0,0,0
+2023,476902,Mitsu Sato Hair Academy,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,58,1,57,4,Personal & Culinary Services,58,58,0,0,0,0,0,0,0,0
+2023,476984,Paul Mitchell the School-Overland Park,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,141,5,136,2,Personal & Culinary Services,141,141,0,0,0,0,0,0,0,0
+2023,477233,Evangel University-James River Assembly of God Church,Ozark,MO,Christian County,5,Outer MO+KS (150+ mi),Private not-for-profit,Two-year,41,17,24,1,"Business, Management & Marketing",41,0,41,0,0,0,0,0,0,0
+2023,478917,Hays Academy of Hair Design,Salina,KS,Saline County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,39,1,38,2,Personal & Culinary Services,39,39,0,0,0,0,0,0,0,0
+2023,478953,Bellus Academy,Manhattan,KS,Riley County,4,Statewide Reach (100-150 mi),Private for-profit,Less-than-two-year,150,5,145,7,Personal & Culinary Services,148,150,0,0,0,0,0,0,0,0
+2023,480657,Rasmussen University-Kansas,Topeka,KS,Shawnee County,3,Regional (60-100 mi),Private for-profit,Four-year or above,256,27,229,39,Health Professions,204,42,179,0,35,0,0,0,0,0
+2023,480879,Academy of Salon Professionals,Sedalia,MO,Pettis County,3,Regional (60-100 mi),Private for-profit,Less-than-two-year,51,1,50,4,Personal & Culinary Services,51,51,0,0,0,0,0,0,0,0
+2023,481049,Carthage R9 School District-Carthage Technical Center,Carthage,MO,Jasper County,4,Statewide Reach (100-150 mi),Public,Less-than-two-year,18,4,14,1,Health Professions,18,18,0,0,0,0,0,0,0,0
+2023,481517,SPBK Enterprises Inc,Webb City,MO,Jasper County,4,Statewide Reach (100-150 mi),Private for-profit,Less-than-two-year,63,6,57,5,Personal & Culinary Services,47,63,0,0,0,0,0,0,0,0
+2023,482097,Midwest Technical Institute-Missouri,Springfield,MO,Greene County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,337,211,126,8,Transportation & Materials Moving,125,216,0,0,0,121,0,0,0,0
+2023,488174,Ea La Mar's Cosmetology & Barber College,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,24,14,10,4,Personal & Culinary Services,24,24,0,0,0,0,0,0,0,0
+2023,490203,Bolivar Technical College,Bolivar,MO,Polk County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,46,2,44,2,Health Professions,46,10,30,0,6,0,0,0,0,0
+2023,492801,Drury University-College of Continuing Professional Studies,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,275,96,179,36,Homeland Security & Protective Services,73,63,67,0,145,0,0,0,0,0
+2023,493451,WellSpring School of Allied Health-Springfield,Springfield,MO,Greene County,5,Outer MO+KS (150+ mi),Private for-profit,Two-year,63,12,51,2,Health Professions,63,59,4,0,0,0,0,0,0,0
+2023,493831,Midwest Barber College,Topeka,KS,Shawnee County,2,KC Fringe (30-60 mi),Private for-profit,Less-than-two-year,19,9,10,2,Personal & Culinary Services,19,19,0,0,0,0,0,0,0,0
+2023,494010,Ponce Health Sciences University-St Louis,St. Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private for-profit,Four-year or above,38,14,24,2,Biological Sciences,38,0,0,0,0,0,38,0,0,0
+2023,494685,Urshan University,Wentzville,MO,St. Charles County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,77,23,54,8,"Business, Management & Marketing",23,2,9,0,66,0,0,0,0,0
+2023,494898,WellSpring School of Allied Health-Wichita,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Two-year,62,8,54,2,Health Professions,62,33,29,0,0,0,0,0,0,0
+2023,495226,St. Louis Med Tech,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Less-than-two-year,11,0,11,1,Health Professions,11,11,0,0,0,0,0,0,0,0
+2023,496724,Aesthetics Institute,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,42,0,42,1,Personal & Culinary Services,42,42,0,0,0,0,0,0,0,0
+2023,497693,Kansas Health Science University,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,0,0,0,1,Health Professions,0,0,0,0,0,0,0,0,0,0
+2023,497824,Evangel University-College of Online Learning,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,94,39,55,6,"Business, Management & Marketing",30,0,8,0,86,0,0,0,0,0
+2023,497912,Concorde Career College-Broadway,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,103,4,99,2,Health Professions,103,103,0,0,0,0,0,0,0,0
+2023,498766,Sami Halaseh Institute,Andover,KS,Butler County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,37,0,37,4,Personal & Culinary Services,37,37,0,0,0,0,0,0,0,0
+2023,498845,Heartland Welding Academy,Andover,KS,Butler County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,39,37,2,1,Precision Production,39,39,0,0,0,0,0,0,0,0
+2023,498863,Renaissance Beauty Academy,Cape Girardeau,MO,Cape Girardeau County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,48,0,48,5,Personal & Culinary Services,48,48,0,0,0,0,0,0,0,0
+2023,499291,Galen Health Institutes-Wichita,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Two-year,0,0,0,1,Health Professions,0,0,0,0,0,0,0,0,0,0
+2024,154642,Allen County Community College,Iola,KS,Allen County,3,Regional (60-100 mi),Public,Two-year,329,120,209,16,Liberal Arts & General Studies,199,34,226,0,0,69,0,0,0,0
+2024,154688,Baker University,Baldwin City,KS,Douglas County,2,KC Fringe (30-60 mi),Private not-for-profit,Four-year or above,417,160,257,51,"Business, Management & Marketing",151,0,5,0,235,1,140,0,36,0
+2024,154697,Barton County Community College,Great Bend,KS,Barton County,5,Outer MO+KS (150+ mi),Public,Two-year,941,372,569,93,Health Professions,355,140,587,0,0,214,0,0,0,0
+2024,154712,Benedictine College,Atchison,KS,Atchison County,2,KC Fringe (30-60 mi),Private not-for-profit,Four-year or above,502,239,263,57,"Business, Management & Marketing",112,0,0,0,475,0,27,0,0,0
+2024,154721,Bethany College,Lindsborg,KS,McPherson County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,95,50,45,45,"Business, Management & Marketing",23,0,0,0,95,0,0,0,0,0
+2024,154749,Bethel College-North Newton,North Newton,KS,Harvey County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,87,40,47,21,"Business, Management & Marketing",24,0,0,0,87,0,0,0,0,0
+2024,154800,Butler Community College,El Dorado,KS,Butler County,5,Outer MO+KS (150+ mi),Public,Two-year,1372,434,938,101,Health Professions,490,179,1040,0,0,153,0,0,0,0
+2024,154855,Central Christian College of Kansas,McPherson,KS,McPherson County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,119,57,62,41,"Business, Management & Marketing",33,0,20,0,87,0,12,0,0,0
+2024,154907,Cloud County Community College,Concordia,KS,Cloud County,5,Outer MO+KS (150+ mi),Public,Two-year,573,179,394,18,Health Professions,287,96,236,0,0,241,0,0,0,0
+2024,154925,Coffeyville Community College,Coffeyville,KS,Montgomery County,5,Outer MO+KS (150+ mi),Public,Two-year,360,192,168,18,Liberal Arts & General Studies,165,71,190,0,0,99,0,0,0,0
+2024,154934,Colby Community College,Colby,KS,Thomas County,5,Outer MO+KS (150+ mi),Public,Two-year,558,229,329,28,Liberal Arts & General Studies,171,217,255,0,0,86,0,0,0,0
+2024,154952,Cowley County Community College,Arkansas City,KS,Cowley County,5,Outer MO+KS (150+ mi),Public,Two-year,1011,443,568,29,Liberal Arts & General Studies,372,462,351,0,0,198,0,0,0,0
+2024,154998,Dodge City Community College,Dodge City,KS,Ford County,5,Outer MO+KS (150+ mi),Public,Two-year,593,294,299,77,Health Professions,181,100,206,0,0,287,0,0,0,0
+2024,155007,Donnelly College,Kansas City,KS,Wyandotte County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,125,29,96,6,Health Professions,79,56,60,0,9,0,0,0,0,0
+2024,155025,Emporia State University,Emporia,KS,Lyon County,3,Regional (60-100 mi),Public,Four-year or above,1815,564,1251,82,Education,735,0,0,0,635,31,1131,18,0,0
+2024,155052,Flint Hills Technical College,Emporia,KS,Lyon County,4,Statewide Reach (100-150 mi),Public,Two-year,423,188,235,22,Health Professions,191,208,99,0,0,116,0,0,0,0
+2024,155061,Fort Hays State University,Hays,KS,Ellis County,5,Outer MO+KS (150+ mi),Public,Four-year or above,3183,1079,2104,65,"Business, Management & Marketing",817,0,78,0,2276,0,772,37,20,0
+2024,155070,Barclay College,Haviland,KS,Kiowa County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,58,32,26,13,Theology & Religious Vocations,25,0,10,0,38,0,10,0,0,0
+2024,155089,Friends University,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,413,149,264,58,"Business, Management & Marketing",121,0,0,0,218,0,195,0,0,0
+2024,155098,Fort Scott Community College,Fort Scott,KS,Bourbon County,3,Regional (60-100 mi),Public,Two-year,475,188,287,18,Health Professions,174,133,198,0,0,144,0,0,0,0
+2024,155104,Garden City Community College,Garden City,KS,Finney County,5,Outer MO+KS (150+ mi),Public,Two-year,785,302,483,23,Liberal Arts & General Studies,287,225,340,0,0,220,0,0,0,0
+2024,155140,Haskell Indian Nations University,Lawrence,KS,Douglas County,2,KC Fringe (30-60 mi),Public,Four-year or above,159,60,99,15,Liberal Arts & General Studies,55,1,99,0,59,0,0,0,0,0
+2024,155159,Hays Academy of Hair Design,Hays,KS,Ellis County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,58,0,58,2,Personal & Culinary Services,58,58,0,0,0,0,0,0,0,0
+2024,155177,Hesston College,Hesston,KS,Harvey County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,95,38,57,8,Liberal Arts & General Studies,48,0,49,0,46,0,0,0,0,0
+2024,155186,Highland Community College,Highland,KS,Doniphan County,3,Regional (60-100 mi),Public,Two-year,563,169,394,38,Health Professions,290,111,217,0,0,235,0,0,0,0
+2024,155195,Hutchinson Community College,Hutchinson,KS,Reno County,5,Outer MO+KS (150+ mi),Public,Two-year,1746,720,1026,59,Health Professions,774,455,821,0,0,470,0,0,0,0
+2024,155201,Independence Community College,Independence,KS,Montgomery County,4,Statewide Reach (100-150 mi),Public,Two-year,199,77,122,30,Health Professions,90,31,100,0,0,68,0,0,0,0
+2024,155210,Johnson County Community College,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Public,Two-year,3234,1364,1870,59,Liberal Arts & General Studies,1272,877,1811,0,0,546,0,0,0,0
+2024,155283,Concorde Career College-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Four-year or above,483,46,437,15,Health Professions,483,241,104,57,39,42,0,0,0,0
+2024,155292,Kansas City Kansas Community College,Kansas City,KS,Wyandotte County,1,Core KC Metro (0-30 mi),Public,Two-year,1240,533,707,46,Health Professions,431,535,488,0,0,217,0,0,0,0
+2024,155308,Kansas Christian College,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,35,17,18,13,"Business, Management & Marketing",18,0,11,0,24,0,0,0,0,0
+2024,155317,University of Kansas,Lawrence,KS,Douglas County,2,KC Fringe (30-60 mi),Public,Four-year or above,7435,3131,4304,200,"Business, Management & Marketing",1339,555,0,0,4011,387,1488,8,986,0
+2024,155335,Newman University,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,382,139,243,51,Education,100,0,25,0,216,2,139,0,0,0
+2024,155353,Old Town Barber College,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,44,38,6,1,Personal & Culinary Services,44,44,0,0,0,0,0,0,0,0
+2024,155399,Kansas State University,Manhattan,KS,Riley County,4,Statewide Reach (100-150 mi),Public,Four-year or above,5493,2500,2993,178,"Business, Management & Marketing",1207,434,72,0,3269,240,1135,22,321,0
+2024,155414,Kansas Wesleyan University,Salina,KS,Saline County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,178,92,86,40,"Business, Management & Marketing",68,4,0,0,141,0,33,0,0,0
+2024,155423,Washburn Institute of Technology,Topeka,KS,Shawnee County,3,Regional (60-100 mi),Public,Less-than-two-year,904,515,389,35,Health Professions,313,722,0,0,0,182,0,0,0,0
+2024,155450,Labette Community College,Parsons,KS,Labette County,4,Statewide Reach (100-150 mi),Public,Two-year,286,99,187,13,Liberal Arts & General Studies,154,74,212,0,0,0,0,0,0,0
+2024,155487,Manhattan Area Technical College,Manhattan,KS,Riley County,4,Statewide Reach (100-150 mi),Public,Two-year,354,196,158,19,Health Professions,170,179,75,0,0,100,0,0,0,0
+2024,155496,Manhattan Christian College,Manhattan,KS,Riley County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,32,16,16,5,Theology & Religious Vocations,23,0,6,0,26,0,0,0,0,0
+2024,155511,McPherson College,McPherson,KS,McPherson County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,164,104,60,42,Engineering Technologies,40,0,0,0,163,0,1,0,0,0
+2024,155520,MidAmerica Nazarene University,Olathe,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,500,147,353,59,Health Professions,163,0,9,0,292,50,118,31,0,0
+2024,155566,Neosho County Community College,Chanute,KS,Neosho County,4,Statewide Reach (100-150 mi),Public,Two-year,785,274,511,30,Health Professions,400,231,297,0,0,257,0,0,0,0
+2024,155593,Fort Hays Tech North Central,Beloit,KS,Mitchell County,5,Outer MO+KS (150+ mi),Public,Two-year,472,206,266,22,Health Professions,280,162,128,0,0,182,0,0,0,0
+2024,155618,Fort Hays State University-Northwest Kansas Technical College,Goodland,KS,Sherman County,5,Outer MO+KS (150+ mi),Public,Two-year,399,317,82,24,Precision Production,81,253,122,0,0,24,0,0,0,0
+2024,155627,Ottawa University-Ottawa,Ottawa,KS,Franklin County,2,KC Fringe (30-60 mi),Private not-for-profit,Four-year or above,183,107,76,47,"Business, Management & Marketing",69,0,0,0,137,0,46,0,0,0
+2024,155636,Ottawa University-Kansas City,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,163,50,113,37,Computer & Information Sciences,41,0,0,0,96,0,67,0,0,0
+2024,155681,Pittsburg State University,Pittsburg,KS,Crawford County,4,Statewide Reach (100-150 mi),Public,Four-year or above,3084,1357,1727,82,Liberal Arts & General Studies,1370,75,1346,0,1051,13,552,41,6,0
+2024,155715,Pratt Community College,Pratt,KS,Pratt County,5,Outer MO+KS (150+ mi),Public,Two-year,323,191,132,12,Liberal Arts & General Studies,104,82,140,0,0,101,0,0,0,0
+2024,155812,University of Saint Mary,Leavenworth,KS,Leavenworth County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,332,129,203,38,Health Professions,124,0,0,0,188,0,84,0,60,0
+2024,155830,Salina Area Technical College,Salina,KS,Saline County,5,Outer MO+KS (150+ mi),Public,Two-year,552,204,348,25,Health Professions,350,213,82,0,0,257,0,0,0,0
+2024,155858,Seward County Community College,Liberal,KS,Seward County,5,Outer MO+KS (150+ mi),Public,Two-year,497,194,303,33,Health Professions,182,205,202,0,0,90,0,0,0,0
+2024,155900,Southwestern College,Winfield,KS,Cowley County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,377,263,114,58,"Business, Management & Marketing",146,36,0,0,296,5,33,0,7,0
+2024,155937,Sterling College,Sterling,KS,Rice County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,129,71,58,51,"Business, Management & Marketing",23,0,0,0,115,0,14,0,0,0
+2024,155973,Tabor College,Hillsboro,KS,Marion County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,158,84,74,49,"Business, Management & Marketing",46,0,1,0,129,0,28,0,0,0
+2024,156082,Washburn University,Topeka,KS,Shawnee County,3,Regional (60-100 mi),Public,Four-year or above,1293,425,868,103,Health Professions,429,82,207,0,693,29,133,36,113,0
+2024,156107,Wichita State University-Campus of Applied Sciences and Technology,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Public,Two-year,2030,1185,845,44,Health Professions,729,1206,354,0,0,470,0,0,0,0
+2024,156125,Wichita State University,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Public,Four-year or above,4500,2063,2437,168,Computer & Information Sciences,838,0,188,0,2205,287,1528,173,119,0
+2024,156134,Wichita Technical Institute,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,625,323,302,6,Health Professions,284,625,0,0,0,0,0,0,0,0
+2024,176600,Aquinas Institute of Theology,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,31,18,13,4,Theology & Religious Vocations,31,0,0,0,0,9,15,0,7,0
+2024,176628,Avila University,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,293,98,195,46,Psychology,68,0,0,0,197,0,96,0,0,0
+2024,176664,Mission University,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,81,56,25,12,Theology & Religious Vocations,45,0,15,0,52,0,14,0,0,0
+2024,176716,House of Heavilin Beauty College-Blue Springs,Blue Springs,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,122,1,121,4,Personal & Culinary Services,122,122,0,0,0,0,0,0,0,0
+2024,176770,Cox College,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,346,36,310,7,Health Professions,346,0,129,0,162,0,53,2,0,0
+2024,176789,Calvary University,Kansas City,MO,Cass County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,53,27,26,20,Theology & Religious Vocations,27,3,1,0,39,0,10,0,0,0
+2024,176798,Cape Girardeau Career and Technology Center,Cape Girardeau,MO,Cape Girardeau County,5,Outer MO+KS (150+ mi),Public,Two-year,92,36,56,21,Health Professions,62,90,0,2,0,0,0,0,0,0
+2024,176910,Central Christian College of the Bible,Moberly,MO,Randolph County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,62,39,23,14,Theology & Religious Vocations,61,3,12,0,28,0,19,0,0,0
+2024,176947,Central Methodist University-College of Liberal Arts and Sciences,Fayette,MO,Howard County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,228,94,134,46,Health Professions,43,0,7,0,221,0,0,0,0,0
+2024,176965,University of Central Missouri,Warrensburg,MO,Johnson County,2,KC Fringe (30-60 mi),Public,Four-year or above,3843,1815,2028,112,Computer & Information Sciences,1611,249,0,0,1384,61,2073,76,0,0
+2024,176983,Grand River Technical School,Chillicothe,MO,Livingston County,3,Regional (60-100 mi),Public,Less-than-two-year,39,27,12,8,Health Professions,18,26,0,0,0,13,0,0,0,0
+2024,177038,Cleveland University-Kansas City,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,177,85,92,8,Health Professions,147,0,25,0,30,0,0,0,122,0
+2024,177065,Columbia College,Columbia,MO,Boone County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,1683,705,978,54,"Business, Management & Marketing",573,51,495,0,981,0,156,0,0,0
+2024,177083,Conception Seminary College,Conception,MO,Nodaway County,3,Regional (60-100 mi),Private not-for-profit,Four-year or above,5,5,0,3,Philosophy & Religious Studies,5,0,0,0,5,0,0,0,0,0
+2024,177092,Concordia Seminary,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,138,126,12,2,Theology & Religious Vocations,138,0,0,0,0,62,68,0,8,0
+2024,177117,Cottey College,Nevada,MO,Vernon County,3,Regional (60-100 mi),Private not-for-profit,Four-year or above,68,0,68,21,Liberal Arts & General Studies,12,0,11,0,57,0,0,0,0,0
+2024,177126,Covenant Theological Seminary,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,112,58,54,7,Theology & Religious Vocations,77,0,0,0,0,9,96,0,7,0
+2024,177135,Crowder College,Neosho,MO,Newton County,5,Outer MO+KS (150+ mi),Public,Two-year,1067,574,493,45,Liberal Arts & General Studies,291,424,643,0,0,0,0,0,0,0
+2024,177144,Culver-Stockton College,Canton,MO,Lewis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,219,120,99,62,"Business, Management & Marketing",74,0,0,0,182,0,37,0,0,0
+2024,177214,Drury University,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,424,163,261,68,"Business, Management & Marketing",71,0,0,0,309,27,88,0,0,0
+2024,177250,East Central College,Union,MO,Franklin County,5,Outer MO+KS (150+ mi),Public,Two-year,685,300,385,28,Liberal Arts & General Studies,280,215,470,0,0,0,0,0,0,0
+2024,177278,Eden Theological Seminary,Webster Groves,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,21,11,10,4,Theology & Religious Vocations,21,0,0,0,0,0,18,0,3,0
+2024,177302,Pinnacle Career Institute,Kansas City,MO,Platte County,1,Core KC Metro (0-30 mi),Private for-profit,Two-year,327,307,20,3,Mechanic & Repair Technologies,213,307,20,0,0,0,0,0,0,0
+2024,177339,Evangel University,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,420,180,240,72,Education,112,0,5,0,253,0,130,0,32,0
+2024,177418,Fontbonne University,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,254,69,185,50,Health Professions,65,0,0,0,148,0,99,0,7,0
+2024,177436,Four Rivers Career Center,Washington,MO,Franklin County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,19,1,18,1,Health Professions,19,19,0,0,0,0,0,0,0,0
+2024,177472,Ozarks Technical Community College,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Public,Four-year or above,2177,1019,1158,59,Liberal Arts & General Studies,472,621,1553,0,3,0,0,0,0,0
+2024,177542,Hannibal-LaGrange University,Hannibal,MO,Marion County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,124,49,75,30,Education,31,0,22,0,82,0,20,0,0,0
+2024,177551,Harris-Stowe State University,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Public,Four-year or above,219,60,159,23,Biological Sciences,51,5,0,0,214,0,0,0,0,0
+2024,177588,House of Heavilin Beauty College-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,31,0,31,3,Personal & Culinary Services,31,26,0,0,0,5,0,0,0,0
+2024,177603,Summit Salon Academy Kansas City,Independence,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,80,0,80,3,Personal & Culinary Services,80,80,0,0,0,0,0,0,0,0
+2024,177676,Jefferson College,Hillsboro,MO,Jefferson County,5,Outer MO+KS (150+ mi),Public,Two-year,763,326,437,26,Liberal Arts & General Studies,346,138,625,0,0,0,0,0,0,0
+2024,177685,Paul Mitchell the School-Missouri Columbia,Columbia,MO,Boone County,4,Statewide Reach (100-150 mi),Private for-profit,Less-than-two-year,201,20,181,4,Personal & Culinary Services,201,201,0,0,0,0,0,0,0,0
+2024,177719,Barnes-Jewish College Goldfarb School of Nursing,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,267,43,224,2,Health Professions,267,0,0,0,232,0,17,4,14,0
+2024,177746,Kansas City Art Institute,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,137,27,110,13,Visual & Performing Arts,109,0,0,0,137,0,0,0,0,0
+2024,177816,Kenrick Glennon Seminary,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,10,10,0,1,Theology & Religious Vocations,10,0,0,0,0,0,10,0,0,0
+2024,177834,A T Still University of Health Sciences,Kirksville,MO,Adair County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,1420,496,924,15,Health Professions,1330,0,0,0,0,203,397,0,820,0
+2024,177931,Lex La-Ray Technical Center,Lexington,MO,Lafayette County,2,KC Fringe (30-60 mi),Public,Less-than-two-year,14,1,13,3,Health Professions,13,14,0,0,0,0,0,0,0,0
+2024,177940,Lincoln University,Jefferson City,MO,Cole County,4,Statewide Reach (100-150 mi),Public,Four-year or above,310,103,207,53,Education,51,0,26,0,243,0,36,5,0,0
+2024,177968,Lindenwood University,Saint Charles,MO,St. Charles County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,1575,578,997,119,"Business, Management & Marketing",457,0,0,0,960,17,559,20,19,0
+2024,177977,State Technical College of Missouri,Linn,MO,Osage County,5,Outer MO+KS (150+ mi),Public,Two-year,1034,853,181,35,Mechanic & Repair Technologies,215,250,784,0,0,0,0,0,0,0
+2024,177986,Logan University,Chesterfield,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,537,234,303,8,Health Professions,340,0,0,0,85,0,207,0,245,0
+2024,177995,Metropolitan Community College-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Public,Two-year,3429,1443,1986,44,Liberal Arts & General Studies,2375,1677,1752,0,0,0,0,0,0,0
+2024,178059,Maryville University of Saint Louis,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,2889,882,2007,85,Health Professions,1262,49,0,0,1120,261,1009,217,233,0
+2024,178077,Missouri College of Cosmetology and Esthetics,Jefferson City,MO,Cole County,4,Statewide Reach (100-150 mi),Private for-profit,Less-than-two-year,60,2,58,5,Personal & Culinary Services,60,56,0,0,0,4,0,0,0,0
+2024,178183,Midwest Institute,Earth City,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Two-year,88,6,82,5,Health Professions,59,52,36,0,0,0,0,0,0,0
+2024,178208,Midwestern Baptist Theological Seminary,Kansas City,MO,Clay County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,684,565,119,16,Theology & Religious Vocations,654,5,7,0,103,0,444,1,124,0
+2024,178217,Mineral Area College,Park Hills,MO,St. Francois County,5,Outer MO+KS (150+ mi),Public,Two-year,572,183,389,32,Liberal Arts & General Studies,311,97,475,0,0,0,0,0,0,0
+2024,178244,Missouri Baptist University,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,648,194,454,77,Education,200,1,19,0,365,16,218,10,19,0
+2024,178341,Missouri Southern State University,Joplin,MO,Jasper County,4,Statewide Reach (100-150 mi),Public,Four-year or above,1096,427,669,112,Homeland Security & Protective Services,188,263,113,1,670,2,47,0,0,0
+2024,178369,Missouri Valley College,Marshall,MO,Saline County,3,Regional (60-100 mi),Private not-for-profit,Four-year or above,218,122,96,39,"Business, Management & Marketing",69,0,5,0,201,0,12,0,0,0
+2024,178387,Missouri Western State University,Saint Joseph,MO,Buchanan County,2,KC Fringe (30-60 mi),Public,Four-year or above,627,217,410,75,Health Professions,120,11,21,0,513,5,77,0,0,0
+2024,178396,University of Missouri-Columbia,Columbia,MO,Boone County,4,Statewide Reach (100-150 mi),Public,Four-year or above,11426,4853,6573,180,"Business, Management & Marketing",2034,2573,0,0,6105,472,1498,48,730,0
+2024,178402,University of Missouri-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Public,Four-year or above,3703,1585,2118,115,Health Professions,719,12,0,0,1596,66,1378,52,599,0
+2024,178411,Missouri University of Science and Technology,Rolla,MO,Phelps County,5,Outer MO+KS (150+ mi),Public,Four-year or above,2207,1678,529,83,Engineering,1267,39,0,0,1209,324,539,0,96,0
+2024,178420,University of Missouri-St Louis,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Public,Four-year or above,2574,1029,1545,109,"Business, Management & Marketing",584,74,0,0,1385,213,662,28,212,0
+2024,178448,Moberly Area Community College,Moberly,MO,Randolph County,4,Statewide Reach (100-150 mi),Public,Two-year,891,298,593,24,Liberal Arts & General Studies,559,51,840,0,0,0,0,0,0,0
+2024,178518,Nazarene Theological Seminary,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,47,24,23,10,Theology & Religious Vocations,47,0,0,0,0,3,27,0,17,0
+2024,178527,Neosho Beauty College,Neosho,MO,Newton County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,42,3,39,4,Personal & Culinary Services,42,42,0,0,0,0,0,0,0,0
+2024,178615,Truman State University,Kirksville,MO,Adair County,4,Statewide Reach (100-150 mi),Public,Four-year or above,868,347,521,56,"Business, Management & Marketing",130,5,0,0,687,5,171,0,0,0
+2024,178624,Northwest Missouri State University,Maryville,MO,Nodaway County,3,Regional (60-100 mi),Public,Four-year or above,2994,1095,1899,114,Education,1162,1,0,7,1092,40,1533,321,0,0
+2024,178679,Ozark Christian College,Joplin,MO,Jasper County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,164,86,78,9,Theology & Religious Vocations,164,0,25,0,128,0,11,0,0,0
+2024,178697,College of the Ozarks,Point Lookout,MO,Taney County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,332,136,196,57,"Business, Management & Marketing",54,0,0,0,332,0,0,0,0,0
+2024,178721,Park University,Parkville,MO,Platte County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,1926,980,946,77,"Business, Management & Marketing",824,62,134,0,1215,57,458,0,0,0
+2024,178767,Stevens-The Institute of Business & Arts,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private for-profit,Four-year or above,38,5,33,4,Visual & Performing Arts,20,0,19,0,19,0,0,0,0,0
+2024,178828,Poplar Bluff Technical Career Center,Poplar Bluff,MO,Butler County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,11,1,10,10,Personal & Culinary Services,11,11,0,0,0,0,0,0,0,0
+2024,178891,Ranken Technical College,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,746,670,76,24,Mechanic & Repair Technologies,294,309,390,23,24,0,0,0,0,0
+2024,178989,Research College of Nursing,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Four-year or above,199,30,169,1,Health Professions,199,0,0,0,170,0,29,0,0,0
+2024,179043,Rockhurst University,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,908,315,593,69,Health Professions,395,4,0,0,472,101,211,0,120,0
+2024,179159,Saint Louis University,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,3632,1452,2180,167,Health Professions,1130,100,0,0,1503,89,1287,40,613,0
+2024,179195,Salem College of Hairstyling,Rolla,MO,Phelps County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,19,0,19,2,Personal & Culinary Services,19,19,0,0,0,0,0,0,0,0
+2024,179265,University of Health Sciences and Pharmacy in St. Louis,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,193,68,125,16,Health Professions,176,0,0,0,69,2,3,0,119,0
+2024,179308,Saint Louis Community College,Bridgeton,MO,St. Louis County,5,Outer MO+KS (150+ mi),Public,Four-year or above,2244,820,1424,48,Liberal Arts & General Studies,1181,370,1838,0,0,36,0,0,0,0
+2024,179317,Saint Paul School of Theology,Leawood,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,18,8,10,2,Theology & Religious Vocations,18,0,0,0,0,0,15,0,3,0
+2024,179326,Southwest Baptist University,Bolivar,MO,Polk County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,594,178,416,68,Health Professions,236,0,136,0,254,0,125,0,79,0
+2024,179344,Missouri State University-West Plains,West Plains,MO,Howell County,5,Outer MO+KS (150+ mi),Public,Two-year,258,74,184,31,Health Professions,83,31,227,0,0,0,0,0,0,0
+2024,179511,St Louis College of Health Careers-St Louis,Saint Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,53,0,53,4,Health Professions,53,53,0,0,0,0,0,0,0,0
+2024,179539,State Fair Community College,Sedalia,MO,Pettis County,3,Regional (60-100 mi),Public,Two-year,934,322,612,39,Liberal Arts & General Studies,459,243,691,0,0,0,0,0,0,0
+2024,179548,Stephens College,Columbia,MO,Boone County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,175,15,160,31,Health Professions,57,0,0,0,116,0,59,0,0,0
+2024,179557,Southeast Missouri State University,Cape Girardeau,MO,Cape Girardeau County,5,Outer MO+KS (150+ mi),Public,Four-year or above,2435,1046,1389,99,Computer & Information Sciences,445,47,20,0,1579,42,715,32,0,0
+2024,179566,Missouri State University-Springfield,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Public,Four-year or above,6242,2286,3956,208,"Business, Management & Marketing",1039,940,0,0,3186,620,1332,39,125,0
+2024,179645,Three Rivers College,Poplar Bluff,MO,Butler County,5,Outer MO+KS (150+ mi),Public,Two-year,855,267,588,37,Liberal Arts & General Studies,384,381,474,0,0,0,0,0,0,0
+2024,179715,North Central Missouri College,Trenton,MO,Grundy County,3,Regional (60-100 mi),Public,Two-year,483,112,371,28,Health Professions,228,145,338,0,0,0,0,0,0,0
+2024,179812,Kansas City University,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,574,277,297,5,Health Professions,448,0,0,0,0,0,137,0,437,0
+2024,179867,Washington University in St Louis,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,5691,2784,2907,196,"Business, Management & Marketing",1084,27,34,0,1994,174,2548,0,914,0
+2024,179894,Webster University,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,2657,1392,1265,116,"Business, Management & Marketing",778,32,0,0,544,216,1834,3,28,0
+2024,179946,Westminster College,Fulton,MO,Callaway County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,124,72,52,52,"Business, Management & Marketing",31,0,0,0,124,0,0,0,0,0
+2024,179955,William Jewell College,Liberty,MO,Clay County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,180,91,89,49,"Business, Management & Marketing",43,0,0,0,170,5,5,0,0,0
+2024,179964,William Woods University,Fulton,MO,Callaway County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,427,154,273,49,Education,208,0,4,0,178,0,187,0,58,0
+2024,261773,Pike-Lincoln Technical Center,Eolia,MO,Pike County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,25,2,23,8,Health Professions,22,25,0,0,0,0,0,0,0,0
+2024,262031,St Charles Community College,Cottleville,MO,St. Charles County,5,Outer MO+KS (150+ mi),Public,Two-year,1070,400,670,51,Liberal Arts & General Studies,537,121,949,0,0,0,0,0,0,0
+2024,363679,Grabber School of Hair Design,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,205,3,202,4,Personal & Culinary Services,205,205,0,0,0,0,0,0,0,0
+2024,365505,Waynesville Career Center,Waynesville,MO,Pulaski County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,13,0,13,18,Health Professions,10,13,0,0,0,0,0,0,0,0
+2024,369516,Bryan University,Springfield,MO,Greene County,5,Outer MO+KS (150+ mi),Private for-profit,Four-year or above,55,9,46,8,Health Professions,39,17,24,0,10,0,4,0,0,0
+2024,408066,Paul Mitchell the School-Wichita,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,103,45,58,2,Personal & Culinary Services,103,103,0,0,0,0,0,0,0,0
+2024,409120,Franklin Technology Center Adult Education,Joplin,MO,Jasper County,4,Statewide Reach (100-150 mi),Public,Less-than-two-year,43,15,28,5,Health Professions,29,43,0,0,0,0,0,0,0,0
+2024,417503,Crave Beauty Academy,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,272,0,272,4,Personal & Culinary Services,272,272,0,0,0,0,0,0,0,0
+2024,417628,Kirksville Area Technical Center,Kirksville,MO,Adair County,4,Statewide Reach (100-150 mi),Public,Less-than-two-year,18,1,17,6,Health Professions,18,18,0,0,0,0,0,0,0,0
+2024,417637,Southern Missouri Technical Institute,West Plains,MO,Howell County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,54,23,31,8,Health Professions,32,54,0,0,0,0,0,0,0,0
+2024,417646,Saline County Career Center,Marshall,MO,Saline County,3,Regional (60-100 mi),Public,Less-than-two-year,20,0,20,1,Health Professions,20,20,0,0,0,0,0,0,0,0
+2024,417655,Warrensburg Area Career Center,Warrensburg,MO,Johnson County,2,KC Fringe (30-60 mi),Public,Less-than-two-year,23,1,22,2,Personal & Culinary Services,15,23,0,0,0,0,0,0,0,0
+2024,417682,Cass Career Center,Harrisonville,MO,Cass County,2,KC Fringe (30-60 mi),Public,Less-than-two-year,15,1,14,1,Health Professions,15,15,0,0,0,0,0,0,0,0
+2024,417716,Applied Tech,Sunset Hills,MO,St. Louis County,5,Outer MO+KS (150+ mi),Public,Less-than-two-year,85,4,81,1,Health Professions,85,85,0,0,0,0,0,0,0,0
+2024,417725,Central College of Cosmetology,Saint Robert,MO,Pulaski County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,22,0,22,3,Personal & Culinary Services,22,22,0,0,0,0,0,0,0,0
+2024,417734,Southeast Missouri Hospital College of Nursing and Health Sciences,Cape Girardeau,MO,Cape Girardeau County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,78,15,63,8,Health Professions,78,9,62,0,7,0,0,0,0,0
+2024,419280,New Dimensions School of Hair Design,Joplin,MO,Jasper County,4,Statewide Reach (100-150 mi),Private for-profit,Less-than-two-year,16,2,14,3,Personal & Culinary Services,16,16,0,0,0,0,0,0,0,0
+2024,421771,Academy of Beauty Professionals,Raymore,MO,Cass County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,21,1,20,2,Personal & Culinary Services,21,21,0,0,0,0,0,0,0,0
+2024,441487,Texas County Technical College,Houston,MO,Texas County,5,Outer MO+KS (150+ mi),Private for-profit,Two-year,45,4,41,2,Health Professions,45,26,19,0,0,0,0,0,0,0
+2024,441496,Aviation Institute of Maintenance-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Two-year,87,75,12,1,Mechanic & Repair Technologies,87,0,0,87,0,0,0,0,0,0
+2024,442426,St Louis College of Health Careers-Fenton,Fenton,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Four-year or above,201,16,185,7,Health Professions,201,63,94,0,31,0,13,0,0,0
+2024,445267,Central Methodist University-College of Graduate and Extended Studies,Fayette,MO,Howard County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,605,139,466,38,Education,222,0,23,0,478,0,104,0,0,0
+2024,447999,WellSpring School of Allied Health-Kansas City,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Two-year,107,18,89,3,Health Professions,107,89,18,0,0,0,0,0,0,0
+2024,451237,Z Hair Academy,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,129,1,128,1,Personal & Culinary Services,129,129,0,0,0,0,0,0,0,0
+2024,451316,Trend Setters School,Cape Girardeau,MO,Cape Girardeau County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,39,16,23,3,Personal & Culinary Services,39,35,0,0,0,4,0,0,0,0
+2024,451334,Academy of Hair Design-Springfield,Springfield,MO,Greene County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,178,69,109,4,Personal & Culinary Services,178,178,0,0,0,0,0,0,0,0
+2024,454582,Ottawa University-Online,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,417,130,287,39,"Business, Management & Marketing",190,0,0,0,134,0,276,7,0,0
+2024,455071,Healing Arts Center,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,64,19,45,1,Health Professions,64,64,0,0,0,0,0,0,0,0
+2024,455080,Paul Mitchell the School-Springfield,Springfield,MO,Greene County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,273,31,242,5,Personal & Culinary Services,273,273,0,0,0,0,0,0,0,0
+2024,455099,Urshan Graduate School of Theology,Wentzville,MO,St. Charles County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,19,12,7,7,Theology & Religious Vocations,19,0,0,0,0,0,19,0,0,0
+2024,457581,Eric Fisher Academy,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,152,1,151,3,Personal & Culinary Services,152,152,0,0,0,0,0,0,0,0
+2024,457697,City Vision University,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private not-for-profit,Four-year or above,79,36,43,4,"Business, Management & Marketing",29,24,21,0,21,6,7,0,0,0
+2024,460932,Skin Institute,Saint Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,86,0,86,1,Personal & Culinary Services,86,86,0,0,0,0,0,0,0,0
+2024,460996,The Salon Professional Academy-St Charles,St. Charles,MO,St. Charles County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,91,2,89,2,Personal & Culinary Services,91,91,0,0,0,0,0,0,0,0
+2024,461421,Paul Mitchell the School-St Louis,St. Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,104,3,101,1,Personal & Culinary Services,104,104,0,0,0,0,0,0,0,0
+2024,461537,Evolve Beauty Academy,Washing,MO,Franklin County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,10,1,9,1,Personal & Culinary Services,10,10,0,0,0,0,0,0,0,0
+2024,461573,American Trade School,Saint Ann,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Two-year,61,61,0,2,Mechanic & Repair Technologies,61,61,0,0,0,0,0,0,0,0
+2024,466921,Chamberlain University-Missouri,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Four-year or above,113,10,103,1,Health Professions,113,0,0,0,113,0,0,0,0,0
+2024,470047,WellSpring School of Allied Health-Lawrence,Lawrence,KS,Douglas County,2,KC Fringe (30-60 mi),Private for-profit,Two-year,24,6,18,1,Health Professions,24,16,8,0,0,0,0,0,0,0
+2024,476902,Mitsu Sato Hair Academy,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,66,0,66,4,Personal & Culinary Services,66,66,0,0,0,0,0,0,0,0
+2024,476984,Paul Mitchell the School-Overland Park,Overland Park,KS,Johnson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,145,3,142,2,Personal & Culinary Services,145,145,0,0,0,0,0,0,0,0
+2024,477233,Evangel University-James River Assembly of God Church,Ozark,MO,Christian County,5,Outer MO+KS (150+ mi),Private not-for-profit,Two-year,33,13,20,1,"Business, Management & Marketing",33,0,33,0,0,0,0,0,0,0
+2024,478917,Hays Academy of Hair Design,Salina,KS,Saline County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,42,0,42,2,Personal & Culinary Services,42,42,0,0,0,0,0,0,0,0
+2024,478953,Bellus Academy,Manhattan,KS,Riley County,4,Statewide Reach (100-150 mi),Private for-profit,Less-than-two-year,171,11,160,6,Personal & Culinary Services,171,171,0,0,0,0,0,0,0,0
+2024,480657,Rasmussen University-Kansas,Topeka,KS,Shawnee County,3,Regional (60-100 mi),Private for-profit,Four-year or above,160,10,150,36,Health Professions,141,0,135,0,25,0,0,0,0,0
+2024,480879,Academy of Salon Professionals,Sedalia,MO,Pettis County,3,Regional (60-100 mi),Private for-profit,Less-than-two-year,37,4,33,5,Personal & Culinary Services,37,37,0,0,0,0,0,0,0,0
+2024,481049,Carthage R9 School District-Carthage Technical Center,Carthage,MO,Jasper County,4,Statewide Reach (100-150 mi),Public,Less-than-two-year,27,0,27,1,Health Professions,27,27,0,0,0,0,0,0,0,0
+2024,481517,SPBK Enterprises Inc,Webb City,MO,Jasper County,4,Statewide Reach (100-150 mi),Private for-profit,Less-than-two-year,84,5,79,5,Personal & Culinary Services,64,84,0,0,0,0,0,0,0,0
+2024,482097,Midwest Technical Institute-Missouri,Springfield,MO,Greene County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,334,223,111,8,Transportation & Materials Moving,139,198,0,0,0,136,0,0,0,0
+2024,488174,Ea La Mar's Cosmetology & Barber College,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,13,6,7,4,Personal & Culinary Services,13,13,0,0,0,0,0,0,0,0
+2024,490203,Bolivar Technical College,Bolivar,MO,Polk County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,60,2,58,2,Health Professions,60,13,37,0,10,0,0,0,0,0
+2024,492801,Drury University-College of Continuing Professional Studies,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,297,109,188,36,Homeland Security & Protective Services,72,87,65,0,145,0,0,0,0,0
+2024,493451,WellSpring School of Allied Health-Springfield,Springfield,MO,Greene County,5,Outer MO+KS (150+ mi),Private for-profit,Two-year,56,10,46,3,Health Professions,56,56,0,0,0,0,0,0,0,0
+2024,493831,Midwest Barber College,Topeka,KS,Shawnee County,2,KC Fringe (30-60 mi),Private for-profit,Less-than-two-year,17,15,2,2,Personal & Culinary Services,17,17,0,0,0,0,0,0,0,0
+2024,494010,Ponce Health Sciences University-St Louis,St. Louis,MO,St. Louis City,5,Outer MO+KS (150+ mi),Private for-profit,Four-year or above,27,9,18,2,Biological Sciences,27,0,0,0,0,0,27,0,0,0
+2024,494685,Urshan University,Wentzville,MO,St. Charles County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,110,45,65,8,Public Administration & Social Services,41,0,7,0,103,0,0,0,0,0
+2024,494898,WellSpring School of Allied Health-Wichita,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Two-year,33,6,27,2,Health Professions,33,11,22,0,0,0,0,0,0,0
+2024,495226,St. Louis Med Tech,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private not-for-profit,Less-than-two-year,19,3,16,1,Health Professions,19,19,0,0,0,0,0,0,0,0
+2024,496724,Aesthetics Institute,St. Louis,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,17,0,17,1,Personal & Culinary Services,17,17,0,0,0,0,0,0,0,0
+2024,497693,Kansas Health Science University,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private not-for-profit,Four-year or above,0,0,0,1,Health Professions,0,0,0,0,0,0,0,0,0,0
+2024,497824,Evangel University-College of Online Learning,Springfield,MO,Greene County,4,Statewide Reach (100-150 mi),Private not-for-profit,Four-year or above,76,42,34,11,"Business, Management & Marketing",24,0,3,0,73,0,0,0,0,0
+2024,497912,Concorde Career College-Broadway,Kansas City,MO,Jackson County,1,Core KC Metro (0-30 mi),Private for-profit,Less-than-two-year,72,3,69,2,Health Professions,72,72,0,0,0,0,0,0,0,0
+2024,498766,Sami Halaseh Institute,Andover,KS,Butler County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,44,1,43,4,Personal & Culinary Services,44,44,0,0,0,0,0,0,0,0
+2024,498845,Heartland Welding Academy,Andover,KS,Butler County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,44,40,4,1,Precision Production,44,44,0,0,0,0,0,0,0,0
+2024,498863,Renaissance Beauty Academy,Cape Girardeau,MO,Cape Girardeau County,5,Outer MO+KS (150+ mi),Private for-profit,Less-than-two-year,51,1,50,5,Personal & Culinary Services,51,50,0,0,0,1,0,0,0,0
+2024,499291,Galen Health Institutes-Wichita,Wichita,KS,Sedgwick County,5,Outer MO+KS (150+ mi),Private for-profit,Two-year,0,0,0,1,Health Professions,0,0,0,0,0,0,0,0,0,0
+2024,500333,Arizona College of Nursing-St Louis,Maryland Heights,MO,St. Louis County,5,Outer MO+KS (150+ mi),Private for-profit,Four-year or above,0,0,0,1,Health Professions,0,0,0,0,0,0,0,0,0,0

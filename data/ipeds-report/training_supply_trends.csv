@@ -1,0 +1,185 @@
+CIP Family,CIP Family Name,Tier,2021 Completions,2021 Institutions,2022 Completions,2022 Institutions,2023 Completions,2023 Institutions,2024 Completions,2024 Institutions,Absolute Change (4yr),Percent Change (4yr),CAGR (%),Trend
+01,Agriculture,1,47,2,76,2,67,2,70,2,23,48.9,14.2,Strong Growth
+01,Agriculture,2,33,1,24,1,14,1,28,1,-5,-15.2,-5.3,Sharp Decline
+01,Agriculture,3,203,7,214,7,217,7,236,7,33,16.3,5.1,Strong Growth
+01,Agriculture,4,1497,10,1470,10,1558,10,1641,11,144,9.6,3.1,Growing
+01,Agriculture,5,749,28,770,29,762,31,764,31,15,2.0,0.7,Stable
+03,Natural Resources & Conservation,1,17,1,15,2,16,2,21,2,4,23.5,7.3,Strong Growth
+03,Natural Resources & Conservation,2,84,4,78,4,90,4,79,4,-5,-6.0,-2.0,Declining
+03,Natural Resources & Conservation,3,16,2,10,2,11,2,17,2,1,6.2,2.0,Growing
+03,Natural Resources & Conservation,4,151,7,186,7,198,7,216,8,65,43.0,12.7,Strong Growth
+03,Natural Resources & Conservation,5,108,12,109,13,102,13,95,12,-13,-12.0,-4.2,Declining
+04,Architecture,1,9,1,9,1,6,1,13,1,4,44.4,13.0,Strong Growth
+04,Architecture,2,118,2,158,2,284,2,336,2,218,184.7,41.7,Strong Growth
+04,Architecture,4,129,3,162,3,160,4,226,4,97,75.2,20.6,Strong Growth
+04,Architecture,5,143,4,144,4,106,4,115,4,-28,-19.6,-7.0,Sharp Decline
+05,"Area, Ethnic & Gender Studies",1,2,1,1,1,0,1,1,1,-1,-50.0,-20.6,Sharp Decline
+05,"Area, Ethnic & Gender Studies",2,81,3,85,3,72,3,75,3,-6,-7.4,-2.5,Declining
+05,"Area, Ethnic & Gender Studies",3,1,1,1,1,3,2,1,2,0,0.0,0.0,Stable
+05,"Area, Ethnic & Gender Studies",4,1028,4,1066,4,1313,4,1412,4,384,37.4,11.2,Strong Growth
+05,"Area, Ethnic & Gender Studies",5,73,5,74,5,73,5,60,6,-13,-17.8,-6.3,Sharp Decline
+09,Communication & Journalism,1,141,11,142,11,123,11,124,11,-17,-12.1,-4.2,Declining
+09,Communication & Journalism,2,608,7,578,7,471,7,443,7,-165,-27.1,-10.0,Sharp Decline
+09,Communication & Journalism,3,164,4,157,4,150,5,140,5,-24,-14.6,-5.1,Sharp Decline
+09,Communication & Journalism,4,1249,18,1168,18,1180,17,1140,18,-109,-8.7,-3.0,Declining
+09,Communication & Journalism,5,806,29,626,29,557,30,505,30,-301,-37.3,-14.4,Sharp Decline
+10,Communications Technologies,1,74,3,56,3,66,3,61,3,-13,-17.6,-6.2,Sharp Decline
+10,Communications Technologies,2,12,3,11,3,16,3,11,3,-1,-8.3,-2.9,Declining
+10,Communications Technologies,3,0,1,0,0,0,0,0,1,0,,,N/A
+10,Communications Technologies,4,151,9,116,8,136,9,135,9,-16,-10.6,-3.7,Declining
+10,Communications Technologies,5,115,12,113,12,97,12,94,13,-21,-18.3,-6.5,Sharp Decline
+11,Computer & Information Sciences,1,806,14,859,14,1288,14,1317,14,511,63.4,17.8,Strong Growth
+11,Computer & Information Sciences,2,695,6,632,6,1876,6,1882,6,1187,170.8,39.4,Strong Growth
+11,Computer & Information Sciences,3,300,11,288,10,641,10,801,10,501,167.0,38.7,Strong Growth
+11,Computer & Information Sciences,4,1009,21,1128,22,1401,22,1627,22,618,61.2,17.3,Strong Growth
+11,Computer & Information Sciences,5,2301,45,2398,47,3239,48,4567,48,2266,98.5,25.7,Strong Growth
+12,Personal & Culinary Services,1,640,10,714,10,877,10,859,10,219,34.2,10.3,Strong Growth
+12,Personal & Culinary Services,2,19,3,32,3,25,2,32,2,13,68.4,19.0,Strong Growth
+12,Personal & Culinary Services,3,106,4,104,4,134,4,115,4,9,8.5,2.8,Growing
+12,Personal & Culinary Services,4,334,8,420,8,456,8,556,8,222,66.5,18.5,Strong Growth
+12,Personal & Culinary Services,5,1661,37,1885,38,2157,41,2189,41,528,31.8,9.6,Strong Growth
+13,Education,1,587,13,559,13,614,13,518,14,-69,-11.8,-4.1,Declining
+13,Education,2,1433,7,1531,7,1277,7,1246,7,-187,-13.0,-4.6,Declining
+13,Education,3,1762,10,2171,9,2055,9,2041,9,279,15.8,5.0,Strong Growth
+13,Education,4,4390,23,4397,23,4080,23,3973,23,-417,-9.5,-3.3,Declining
+13,Education,5,4510,37,4248,37,3987,38,3880,38,-630,-14.0,-4.9,Declining
+14,Engineering,1,235,5,235,5,221,4,237,4,2,0.9,0.3,Stable
+14,Engineering,2,566,4,493,4,584,4,617,4,51,9.0,2.9,Growing
+14,Engineering,3,13,4,8,4,11,4,7,3,-6,-46.2,-18.6,Sharp Decline
+14,Engineering,4,1144,9,1120,7,996,7,1015,8,-129,-11.3,-3.9,Declining
+14,Engineering,5,2979,19,2751,20,2793,20,2737,22,-242,-8.1,-2.8,Declining
+15,Engineering Technologies,1,422,4,450,4,386,4,324,4,-98,-23.2,-8.4,Sharp Decline
+15,Engineering Technologies,2,361,5,316,4,381,4,339,4,-22,-6.1,-2.1,Declining
+15,Engineering Technologies,3,125,7,155,7,160,7,183,6,58,46.4,13.5,Strong Growth
+15,Engineering Technologies,4,556,11,527,10,587,10,674,11,118,21.2,6.6,Strong Growth
+15,Engineering Technologies,5,1734,34,1792,33,1699,33,1696,33,-38,-2.2,-0.7,Stable
+16,Foreign Languages,1,61,7,65,8,74,6,71,6,10,16.4,5.2,Strong Growth
+16,Foreign Languages,2,120,5,121,5,125,5,128,5,8,6.7,2.2,Growing
+16,Foreign Languages,3,11,3,16,3,9,3,9,3,-2,-18.2,-6.5,Sharp Decline
+16,Foreign Languages,4,266,11,244,11,243,11,240,11,-26,-9.8,-3.4,Declining
+16,Foreign Languages,5,160,15,147,15,145,16,154,16,-6,-3.8,-1.3,Declining
+19,Family & Consumer Sciences,1,23,4,41,3,31,2,37,2,14,60.9,17.2,Strong Growth
+19,Family & Consumer Sciences,2,49,2,47,2,40,1,43,1,-6,-12.2,-4.3,Declining
+19,Family & Consumer Sciences,3,36,6,73,6,68,6,96,6,60,166.7,38.7,Strong Growth
+19,Family & Consumer Sciences,4,678,13,643,13,632,13,596,15,-82,-12.1,-4.2,Declining
+19,Family & Consumer Sciences,5,225,19,242,20,160,20,242,21,17,7.6,2.5,Growing
+22,Legal Professions,1,218,5,199,5,204,5,188,5,-30,-13.8,-4.8,Declining
+22,Legal Professions,2,127,2,161,2,176,2,219,2,92,72.4,19.9,Strong Growth
+22,Legal Professions,3,134,4,140,4,112,4,116,3,-18,-13.4,-4.7,Declining
+22,Legal Professions,4,113,5,138,6,173,6,197,6,84,74.3,20.4,Strong Growth
+22,Legal Professions,5,920,12,1025,12,1084,12,964,12,44,4.8,1.6,Growing
+23,English Language & Literature,1,80,11,80,11,92,11,99,11,19,23.8,7.4,Strong Growth
+23,English Language & Literature,2,121,6,121,6,103,6,115,6,-6,-5.0,-1.7,Declining
+23,English Language & Literature,3,65,5,55,5,73,5,52,5,-13,-20.0,-7.2,Sharp Decline
+23,English Language & Literature,4,416,18,419,18,443,18,439,18,23,5.5,1.8,Growing
+23,English Language & Literature,5,439,29,602,29,498,29,504,29,65,14.8,4.7,Growing
+24,Liberal Arts & General Studies,1,4132,12,4150,12,4105,12,4105,12,-27,-0.7,-0.2,Stable
+24,Liberal Arts & General Studies,2,235,5,369,4,347,4,388,4,153,65.1,18.2,Strong Growth
+24,Liberal Arts & General Studies,3,1315,10,1248,10,1186,10,1286,10,-29,-2.2,-0.7,Stable
+24,Liberal Arts & General Studies,4,2975,20,2569,21,2440,21,3533,20,558,18.8,5.9,Strong Growth
+24,Liberal Arts & General Studies,5,7364,45,7139,45,7046,44,6931,44,-433,-5.9,-2.0,Declining
+25,Library Science,2,25,1,26,1,24,1,27,2,2,8.0,2.6,Growing
+25,Library Science,3,168,1,188,1,155,1,163,1,-5,-3.0,-1.0,Declining
+25,Library Science,4,80,1,119,1,98,1,83,1,3,3.8,1.2,Growing
+26,Biological Sciences,1,445,10,432,10,445,10,444,10,-1,-0.2,-0.1,Stable
+26,Biological Sciences,2,497,6,510,6,502,6,408,6,-89,-17.9,-6.4,Sharp Decline
+26,Biological Sciences,3,106,5,121,5,129,5,137,5,31,29.2,8.9,Strong Growth
+26,Biological Sciences,4,1379,20,1369,20,1514,21,1536,22,157,11.4,3.7,Growing
+26,Biological Sciences,5,1547,35,1426,35,1608,35,1531,36,-16,-1.0,-0.3,Stable
+27,Mathematics & Statistics,1,42,9,65,9,43,8,71,8,29,69.0,19.1,Strong Growth
+27,Mathematics & Statistics,2,133,6,158,6,130,6,113,6,-20,-15.0,-5.3,Sharp Decline
+27,Mathematics & Statistics,3,43,4,44,4,47,4,42,4,-1,-2.3,-0.8,Stable
+27,Mathematics & Statistics,4,296,16,277,16,298,16,270,16,-26,-8.8,-3.0,Declining
+27,Mathematics & Statistics,5,369,29,590,29,615,30,511,30,142,38.5,11.5,Strong Growth
+29,Military Technologies,2,0,0,5,1,5,1,1,1,1,,,N/A
+29,Military Technologies,4,57,1,66,1,41,1,47,2,-10,-17.5,-6.2,Sharp Decline
+29,Military Technologies,5,392,7,333,7,334,7,614,7,222,56.6,16.1,Strong Growth
+30,Multi/Interdisciplinary Studies,1,169,11,217,10,249,11,246,11,77,45.6,13.3,Strong Growth
+30,Multi/Interdisciplinary Studies,2,329,7,368,7,367,7,385,7,56,17.0,5.4,Strong Growth
+30,Multi/Interdisciplinary Studies,3,37,5,32,4,26,5,43,4,6,16.2,5.1,Strong Growth
+30,Multi/Interdisciplinary Studies,4,634,18,638,18,674,17,906,19,272,42.9,12.6,Strong Growth
+30,Multi/Interdisciplinary Studies,5,650,29,947,31,901,33,1160,32,510,78.5,21.3,Strong Growth
+31,"Parks, Recreation & Fitness",1,92,8,97,8,121,8,164,9,72,78.3,21.3,Strong Growth
+31,"Parks, Recreation & Fitness",2,487,7,474,7,489,7,507,7,20,4.1,1.4,Growing
+31,"Parks, Recreation & Fitness",3,136,4,144,4,142,4,143,4,7,5.1,1.7,Growing
+31,"Parks, Recreation & Fitness",4,564,16,523,16,518,16,524,16,-40,-7.1,-2.4,Declining
+31,"Parks, Recreation & Fitness",5,761,25,685,26,773,27,770,27,9,1.2,0.4,Stable
+38,Philosophy & Religious Studies,1,24,5,12,5,11,6,20,6,-4,-16.7,-5.9,Sharp Decline
+38,Philosophy & Religious Studies,2,42,6,31,6,28,6,35,6,-7,-16.7,-5.9,Sharp Decline
+38,Philosophy & Religious Studies,3,22,3,10,3,10,3,8,3,-14,-63.6,-28.6,Sharp Decline
+38,Philosophy & Religious Studies,4,75,10,79,10,90,10,96,10,21,28.0,8.6,Strong Growth
+38,Philosophy & Religious Studies,5,132,24,130,24,134,24,126,24,-6,-4.5,-1.5,Declining
+39,Theology & Religious Vocations,1,748,10,736,8,817,8,777,8,29,3.9,1.3,Growing
+39,Theology & Religious Vocations,2,35,2,39,2,38,2,39,2,4,11.4,3.7,Growing
+39,Theology & Religious Vocations,3,0,1,0,1,0,1,0,1,0,,,N/A
+39,Theology & Religious Vocations,4,379,10,357,9,396,9,421,9,42,11.1,3.6,Growing
+39,Theology & Religious Vocations,5,431,20,430,20,352,20,388,19,-43,-10.0,-3.4,Declining
+40,Physical Sciences,1,141,8,126,8,113,7,93,7,-48,-34.0,-13.0,Sharp Decline
+40,Physical Sciences,2,132,5,129,5,116,5,111,5,-21,-15.9,-5.6,Sharp Decline
+40,Physical Sciences,3,62,4,70,4,44,4,38,4,-24,-38.7,-15.1,Sharp Decline
+40,Physical Sciences,4,345,16,364,16,385,16,359,16,14,4.1,1.3,Growing
+40,Physical Sciences,5,373,27,389,27,383,28,377,27,4,1.1,0.4,Stable
+41,Science Technologies,1,14,3,1,2,18,2,15,2,1,7.1,2.3,Growing
+41,Science Technologies,3,1,1,1,1,0,1,1,1,0,0.0,0.0,Stable
+41,Science Technologies,4,2,2,6,2,1,2,5,2,3,150.0,35.7,Strong Growth
+41,Science Technologies,5,139,7,321,8,223,8,195,8,56,40.3,11.9,Strong Growth
+42,Psychology,1,690,11,619,11,684,11,688,11,-2,-0.3,-0.1,Stable
+42,Psychology,2,511,6,544,6,610,6,593,6,82,16.0,5.1,Strong Growth
+42,Psychology,3,286,6,229,6,275,6,263,6,-23,-8.0,-2.8,Declining
+42,Psychology,4,1271,19,1278,19,1498,19,1415,20,144,11.3,3.6,Growing
+42,Psychology,5,1671,32,1531,32,1520,33,1591,33,-80,-4.8,-1.6,Declining
+43,Homeland Security & Protective Services,1,404,9,426,8,412,8,349,8,-55,-13.6,-4.8,Declining
+43,Homeland Security & Protective Services,2,279,3,241,3,214,3,197,3,-82,-29.4,-11.0,Sharp Decline
+43,Homeland Security & Protective Services,3,140,11,134,11,95,11,105,11,-35,-25.0,-9.1,Sharp Decline
+43,Homeland Security & Protective Services,4,774,16,732,16,562,15,590,16,-184,-23.8,-8.7,Sharp Decline
+43,Homeland Security & Protective Services,5,1076,39,933,38,953,39,892,40,-184,-17.1,-6.1,Sharp Decline
+44,Public Administration & Social Services,1,213,7,220,7,194,7,196,8,-17,-8.0,-2.7,Declining
+44,Public Administration & Social Services,2,373,5,356,5,418,5,403,5,30,8.0,2.6,Growing
+44,Public Administration & Social Services,3,76,4,78,4,91,3,84,3,8,10.5,3.4,Growing
+44,Public Administration & Social Services,4,690,14,607,15,637,15,582,16,-108,-15.7,-5.5,Sharp Decline
+44,Public Administration & Social Services,5,1011,23,1066,24,936,25,924,26,-87,-8.6,-3.0,Declining
+45,Social Sciences,1,266,7,240,7,226,7,211,7,-55,-20.7,-7.4,Sharp Decline
+45,Social Sciences,2,377,7,352,7,326,7,288,7,-89,-23.6,-8.6,Sharp Decline
+45,Social Sciences,3,138,5,175,5,195,5,181,5,43,31.2,9.5,Strong Growth
+45,Social Sciences,4,1090,16,1071,16,1153,16,1342,16,252,23.1,7.2,Strong Growth
+45,Social Sciences,5,1177,27,1188,27,1223,27,1140,28,-37,-3.1,-1.1,Declining
+46,Construction Trades,1,135,3,184,3,163,3,172,3,37,27.4,8.4,Strong Growth
+46,Construction Trades,2,1,1,0,0,0,0,0,0,-1,-100.0,,N/A
+46,Construction Trades,3,91,5,108,5,153,5,149,5,58,63.7,17.9,Strong Growth
+46,Construction Trades,4,169,5,164,5,173,5,175,5,6,3.6,1.2,Growing
+46,Construction Trades,5,504,21,560,22,648,22,644,23,140,27.8,8.5,Strong Growth
+47,Mechanic & Repair Technologies,1,286,6,368,6,401,6,571,6,285,99.7,25.9,Strong Growth
+47,Mechanic & Repair Technologies,2,0,1,0,1,1,1,1,1,1,,,N/A
+47,Mechanic & Repair Technologies,3,204,7,199,7,205,7,229,7,25,12.3,3.9,Growing
+47,Mechanic & Repair Technologies,4,264,9,294,9,346,9,399,9,135,51.1,14.8,Strong Growth
+47,Mechanic & Repair Technologies,5,1307,29,1566,29,1704,30,1731,30,424,32.4,9.8,Strong Growth
+48,Precision Production,1,161,3,187,3,195,3,220,3,59,36.6,11.0,Strong Growth
+48,Precision Production,2,0,1,0,0,0,0,0,0,0,,,N/A
+48,Precision Production,3,188,5,217,5,219,5,257,5,69,36.7,11.0,Strong Growth
+48,Precision Production,4,323,6,358,6,319,6,293,7,-30,-9.3,-3.2,Declining
+48,Precision Production,5,993,28,1014,29,1188,31,1336,31,343,34.5,10.4,Strong Growth
+49,Transportation & Materials Moving,1,65,2,61,2,60,2,81,2,16,24.6,7.6,Strong Growth
+49,Transportation & Materials Moving,2,42,1,58,1,68,1,60,1,18,42.9,12.6,Strong Growth
+49,Transportation & Materials Moving,3,5,1,8,1,5,1,0,1,-5,-100.0,,N/A
+49,Transportation & Materials Moving,4,55,2,66,2,99,2,130,4,75,136.4,33.2,Strong Growth
+49,Transportation & Materials Moving,5,531,13,588,13,676,14,848,17,317,59.7,16.9,Strong Growth
+50,Visual & Performing Arts,1,491,10,491,10,481,12,504,12,13,2.6,0.9,Stable
+50,Visual & Performing Arts,2,452,7,429,7,433,7,380,7,-72,-15.9,-5.6,Sharp Decline
+50,Visual & Performing Arts,3,146,9,126,9,128,9,112,9,-34,-23.3,-8.5,Sharp Decline
+50,Visual & Performing Arts,4,738,17,797,16,752,16,806,16,68,9.2,3.0,Growing
+50,Visual & Performing Arts,5,1049,38,1102,38,1130,39,1192,39,143,13.6,4.4,Growing
+51,Health Professions,1,4768,21,4781,22,4693,21,4812,20,44,0.9,0.3,Stable
+51,Health Professions,2,1834,10,1838,10,1736,11,1600,11,-234,-12.8,-4.4,Declining
+51,Health Professions,3,2587,14,2434,14,2290,14,2191,13,-396,-15.3,-5.4,Sharp Decline
+51,Health Professions,4,7293,32,7172,32,7000,32,7012,32,-281,-3.9,-1.3,Declining
+51,Health Professions,5,14328,72,13547,73,13186,75,13208,75,-1120,-7.8,-2.7,Declining
+52,"Business, Management & Marketing",1,2904,17,2608,17,2369,17,2399,17,-505,-17.4,-6.2,Sharp Decline
+52,"Business, Management & Marketing",2,2156,7,2223,7,2156,7,2049,7,-107,-5.0,-1.7,Declining
+52,"Business, Management & Marketing",3,1011,12,1013,12,1120,12,1054,11,43,4.3,1.4,Growing
+52,"Business, Management & Marketing",4,7010,27,6602,28,6635,28,6591,28,-419,-6.0,-2.0,Declining
+52,"Business, Management & Marketing",5,9473,55,8845,57,8127,57,7541,57,-1932,-20.4,-7.3,Sharp Decline
+54,History,1,60,10,56,10,70,11,58,11,-2,-3.3,-1.1,Declining
+54,History,2,93,6,83,6,79,6,81,6,-12,-12.9,-4.5,Declining
+54,History,3,47,4,35,4,42,5,37,5,-10,-21.3,-7.7,Sharp Decline
+54,History,4,233,15,246,14,246,14,270,14,37,15.9,5.0,Strong Growth
+54,History,5,228,28,204,27,246,28,240,28,12,5.3,1.7,Growing

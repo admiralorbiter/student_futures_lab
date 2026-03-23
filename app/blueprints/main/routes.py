@@ -246,6 +246,12 @@ def screen(screen_num):
         extra["screen1_buckets"] = _load_cross_screen_responses(
             student_code, 1, "pathway_bucket_"
         )
+        # Build institution name→ID lookup for detail links
+        all_institutions = pathway_service.get_all_institutions()
+        inst_lookup = {}
+        for inst in all_institutions:
+            inst_lookup[inst["name"].lower()] = inst["institution_id"]
+        extra["inst_lookup"] = inst_lookup
 
     return render_template(
         f"screens/screen_{screen_num}.html",
@@ -281,3 +287,118 @@ def screen_submit(screen_num):
     if next_num:
         return redirect(url_for("main.screen", screen_num=next_num))
     return redirect(url_for("main.landing"))
+
+
+@bp.route("/institution/<int:institution_id>")
+def institution_detail(institution_id):
+    """Render a deep-dive page for a single institution."""
+    institution = pathway_service.get_institution(institution_id)
+    if not institution:
+        return redirect(url_for("main.screen", screen_num=3))
+
+    programs = pathway_service.get_programs_by_institution(institution_id)
+
+    # Enrich programs with linked occupations
+    for p in programs:
+        p["occupations"] = pathway_service.get_linked_occupations(
+            p["program_id"]
+        )
+
+    # Build chart data from programs
+    cred_counts = {}
+    occ_wage_data = []
+    seen_occ = set()
+    for p in programs:
+        cred = p.get("credential_type", "Unknown")
+        cred_counts[cred] = cred_counts.get(cred, 0) + 1
+        for occ in p.get("occupations", []):
+            if occ["soc_code"] not in seen_occ and occ.get("median_wage"):
+                seen_occ.add(occ["soc_code"])
+                occ_wage_data.append({
+                    "title": occ["title"][:40],
+                    "wage": int(occ["median_wage"]),
+                    "growth": round(occ.get("projected_growth_pct", 0) or 0, 1),
+                    "openings": int(occ.get("projected_openings", 0) or 0),
+                    "education": occ.get("education_required", "N/A"),
+                })
+
+    occ_wage_data.sort(key=lambda x: x["wage"], reverse=True)
+    occ_wage_data = occ_wage_data[:12]
+
+    chart_data = {
+        "credential_breakdown": cred_counts,
+        "occupation_wages": occ_wage_data,
+    }
+
+    # Find which pathways this institution belongs to
+    pathway_cips = set()
+    for p in programs:
+        cip = p.get("cip_code", "")
+        if cip:
+            prefix = cip.replace(".", "")[:2]
+            pathway_cips.add(prefix)
+
+    pathway_names = []
+    for family in pathway_service.get_families():
+        for prefix in family.get("cip_prefixes", []):
+            if prefix in pathway_cips:
+                pathway_names.append(family["name"])
+                break
+
+    # IPEDS data — the real institutional metrics
+    ipeds = None
+    unitid = institution.get("scorecard_unitid")
+    if unitid:
+        ipeds = pathway_service.get_ipeds_profile(unitid)
+
+    # Build IPEDS chart data if available
+    if ipeds:
+        # Demographics donut
+        demo = {}
+        for key, label in [
+            ("pct_white", "White"), ("pct_black", "Black"),
+            ("pct_hispanic", "Hispanic"), ("pct_asian", "Asian"),
+            ("pct_two_plus", "Two or more"), ("pct_nonresident", "Nonresident"),
+            ("pct_unknown", "Unknown"),
+        ]:
+            val = ipeds.get(key)
+            if val and val > 0:
+                demo[label] = round(val, 1)
+        chart_data["demographics"] = demo
+
+        # Completions by level bar
+        comp = {}
+        for key, label in [
+            ("cert_completions", "Certificate"),
+            ("assoc_completions", "Associate's"),
+            ("bach_completions", "Bachelor's"),
+            ("master_completions", "Master's"),
+            ("doctoral_completions", "Doctoral"),
+        ]:
+            val = ipeds.get(key)
+            if val and val > 0:
+                comp[label] = val
+        chart_data["completions_by_level"] = comp
+
+        # Financial aid summary
+        aid = {}
+        for key, label in [
+            ("avg_grant_amount", "Avg Grant"),
+            ("avg_pell_amount", "Avg Pell Grant"),
+            ("avg_fed_loan", "Avg Federal Loan"),
+            ("avg_institutional_grant_ftft", "Avg Institutional Grant"),
+        ]:
+            val = ipeds.get(key)
+            if val and val > 0:
+                aid[label] = int(val)
+        chart_data["financial_aid"] = aid
+
+    return render_template(
+        "institution_detail.html",
+        institution=institution,
+        programs=programs,
+        chart_data=chart_data,
+        pathway_names=pathway_names,
+        ipeds=ipeds,
+        student_code=_get_student_code(),
+    )

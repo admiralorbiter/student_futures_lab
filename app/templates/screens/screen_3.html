@@ -118,6 +118,15 @@
             <span>{{ lp.watch_out }}</span>
           </div>
           {% endif %}
+
+          {# Link to institution detail page #}
+          {% set inst_id = inst_lookup.get(lp.institution|lower, None) %}
+          {% if inst_id %}
+          <a href="{{ url_for('main.institution_detail', institution_id=inst_id) }}"
+             class="launch-detail-link" target="_blank">
+            🔍 View all programs &amp; data →
+          </a>
+          {% endif %}
         </div>
         {% endfor %}
       </div>

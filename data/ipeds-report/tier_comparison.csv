@@ -1,0 +1,6 @@
+Tier,Tier Label,Institutions,With Enrollment Data,With Grad Rate Data,With Outcome Data,With Aid Data,Total Enrollment,Total Completions,Median Enrollment,Median Completions,Avg Full-Time %,Avg Yield Rate (%),Avg Graduation Rate (%),Avg Award Rate 8yr (%),Avg Still Enrolled 8yr (%),Avg Pell (%),Avg Any Aid (%),Avg Grant Amount,Avg Federal Loan,Avg Institutional Grant (FTFT),Avg Enrl % White,Avg Enrl % Black,Avg Enrl % Hispanic,Avg Enrl % Nonresident
+1,Core KC Metro (0-30 mi),36,36,13,21,33,103703,20136,566.0,154.0,,29.3,52.9,46.7,17.7,47.7,89.4,9577.7,7261.8,8238.3,50.3,20.8,11.8,2.7
+2,KC Fringe (30-60 mi),12,12,6,8,12,60870,13259,1096.0,171.0,,36.6,51.4,55.6,25.8,41.5,98.0,12003.5,7181.3,10646,59.3,13.2,7.3,3.6
+3,Regional (60-100 mi),17,16,6,12,16,45013,10337,1885.5,402.0,,32.0,41.7,41.1,28.1,36.2,93.5,9951.4,6270.7,5572.5,70.3,7.6,9.8,3.4
+4,Statewide Reach (100-150 mi),41,40,22,30,39,166069,41472,1167.0,303.5,,31.0,49.4,52.3,21.0,39.5,91.4,9761.6,6597.5,8095.9,72.8,7.4,6.9,2.1
+5,Outer MO+KS (150+ mi),111,110,34,64,101,301706,62456,615.0,158,,30.2,44.4,52.9,23.5,41.9,87.7,10109.9,6617.3,9399.3,60.6,14.7,9.3,2.8

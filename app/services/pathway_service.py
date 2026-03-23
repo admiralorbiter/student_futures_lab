@@ -412,6 +412,24 @@ class PathwayService:
         db.close()
         return dict(row) if row else None
 
+    def get_institution_by_name(self, name):
+        """Return an institution by name (fuzzy-ish: case-insensitive LIKE)."""
+        db = self._get_db()
+        if not db:
+            return None
+        row = db.execute(
+            "SELECT * FROM institutions WHERE LOWER(name) = LOWER(?)",
+            (name,),
+        ).fetchone()
+        if not row:
+            # Try partial match
+            row = db.execute(
+                "SELECT * FROM institutions WHERE LOWER(name) LIKE LOWER(?)",
+                (f"%{name}%",),
+            ).fetchone()
+        db.close()
+        return dict(row) if row else None
+
     def get_all_institutions(self):
         """Return all institutions."""
         db = self._get_db()
@@ -437,6 +455,64 @@ class PathwayService:
             ORDER BY po.confidence DESC
             """,
             (program_id,),
+        ).fetchall()
+        db.close()
+        return [dict(r) for r in rows]
+
+    def get_ipeds_profile(self, unitid):
+        """Return IPEDS profile for a given UNITID."""
+        db = self._get_db()
+        if not db:
+            return None
+        row = db.execute(
+            "SELECT * FROM ipeds_profiles WHERE unitid = ?",
+            (unitid,),
+        ).fetchone()
+        db.close()
+        return dict(row) if row else None
+
+    def get_institution_sectors(self, institution_id):
+        """Return the NAICS sectors this institution serves (from institution_sectors + sector_profiles)."""
+        db = self._get_db()
+        if not db:
+            return []
+        rows = db.execute(
+            """SELECT is2.sector_code, is2.primary_cip_family,
+                      sp.naics, sp.overview, sp.unique_factors, sp.risks, sp.opportunities, sp.watch_items
+               FROM institution_sectors is2
+               LEFT JOIN sector_profiles sp ON is2.sector_code = sp.naics
+               WHERE is2.institution_id = ?
+               ORDER BY is2.sector_code""",
+            (institution_id,),
+        ).fetchall()
+        db.close()
+        return [dict(r) for r in rows]
+
+    def get_sector_profile(self, naics_sector):
+        """Return sector profile (overview, growth, risks, etc.)."""
+        db = self._get_db()
+        if not db:
+            return None
+        row = db.execute(
+            "SELECT * FROM sector_profiles WHERE naics_sector = ?",
+            (naics_sector,),
+        ).fetchone()
+        db.close()
+        return dict(row) if row else None
+
+    def get_nearby_employers(self, latitude, longitude, radius_deg=0.15, limit=20):
+        """Return employers near a lat/lon, ordered by headcount."""
+        db = self._get_db()
+        if not db:
+            return []
+        rows = db.execute(
+            """SELECT name, naics_sector, estimated_headcount, city
+               FROM employers
+               WHERE latitude IS NOT NULL AND longitude IS NOT NULL
+                 AND ABS(latitude - ?) < ? AND ABS(longitude - ?) < ?
+               ORDER BY estimated_headcount DESC
+               LIMIT ?""",
+            (latitude, radius_deg, longitude, radius_deg, limit),
         ).fetchall()
         db.close()
         return [dict(r) for r in rows]

@@ -1,0 +1,370 @@
+{% extends "base.html" %}
+
+{% block title %}{{ institution.name }} — Student Futures Lab{% endblock %}
+{% block head_extra %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="screen-header">
+  <span class="screen-eyebrow">Institution Deep Dive</span>
+  <h1 class="screen-title">{{ institution.name }}</h1>
+  <p class="screen-question">
+    {% if ipeds %}{{ ipeds.get('level', '') }} · {{ ipeds.get('control', '') }} · {% endif %}
+    {{ institution.get('city', '') }}, {{ institution.get('state', '') }} {{ institution.get('zip_code', '') }}
+  </p>
+</div>
+
+
+{# ═══════════════════════════════════════════════ #}
+{# IPEDS SCORECARD                                  #}
+{# ═══════════════════════════════════════════════ #}
+{% if ipeds %}
+<section class="screen-section">
+  <div class="inst-meta-grid">
+    {% if ipeds.total_enrollment %}
+    <div class="inst-meta-item">
+      <span class="inst-meta-label">Total Enrollment</span>
+      <span class="inst-meta-value inst-highlight">{{ '{:,.0f}'.format(ipeds.total_enrollment) }}</span>
+    </div>
+    {% endif %}
+    {% if ipeds.graduation_rate %}
+    <div class="inst-meta-item">
+      <span class="inst-meta-label">Graduation Rate</span>
+      <span class="inst-meta-value inst-highlight">{{ ipeds.graduation_rate }}%</span>
+    </div>
+    {% elif ipeds.award_rate_6yr %}
+    <div class="inst-meta-item">
+      <span class="inst-meta-label">Award Rate (6yr)</span>
+      <span class="inst-meta-value inst-highlight">{{ ipeds.award_rate_6yr }}%</span>
+    </div>
+    {% endif %}
+    {% if ipeds.pell_grant_pct %}
+    <div class="inst-meta-item">
+      <span class="inst-meta-label">Pell Grant Recipients</span>
+      <span class="inst-meta-value inst-highlight">{{ ipeds.pell_grant_pct }}%</span>
+    </div>
+    {% endif %}
+    {% if ipeds.total_completions %}
+    <div class="inst-meta-item">
+      <span class="inst-meta-label">Completions (2024)</span>
+      <span class="inst-meta-value inst-highlight">{{ '{:,.0f}'.format(ipeds.total_completions) }}</span>
+    </div>
+    {% endif %}
+    {% if ipeds.any_aid_pct %}
+    <div class="inst-meta-item">
+      <span class="inst-meta-label">Receiving Any Aid</span>
+      <span class="inst-meta-value">{{ ipeds.any_aid_pct }}%</span>
+    </div>
+    {% endif %}
+    {% if ipeds.unique_programs %}
+    <div class="inst-meta-item">
+      <span class="inst-meta-label">Unique Programs</span>
+      <span class="inst-meta-value">{{ ipeds.unique_programs }}</span>
+    </div>
+    {% endif %}
+    {% if ipeds.institution_size %}
+    <div class="inst-meta-item">
+      <span class="inst-meta-label">Size</span>
+      <span class="inst-meta-value">{{ ipeds.institution_size }}</span>
+    </div>
+    {% endif %}
+    {% if institution.get('website') %}
+    <div class="inst-meta-item">
+      <span class="inst-meta-label">Website</span>
+      <a href="{{ institution.website }}" target="_blank" rel="noopener" class="inst-link">Visit website ↗</a>
+    </div>
+    {% endif %}
+  </div>
+
+  {% if pathway_names %}
+  <div style="margin-top: var(--space-4);">
+    <span class="inst-meta-label">Pathway families served</span>
+    <div class="inst-pathway-tags" style="margin-top: var(--space-1);">
+      {% for name in pathway_names %}
+      <span class="inst-pathway-tag">{{ name }}</span>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</section>
+{% endif %}
+
+
+{# ═══════════════════════════════════════════════ #}
+{# IPEDS CHARTS — demographics, completions, aid   #}
+{# ═══════════════════════════════════════════════ #}
+{% if ipeds %}
+<section class="screen-section">
+  <div class="section-header">
+    <h2 class="section-title">Institutional Profile</h2>
+    <p class="section-subtitle">IPEDS data for {{ institution.name }} — enrollment demographics, completion trends, and financial aid.</p>
+  </div>
+
+  <div class="chart-grid">
+    {% if chart_data.demographics %}
+    <div class="chart-container">
+      <div class="chart-label">Student demographics (enrollment)</div>
+      <div class="chart-wrapper chart-wrapper-donut">
+        <canvas id="chart-demo"></canvas>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if chart_data.completions_by_level %}
+    <div class="chart-container">
+      <div class="chart-label">Completions by credential level (2024)</div>
+      <div class="chart-wrapper">
+        <canvas id="chart-completions"></canvas>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+  {% if chart_data.financial_aid %}
+  <div class="chart-grid" style="margin-top: var(--space-5);">
+    <div class="chart-container">
+      <div class="chart-label">Average financial aid amounts</div>
+      <div class="chart-wrapper">
+        <canvas id="chart-aid"></canvas>
+      </div>
+    </div>
+
+    {% if chart_data.credential_breakdown %}
+    <div class="chart-container">
+      <div class="chart-label">Programs by credential type (in our DB)</div>
+      <div class="chart-wrapper chart-wrapper-donut">
+        <canvas id="chart-cred"></canvas>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+</section>
+
+
+{# ═══════════════════════════════════════════════ #}
+{# ENROLLMENT & OUTCOMES TABLE                      #}
+{# ═══════════════════════════════════════════════ #}
+<section class="screen-section">
+  <div class="section-header">
+    <h2 class="section-title">Enrollment &amp; Outcomes</h2>
+  </div>
+
+  <div class="ipeds-two-col">
+    {# Left: Enrollment stats #}
+    <div class="ipeds-stat-card">
+      <h3>Enrollment</h3>
+      <dl class="ipeds-dl">
+        {% if ipeds.total_enrollment %}<dt>Total (12-month)</dt><dd>{{ '{:,.0f}'.format(ipeds.total_enrollment) }}</dd>{% endif %}
+        {% if ipeds.undergrad_enrollment %}<dt>Undergraduate</dt><dd>{{ '{:,.0f}'.format(ipeds.undergrad_enrollment) }}</dd>{% endif %}
+        {% if ipeds.grad_enrollment %}<dt>Graduate</dt><dd>{{ '{:,.0f}'.format(ipeds.grad_enrollment) }}</dd>{% endif %}
+        {% if ipeds.ft_pct %}<dt>Full-time</dt><dd>{{ ipeds.ft_pct }}%</dd>{% endif %}
+        {% if ipeds.male_enrollment %}<dt>Male</dt><dd>{{ '{:,.0f}'.format(ipeds.male_enrollment) }}</dd>{% endif %}
+        {% if ipeds.female_enrollment %}<dt>Female</dt><dd>{{ '{:,.0f}'.format(ipeds.female_enrollment) }}</dd>{% endif %}
+        {% if ipeds.yield_rate %}<dt>Yield rate</dt><dd>{{ ipeds.yield_rate }}%</dd>{% endif %}
+      </dl>
+    </div>
+
+    {# Right: Outcomes #}
+    <div class="ipeds-stat-card">
+      <h3>Graduation &amp; Outcomes</h3>
+      <dl class="ipeds-dl">
+        {% if ipeds.graduation_rate %}<dt>Graduation rate (150%)</dt><dd>{{ ipeds.graduation_rate }}%</dd>{% endif %}
+        {% if ipeds.gr_cohort_size %}<dt>{{ ipeds.gr_cohort_type or 'Cohort' }}</dt><dd>{{ '{:,.0f}'.format(ipeds.gr_cohort_size) }} students</dd>{% endif %}
+        {% if ipeds.award_rate_4yr %}<dt>Award rate 4yr</dt><dd>{{ ipeds.award_rate_4yr }}%</dd>{% endif %}
+        {% if ipeds.award_rate_6yr %}<dt>Award rate 6yr</dt><dd>{{ ipeds.award_rate_6yr }}%</dd>{% endif %}
+        {% if ipeds.award_rate_8yr %}<dt>Award rate 8yr</dt><dd>{{ ipeds.award_rate_8yr }}%</dd>{% endif %}
+        {% if ipeds.still_enrolled_8yr %}<dt>Still enrolled at 8yr</dt><dd>{{ ipeds.still_enrolled_8yr }}%</dd>{% endif %}
+      </dl>
+    </div>
+  </div>
+
+  {# Financial aid row #}
+  <div class="ipeds-two-col" style="margin-top: var(--space-4);">
+    <div class="ipeds-stat-card">
+      <h3>Financial Aid</h3>
+      <dl class="ipeds-dl">
+        {% if ipeds.any_aid_pct %}<dt>Receiving any aid</dt><dd>{{ ipeds.any_aid_pct }}%</dd>{% endif %}
+        {% if ipeds.pell_grant_pct %}<dt>Pell Grant recipients</dt><dd>{{ ipeds.pell_grant_pct }}%</dd>{% endif %}
+        {% if ipeds.avg_grant_amount %}<dt>Avg grant amount</dt><dd>${{ '{:,.0f}'.format(ipeds.avg_grant_amount) }}</dd>{% endif %}
+        {% if ipeds.avg_pell_amount %}<dt>Avg Pell amount</dt><dd>${{ '{:,.0f}'.format(ipeds.avg_pell_amount) }}</dd>{% endif %}
+        {% if ipeds.fed_loan_pct %}<dt>Federal loan recipients</dt><dd>{{ ipeds.fed_loan_pct }}%</dd>{% endif %}
+        {% if ipeds.avg_fed_loan %}<dt>Avg federal loan</dt><dd>${{ '{:,.0f}'.format(ipeds.avg_fed_loan) }}</dd>{% endif %}
+      </dl>
+    </div>
+    <div class="ipeds-stat-card">
+      <h3>First-Time Full-Time Aid</h3>
+      <dl class="ipeds-dl">
+        {% if ipeds.avg_total_grant_ftft %}<dt>Avg total grant</dt><dd>${{ '{:,.0f}'.format(ipeds.avg_total_grant_ftft) }}</dd>{% endif %}
+        {% if ipeds.avg_fed_grant_ftft %}<dt>Avg federal grant</dt><dd>${{ '{:,.0f}'.format(ipeds.avg_fed_grant_ftft) }}</dd>{% endif %}
+        {% if ipeds.avg_state_grant_ftft %}<dt>Avg state grant</dt><dd>${{ '{:,.0f}'.format(ipeds.avg_state_grant_ftft) }}</dd>{% endif %}
+        {% if ipeds.avg_institutional_grant_ftft %}<dt>Avg institutional grant</dt><dd>${{ '{:,.0f}'.format(ipeds.avg_institutional_grant_ftft) }}</dd>{% endif %}
+        {% if ipeds.avg_loan_ftft %}<dt>Avg loan</dt><dd>${{ '{:,.0f}'.format(ipeds.avg_loan_ftft) }}</dd>{% endif %}
+      </dl>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+
+{# ═══════════════════════════════════════════════ #}
+{# CAREER OUTCOMES TABLE                            #}
+{# ═══════════════════════════════════════════════ #}
+{% if chart_data.occupation_wages %}
+<section class="screen-section">
+  <div class="section-header">
+    <h2 class="section-title">Career Outcomes</h2>
+    <p class="section-subtitle">Linked occupations by federal program-to-occupation crosswalk.</p>
+  </div>
+
+  <div class="inst-table-wrap">
+    <table class="inst-programs-table">
+      <thead>
+        <tr>
+          <th>Occupation</th>
+          <th>Median Wage</th>
+          <th>Growth</th>
+          <th>Openings/yr</th>
+          <th>Education</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for occ in chart_data.occupation_wages %}
+        <tr>
+          <td><span class="prog-name">{{ occ.title }}</span></td>
+          <td class="num">${{ '{:,.0f}'.format(occ.wage) }}</td>
+          <td class="num {% if occ.growth > 5 %}growth-positive{% elif occ.growth < 0 %}growth-negative{% endif %}">{{ occ.growth }}%</td>
+          <td class="num">{{ '{:,.0f}'.format(occ.openings) }}</td>
+          <td><span class="edu-badge">{{ occ.education }}</span></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endif %}
+
+
+{# ═══════════════════════════════════════════════ #}
+{# ALL PROGRAMS (cards with occupations)            #}
+{# ═══════════════════════════════════════════════ #}
+<section class="screen-section">
+  <div class="section-header">
+    <h2 class="section-title">All Programs ({{ programs|length }})</h2>
+    <p class="section-subtitle">Programs at {{ institution.name }} with linked career data.</p>
+  </div>
+
+  <div class="inst-programs-cards">
+    {% for p in programs %}
+    <div class="inst-prog-card">
+      <div class="inst-prog-header">
+        <div>
+          <h4 class="inst-prog-name">
+            {{ p.program_name }}
+            {% if p.url %}<a href="{{ p.url }}" target="_blank" rel="noopener" class="prog-link">↗</a>{% endif %}
+          </h4>
+          <span class="cred-badge">{{ p.credential_type|default('—') }}</span>
+        </div>
+        {% if p.median_earnings_1yr %}
+        <div class="inst-prog-earnings">
+          <span class="earnings-amt">${{ '{:,.0f}'.format(p.median_earnings_1yr) }}</span>
+          <span class="earnings-label">median 1yr earnings</span>
+        </div>
+        {% endif %}
+      </div>
+      {% if p.description %}<p class="inst-prog-desc">{{ p.description }}</p>{% endif %}
+      {% if p.occupations %}
+      <div class="inst-prog-occs">
+        <span class="inst-prog-occs-label">Career paths →</span>
+        {% for occ in p.occupations[:4] %}
+        <span class="occ-chip">
+          {{ occ.title }}
+          {% if occ.median_wage %}<span class="occ-chip-wage">${{ '{:,.0f}'.format(occ.median_wage) }}</span>{% endif %}
+        </span>
+        {% endfor %}
+        {% if p.occupations|length > 4 %}<span class="occ-chip occ-chip-more">+{{ p.occupations|length - 4 }} more</span>{% endif %}
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+
+{# ═══════════════════════════════════════════════ #}
+{# BACK NAVIGATION                                 #}
+{# ═══════════════════════════════════════════════ #}
+<nav class="screen-nav">
+  <a href="{{ url_for('main.screen', screen_num=3) }}" class="btn btn-secondary">
+    <span class="arrow">←</span> Back to Launch Points
+  </a>
+</nav>
+
+
+{# ═══════════════════════════════════════════════ #}
+{# CHART INITIALIZATION                             #}
+{# ═══════════════════════════════════════════════ #}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var chartData = {{ chart_data | tojson }};
+  var demoColors = ['#6366f1', '#8b5cf6', '#f97316', '#0d9488', '#ec4899', '#eab308', '#94a3b8'];
+  var compColors = ['#f97316', '#8b5cf6', '#6366f1', '#0d9488', '#ec4899'];
+  var aidColors = ['#22c55e', '#6366f1', '#f97316', '#0d9488'];
+  var credColors = ['#6366f1', '#8b5cf6', '#d946ef', '#ec4899', '#f43f5e'];
+
+  // Demographics donut
+  var demoCanvas = document.getElementById('chart-demo');
+  if (demoCanvas && chartData.demographics) {
+    var labels = Object.keys(chartData.demographics);
+    var values = Object.values(chartData.demographics);
+    new Chart(demoCanvas, {
+      type: 'doughnut',
+      data: { labels: labels, datasets: [{ data: values, backgroundColor: demoColors.slice(0, labels.length), borderWidth: 2, borderColor: '#fff' }] },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } } } }
+    });
+  }
+
+  // Completions bar
+  var compCanvas = document.getElementById('chart-completions');
+  if (compCanvas && chartData.completions_by_level) {
+    var labels = Object.keys(chartData.completions_by_level);
+    var values = Object.values(chartData.completions_by_level);
+    new Chart(compCanvas, {
+      type: 'bar',
+      data: { labels: labels, datasets: [{ label: 'Completions', data: values, backgroundColor: compColors.slice(0, labels.length), borderRadius: 6 }] },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+    });
+  }
+
+  // Financial aid bar
+  var aidCanvas = document.getElementById('chart-aid');
+  if (aidCanvas && chartData.financial_aid) {
+    var labels = Object.keys(chartData.financial_aid);
+    var values = Object.values(chartData.financial_aid);
+    new Chart(aidCanvas, {
+      type: 'bar',
+      data: { labels: labels, datasets: [{ label: 'Amount ($)', data: values, backgroundColor: aidColors.slice(0, labels.length), borderRadius: 6 }] },
+      options: {
+        responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+        plugins: { legend: { display: false } },
+        scales: { x: { beginAtZero: true, ticks: { callback: function(v) { return '$' + v.toLocaleString(); } } } }
+      }
+    });
+  }
+
+  // Credential breakdown donut
+  var credCanvas = document.getElementById('chart-cred');
+  if (credCanvas && chartData.credential_breakdown) {
+    var labels = Object.keys(chartData.credential_breakdown);
+    var values = Object.values(chartData.credential_breakdown);
+    new Chart(credCanvas, {
+      type: 'doughnut',
+      data: { labels: labels, datasets: [{ data: values, backgroundColor: credColors.slice(0, labels.length), borderWidth: 2, borderColor: '#fff' }] },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } } } }
+    });
+  }
+});
+</script>
+
+{% endblock %}
