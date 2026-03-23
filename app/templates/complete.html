@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Inquiry Complete — Student Futures Lab{% endblock %}
+
+{% block content %}
+<div class="completion-page">
+  <div class="completion-icon">🎉</div>
+  <h1 class="completion-title">Recommendation Saved!</h1>
+  <p class="completion-message">
+    Your team's recommendation for PREP-KC has been saved.
+    You can return to any screen to review or update your work.
+  </p>
+
+  <div class="completion-actions">
+    <a href="{{ url_for('main.screen', screen_num=5) }}" class="btn btn-primary">
+      ✏️ Edit Recommendation
+    </a>
+    <button type="button" class="btn btn-accent" onclick="window.location.href='{{ url_for('main.screen', screen_num=5) }}'; setTimeout(function(){ window.print(); }, 500);">
+      🖨️ Print Recommendation
+    </button>
+  </div>
+
+  <div class="completion-nav">
+    <h2 class="completion-nav-title">Review Your Work</h2>
+    <div class="overview-grid">
+      <a href="{{ url_for('main.screen', screen_num=1) }}" class="overview-card">
+        <span class="card-number">1</span>
+        <span class="card-name">Pathway Explorer</span>
+        <span class="card-question">What looks strongest on paper?</span>
+      </a>
+      <a href="{{ url_for('main.screen', screen_num=2) }}" class="overview-card">
+        <span class="card-number">2</span>
+        <span class="card-name">Hickman Mills Lens</span>
+        <span class="card-question">Would this still look strong?</span>
+      </a>
+      <a href="{{ url_for('main.screen', screen_num=3) }}" class="overview-card">
+        <span class="card-number">3</span>
+        <span class="card-name">Launch Points</span>
+        <span class="card-question">Where could someone start?</span>
+      </a>
+      <a href="{{ url_for('main.screen', screen_num=4) }}" class="overview-card">
+        <span class="card-number">4</span>
+        <span class="card-name">Reality Check</span>
+        <span class="card-question">What does this mean for me?</span>
+      </a>
+      <a href="{{ url_for('main.screen', screen_num=5) }}" class="overview-card">
+        <span class="card-number">5</span>
+        <span class="card-name">Recommendation</span>
+        <span class="card-question">What should PREP-KC do?</span>
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

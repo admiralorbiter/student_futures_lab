@@ -120,6 +120,12 @@
     <h3 class="sidebar-title">📋 Your Evidence So Far</h3>
     <p class="sidebar-subtitle">Reference your past work while reflecting.</p>
 
+    {% if not criteria_rank and not selected_pathways and not launch_notes %}
+    <div class="sidebar-hint">
+      💡 Complete Screens 1–3 first for the best experience. Your choices will appear here automatically.
+    </div>
+    {% endif %}
+
     {# Screen 1: Criteria #}
     <details class="sidebar-section" open>
       <summary class="sidebar-section-title">Screen 1 — Your Criteria</summary>
@@ -214,23 +220,9 @@
 </div>
 
 {# ═══════════════════════════════════════════════ #}
-{# SUBMIT                                          #}
+{# SUBMIT + NAV                                    #}
 {# ═══════════════════════════════════════════════ #}
-  <div class="screen-submit">
-    <button type="submit" class="btn btn-primary">
-      Save &amp; Continue to Recommendation Builder →
-    </button>
-    <p class="save-hint">
-      💡 Your answers won't be saved permanently since you're exploring anonymously.
-      <a href="{{ url_for('main.landing') }}">Enter a code</a> to save your progress.
-    </p>
-  </div>
-
-</form>
-
-<nav class="screen-nav">
-  <a href="{{ url_for('main.screen', screen_num=3) }}" class="btn btn-secondary">
-    <span class="arrow">←</span> Back to Launch Points
-  </a>
-</nav>
+{% with submit_text="Save & Continue to Recommendation Builder →", back_num=3, back_label="Launch Points" %}
+{% include "partials/_screen_nav.html" %}
+{% endwith %}
 {% endblock %}

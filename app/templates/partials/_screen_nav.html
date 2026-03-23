@@ -1,0 +1,25 @@
+{# Screen navigation partial — submit button + back link #}
+{# Usage: {% with submit_text="Save & Continue →", back_num=2, back_label="Hickman Mills Lens" %}
+         {% include "partials/_screen_nav.html" %}
+         {% endwith %}
+#}
+
+<div class="screen-submit">
+  <button type="submit" class="btn btn-primary">
+    {{ submit_text|default("Save & Continue →") }}
+  </button>
+  <p class="save-hint">
+    💡 Your answers won't be saved permanently since you're exploring anonymously.
+    <a href="{{ url_for('main.landing') }}">Enter a code</a> to save your progress.
+  </p>
+</div>
+
+</form>
+
+{% if back_num is defined and back_num %}
+<nav class="screen-nav">
+  <a href="{{ url_for('main.screen', screen_num=back_num) }}" class="btn btn-secondary">
+    <span class="arrow">←</span> Back to {{ back_label|default("Previous Screen") }}
+  </a>
+</nav>
+{% endif %}

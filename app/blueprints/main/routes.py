@@ -433,7 +433,14 @@ def screen_submit(screen_num):
     next_num = screen_num + 1 if screen_num < 5 else None
     if next_num:
         return redirect(url_for("main.screen", screen_num=next_num))
-    return redirect(url_for("main.landing"))
+    return redirect(url_for("main.complete"))
+
+
+@bp.route("/complete")
+def complete():
+    """Show the completion page after Screen 5 submission."""
+    student_code = _get_student_code()
+    return render_template("complete.html", student_code=student_code)
 
 
 @bp.route("/institution/<int:institution_id>")

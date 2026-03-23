@@ -200,6 +200,12 @@
     <h3 class="sidebar-title">📋 Your Evidence So Far</h3>
     <p class="sidebar-subtitle">Reference your past work while building the recommendation.</p>
 
+    {% if not criteria_rank and not selected_pathways and not launch_notes %}
+    <div class="sidebar-hint">
+      💡 Complete Screens 1–4 first for the best experience. Your choices will appear here automatically.
+    </div>
+    {% endif %}
+
     {# Screen 1: Criteria #}
     <details class="sidebar-section">
       <summary class="sidebar-section-title">Screen 1 — Your Criteria</summary>

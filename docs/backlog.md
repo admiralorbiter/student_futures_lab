@@ -33,22 +33,33 @@
 | Now | Build | Done | Create Screen 1 layout and cards for seven pathways + additional fields (loads from YAML). |
 | Now | Build | Done | Add form handling for criteria ranking, pathway buckets, and confidence. |
 | Now | QA | Done | Verify Screen 1 labels match classroom packet language. |
-| Soon | Build | Done | Create Screen 2 comparison layout for top pathways only. |
-| Soon | Build | Done | Persist revised ranking and what-changed notes (for code-based users). |
-| Soon | Build | Done | Create Screen 3 institution filter by pathway. |
-| Soon | Build | Not started | Create Screen 4 reflection form with save and edit. |
-| Soon | Build | Not started | Create Screen 5 recommendation builder with prefilled evidence. |
+| Now | Build | Done | Create Screen 2 comparison layout for top pathways only. |
+| Now | Build | Done | Persist revised ranking and what-changed notes (for code-based users). |
+| Now | Build | Done | Create Screen 3 institution filter by pathway. |
+| Now | Build | Done | Create Screen 4 reflection form with save and edit. Cross-screen evidence sidebar. |
+| Now | Build | Done | Create Screen 5 recommendation builder with prefilled evidence and print button. |
 
-## 4. Polish and QA
+## 4. Enrichment (shipped with Epics)
 
 | Priority | Type | Status | Task |
 |----------|------|--------|------|
-| Soon | Build | Not started | Create print-friendly view for Screen 5 recommendation. |
-| Soon | QA | Not started | Test optional code save/resume across all 5 screens. |
-| Later | QA | Not started | Run full classroom rehearsal with mock data. |
-| Later | QA | Not started | Test print/PDF layout from real entries. |
+| Now | Build | Done | Import IPEDS institutional profiles (217 institutions × 79 columns) into `pathway_data.db`. |
+| Now | Build | Done | Enrich Screen 3 launch point cards with IPEDS stats (enrollment, grad rate, Pell %). |
+| Now | Build | Done | Build institution detail page (`/institution/<id>`) with IPEDS scorecard. |
+| Now | Build | Done | Create print-friendly view for Screen 5 recommendation (`@media print`). |
+| Now | Build | Done | Add completion page after Screen 5 submit. |
 
-## 5. Post-v1
+## 5. Polish and QA
+
+| Priority | Type | Status | Task |
+|----------|------|--------|------|
+| Now | Build | Done | Extract `_screen_nav.html` partial to reduce navigation duplication. |
+| Now | QA | Done | Test optional code save/resume across all 5 screens. |
+| Soon | QA | Not started | Run full classroom rehearsal with mock data. |
+| Soon | QA | Not started | Test print/PDF layout from real entries. |
+| Soon | Build | Not started | Add pytest route smoke tests. |
+
+## 6. Post-v1
 
 | Priority | Type | Status | Task |
 |----------|------|--------|------|
@@ -58,7 +69,7 @@
 | Later | Build | Not started | Add interactive employer/location map layer. |
 | Later | Build | Not started | Add JSON export for downstream analysis. |
 
-## 6. Suggested work rhythm
+## 7. Suggested work rhythm
 
 1. Build the smallest slice that can be clicked through.
 2. Seed it with mock YAML data if the real curation is not ready.
