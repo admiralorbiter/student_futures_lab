@@ -1,0 +1,301 @@
+{% extends "base.html" %}
+{% block title %}Occupation Outlook — Data Explorer{% endblock %}
+
+{% block head_extra %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="explore-page">
+  <nav class="explore-breadcrumb">
+    <a href="{{ url_for('explore.hub') }}">📊 Data Explorer</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Occupation Outlook</span>
+  </nav>
+
+  <div class="explore-header">
+    <h1 class="explore-title">💼 Occupation Outlook</h1>
+    <p class="explore-subtitle">
+      Browse {{ occupations|length }} occupations linked to KC pathway programs.
+      See projected growth, wages, and education requirements.
+    </p>
+  </div>
+
+  {# Summary stats — dynamic #}
+  <div class="overview-stat-cards">
+    <div class="overview-stat-card">
+      <div class="overview-stat-value" id="statCount">{{ occupations|length }}</div>
+      <div class="overview-stat-label">Occupations</div>
+    </div>
+    <div class="overview-stat-card">
+      <div class="overview-stat-value" id="statWage">—</div>
+      <div class="overview-stat-label">Avg Median Wage</div>
+    </div>
+    <div class="overview-stat-card">
+      <div class="overview-stat-value" id="statOpenings">—</div>
+      <div class="overview-stat-label">Total Annual Openings</div>
+    </div>
+    <div class="overview-stat-card">
+      <div class="overview-stat-value" id="statPathways">7</div>
+      <div class="overview-stat-label">Pathway Families</div>
+    </div>
+  </div>
+
+  {# Charts — dynamic #}
+  <div class="chart-grid">
+    <div class="chart-panel chart-panel-wide">
+      <h3 class="chart-title">Wage vs Growth (bubble size = annual openings)</h3>
+      <canvas id="chartBubble"></canvas>
+    </div>
+    <div class="chart-panel">
+      <h3 class="chart-title">Top 10 by Annual Openings</h3>
+      <canvas id="chartTopOpenings"></canvas>
+    </div>
+    <div class="chart-panel">
+      <h3 class="chart-title">Top 10 by Median Wage</h3>
+      <canvas id="chartTopWage"></canvas>
+    </div>
+  </div>
+
+  {# Filters — right above table #}
+  <div class="explore-filters">
+    <input type="text" id="occSearch" class="explore-search" placeholder="🔍 Search by title…">
+    <select id="occPathway" class="explore-select">
+      <option value="all">All Pathways</option>
+      {% for p in pathways %}
+      <option value="{{ p.id }}">{{ p.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  {# Table #}
+  <div class="explore-table-wrap">
+    <table class="explore-table sortable-table" id="occTable">
+      <thead>
+        <tr>
+          <th data-sort="title" class="sortable">Occupation ▾</th>
+          <th data-sort="pathway" class="sortable">Pathway</th>
+          <th data-sort="median_wage" class="sortable sort-num">Median Wage</th>
+          <th data-sort="openings" class="sortable sort-num">Openings/Yr</th>
+          <th data-sort="growth_pct" class="sortable sort-num">Growth %</th>
+          <th data-sort="education" class="sortable">Education</th>
+          <th data-sort="grade" class="sortable">Grade</th>
+        </tr>
+      </thead>
+      <tbody id="occBody">
+        {% for occ in occupations %}
+        <tr data-pathway="{{ occ.pathway_id }}">
+          <td><strong>{{ occ.title }}</strong></td>
+          <td>{{ occ.pathway_name }}</td>
+          <td>${{ "{:,}".format(occ.median_wage) }}</td>
+          <td>{{ "{:,}".format(occ.openings) if occ.openings > 0 else '—' }}</td>
+          <td class="{{ 'positive' if occ.growth_pct > 0 else '' }}">
+            {{ "%.1f%%"|format(occ.growth_pct) if occ.growth_pct else '—' }}
+          </td>
+          <td>{{ occ.education }}</td>
+          <td>{{ occ.grade or '—' }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <p class="explore-source">
+    Source: pathway_data.db occupations + BLS 2022–2032 projections
+  </p>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function() {
+  const allData = {{ occupations | tojson }};
+
+  const PATHWAY_COLORS = {
+    'healthcare': '#3b82f6',
+    'business': '#10b981',
+    'manufacturing': '#f59e0b',
+    'logistics': '#8b5cf6',
+    'tech_data': '#ef4444',
+    'education': '#06b6d4',
+    'law_public': '#ec4899',
+    'other': '#94a3b8',
+  };
+
+  Chart.defaults.font.family = 'Inter, sans-serif';
+  Chart.defaults.font.size = 12;
+  Chart.defaults.plugins.legend.display = false;
+
+  let bubbleChart, openingsChart, wageChart;
+  let activePathway = 'all';
+
+  function getFiltered() {
+    const query = document.getElementById('occSearch').value.toLowerCase();
+    return allData.filter(d => {
+      const matchSearch = !query || d.title.toLowerCase().includes(query);
+      const matchPathway = activePathway === 'all' || d.pathway_id === activePathway;
+      return matchSearch && matchPathway;
+    });
+  }
+
+  function updateStats(filtered) {
+    document.getElementById('statCount').textContent = filtered.length;
+    const withWage = filtered.filter(d => d.median_wage > 0);
+    if (withWage.length > 0) {
+      const avg = Math.round(withWage.reduce((s, d) => s + d.median_wage, 0) / withWage.length);
+      document.getElementById('statWage').textContent = '$' + avg.toLocaleString();
+    } else {
+      document.getElementById('statWage').textContent = '—';
+    }
+    const totalOpenings = filtered.reduce((s, d) => s + d.openings, 0);
+    document.getElementById('statOpenings').textContent = totalOpenings.toLocaleString();
+    const pathways = new Set(filtered.map(d => d.pathway_id));
+    document.getElementById('statPathways').textContent = pathways.size;
+  }
+
+  function buildBubbleChart(filtered) {
+    const pts = filtered.filter(d => d.median_wage > 0 && d.growth_pct !== 0);
+    const maxOpenings = Math.max(...pts.map(d => d.openings || 1), 1);
+    if (bubbleChart) bubbleChart.destroy();
+    bubbleChart = new Chart(document.getElementById('chartBubble'), {
+      type: 'bubble',
+      data: {
+        datasets: [{
+          data: pts.map(d => ({
+            x: d.median_wage, y: d.growth_pct,
+            r: Math.max(3, Math.sqrt(d.openings / maxOpenings) * 25),
+            label: d.title, openings: d.openings,
+          })),
+          backgroundColor: pts.map(d => (PATHWAY_COLORS[d.pathway_id] || '#94a3b8') + '80'),
+          borderColor: pts.map(d => PATHWAY_COLORS[d.pathway_id] || '#94a3b8'),
+          borderWidth: 1,
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        animation: { duration: 300 },
+        plugins: {
+          tooltip: {
+            callbacks: {
+              label: ctx => {
+                const d = ctx.raw;
+                return [d.label, '$' + d.x.toLocaleString() + ' wage', d.y + '% growth', d.openings.toLocaleString() + ' openings/yr'];
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            title: { display: true, text: 'Median Wage' },
+            ticks: { callback: v => '$' + (v >= 1000 ? (v/1000).toFixed(0) + 'K' : v) },
+            grid: { color: '#f0f0f0' }
+          },
+          y: {
+            title: { display: true, text: 'Projected Growth %' },
+            grid: { color: '#f0f0f0' }
+          }
+        }
+      }
+    });
+  }
+
+  function buildOpeningsChart(filtered) {
+    const top = [...filtered].filter(d => d.openings > 0).sort((a, b) => b.openings - a.openings).slice(0, 10);
+    if (openingsChart) openingsChart.destroy();
+    openingsChart = new Chart(document.getElementById('chartTopOpenings'), {
+      type: 'bar',
+      data: {
+        labels: top.map(d => d.title.length > 28 ? d.title.substring(0, 26) + '…' : d.title),
+        datasets: [{ data: top.map(d => d.openings), backgroundColor: '#10b981', borderRadius: 6, borderSkipped: false }]
+      },
+      options: {
+        indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+        animation: { duration: 300 },
+        scales: {
+          x: { beginAtZero: true, grid: { display: false } },
+          y: { ticks: { font: { size: 10 } }, grid: { display: false } }
+        }
+      }
+    });
+  }
+
+  function buildWageChart(filtered) {
+    const top = [...filtered].sort((a, b) => b.median_wage - a.median_wage).slice(0, 10);
+    if (wageChart) wageChart.destroy();
+    wageChart = new Chart(document.getElementById('chartTopWage'), {
+      type: 'bar',
+      data: {
+        labels: top.map(d => d.title.length > 28 ? d.title.substring(0, 26) + '…' : d.title),
+        datasets: [{ data: top.map(d => d.median_wage), backgroundColor: '#3b82f6', borderRadius: 6, borderSkipped: false }]
+      },
+      options: {
+        indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+        animation: { duration: 300 },
+        plugins: { tooltip: { callbacks: { label: ctx => '$' + ctx.raw.toLocaleString() } } },
+        scales: {
+          x: {
+            beginAtZero: true,
+            ticks: { callback: v => '$' + (v >= 1000 ? (v/1000).toFixed(0) + 'K' : v) },
+            grid: { display: false }
+          },
+          y: { ticks: { font: { size: 10 } }, grid: { display: false } }
+        }
+      }
+    });
+  }
+
+  function applyFilters() {
+    const query = document.getElementById('occSearch').value.toLowerCase();
+    const filtered = getFiltered();
+
+    // Table
+    document.querySelectorAll('#occBody tr').forEach(tr => {
+      const title = tr.querySelector('td').textContent.toLowerCase();
+      const matchSearch = !query || title.includes(query);
+      const matchPathway = activePathway === 'all' || tr.dataset.pathway === activePathway;
+      tr.style.display = (matchSearch && matchPathway) ? '' : 'none';
+    });
+
+    // Charts + stats
+    updateStats(filtered);
+    buildBubbleChart(filtered);
+    buildOpeningsChart(filtered);
+    buildWageChart(filtered);
+  }
+
+  document.getElementById('occSearch').addEventListener('input', applyFilters);
+  document.getElementById('occPathway').addEventListener('change', function() {
+    activePathway = this.value;
+    applyFilters();
+  });
+
+  // Sortable columns
+  document.querySelectorAll('#occTable .sortable').forEach(th => {
+    th.addEventListener('click', function() {
+      const tbody = document.getElementById('occBody');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      const col = Array.from(th.parentElement.children).indexOf(th);
+      const isNum = th.classList.contains('sort-num');
+      const asc = th.dataset.dir !== 'asc';
+      th.dataset.dir = asc ? 'asc' : 'desc';
+
+      rows.sort((a, b) => {
+        let va = a.children[col].textContent.replace(/[$,%,—]/g, '').trim();
+        let vb = b.children[col].textContent.replace(/[$,%,—]/g, '').trim();
+        if (isNum) {
+          va = parseFloat(va.replace(/,/g, '')) || 0;
+          vb = parseFloat(vb.replace(/,/g, '')) || 0;
+          return asc ? va - vb : vb - va;
+        }
+        return asc ? va.localeCompare(vb) : vb.localeCompare(va);
+      });
+
+      rows.forEach(r => tbody.appendChild(r));
+    });
+  });
+
+  // Initial render
+  applyFilters();
+})();
+</script>
+{% endblock %}

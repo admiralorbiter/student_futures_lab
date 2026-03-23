@@ -198,6 +198,18 @@ A "Quick Stats" bar on each card surfaces aggregate database numbers (program co
 
 ---
 
+### D19. Data Explorer Architecture
+
+**Decision:** Build the Data Explorer as a separate `explore` blueprint (`/explore/*`) with its own template directory, independent from the guided classroom screens. The explorer reuses `PathwayService` but adds new explorer-specific methods (`get_institutions_with_ipeds()`, `get_occupations_with_projections()`, etc.). Charts and stat cards are dynamically rebuilt client-side when filters change.
+
+**Rationale:** The classroom flow (Screens 1–5) is a guided, opinionated inquiry. The Data Explorer is the opposite — an open-ended tool for browsing all available data. Keeping them in separate blueprints prevents feature creep in the classroom screens while giving curious users (students, teachers, advisory team) unrestricted access to the full dataset. The hub → drill-down pattern (hub → labor market → pathway detail, hub → institutions, hub → occupations) provides structure without imposing a sequence.
+
+Dynamic chart rebuilding (destroy + recreate with 300ms animation) on filter changes gives an "everything reacts" feel without requiring a framework like React. The tradeoff is slightly more JS, but the pattern is straightforward and keeps the stack server-rendered + vanilla JS.
+
+**Impact:** New `explore` blueprint with 5 routes and 5 templates. 6 new service methods. ~200 lines of CSS. Header nav link accessible from all pages.
+
+---
+
 ## Open
 
 *No open decisions remain at this time. New decisions should be added here as they arise during development.*

@@ -87,6 +87,16 @@
 - Test the app end to end with mock student data.
 - Tune wording, reduce confusion, and polish print views.
 
+### Epic J — Data Explorer ✅
+
+- ~~Create `explore` blueprint with `/explore` hub, 4 major views.~~
+- ~~KC Labor Market Overview: 6 Chart.js charts (employment, wages, employers, openings, YoY trend, county breakdown).~~
+- ~~Pathway Deep Dive: tab navigation, per-pathway charts/tables, county breakdown.~~
+- ~~Institution Explorer: sortable IPEDS table, search, type filters, enrollment bar chart, enrollment vs grad rate scatter.~~
+- ~~Occupation Outlook: sortable table, search, pathway filter, wage vs growth bubble chart, top-10 charts.~~
+- ~~Filters drive charts + stats + table together.~~
+- ~~Add new service methods: `get_institutions_with_ipeds()`, `get_occupations_with_projections()`.~~
+
 ## 3. Suggested build sequence
 
 1. Lock the YAML data files and pathway labels before building interactions.
@@ -109,6 +119,7 @@
 | G | ~~The recommendation builder produces a clean print view.~~ **Done.** 6 recommendation cards with evidence fields + print button. |
 | H | (Post-v1) Facilitator can review progress and export. |
 | I | At least one rehearsal run finds no blocking usability or data issues. |
+| J | ~~Data Explorer hub + 4 views with interactive Chart.js charts, sortable tables, filters/search.~~ **Done.** |
 
 ## 5. Risk register
 
@@ -127,6 +138,7 @@
 - Facilitator dashboard charts summarizing rankings and tags.
 - Student/facilitator login system.
 - Reusable class templates for future cohorts or districts.
+- Data Explorer: additional drill-down views, cross-filtering between charts, downloadable reports.
 
 ## 7. Classroom rehearsal checklist
 

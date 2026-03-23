@@ -20,6 +20,9 @@ def hub():
     stats = pathway_service.get_pathway_stats()
     total_programs = sum(s.get("program_count", 0) for s in stats.values())
 
+    institutions = pathway_service.get_institutions_with_ipeds()
+    total_institutions = len(institutions)
+
     return render_template(
         "explore/hub.html",
         total_workers=total_workers,
@@ -27,6 +30,7 @@ def hub():
         total_openings=total_openings,
         total_occupations=total_occupations,
         total_programs=total_programs,
+        total_institutions=total_institutions,
     )
 
 
@@ -37,7 +41,6 @@ def labor_market():
     proj = pathway_service.get_bls_projections()
     pathways = pathway_service.get_pathway_summaries()
 
-    # Build chart-ready data sorted by pathway order
     chart_data = []
     for p in pathways:
         pid = p["id"]
@@ -72,7 +75,6 @@ def pathway_detail(pathway_id):
     """Pathway Deep Dive — per-pathway detail with charts."""
     pathways = pathway_service.get_pathway_summaries()
 
-    # Find the matching pathway
     pathway = None
     for p in pathways:
         if p["id"] == pathway_id:
@@ -95,6 +97,30 @@ def pathway_detail(pathway_id):
         stats=stats,
         chart_data=chart_data,
         county_data=county_data,
-        families=pathways,  # used for tab selector
-        family=pathway,     # current pathway (tab selector uses family.id)
+        families=pathways,
+        family=pathway,
+    )
+
+
+@bp.route("/institutions")
+def institutions():
+    """Institution Explorer — sortable table with IPEDS metrics."""
+    inst_list = pathway_service.get_institutions_with_ipeds()
+
+    return render_template(
+        "explore/institutions.html",
+        institutions=inst_list,
+    )
+
+
+@bp.route("/occupations")
+def occupations():
+    """Occupation Outlook — projected growth, wages, and education."""
+    occ_list = pathway_service.get_occupations_with_projections()
+    pathways = pathway_service.get_pathway_summaries()
+
+    return render_template(
+        "explore/occupations.html",
+        occupations=occ_list,
+        pathways=pathways,
     )

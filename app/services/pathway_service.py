@@ -466,6 +466,134 @@ class PathwayService:
             db.close()
             return []
 
+    def get_institutions_with_ipeds(self):
+        """Return all institutions with key IPEDS metrics for the explorer.
+
+        Returns list of dicts with institution info + IPEDS stats.
+        """
+        db = self._get_db()
+        if not db:
+            return []
+
+        try:
+            rows = db.execute("""
+                SELECT i.institution_id, i.name, i.institution_type, i.city, i.state,
+                       i.scorecard_unitid,
+                       ip.total_enrollment as enrollment,
+                       ip.graduation_rate as grad_rate,
+                       ip.pell_grant_pct as pell_pct,
+                       ip.avg_total_grant_ftft as avg_grant,
+                       ip.total_completions as completions,
+                       (SELECT COUNT(*) FROM programs p WHERE p.institution_id = i.institution_id) as program_count
+                FROM institutions i
+                LEFT JOIN ipeds_profiles ip ON i.scorecard_unitid = ip.unitid
+                ORDER BY COALESCE(ip.total_enrollment, 0) DESC
+            """).fetchall()
+
+            result = []
+            for r in rows:
+                result.append({
+                    "id": r["institution_id"],
+                    "name": r["name"],
+                    "type": r["institution_type"] or "Unknown",
+                    "city": r["city"],
+                    "state": r["state"],
+                    "unitid": r["scorecard_unitid"],
+                    "enrollment": int(r["enrollment"]) if r["enrollment"] else 0,
+                    "grad_rate": round(r["grad_rate"], 1) if r["grad_rate"] else None,
+                    "pell_pct": round(r["pell_pct"], 1) if r["pell_pct"] else None,
+                    "avg_grant": int(r["avg_grant"]) if r["avg_grant"] else None,
+                    "completions": int(r["completions"]) if r["completions"] else 0,
+                    "program_count": r["program_count"] or 0,
+                })
+            db.close()
+            return result
+        except Exception:
+            db.close()
+            return []
+
+    def get_occupations_with_projections(self):
+        """Return all occupations with projection data + pathway mapping.
+
+        Returns list of dicts with occupation details and BLS projections.
+        """
+        db = self._get_db()
+        if not db:
+            return []
+
+        try:
+            tables = [t[0] for t in db.execute(
+                "SELECT name FROM sqlite_master WHERE type='table'"
+            ).fetchall()]
+
+            # Get occupations from occupations table
+            occ_rows = db.execute("""
+                SELECT o.soc_code, o.title, o.median_wage,
+                       o.projected_growth_pct, o.projected_openings,
+                       o.education_required
+                FROM occupations o
+                WHERE o.median_wage IS NOT NULL AND o.median_wage > 0
+                ORDER BY o.median_wage DESC
+            """).fetchall()
+
+            # Build pathway mapping from program_occupations crosswalk
+            pathway_map = {}
+            po_rows = db.execute("""
+                SELECT DISTINCT po.soc_code,
+                       substr(replace(p.cip_code, '.', ''), 1, 2) as cip2
+                FROM program_occupations po
+                JOIN programs p ON po.program_id = p.program_id
+            """).fetchall()
+            for pr in po_rows:
+                soc = pr["soc_code"]
+                cip2 = pr["cip2"]
+                pw = self._cip_to_pathway.get(cip2, "other")
+                if soc not in pathway_map:
+                    pathway_map[soc] = pw
+
+            # Merge with BLS projections if available
+            proj_map = {}
+            if "bls_projections" in tables:
+                proj_rows = db.execute("""
+                    SELECT title, annual_openings, growth_pct, median_wage, grade,
+                           education_required, pathway_family
+                    FROM bls_projections
+                """).fetchall()
+                for pr in proj_rows:
+                    proj_map[pr["title"].lower()] = {
+                        "annual_openings": pr["annual_openings"],
+                        "growth_pct": pr["growth_pct"],
+                        "grade": pr["grade"],
+                        "bls_pathway": pr["pathway_family"],
+                    }
+
+            result = []
+            for r in occ_rows:
+                soc = r["soc_code"]
+                title = r["title"]
+                proj = proj_map.get(title.lower(), {})
+
+                pathway_id = pathway_map.get(soc, proj.get("bls_pathway", "other"))
+                pathway_name = self._pathway_index.get(pathway_id, {}).get("name", pathway_id)
+
+                result.append({
+                    "soc_code": soc,
+                    "title": title,
+                    "median_wage": int(r["median_wage"]),
+                    "growth_pct": round(r["projected_growth_pct"], 1) if r["projected_growth_pct"] else (proj.get("growth_pct") or 0),
+                    "openings": int(r["projected_openings"]) if r["projected_openings"] else (proj.get("annual_openings") or 0),
+                    "education": r["education_required"] or "Not specified",
+                    "grade": proj.get("grade", ""),
+                    "pathway_id": pathway_id,
+                    "pathway_name": pathway_name,
+                })
+
+            db.close()
+            return result
+        except Exception:
+            db.close()
+            return []
+
     def get_pathway_chart_data(self):
         """Return chart-ready data per pathway for Chart.js visualizations.
 

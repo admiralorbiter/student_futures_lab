@@ -1,0 +1,282 @@
+{% extends "base.html" %}
+{% block title %}Institution Explorer — Data Explorer{% endblock %}
+
+{% block head_extra %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="explore-page">
+  <nav class="explore-breadcrumb">
+    <a href="{{ url_for('explore.hub') }}">📊 Data Explorer</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Institution Explorer</span>
+  </nav>
+
+  <div class="explore-header">
+    <h1 class="explore-title">🏫 Institution Explorer</h1>
+    <p class="explore-subtitle">
+      Compare {{ institutions|length }} colleges and training programs across the KC metro.
+      Click any row to see the full institution profile.
+    </p>
+  </div>
+
+  {# Summary stats — update dynamically #}
+  <div class="overview-stat-cards" id="statCards">
+    <div class="overview-stat-card">
+      <div class="overview-stat-value" id="statCount">{{ institutions|length }}</div>
+      <div class="overview-stat-label">Institutions</div>
+    </div>
+    <div class="overview-stat-card">
+      <div class="overview-stat-value" id="statEnroll">—</div>
+      <div class="overview-stat-label">Total Enrollment</div>
+    </div>
+    <div class="overview-stat-card">
+      <div class="overview-stat-value" id="statComp">—</div>
+      <div class="overview-stat-label">Annual Completions</div>
+    </div>
+    <div class="overview-stat-card">
+      <div class="overview-stat-value" id="statGrad">—</div>
+      <div class="overview-stat-label">Avg Grad Rate</div>
+    </div>
+  </div>
+
+  {# Charts — update dynamically with filters #}
+  <div class="chart-grid">
+    <div class="chart-panel">
+      <h3 class="chart-title">Top 15 by Enrollment</h3>
+      <canvas id="chartEnrollment"></canvas>
+    </div>
+    <div class="chart-panel">
+      <h3 class="chart-title">Enrollment vs Graduation Rate</h3>
+      <canvas id="chartScatter"></canvas>
+    </div>
+  </div>
+
+  {# Filters — right above the table #}
+  <div class="explore-filters">
+    <input type="text" id="instSearch" class="explore-search" placeholder="🔍 Search by name…">
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="university">University</button>
+      <button class="filter-btn" data-filter="cc">Community College</button>
+      <button class="filter-btn" data-filter="bootcamp">Bootcamp</button>
+      <button class="filter-btn" data-filter="other">Other</button>
+    </div>
+  </div>
+
+  {# Table #}
+  <div class="explore-table-wrap">
+    <table class="explore-table sortable-table" id="instTable">
+      <thead>
+        <tr>
+          <th data-sort="name" class="sortable">Institution ▾</th>
+          <th data-sort="type" class="sortable">Type</th>
+          <th data-sort="enrollment" class="sortable sort-num">Enrollment</th>
+          <th data-sort="grad_rate" class="sortable sort-num">Grad Rate</th>
+          <th data-sort="pell_pct" class="sortable sort-num">Pell %</th>
+          <th data-sort="avg_grant" class="sortable sort-num">Avg Grant</th>
+          <th data-sort="completions" class="sortable sort-num">Completions</th>
+          <th data-sort="program_count" class="sortable sort-num">Programs</th>
+        </tr>
+      </thead>
+      <tbody id="instBody">
+        {% for inst in institutions %}
+        <tr data-type="{{ inst.type|lower }}"
+            onclick="window.location='/institution/{{ inst.id }}'"
+            style="cursor:pointer">
+          <td><strong>{{ inst.name }}</strong></td>
+          <td>{{ inst.type }}</td>
+          <td>{{ "{:,}".format(inst.enrollment) if inst.enrollment else '—' }}</td>
+          <td>{{ "%.1f%%"|format(inst.grad_rate) if inst.grad_rate else '—' }}</td>
+          <td>{{ "%.1f%%"|format(inst.pell_pct) if inst.pell_pct else '—' }}</td>
+          <td>{{ "$" ~ "{:,}".format(inst.avg_grant) if inst.avg_grant else '—' }}</td>
+          <td>{{ "{:,}".format(inst.completions) if inst.completions else '—' }}</td>
+          <td>{{ inst.program_count }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <p class="explore-source">
+    Source: IPEDS 2022–23 + pathway_data.db institution/program tables
+  </p>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function() {
+  const allData = {{ institutions | tojson }};
+
+  Chart.defaults.font.family = 'Inter, sans-serif';
+  Chart.defaults.font.size = 12;
+  Chart.defaults.plugins.legend.display = false;
+
+  let enrollChart, scatterChart;
+  let activeType = 'all';
+
+  // Helper: filter dataset by current search + type
+  function getFiltered() {
+    const query = document.getElementById('instSearch').value.toLowerCase();
+    return allData.filter(d => {
+      const matchSearch = !query || d.name.toLowerCase().includes(query);
+      const type = (d.type || '').toLowerCase();
+      const matchType = activeType === 'all' ||
+        (activeType === 'other' ? !['university', 'cc', 'bootcamp'].includes(type) : type === activeType);
+      return matchSearch && matchType;
+    });
+  }
+
+  // Update stat cards
+  function updateStats(filtered) {
+    document.getElementById('statCount').textContent = filtered.length;
+    const totalEnroll = filtered.reduce((s, d) => s + d.enrollment, 0);
+    document.getElementById('statEnroll').textContent = totalEnroll.toLocaleString();
+    const totalComp = filtered.reduce((s, d) => s + d.completions, 0);
+    document.getElementById('statComp').textContent = totalComp.toLocaleString();
+    const withGrad = filtered.filter(d => d.grad_rate);
+    if (withGrad.length > 0) {
+      const avg = withGrad.reduce((s, d) => s + d.grad_rate, 0) / withGrad.length;
+      document.getElementById('statGrad').textContent = Math.round(avg) + '%';
+    } else {
+      document.getElementById('statGrad').textContent = '—';
+    }
+  }
+
+  // Build / rebuild enrollment chart
+  function buildEnrollChart(filtered) {
+    const top15 = filtered.filter(d => d.enrollment > 0)
+      .sort((a, b) => b.enrollment - a.enrollment).slice(0, 15);
+
+    if (enrollChart) enrollChart.destroy();
+    enrollChart = new Chart(document.getElementById('chartEnrollment'), {
+      type: 'bar',
+      data: {
+        labels: top15.map(d => d.name.length > 25 ? d.name.substring(0, 23) + '…' : d.name),
+        datasets: [{
+          data: top15.map(d => d.enrollment),
+          backgroundColor: '#3b82f6',
+          borderRadius: 6,
+          borderSkipped: false,
+        }]
+      },
+      options: {
+        indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+        animation: { duration: 300 },
+        scales: {
+          x: {
+            beginAtZero: true,
+            ticks: { callback: v => v >= 1000 ? (v/1000).toFixed(0) + 'K' : v },
+            grid: { display: false }
+          },
+          y: { ticks: { font: { size: 10 } }, grid: { display: false } }
+        }
+      }
+    });
+  }
+
+  // Build / rebuild scatter chart
+  function buildScatterChart(filtered) {
+    const pts = filtered.filter(d => d.enrollment > 0 && d.grad_rate);
+    if (scatterChart) scatterChart.destroy();
+    scatterChart = new Chart(document.getElementById('chartScatter'), {
+      type: 'scatter',
+      data: {
+        datasets: [{
+          data: pts.map(d => ({ x: d.enrollment, y: d.grad_rate, label: d.name })),
+          backgroundColor: 'rgba(59, 130, 246, 0.6)',
+          pointRadius: 6, pointHoverRadius: 8,
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        animation: { duration: 300 },
+        plugins: {
+          tooltip: {
+            callbacks: {
+              label: ctx => ctx.raw.label + ': ' + ctx.raw.x.toLocaleString() + ' students, ' + ctx.raw.y + '% grad rate'
+            }
+          }
+        },
+        scales: {
+          x: {
+            title: { display: true, text: 'Enrollment' },
+            ticks: { callback: v => v >= 1000 ? (v/1000).toFixed(0) + 'K' : v },
+            grid: { color: '#f0f0f0' }
+          },
+          y: {
+            title: { display: true, text: 'Graduation Rate %' },
+            beginAtZero: true, max: 100,
+            grid: { color: '#f0f0f0' }
+          }
+        }
+      }
+    });
+  }
+
+  // Apply all filters to table + charts + stats
+  function applyFilters() {
+    const query = document.getElementById('instSearch').value.toLowerCase();
+    const filtered = getFiltered();
+
+    // Table rows
+    document.querySelectorAll('#instBody tr').forEach(tr => {
+      const name = tr.querySelector('td').textContent.toLowerCase();
+      const type = tr.dataset.type || '';
+      const matchSearch = !query || name.includes(query);
+      const matchType = activeType === 'all' ||
+        (activeType === 'other' ? !['university', 'cc', 'bootcamp'].includes(type) : type === activeType);
+      tr.style.display = (matchSearch && matchType) ? '' : 'none';
+    });
+
+    // Update charts + stats
+    updateStats(filtered);
+    buildEnrollChart(filtered);
+    buildScatterChart(filtered);
+  }
+
+  // Search input
+  document.getElementById('instSearch').addEventListener('input', applyFilters);
+
+  // Type filter buttons
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      activeType = this.dataset.filter;
+      applyFilters();
+    });
+  });
+
+  // Sortable columns
+  document.querySelectorAll('.sortable').forEach(th => {
+    th.addEventListener('click', function() {
+      const tbody = document.getElementById('instBody');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      const col = Array.from(th.parentElement.children).indexOf(th);
+      const isNum = th.classList.contains('sort-num');
+      const asc = th.dataset.dir !== 'asc';
+      th.dataset.dir = asc ? 'asc' : 'desc';
+
+      rows.sort((a, b) => {
+        let va = a.children[col].textContent.replace(/[$,%,—]/g, '').trim();
+        let vb = b.children[col].textContent.replace(/[$,%,—]/g, '').trim();
+        if (isNum) {
+          va = parseFloat(va.replace(/,/g, '')) || 0;
+          vb = parseFloat(vb.replace(/,/g, '')) || 0;
+          return asc ? va - vb : vb - va;
+        }
+        return asc ? va.localeCompare(vb) : vb.localeCompare(va);
+      });
+
+      rows.forEach(r => tbody.appendChild(r));
+    });
+  });
+
+  // Initial render
+  applyFilters();
+})();
+</script>
+{% endblock %}

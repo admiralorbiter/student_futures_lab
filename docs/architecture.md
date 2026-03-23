@@ -19,7 +19,7 @@
 | Pathway data (granular) | SQLite | 889 programs, 63 institutions, 634 occupations, 5,610 employers, 217 IPEDS profiles. |
 | Front end | HTML + CSS + small JS | Understandable, aligned with classroom flow. |
 | Drag-and-drop | SortableJS (CDN) | Criteria ranking on Screen 1. Zero-dependency, 3KB. |
-| Data visualization | Chart.js (CDN) | Interactive charts on Screens 1–3 and institution detail. Deferred rendering for collapsed sections. |
+| Data visualization | Chart.js (CDN) | Interactive charts on Screens 1–3, institution detail, and Data Explorer. Deferred rendering for collapsed sections. |
 
 ## 2. Repository structure
 
@@ -51,11 +51,13 @@ student_futures_lab/
 │   ├── services/
 │   │   └── pathway_service.py      # Hybrid: YAML + read-only SQLite
 │   ├── blueprints/
-│   │   └── main/                   # Screen routes
+│   │   ├── main/                   # Screen routes
+│   │   └── explore/                # Data Explorer routes
 │   ├── templates/
 │   │   ├── base.html
 │   │   ├── landing.html
-│   │   └── screens/screen_1–5.html
+│   │   ├── screens/screen_1–5.html
+│   │   └── explore/                # Explorer templates (hub, labor_market, pathway_detail, institutions, occupations)
 │   └── static/
 │       ├── css/main.css
 │       └── favicon.ico
@@ -73,6 +75,7 @@ student_futures_lab/
 │   └── student_responses.db        # Read-write SQLite (created at runtime)
 ├── scripts/
 │   ├── export_pathway_data.py      # Regenerate pathway_data.db from kc-industries
+│   ├── import_bls_data.py          # Import BLS QCEW + projections into pathway_data.db
 │   └── analyze_pathways.py         # Data analysis utility
 └── tests/
 ```
@@ -108,6 +111,9 @@ Granular program, institution, and occupation data exported from kc-industries. 
 | `sector_profiles` | 20 | NAICS sector overview, risks, opportunities |
 | `institution_sectors` | 714 | Which sectors each institution serves |
 | `ipeds_profiles` | 217 | IPEDS institutional data: enrollment, demographics, grad rates, financial aid, completions. Matched via `scorecard_unitid`. |
+| `bls_employment` | 144 | BLS QCEW quarterly county employment by NAICS. 4 KC-area counties. |
+| `bls_projections` | 68 | 2022–2032 occupational projections: annual openings, growth %, median wage, grade. |
+| `bls_pathway_summary` | 7 | Aggregated BLS stats per pathway family. |
 
 ### Layer 3: Read-write SQLite (`student_responses.db`)
 
@@ -147,6 +153,12 @@ kc-industries (source repo)            student_futures_lab (this repo)
 | `/screen/3` | Launch Points | Filtered institution choices plus bridge roles |
 | `/screen/4` | My Pathway Reality Check | Individual reflection |
 | `/screen/5` | Recommendation Builder | Final synthesis output |
+| `/institution/<id>` | Institution Detail | IPEDS scorecard, programs, career outcomes |
+| `/explore` | Data Explorer Hub | Card grid linking to 4 explorer views |
+| `/explore/labor-market` | KC Labor Market | 6 charts: employment, wages, employers, openings, trend, county breakdown |
+| `/explore/pathway/<id>` | Pathway Deep Dive | Per-pathway charts, tables, tab navigation |
+| `/explore/institutions` | Institution Explorer | Sortable IPEDS table, search, type filters, enrollment + scatter charts |
+| `/explore/occupations` | Occupation Outlook | Sortable table, search, pathway filter, bubble + top-10 charts |
 
 **Not in v1:** `/facilitator`, `/export/*`
 
@@ -163,8 +175,14 @@ Each screen reads upstream responses for auto-selection and context:
 
 | Method | Used on | Data source |
 |--------|---------|-------------|
-| `get_pathway_chart_data()` | Screens 1, 2 | Occupations (wage, growth), programs (credential breakdown) |
+| `get_pathway_chart_data()` | Screens 1, 2, Pathway Deep Dive | Occupations (wage, growth), programs (credential breakdown) |
 | `get_launch_point_chart_data()` | Screen 3 | Programs by credential type, programs by institution |
+| `get_bls_employment()` | Screen 1, 2, Labor Market, Hub | BLS QCEW county employment aggregated by pathway |
+| `get_bls_projections()` | Screen 1, 2, Labor Market, Hub | BLS 2022–2032 occupational projections by pathway |
+| `get_bls_county_breakdown()` | Labor Market | Employment by county × pathway (stacked bar) |
+| `get_bls_county_breakdown_for_pathway()` | Pathway Deep Dive | County employment for a single pathway |
+| `get_institutions_with_ipeds()` | Institution Explorer | 63 institutions with joined IPEDS metrics |
+| `get_occupations_with_projections()` | Occupation Outlook | All occupations with projection data + pathway mapping |
 
 ## 5. Identity model
 

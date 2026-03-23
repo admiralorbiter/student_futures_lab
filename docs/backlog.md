@@ -49,6 +49,12 @@
 | Now | Build | Done | Create print-friendly view for Screen 5 recommendation (`@media print`). |
 | Now | Build | Done | Add completion page after Screen 5 submit. |
 | Now | Build | Done | Import BLS QCEW employment + projections. Surface on Screens 1–2 cards, 4–5 sidebars, and Screen 5 print view. |
+| Now | Build | Done | Build Data Explorer hub (`/explore`) with card grid linking to 4 views. |
+| Now | Build | Done | Build KC Labor Market Overview with 6 Chart.js charts + pathway drill-down cards. |
+| Now | Build | Done | Build Pathway Deep Dive with tab navigation, per-pathway charts, and detail tables. |
+| Now | Build | Done | Build Institution Explorer with sortable IPEDS table, search, type filters, and 2 charts. |
+| Now | Build | Done | Build Occupation Outlook with sortable table, pathway filter, bubble chart, and top-10 charts. |
+| Now | Build | Done | Add dynamic filtering: search + type/pathway filters drive charts, stats, and table together. |
 
 ## 5. Polish and QA
 
@@ -69,6 +75,7 @@
 | Later | Build | Not started | Add student/facilitator login system. |
 | Later | Build | Not started | Add interactive employer/location map layer. |
 | Later | Build | Not started | Add JSON export for downstream analysis. |
+| Later | Build | Not started | Data Explorer: additional drill-down views, cross-filtering, downloadable reports. |
 
 ## 7. Suggested work rhythm
 

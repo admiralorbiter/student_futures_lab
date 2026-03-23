@@ -26,7 +26,7 @@ Optimize for:
 ### What this project is
 A guided inquiry app for the Hickman Mills Pathway Advisory Team (PREP-KC). Students compare 7 career pathway families using labor-market evidence, apply a Hickman Mills lens for local reachability, identify realistic postsecondary launch points, and build a final recommendation.
 
-**It is not** a general analytics dashboard, a college ranking tool, or a data warehouse.
+**It is not** a general analytics dashboard, a college ranking tool, or a data warehouse. However, it includes a **Data Explorer** module for open-ended browsing of labor market, institution, and occupation data outside the guided classroom flow.
 
 ### Tech Stack
 - **Backend:** Flask (Python 3.9+), Jinja2 templates
@@ -38,6 +38,7 @@ A guided inquiry app for the Hickman Mills Pathway Advisory Team (PREP-KC). Stud
 
 ### Key Architecture
 - **5 screens** mapped to 5 class periods: Pathway Explorer → Hickman Mills Lens → Launch Points → My Pathway Reality Check → Recommendation Builder. **All 5 screens are operational.**
+- **Data Explorer:** Separate `explore` blueprint (`/explore/*`) with hub + 4 views: KC Labor Market (6 charts), Pathway Deep Dive (tabs), Institution Explorer (sortable IPEDS table + filters + charts), Occupation Outlook (sortable table + bubble chart + top-10 charts). Filters dynamically update charts + stat cards + tables.
 - **Identity:** Anonymous browsing + optional short code for save/resume. No login in v1.
 - **Data flow:** YAML files loaded at startup + `pathway_data.db` queried at runtime for aggregate stats. Editorial content comes from YAML; granular numbers from SQLite. IPEDS institutional profiles (217 institutions × 79 columns) enriched into Screen 3 cards and institution detail pages. BLS QCEW employment + projections surfaced on Screens 1–2 pathway cards and Screens 4–5 evidence sidebars.
 - **Cross-screen evidence:** Screens 4–5 use a sticky sidebar showing collapsible summaries of what the student saved on prior screens (criteria, pathway rankings, barrier/support tags, launch points, personal reflection, plus a BLS labor market table for selected pathways). Uses `_load_cross_screen_responses()` helper and `_bls_sidebar.html` partial.

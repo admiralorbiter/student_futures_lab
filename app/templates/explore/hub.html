@@ -40,19 +40,21 @@
       </div>
     </a>
 
-    <div class="explore-card explore-card-inst explore-card-coming">
+    <a href="{{ url_for('explore.institutions') }}" class="explore-card explore-card-inst">
       <div class="explore-card-icon">🏫</div>
       <h2 class="explore-card-title">Institution Explorer</h2>
-      <p class="explore-card-desc">Compare 217 colleges and training programs with IPEDS data</p>
+      <p class="explore-card-desc">Compare colleges and training programs with IPEDS data</p>
       <div class="explore-card-stats">
+        <span class="explore-stat">
+          <strong>{{ total_institutions }}</strong> institutions
+        </span>
         <span class="explore-stat">
           <strong>{{ "{:,}".format(total_programs) }}</strong> programs
         </span>
       </div>
-      <span class="coming-soon-badge">Coming Soon</span>
-    </div>
+    </a>
 
-    <div class="explore-card explore-card-occ explore-card-coming">
+    <a href="{{ url_for('explore.occupations') }}" class="explore-card explore-card-occ">
       <div class="explore-card-icon">💼</div>
       <h2 class="explore-card-title">Occupation Outlook</h2>
       <p class="explore-card-desc">Browse projected growth, wages, and education requirements</p>
@@ -61,8 +63,7 @@
           <strong>{{ total_occupations }}</strong> occupations tracked
         </span>
       </div>
-      <span class="coming-soon-badge">Coming Soon</span>
-    </div>
+    </a>
   </div>
 
   <p class="explore-source">
