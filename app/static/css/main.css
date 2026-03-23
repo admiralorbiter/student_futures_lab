@@ -3078,6 +3078,47 @@ td.num {
     appearance: none !important;
     -webkit-appearance: none !important;
   }
+
+  /* Print-only BLS evidence table */
+  .print-bls-evidence {
+    display: block !important;
+    margin-top: 12pt;
+    border-top: 1px solid #999;
+    padding-top: 8pt;
+    page-break-inside: avoid;
+  }
+
+  .print-bls-evidence h3 {
+    font-size: 11pt;
+    margin: 0 0 6pt 0;
+  }
+
+  .print-bls-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9pt;
+  }
+
+  .print-bls-table th {
+    text-align: left;
+    font-weight: bold;
+    font-size: 8pt;
+    text-transform: uppercase;
+    padding: 2pt 4pt;
+    border-bottom: 1px solid #333;
+  }
+
+  .print-bls-table td {
+    padding: 2pt 4pt;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .print-bls-source {
+    font-size: 7pt;
+    color: #666;
+    font-style: italic;
+    margin-top: 4pt;
+  }
 }
 
 /* ============================================================
@@ -3145,4 +3186,114 @@ td.num {
   color: var(--color-primary);
   margin-bottom: var(--space-3);
   line-height: 1.4;
+}
+
+/* ============================================================
+   BLS labor market stats strip on pathway cards
+   ============================================================ */
+.bls-stats-strip {
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8f5e9 100%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  margin: var(--space-2) 0;
+}
+
+.bls-strip-title {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-1);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.bls-strip-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+}
+
+.bls-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.bls-value {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.bls-label {
+  font-size: 10px;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.bls-trend.positive .bls-value {
+  color: #16a34a;
+}
+
+.bls-trend.negative .bls-value {
+  color: #dc2626;
+}
+
+/* ============================================================
+   BLS sidebar table (evidence sidebar on Screens 4-5)
+   ============================================================ */
+.sidebar-bls-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-xs);
+  margin-bottom: var(--space-1);
+}
+
+.sidebar-bls-table th {
+  text-align: left;
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 9px;
+  padding: 2px 4px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sidebar-bls-table td {
+  padding: 3px 4px;
+  border-bottom: 1px solid var(--color-border-light);
+  white-space: nowrap;
+}
+
+.sidebar-bls-table .bls-pathway-name {
+  font-weight: var(--weight-semibold);
+  max-width: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-bls-table .positive {
+  color: #16a34a;
+  font-weight: var(--weight-semibold);
+}
+
+.sidebar-bls-table .negative {
+  color: #dc2626;
+  font-weight: var(--weight-semibold);
+}
+
+.sidebar-source {
+  font-size: 9px;
+  color: var(--color-text-secondary);
+  font-style: italic;
+  margin: var(--space-1) 0 0 0;
+}
+
+/* Print-only BLS evidence block (hidden on screen) */
+.print-bls-evidence {
+  display: none;
 }

@@ -154,6 +154,48 @@
         </div>
         {% endif %}
 
+        {# BLS labor market data strip (real QCEW + projections) #}
+        {% set bls = bls_employment.get(pathway.id, {}) %}
+        {% set proj = bls_projections.get(pathway.id, {}) %}
+        {% if bls.get('employment', 0) > 0 or proj.get('total_openings', 0) > 0 %}
+        <div class="bls-stats-strip">
+          <div class="bls-strip-title">📊 KC Metro Labor Market</div>
+          <div class="bls-strip-items">
+            {% if bls.get('employers', 0) > 0 %}
+            <div class="bls-stat" title="Total employers across 4 KC-area counties">
+              <span class="bls-value">{{ "{:,}".format(bls.employers) }}</span>
+              <span class="bls-label">employers</span>
+            </div>
+            {% endif %}
+            {% if bls.get('employment', 0) > 0 %}
+            <div class="bls-stat" title="Total workers employed in this pathway">
+              <span class="bls-value">{{ "{:,}".format(bls.employment) }}</span>
+              <span class="bls-label">workers</span>
+            </div>
+            {% endif %}
+            {% if bls.get('annual_wage', 0) > 0 %}
+            <div class="bls-stat" title="Average annual wage">
+              <span class="bls-value">${{ "{:,}".format(bls.annual_wage) }}</span>
+              <span class="bls-label">avg wage/yr</span>
+            </div>
+            {% endif %}
+            {% if proj.get('total_openings', 0) > 0 %}
+            <div class="bls-stat" title="Projected annual job openings (2022–2032)">
+              <span class="bls-value">{{ "{:,}".format(proj.total_openings) }}</span>
+              <span class="bls-label">openings/yr</span>
+            </div>
+            {% endif %}
+            {% if bls.get('oty_employment_pct_chg', 0) != 0 %}
+            <div class="bls-stat bls-trend {{ 'positive' if bls.oty_employment_pct_chg > 0 else 'negative' }}"
+                 title="Year-over-year hiring change">
+              <span class="bls-value">{{ "+" if bls.oty_employment_pct_chg > 0 }}{{ bls.oty_employment_pct_chg }}%</span>
+              <span class="bls-label">hiring trend</span>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        {% endif %}
+
         <div class="signal-chips">
           <div class="signal-chip signal-wage" title="Wage signal">
             <span class="chip-icon">💰</span>

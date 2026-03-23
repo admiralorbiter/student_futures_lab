@@ -48,6 +48,7 @@
 | Now | Build | Done | Build institution detail page (`/institution/<id>`) with IPEDS scorecard. |
 | Now | Build | Done | Create print-friendly view for Screen 5 recommendation (`@media print`). |
 | Now | Build | Done | Add completion page after Screen 5 submit. |
+| Now | Build | Done | Import BLS QCEW employment + projections. Surface on Screens 1–2 cards, 4–5 sidebars, and Screen 5 print view. |
 
 ## 5. Polish and QA
 

@@ -1,0 +1,41 @@
+{# BLS Labor Market evidence sidebar section #}
+{# Included in Screens 4 and 5 evidence sidebars #}
+
+{% if selected_pathways is defined and selected_pathways|length > 0 %}
+<details class="sidebar-section">
+  <summary class="sidebar-section-title">📊 KC Metro Labor Market</summary>
+  <div class="sidebar-section-body">
+    <table class="sidebar-bls-table">
+      <thead>
+        <tr>
+          <th>Pathway</th>
+          <th>Workers</th>
+          <th>Wage/Yr</th>
+          <th>Open/Yr</th>
+          <th>Trend</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for pid in selected_pathways %}
+        {% set bls = bls_employment.get(pid, {}) %}
+        {% set proj = bls_projections.get(pid, {}) %}
+        {% if bls.get('employment', 0) > 0 %}
+        <tr>
+          <td class="bls-pathway-name">{{ pathway_names.get(pid, pid)|truncate(20) }}</td>
+          <td>{{ "{:,}".format(bls.employment) }}</td>
+          <td>${{ "{:,}".format(bls.annual_wage // 1000) }}K</td>
+          <td>{{ "{:,}".format(proj.get('total_openings', 0)) }}</td>
+          <td class="{{ 'positive' if bls.get('oty_employment_pct_chg', 0) > 0 else 'negative' if bls.get('oty_employment_pct_chg', 0) < 0 else '' }}">
+            {% if bls.get('oty_employment_pct_chg', 0) != 0 %}
+            {{ "+" if bls.oty_employment_pct_chg > 0 }}{{ bls.oty_employment_pct_chg }}%
+            {% else %}—{% endif %}
+          </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+    <p class="sidebar-source">Source: BLS QCEW 2025 Q3 + 2022–2032 projections</p>
+  </div>
+</details>
+{% endif %}

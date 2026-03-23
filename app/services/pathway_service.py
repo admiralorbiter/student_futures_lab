@@ -229,6 +229,142 @@ class PathwayService:
         db.close()
         return stats
 
+    def get_bls_employment(self):
+        """Return BLS QCEW employment aggregates per pathway family.
+
+        Returns dict keyed by pathway_id with:
+          employers, employment, avg_weekly_wage, annual_wage,
+          oty_employment_pct_chg, oty_wage_pct_chg
+        """
+        db = self._get_db()
+        if not db:
+            return {}
+
+        try:
+            # Check if table exists
+            tables = [r[0] for r in db.execute(
+                "SELECT name FROM sqlite_master WHERE type='table'"
+            ).fetchall()]
+            if "bls_employment" not in tables:
+                db.close()
+                return {}
+
+            # Get latest quarter
+            latest_qtr = db.execute(
+                "SELECT MAX(quarter) FROM bls_employment WHERE quarter > 0"
+            ).fetchone()[0]
+            if not latest_qtr:
+                db.close()
+                return {}
+
+            # Aggregate across 4 counties by pathway family
+            rows = db.execute("""
+                SELECT
+                    pathway_family,
+                    SUM(establishments) as employers,
+                    SUM(employment) as employment,
+                    CASE WHEN SUM(employment) > 0
+                        THEN CAST(SUM(employment * avg_weekly_wage) AS REAL) / SUM(employment)
+                        ELSE 0 END as avg_weekly_wage,
+                    AVG(CASE WHEN oty_employment_pct_chg != 0
+                        THEN oty_employment_pct_chg END) as oty_emp_chg,
+                    AVG(CASE WHEN oty_wage_pct_chg != 0
+                        THEN oty_wage_pct_chg END) as oty_wage_chg
+                FROM bls_employment
+                WHERE quarter = ?
+                GROUP BY pathway_family
+            """, (latest_qtr,)).fetchall()
+
+            result = {}
+            for row in rows:
+                pid = row["pathway_family"]
+                avg_wk = int(row["avg_weekly_wage"]) if row["avg_weekly_wage"] else 0
+                result[pid] = {
+                    "employers": int(row["employers"]) if row["employers"] else 0,
+                    "employment": int(row["employment"]) if row["employment"] else 0,
+                    "avg_weekly_wage": avg_wk,
+                    "annual_wage": avg_wk * 52,
+                    "oty_employment_pct_chg": round(row["oty_emp_chg"] or 0, 1),
+                    "oty_wage_pct_chg": round(row["oty_wage_chg"] or 0, 1),
+                }
+            db.close()
+            return result
+        except Exception:
+            db.close()
+            return {}
+
+    def get_bls_projections(self):
+        """Return BLS occupational projections per pathway family.
+
+        Returns dict keyed by pathway_id with:
+          total_openings, total_net_growth, avg_growth_pct,
+          top_occupations (list of top 5 by annual openings)
+        """
+        db = self._get_db()
+        if not db:
+            return {}
+
+        try:
+            tables = [r[0] for r in db.execute(
+                "SELECT name FROM sqlite_master WHERE type='table'"
+            ).fetchall()]
+            if "bls_projections" not in tables:
+                db.close()
+                return {}
+
+            # Aggregate by pathway family
+            agg_rows = db.execute("""
+                SELECT
+                    pathway_family,
+                    SUM(annual_openings) as total_openings,
+                    SUM(net_change) as total_net_growth,
+                    ROUND(AVG(growth_pct * 100), 1) as avg_growth_pct,
+                    COUNT(*) as occ_count
+                FROM bls_projections
+                WHERE pathway_family IS NOT NULL
+                GROUP BY pathway_family
+            """).fetchall()
+
+            result = {}
+            for row in agg_rows:
+                pid = row["pathway_family"]
+                result[pid] = {
+                    "total_openings": int(row["total_openings"]) if row["total_openings"] else 0,
+                    "total_net_growth": int(row["total_net_growth"]) if row["total_net_growth"] else 0,
+                    "avg_growth_pct": row["avg_growth_pct"] or 0,
+                    "occupation_count": row["occ_count"],
+                    "top_occupations": [],
+                }
+
+            # Top 5 occupations per pathway
+            for pid in result:
+                top_rows = db.execute("""
+                    SELECT title, annual_openings, median_wage,
+                           growth_pct, education_required, grade
+                    FROM bls_projections
+                    WHERE pathway_family = ?
+                    ORDER BY annual_openings DESC
+                    LIMIT 5
+                """, (pid,)).fetchall()
+
+                result[pid]["top_occupations"] = [
+                    {
+                        "title": r["title"],
+                        "annual_openings": int(r["annual_openings"]) if r["annual_openings"] else 0,
+                        "median_wage": int(r["median_wage"]) if r["median_wage"] else 0,
+                        "growth_pct": round((r["growth_pct"] or 0) * 100, 1),
+                        "education": r["education_required"] or "N/A",
+                        "grade": r["grade"] or "",
+                    }
+                    for r in top_rows
+                ]
+
+            db.close()
+            return result
+        except Exception:
+            db.close()
+            return {}
+
     def get_pathway_chart_data(self):
         """Return chart-ready data per pathway for Chart.js visualizations.
 

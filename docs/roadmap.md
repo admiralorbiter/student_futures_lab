@@ -39,6 +39,7 @@
 - ~~Build repeatable ingest scripts if the tool will be refreshed annually.~~ `export_pathway_data.py` ships with v1.
 - Automate export as a CI/build step (if refreshed annually).
 - Add source provenance tracking (which kc-industries commit produced which export).
+- ~~Import BLS QCEW county employment (4 counties) + 2022–2032 projections into `pathway_data.db` via `import_bls_data.py`.~~ **Done.**
 
 ### Epic C — Screen 1: Pathway Explorer ✅
 

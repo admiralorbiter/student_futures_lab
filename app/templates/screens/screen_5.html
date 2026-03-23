@@ -312,9 +312,46 @@
         {% endif %}
       </div>
     </details>
+
+    {# BLS labor market evidence #}
+    {% include "partials/_bls_sidebar.html" %}
   </aside>
 
 </div>
+
+{# Print-only BLS evidence (sidebar is hidden in print) #}
+{% if selected_pathways is defined and selected_pathways|length > 0 %}
+<div class="print-bls-evidence">
+  <h3>📊 KC Metro Labor Market Evidence</h3>
+  <table class="print-bls-table">
+    <thead>
+      <tr>
+        <th>Pathway</th>
+        <th>Workers</th>
+        <th>Avg Wage/Yr</th>
+        <th>Openings/Yr</th>
+        <th>Hiring Trend</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for pid in selected_pathways %}
+      {% set bls = bls_employment.get(pid, {}) %}
+      {% set proj = bls_projections.get(pid, {}) %}
+      {% if bls.get('employment', 0) > 0 %}
+      <tr>
+        <td><strong>{{ pathway_names.get(pid, pid) }}</strong></td>
+        <td>{{ "{:,}".format(bls.employment) }}</td>
+        <td>${{ "{:,}".format(bls.annual_wage) }}</td>
+        <td>{{ "{:,}".format(proj.get('total_openings', 0)) }}</td>
+        <td>{% if bls.get('oty_employment_pct_chg', 0) != 0 %}{{ "+" if bls.oty_employment_pct_chg > 0 }}{{ bls.oty_employment_pct_chg }}%{% else %}—{% endif %}</td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+  <p class="print-bls-source">Source: BLS QCEW 2025 Q3, KC Metro (Johnson, Wyandotte, Clay, Jackson counties) + 2022–2032 projections</p>
+</div>
+{% endif %}
 
 {# ═══════════════════════════════════════════════ #}
 {# SUBMIT + PRINT                                  #}

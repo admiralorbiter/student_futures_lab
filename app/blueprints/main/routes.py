@@ -206,6 +206,8 @@ def screen(screen_num):
         extra["additional_fields"] = pathway_service.get_additional_fields()
         extra["pathway_stats"] = pathway_service.get_pathway_stats()
         extra["chart_data"] = pathway_service.get_pathway_chart_data()
+        extra["bls_employment"] = pathway_service.get_bls_employment()
+        extra["bls_projections"] = pathway_service.get_bls_projections()
 
     elif screen_num == 2:
         all_pathways = pathway_service.get_pathway_summaries()
@@ -224,6 +226,8 @@ def screen(screen_num):
         extra["support_tags"] = pathway_service.get_support_tags()
         extra["pathway_stats"] = pathway_service.get_pathway_stats()
         extra["chart_data"] = pathway_service.get_pathway_chart_data()
+        extra["bls_employment"] = pathway_service.get_bls_employment()
+        extra["bls_projections"] = pathway_service.get_bls_projections()
         # Pass Screen 1 buckets so template can show "(Strongest)", "(Mixed)", etc.
         extra["screen1_buckets"] = _load_cross_screen_responses(
             student_code, 1, "pathway_bucket_"
@@ -349,6 +353,8 @@ def screen(screen_num):
         extra["what_changed"] = what_changed
         extra["launch_notes"] = launch_notes
         extra["support_tags"] = pathway_service.get_support_tags()
+        extra["bls_employment"] = pathway_service.get_bls_employment()
+        extra["bls_projections"] = pathway_service.get_bls_projections()
 
     elif screen_num == 5:
         # Screen 5: Recommendation Builder — group synthesis
@@ -399,6 +405,8 @@ def screen(screen_num):
         extra["what_changed"] = what_changed
         extra["launch_notes"] = launch_notes
         extra["s4_responses"] = s4_responses
+        extra["bls_employment"] = pathway_service.get_bls_employment()
+        extra["bls_projections"] = pathway_service.get_bls_projections()
 
     return render_template(
         f"screens/screen_{screen_num}.html",

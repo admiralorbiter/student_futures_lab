@@ -188,6 +188,16 @@ A "Quick Stats" bar on each card surfaces aggregate database numbers (program co
 
 ---
 
+### D18. BLS Data Integration
+
+**Decision:** Import BLS QCEW county employment data (4 KC-area counties) and 2022–2032 occupational projections into `pathway_data.db`. Map NAICS codes to the 7 pathway families. Surface aggregated stats on Screens 1–2 pathway cards (employers, workers, avg wage, projected openings, hiring trend), on Screens 4–5 evidence sidebars (compact table for selected pathways), and in Screen 5's print view.
+
+**Rationale:** The YAML editorial signals (wage_signal, demand_signal, current_scale) tell students *what* to think about each pathway. BLS data tells them *how much* — real establishment counts, employment numbers, and year-over-year changes ground the discussion in evidence. Projections add a 10-year outlook. Together, they make student recommendations credible.
+
+**Impact:** New `scripts/import_bls_data.py` script. Three tables in `pathway_data.db` (`bls_employment`, `bls_projections`, `bls_pathway_summary`). Two new service methods (`get_bls_employment()`, `get_bls_projections()`). Reusable `_bls_sidebar.html` partial. Print-only BLS evidence block in Screen 5.
+
+---
+
 ## Open
 
 *No open decisions remain at this time. New decisions should be added here as they arise during development.*
