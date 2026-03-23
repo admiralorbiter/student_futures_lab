@@ -2027,3 +2027,175 @@ details.chart-details[open] > .chart-toggle::before {
   cursor: not-allowed;
   border-color: var(--color-border-light) !important;
 }
+
+
+/* ============================================================
+   Screen 3: Launch Points
+   ============================================================ */
+
+/* --- Launch Group (per pathway) --- */
+.launch-group {
+  margin-bottom: var(--space-8);
+}
+
+.launch-group-hidden {
+  display: none;
+}
+
+.launch-group-title {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--color-border);
+}
+
+/* --- Launch Point Cards --- */
+.launch-cards {
+  display: grid;
+  gap: var(--space-5);
+  margin-bottom: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .launch-cards {
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  }
+}
+
+.launch-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.launch-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.launch-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.launch-institution {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  margin: 0 0 var(--space-1) 0;
+}
+
+.launch-meta {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.launch-pell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: #fef3c7;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  color: #92400e;
+}
+
+.launch-programs {
+  font-size: var(--text-sm);
+}
+
+.launch-programs strong {
+  display: block;
+  margin-bottom: var(--space-1);
+  color: var(--color-text);
+}
+
+.launch-program-list {
+  margin: 0;
+  padding-left: var(--space-5);
+  color: var(--color-text-secondary);
+}
+
+.launch-program-list li {
+  margin-bottom: 2px;
+}
+
+.launch-reason {
+  font-size: var(--text-sm);
+}
+
+.launch-reason strong {
+  display: block;
+  margin-bottom: var(--space-1);
+  color: var(--color-text);
+}
+
+.launch-reason p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+.launch-bridge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: #e0e7ff;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  color: #3730a3;
+}
+
+.launch-watchout {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: #fef2f2;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  color: #991b1b;
+}
+
+
+/* --- Assessment Grid (4-column for Screen 3) --- */
+.assess-grid-4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+@media (max-width: 639px) {
+  .assess-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ============================================================
+   Responsive -- Screen 3
+   ============================================================ */
+@media (max-width: 639px) {
+  .launch-card {
+    padding: var(--space-4);
+  }
+
+  .launch-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .assess-pathway {
+    padding: var(--space-4);
+  }
+}

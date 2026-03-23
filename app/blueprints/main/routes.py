@@ -101,6 +101,27 @@ def _get_screen1_top_pathways(student_code):
     return strongest[:5] if strongest else all_ids  # Cap at 5, fallback to all
 
 
+def _get_screen2_top_pathways(student_code):
+    """Return list of pathway IDs the student selected on Screen 2.
+
+    Falls back to Screen 1 top pathways if no Screen 2 data exists.
+    """
+    all_ids = ["healthcare", "business", "manufacturing", "logistics",
+               "tech", "education", "law_public"]
+    screen2_data = _load_cross_screen_responses(student_code, 2, "selected_")
+    if screen2_data:
+        selected = [
+            key.replace("selected_", "")
+            for key, val in screen2_data.items()
+            if val == "1"
+        ]
+        if selected:
+            return selected[:5]
+
+    # Fallback to Screen 1 top pathways
+    return _get_screen1_top_pathways(student_code)
+
+
 def _save_responses(student_code, screen_num, form_data):
     """Save form data as response rows. Upserts by (student, screen, key)."""
     if not student_code:
@@ -204,6 +225,24 @@ def screen(screen_num):
         extra["pathway_stats"] = pathway_service.get_pathway_stats()
         extra["chart_data"] = pathway_service.get_pathway_chart_data()
         # Pass Screen 1 buckets so template can show "(Strongest)", "(Mixed)", etc.
+        extra["screen1_buckets"] = _load_cross_screen_responses(
+            student_code, 1, "pathway_bucket_"
+        )
+
+    elif screen_num == 3:
+        all_pathways = pathway_service.get_pathway_summaries()
+        # Read Screen 2 selections for auto-narrowing
+        top_ids = _get_screen2_top_pathways(student_code)
+        # Build per-pathway launch points
+        launch_points = {}
+        for p in all_pathways:
+            launch_points[p["id"]] = pathway_service.get_launch_points(p["id"])
+
+        extra["pathways"] = all_pathways
+        extra["top_pathway_ids"] = top_ids
+        extra["launch_points"] = launch_points
+        extra["chart_data"] = pathway_service.get_launch_point_chart_data()
+        # Pass Screen 2 buckets (reuse Screen 1 buckets for labels)
         extra["screen1_buckets"] = _load_cross_screen_responses(
             student_code, 1, "pathway_bucket_"
         )

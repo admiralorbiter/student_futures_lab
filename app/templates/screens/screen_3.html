@@ -1,12 +1,367 @@
-{% extends "screens/screen_1.html" %}
+{% extends "base.html" %}
 
-{% block screen_content %}
-<div class="placeholder-content">
-  <div class="placeholder-icon">🚀</div>
-  <h2 class="placeholder-title">Coming Soon</h2>
-  <p class="placeholder-text">
-    This screen will show realistic launch points — institutions, programs, 
-    and bridge roles filtered by your chosen pathways.
-  </p>
+{% block title %}{{ screen.title }} — Student Futures Lab{% endblock %}
+{% block head_extra %}
+{# Chart.js for data visualizations #}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="screen-header">
+  <span class="screen-eyebrow">Screen {{ screen_num }} of 5</span>
+  <h1 class="screen-title">{{ screen.title }}</h1>
+  <p class="screen-question">{{ screen.question }}</p>
 </div>
+
+<form method="POST" action="{{ url_for('main.screen_submit', screen_num=3) }}" id="screen3Form">
+
+  {# ═══════════════════════════════════════════════ #}
+  {# PATHWAY SELECTION — auto-selected from Screen 2 #}
+  {# ═══════════════════════════════════════════════ #}
+  <section class="screen-section" id="pathway-selection">
+    <div class="section-header">
+      <span class="section-step">Step 1</span>
+      <h2 class="section-title">Which pathways are you exploring?</h2>
+      <p class="section-subtitle">
+        Based on your Screen 2 selections, we've pre-selected your top pathways.
+        Toggle any pathway to see its launch points below.
+      </p>
+    </div>
+
+    <div class="pathway-selector" id="pathwaySelector">
+      {% for pathway in pathways %}
+      {% set bucket = screen1_buckets.get('pathway_bucket_' ~ pathway.id, '') %}
+      {% set is_selected = saved.get('selected_' ~ pathway.id, '') %}
+      {% set pre_selected = pathway.id in top_pathway_ids %}
+      {% set checked = is_selected == '1' if is_selected else pre_selected %}
+      <label class="selector-item {% if checked %}selected{% endif %}" data-pathway="{{ pathway.id }}">
+        <input type="checkbox" name="selected_{{ pathway.id }}" value="1"
+          {% if checked %}checked{% endif %}
+          class="selector-checkbox">
+        <span class="selector-name">{{ pathway.name }}</span>
+        {% if bucket %}
+        <span class="selector-bucket bucket-label-{{ bucket }}">{{ bucket|capitalize }}</span>
+        {% endif %}
+      </label>
+      {% endfor %}
+    </div>
+    <p class="selector-hint">💡 Select 2–3 pathways to explore realistic starting points.</p>
+  </section>
+
+
+  {# ═══════════════════════════════════════════════ #}
+  {# EXPLORE — Launch Point Cards                     #}
+  {# ═══════════════════════════════════════════════ #}
+  <section class="screen-section" id="launch-point-explore">
+    <div class="section-header">
+      <span class="section-step">Step 2 — Explore</span>
+      <h2 class="section-title">Launch points by pathway</h2>
+      <p class="section-subtitle">
+        Think about the first realistic step, not just the final destination.
+        Open-access launch points, transfer anchors, niche providers, and bridge roles.
+      </p>
+    </div>
+
+    <div class="launch-point-groups">
+    {% for pathway in pathways %}
+    {% set lps = launch_points.get(pathway.id, []) %}
+    {% set is_selected = saved.get('selected_' ~ pathway.id, '') %}
+    {% set pre_selected = pathway.id in top_pathway_ids %}
+    {% set checked = is_selected == '1' if is_selected else pre_selected %}
+    <div class="launch-group {% if not checked %}launch-group-hidden{% endif %}"
+         id="launch-{{ pathway.id }}">
+      <h3 class="launch-group-title">{{ pathway.name }}</h3>
+
+      {# Launch point institution cards #}
+      <div class="launch-cards">
+        {% for lp in lps %}
+        <div class="launch-card">
+          <div class="launch-card-header">
+            <div>
+              <h4 class="launch-institution">🏫 {{ lp.institution }}</h4>
+              <span class="launch-meta">{{ lp.archetype }} · {{ lp.level }}</span>
+            </div>
+          </div>
+
+          {% if lp.pell_note %}
+          <div class="launch-pell">
+            <span class="pell-icon">💰</span>
+            <span class="pell-text">{{ lp.pell_note }}</span>
+          </div>
+          {% endif %}
+
+          <div class="launch-programs">
+            <strong>Strongest Programs</strong>
+            <ul class="launch-program-list">
+              {% for prog in lp.strongest_programs %}
+              <li>{{ prog }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <div class="launch-reason">
+            <strong>Why start here?</strong>
+            <p>{{ lp.launch_reason }}</p>
+          </div>
+
+          {% if lp.bridge_role %}
+          <div class="launch-bridge">
+            <span class="bridge-icon">🌉</span>
+            <strong>Bridge role:</strong>
+            <span>{{ lp.bridge_role }}</span>
+          </div>
+          {% endif %}
+
+          {% if lp.watch_out %}
+          <div class="launch-watchout">
+            <span class="watchout-icon">⚠️</span>
+            <span>{{ lp.watch_out }}</span>
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+
+      {# Collapsible chart section #}
+      {% set cd = chart_data.get(pathway.id, {}) %}
+      {% if cd %}
+      <details class="chart-details" id="chart-details-{{ pathway.id }}">
+        <summary class="chart-toggle">📊 Explore the data for {{ pathway.name }}</summary>
+        <div class="chart-grid">
+          <div class="chart-container">
+            <div class="chart-label">Programs by credential type</div>
+            <div class="chart-wrapper">
+              <canvas id="chart-cred-{{ pathway.id }}"></canvas>
+            </div>
+          </div>
+          <div class="chart-container">
+            <div class="chart-label">Programs by institution</div>
+            <div class="chart-wrapper chart-wrapper-donut">
+              <canvas id="chart-inst-{{ pathway.id }}"></canvas>
+            </div>
+          </div>
+        </div>
+      </details>
+      {% endif %}
+    </div>
+    {% endfor %}
+    </div>
+  </section>
+
+
+  {# ═══════════════════════════════════════════════ #}
+  {# ASSESS — Student Inputs (Step 4 from Packet)   #}
+  {# ═══════════════════════════════════════════════ #}
+  <section class="screen-section" id="launch-assess">
+    <div class="section-header">
+      <span class="section-step">Step 3 — Assess</span>
+      <h2 class="section-title">Your realistic starting points</h2>
+      <p class="section-subtitle">
+        For each pathway, capture your thinking about where a Hickman Mills student could actually start.
+      </p>
+    </div>
+
+    {% for pathway in pathways %}
+    {% set is_selected = saved.get('selected_' ~ pathway.id, '') %}
+    {% set pre_selected = pathway.id in top_pathway_ids %}
+    {% set checked = is_selected == '1' if is_selected else pre_selected %}
+    <div class="assess-pathway {% if not checked %}assess-pathway-hidden{% endif %}"
+         id="assess-{{ pathway.id }}">
+      <h3 class="assess-pathway-title">
+        <span class="arrow">↑</span> {{ pathway.name }}
+      </h3>
+      <div class="assess-grid-4">
+        <div class="assess-field">
+          <label for="launch_point_{{ pathway.id }}">Most realistic launch point(s)</label>
+          <textarea id="launch_point_{{ pathway.id }}" name="launch_point_{{ pathway.id }}"
+            rows="3" placeholder="Which institution or program feels most reachable?">{{ saved.get('launch_point_' ~ pathway.id, '') }}</textarea>
+        </div>
+        <div class="assess-field">
+          <label for="bridge_role_{{ pathway.id }}">Likely first role / bridge role</label>
+          <textarea id="bridge_role_{{ pathway.id }}" name="bridge_role_{{ pathway.id }}"
+            rows="3" placeholder="What entry-level role could they start with?">{{ saved.get('bridge_role_' ~ pathway.id, '') }}</textarea>
+        </div>
+        <div class="assess-field">
+          <label for="why_realistic_{{ pathway.id }}">Why this start makes sense</label>
+          <textarea id="why_realistic_{{ pathway.id }}" name="why_realistic_{{ pathway.id }}"
+            rows="3" placeholder="What makes this a realistic first step?">{{ saved.get('why_realistic_' ~ pathway.id, '') }}</textarea>
+        </div>
+        <div class="assess-field">
+          <label for="questions_{{ pathway.id }}">Questions / watch-outs</label>
+          <textarea id="questions_{{ pathway.id }}" name="questions_{{ pathway.id }}"
+            rows="3" placeholder="What would a student need to know or watch for?">{{ saved.get('questions_' ~ pathway.id, '') }}</textarea>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+
+
+  {# ═══════════════════════════════════════════════ #}
+  {# REFLECTION                                      #}
+  {# ═══════════════════════════════════════════════ #}
+  <section class="screen-section" id="reflection">
+    <div class="section-header">
+      <h2 class="section-title">Reflection</h2>
+      <p class="section-subtitle">
+        After seeing where students could realistically start, capture your revised thinking.
+      </p>
+    </div>
+
+    <div class="reflection-fields">
+      <div class="reflection-field">
+        <label for="strongest_launch">The most realistic launch points for Hickman Mills students are …</label>
+        <textarea id="strongest_launch" name="strongest_launch" rows="4"
+          placeholder="Name your top launch points and why they feel achievable">{{ saved.get('strongest_launch', '') }}</textarea>
+      </div>
+
+      <div class="reflection-field">
+        <label for="surprise_learning">Something I learned or didn't expect about the starting options …</label>
+        <textarea id="surprise_learning" name="surprise_learning" rows="4"
+          placeholder="What surprised you about the institutions, programs, or bridge roles?">{{ saved.get('surprise_learning', '') }}</textarea>
+      </div>
+
+      <div class="reflection-field">
+        <label for="remaining_questions">Questions we still need to answer before making a recommendation …</label>
+        <textarea id="remaining_questions" name="remaining_questions" rows="4"
+          placeholder="What unknowns or uncertainties remain?">{{ saved.get('remaining_questions', '') }}</textarea>
+      </div>
+    </div>
+  </section>
+
+
+  {# ═══════════════════════════════════════════════ #}
+  {# SUBMIT                                          #}
+  {# ═══════════════════════════════════════════════ #}
+  <div class="screen-submit">
+    <button type="submit" class="btn btn-primary">
+      Save &amp; Continue to Reality Check →
+    </button>
+    <p class="save-hint">
+      💡 Your answers won't be saved permanently since you're exploring anonymously.
+      <a href="{{ url_for('main.landing') }}">Enter a code</a> to save your progress.
+    </p>
+  </div>
+
+</form>
+
+<nav class="screen-nav">
+  <a href="{{ url_for('main.screen', screen_num=2) }}" class="btn btn-secondary">
+    <span class="arrow">←</span> Back to Hickman Mills Lens
+  </a>
+</nav>
+
+{# ═══════════════════════════════════════════════ #}
+{# DYNAMIC SHOW/HIDE FOR PATHWAY SELECTION          #}
+{# ═══════════════════════════════════════════════ #}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // --- Pathway selector show/hide ---
+  var checkboxes = document.querySelectorAll('.selector-checkbox');
+
+  function updateVisibility() {
+    checkboxes.forEach(function(cb) {
+      var pid = cb.name.replace('selected_', '');
+      var launchGroup = document.getElementById('launch-' + pid);
+      var assessBlock = document.getElementById('assess-' + pid);
+      var label = cb.closest('.selector-item');
+
+      if (cb.checked) {
+        if (launchGroup) launchGroup.classList.remove('launch-group-hidden');
+        if (assessBlock) assessBlock.classList.remove('assess-pathway-hidden');
+        label.classList.add('selected');
+      } else {
+        if (launchGroup) launchGroup.classList.add('launch-group-hidden');
+        if (assessBlock) assessBlock.classList.add('assess-pathway-hidden');
+        label.classList.remove('selected');
+      }
+    });
+  }
+
+  checkboxes.forEach(function(cb) {
+    cb.addEventListener('change', updateVisibility);
+  });
+
+  // --- Chart.js visualizations (deferred until <details> opens) ---
+  var chartData = {{ chart_data | tojson }};
+  var credColors = [
+    '#6366f1', '#8b5cf6', '#d946ef', '#ec4899',
+    '#f43f5e', '#f97316', '#eab308', '#22c55e'
+  ];
+  var instColors = [
+    '#4f46e5', '#0d9488', '#d97706', '#7c3aed',
+    '#059669', '#dc2626', '#2563eb', '#ca8a04'
+  ];
+
+  document.querySelectorAll('.chart-details').forEach(function(details) {
+    var created = false;
+    details.addEventListener('toggle', function() {
+      if (!details.open || created) return;
+      created = true;
+
+      var idParts = details.id.split('chart-details-');
+      var pid = idParts[1];
+      var data = chartData[pid];
+      if (!data) return;
+
+      requestAnimationFrame(function() {
+        // Credential breakdown bar chart
+        var credCanvas = document.getElementById('chart-cred-' + pid);
+        if (credCanvas && data.credential_breakdown) {
+          var labels = Object.keys(data.credential_breakdown);
+          var values = Object.values(data.credential_breakdown);
+          new Chart(credCanvas, {
+            type: 'bar',
+            data: {
+              labels: labels,
+              datasets: [{
+                label: 'Programs',
+                data: values,
+                backgroundColor: credColors.slice(0, labels.length),
+                borderRadius: 6
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              indexAxis: 'y',
+              plugins: { legend: { display: false } },
+              scales: {
+                x: { beginAtZero: true, title: { display: true, text: 'Number of programs' } }
+              }
+            }
+          });
+        }
+
+        // Institution donut chart
+        var instCanvas = document.getElementById('chart-inst-' + pid);
+        if (instCanvas && data.programs_by_institution) {
+          var instLabels = data.programs_by_institution.map(function(d) { return d.name; });
+          var instValues = data.programs_by_institution.map(function(d) { return d.count; });
+          new Chart(instCanvas, {
+            type: 'doughnut',
+            data: {
+              labels: instLabels,
+              datasets: [{
+                data: instValues,
+                backgroundColor: instColors.slice(0, instLabels.length),
+                borderWidth: 2,
+                borderColor: '#ffffff'
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } }
+              }
+            }
+          });
+        }
+      });
+    });
+  });
+});
+</script>
+
 {% endblock %}

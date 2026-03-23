@@ -149,6 +149,22 @@ kc-industries (source repo)            student_futures_lab (this repo)
 
 **Not in v1:** `/facilitator`, `/export/*`
 
+### Cross-screen data flow
+
+Each screen reads upstream responses for auto-selection and context:
+
+| Screen | Reads from | What it reads |
+|--------|-----------|---------------|
+| 2 | Screen 1 | `pathway_bucket_*` → auto-selects "strongest" pathways |
+| 3 | Screen 2 | `selected_*` checkbox values → auto-narrows to explored pathways |
+
+### Chart data methods (PathwayService)
+
+| Method | Used on | Data source |
+|--------|---------|-------------|
+| `get_pathway_chart_data()` | Screens 1, 2 | Occupations (wage, growth), programs (credential breakdown) |
+| `get_launch_point_chart_data()` | Screen 3 | Programs by credential type, programs by institution |
+
 ## 5. Identity model
 
 - No login required. Anyone can explore all 5 screens.

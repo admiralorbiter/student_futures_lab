@@ -30,12 +30,12 @@
 
 | Priority | Type | Status | Task |
 |----------|------|--------|------|
-| Now | Build | Not started | Create Screen 1 layout and cards for seven pathways + additional fields (loads from YAML). |
-| Now | Build | Not started | Add form handling for criteria ranking, pathway buckets, and confidence. |
-| Now | QA | Not started | Verify Screen 1 labels match classroom packet language. |
-| Soon | Build | Not started | Create Screen 2 comparison layout for top pathways only. |
-| Soon | Build | Not started | Persist revised ranking and what-changed notes (for code-based users). |
-| Soon | Build | Not started | Create Screen 3 institution filter by pathway. |
+| Now | Build | Done | Create Screen 1 layout and cards for seven pathways + additional fields (loads from YAML). |
+| Now | Build | Done | Add form handling for criteria ranking, pathway buckets, and confidence. |
+| Now | QA | Done | Verify Screen 1 labels match classroom packet language. |
+| Soon | Build | Done | Create Screen 2 comparison layout for top pathways only. |
+| Soon | Build | Done | Persist revised ranking and what-changed notes (for code-based users). |
+| Soon | Build | Done | Create Screen 3 institution filter by pathway. |
 | Soon | Build | Not started | Create Screen 4 reflection form with save and edit. |
 | Soon | Build | Not started | Create Screen 5 recommendation builder with prefilled evidence. |
 

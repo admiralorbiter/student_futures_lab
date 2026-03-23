@@ -310,6 +310,63 @@ class PathwayService:
         db.close()
         return chart_data
 
+    def get_launch_point_chart_data(self):
+        """Return chart-ready institution data per pathway for Screen 3.
+
+        Returns dict keyed by pathway_id with:
+          - program_by_credential: {institution_name: {credential_type: count}}
+          - programs_by_institution: [{name, count}]
+        """
+        db = self._get_db()
+        if not db:
+            return {}
+
+        chart_data = {}
+        for family in self._data.get("pathway_families", {}).get("families", []):
+            pid = family["id"]
+            prefixes = family.get("cip_prefixes", [])
+            if not prefixes:
+                chart_data[pid] = {}
+                continue
+
+            ph = ",".join("?" for _ in prefixes)
+
+            # Programs by credential type (for stacked/grouped bar chart)
+            cred_rows = db.execute(
+                f"""SELECT credential_type, COUNT(*) as cnt
+                    FROM programs
+                    WHERE substr(replace(cip_code, '.', ''), 1, 2) IN ({ph})
+                    AND credential_type IS NOT NULL
+                    GROUP BY credential_type
+                    ORDER BY cnt DESC""",
+                prefixes,
+            ).fetchall()
+
+            # Programs by institution (for donut chart)
+            inst_rows = db.execute(
+                f"""SELECT institution_name, COUNT(*) as cnt
+                    FROM programs
+                    WHERE substr(replace(cip_code, '.', ''), 1, 2) IN ({ph})
+                    AND institution_name IS NOT NULL
+                    GROUP BY institution_name
+                    ORDER BY cnt DESC
+                    LIMIT 8""",
+                prefixes,
+            ).fetchall()
+
+            chart_data[pid] = {
+                "credential_breakdown": {
+                    r["credential_type"]: r["cnt"] for r in cred_rows
+                },
+                "programs_by_institution": [
+                    {"name": r["institution_name"][:35], "count": r["cnt"]}
+                    for r in inst_rows
+                ],
+            }
+
+        db.close()
+        return chart_data
+
     def get_programs_by_pathway(self, pathway_id):
         """Return all programs in a pathway, with earnings data."""
         db = self._get_db()

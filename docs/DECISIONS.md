@@ -145,6 +145,16 @@ A "Quick Stats" bar on each card surfaces aggregate database numbers (program co
 
 ---
 
+### D14. Per-Pathway Charts on Screen 3 (Not Per-Institution)
+
+**Decision:** Screen 3 charts aggregate data across all institutions within a pathway, rather than showing separate charts per institution.
+
+**Rationale:** The student question is "How accessible is this pathway?" not "How big is MCC?" Aggregating by pathway keeps the chart count manageable (one chart set per pathway) and focuses on credential-level accessibility. Per-institution charts would create 2–3× more charts with less pedagogical value.
+
+**Impact:** `get_launch_point_chart_data()` queries programs by credential type and by institution per pathway family.
+
+---
+
 ## Open
 
 *No open decisions remain at this time. New decisions should be added here as they arise during development.*
