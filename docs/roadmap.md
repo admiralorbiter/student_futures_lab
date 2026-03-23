@@ -12,7 +12,7 @@
 |-----------|---------------|
 | M0 — Foundations | Repo, app skeleton, YAML data files, styling foundation. |
 | M1 — Opportunity flow | ~~Screen 1 working with pathway explorer and saved rankings.~~ **Done.** |
-| M2 — Hickman Mills feasibility | Screen 2 working with barrier/support tags and employer context. |
+| M2 — Hickman Mills feasibility | ~~Screen 2 working with barrier/support tags and employer context.~~ **Done.** |
 | M3 — Launch points | Screen 3 working with pathway-filtered institution views. |
 | M4 — Reflection and synthesis | Screens 4 and 5 with final recommendation builder. |
 | M5 — Classroom hardening | Seeded data, test pass, print view polish, backup plan. |
@@ -49,11 +49,13 @@
 - ~~Explore → Assess two-phase layout (read-only cards, then assessment table).~~
 - ~~Quick stats bar from `pathway_data.db` (program count, institution count, occupation count, wage range, growth).~~
 
-### Epic D — Screen 2: Hickman Mills Lens
+### Epic D — Screen 2: Hickman Mills Lens ✅
 
-- Reveal county/access/support context only after initial ranking.
-- Show static employer context from `employer_context.yaml`.
-- Capture barrier tags, support tags, revised ranking, and what changed.
+- ~~Reveal county/access/support context only after initial ranking.~~
+- ~~Show static employer context from `employer_context.yaml`.~~
+- ~~Capture barrier tags, support tags, revised ranking, and what changed.~~
+- ~~Chart.js data visualizations (wage, credential, openings, education charts).~~
+- ~~Group-level barrier/support synthesis (D13).~~
 
 ### Epic E — Screen 3: Launch Points and Bridge Roles
 
@@ -98,7 +100,7 @@
 | A | ~~Local app boots, base layout works, and users can explore or enter a code.~~ **Done.** |
 | B1 | ~~YAML files exist, load without error, and pathway summaries are readable.~~ **Done.** |
 | C | ~~Users can complete Screen 1 and data persists (for code-based users).~~ **Done.** |
-| D | Users can re-rank pathways with barrier/support tagging and saved reasoning. |
+| D | ~~Users can re-rank pathways with barrier/support tagging and saved reasoning.~~ **Done.** |
 | E | Users can select launch points and bridge roles filtered by pathway. |
 | F | Users can complete and edit personal reflections. |
 | G | The recommendation builder produces a clean print view. |

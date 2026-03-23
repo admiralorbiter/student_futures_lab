@@ -341,6 +341,31 @@ document.addEventListener('DOMContentLoaded', function() {
     cb.addEventListener('change', updateVisibility);
   });
 
+  // --- 3-pick limit for group barrier/support chips ---
+  var MAX_PICKS = 3;
+  document.querySelectorAll('#step2-barriers-supports .tag-picker').forEach(function(picker) {
+    var chips = picker.querySelectorAll('.tag-chip input[type="checkbox"]');
+
+    function enforceLimit() {
+      var checked = picker.querySelectorAll('input[type="checkbox"]:checked').length;
+      chips.forEach(function(cb) {
+        var chip = cb.closest('.tag-chip');
+        if (!cb.checked && checked >= MAX_PICKS) {
+          chip.classList.add('tag-chip-disabled');
+          cb.disabled = true;
+        } else {
+          chip.classList.remove('tag-chip-disabled');
+          cb.disabled = false;
+        }
+      });
+    }
+
+    chips.forEach(function(cb) {
+      cb.addEventListener('change', enforceLimit);
+    });
+    enforceLimit();
+  });
+
   // --- Chart.js data visualizations (deferred until <details> opens) ---
   var chartData = {{ chart_data | tojson }};
   var eduColors = {

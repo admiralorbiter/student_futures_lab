@@ -2020,3 +2020,10 @@ details.chart-details[open] > .chart-toggle::before {
   margin-bottom: var(--space-2);
   font-style: italic;
 }
+
+/* Disabled chip state (3-pick limit reached) */
+.tag-chip-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: var(--color-border-light) !important;
+}

@@ -19,6 +19,7 @@
 | Pathway data (granular) | SQLite | 889 programs, 63 institutions, 634 occupations, 5,610 employers. |
 | Front end | HTML + CSS + small JS | Understandable, aligned with classroom flow. |
 | Drag-and-drop | SortableJS (CDN) | Criteria ranking on Screen 1. Zero-dependency, 3KB. |
+| Data visualization | Chart.js (CDN) | Interactive charts on Screens 1 and 2. Deferred rendering for collapsed sections. |
 
 ## 2. Repository structure
 
